@@ -10,7 +10,6 @@ from pathlib import Path
 
 import pdfplumber
 import requests
-from tenacity import retry, stop_after_attempt, wait_exponential
 
 CENTRE_INDEX_URL = (
     "https://neet.ntaonline.in/frontend/web/common-scorecard/"
@@ -27,11 +26,20 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-@retry(stop=stop_after_attempt(4), wait=wait_exponential(multiplier=1, min=1, max=15))
-def download(url: str, path: Path, timeout: int = 90) -> None:
-    response = requests.get(url, timeout=timeout)
-    response.raise_for_status()
-    path.write_bytes(response.content)
+def download(url: str, path: Path, timeout: int = 90, attempts: int = 4) -> None:
+    """Download a URL with a small exponential-backoff retry loop."""
+    error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            response = requests.get(url, timeout=timeout)
+            response.raise_for_status()
+            path.write_bytes(response.content)
+            return
+        except requests.RequestException as exc:
+            error = exc
+            if attempt + 1 < attempts:
+                time.sleep(min(2**attempt, 15))
+    raise RuntimeError(f"Failed to download {url} after {attempts} attempts") from error
 
 
 def parse_pdf(path: Path, centre_id: int) -> list[tuple[int, int, int]]:
