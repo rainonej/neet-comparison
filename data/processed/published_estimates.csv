@@ -1,0 +1,19 @@
+estimate_id,value,unit,geography,reference_period,source,limitations
+neet_2024_candidate_rows,2333053,candidates,India,2024,NTA centre-wise release / Dataful,Anonymized marks rows; centre state is not domicile.
+neet_2024_exam_centres,4750,centres,India and overseas,2024,NTA reconstruction / Dataful,Centre IDs include multiple codes per venue in some cases.
+neet_2024_cities,566,cities,India and overseas,2024,Dataful,As labelled in centre release.
+nmc_mbbs_colleges_current_page,823,colleges,India,2025-26 current page,NMC MBBS college list,Dynamic page; snapshot date required.
+nmc_mbbs_seats_current_page,129602,seats,India,2025-26 current page,NMC MBBS college list,Dynamic page; reconcile with INIs and final matrix.
+world_bank_physician_monthly_wage,57218,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Mean wage; physician distribution is wide.
+world_bank_public_physician_monthly_wage,74965,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Mean public-sector physician wage.
+world_bank_private_physician_monthly_wage,45948,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Mean private-sector physician wage.
+world_bank_engineer_monthly_wage,46942,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Comparator occupation mean.
+world_bank_professional_nurse_monthly_wage,20632,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Comparator occupation mean.
+wid_top_1_income_share,22.6,percent,India,2022-23,World Inequality Lab,Pre-tax national income share.
+wid_top_1_wealth_share,40.1,percent,India,2022-23,World Inequality Lab,Net personal wealth share.
+rajan_admitted_coached_2019_20,98.5,percent of admitted students,Tamil Nadu,2019-20,Justice A.K. Rajan Committee,Approximate reported figure; admitted denominator only.
+rajan_repeaters_admitted_2020_21,71.42,percent of admitted students,Tamil Nadu,2020-21,Justice A.K. Rajan Committee,Does not give national applicant success probability.
+neet_anxiety_stressed_sample,75.5,percent of sample,one private junior college,2020,Thiriveedhi et al.,n=200 convenience sample; not national prevalence.
+cmse_metadata_private_coaching_mean,15312.45,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Metadata page showed 319 valid values; investigate file/skip pattern before use.
+cmse_metadata_private_coaching_sd,19242.44,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Unweighted catalog summary; not population estimate.
+cmse_metadata_private_coaching_max,120000,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Unweighted catalog maximum in displayed subset.

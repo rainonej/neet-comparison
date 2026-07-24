@@ -9,6 +9,9 @@ data/external/**/*
 !data/external/**/.gitkeep
 data/processed/**/*
 !data/processed/**/.gitkeep
+!data/processed/README.md
+!data/processed/published_estimates.csv
+!data/processed/neet_2024_dataful_preview.csv
 *.sqlite
 *.db
 .DS_Store
