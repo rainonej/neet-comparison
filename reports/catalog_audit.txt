@@ -1,0 +1,36 @@
+Sources: 35
+Domains: 27
+Critical sources: 12
+                       domain                            status  sources
+                   admissions                        manual_pdf        1
+                   admissions                    scriptable_pdf        1
+               coaching_costs             registration_required        1
+              coaching_market                scrape_and_archive        1
+       education_access_costs              downloadable_catalog        1
+education_inequality_research    restricted_article_public_data        1
+               exam_marginals scriptable_with_archive_variation        1
+                   exam_rules                        scriptable        1
+                  exam_scores                available_external        2
+                  exam_scores                        scriptable        1
+higher_education_alternatives                      mixed_access        1
+         household_demography             registration_required        1
+     household_income_private                     paid_optional        1
+     household_income_private                reports_or_request        1
+          household_resources             registration_required        1
+   income_wealth_distribution            available_pdf_database        1
+                labor_context                     available_pdf        1
+               labor_outcomes                     available_pdf        1
+               labor_outcomes             registration_required        1
+           learning_schooling                reports_or_request        1
+                medical_costs       fragmented_state_collection        1
+       medical_costs_outcomes              scriptable_or_manual        1
+       medical_costs_research                 available_article        1
+                mental_health                 available_article        3
+          mental_health_admin                        manual_pdf        1
+          mobility_households             registration_required        1
+       neet_equity_state_case                     available_pdf        1
+              school_pipeline                      mixed_access        1
+                seat_capacity                   scriptable_html        1
+     social_mobility_research                 available_article        1
+     social_mobility_research             replication_available        1
+                  wealth_debt             registration_required        1
