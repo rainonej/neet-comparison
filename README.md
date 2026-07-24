@@ -33,9 +33,20 @@ Consequently, a future model must separate:
 - `docs/RESEARCH_LITERATURE.md`: papers and what each contributes.
 - `data/processed/published_estimates.csv`: small set of explicitly sourced benchmark values.
 - `data/processed/neet_2024_dataful_preview.csv`: ten-row preview transcribed from the public listing, not the full dataset.
+- `data/processed/neet_2024_marks_*.csv`: reproducible summaries from an acquired full public reconstruction of the 2024 centre marks.
+- `reports/INITIAL_FINDINGS.md`: concise audit conclusion and recommended empirical scope.
+- `reports/EXECUTION_NOTES.md`: what was actually downloaded and validated in this run.
 - `scripts/`: downloaders and parsers designed to preserve provenance.
 
 Raw and external data are gitignored. The repository stores scripts, hashes, schemas, and source records rather than republishing files whose licenses or terms are unclear.
+
+## Quick checks
+
+```bash
+make audit
+make status
+make test
+```
 
 ## Immediate acquisition order
 
