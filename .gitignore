@@ -12,6 +12,11 @@ data/processed/**/*
 !data/processed/README.md
 !data/processed/published_estimates.csv
 !data/processed/neet_2024_dataful_preview.csv
+!data/processed/download_manifest.csv
+!data/processed/neet_2024_marks_distribution.csv
+!data/processed/neet_2024_marks_histogram.csv
+!data/processed/neet_2024_marks_quantiles.csv
+!data/processed/neet_2024_marks_summary.csv
 *.sqlite
 *.db
 .DS_Store

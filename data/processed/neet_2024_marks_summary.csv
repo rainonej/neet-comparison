@@ -1,0 +1,12 @@
+metric,value,unit
+source_file,neet-2024-center-marks.csv,
+sha256,35b67efe2fed174b49ff023e807b4f51cdb8f3c3a0396739b01f88cfb6bb114c,
+rows,2333162,candidate-mark rows
+unique_centres,4750,test-centre IDs
+minimum_marks,-180,marks
+maximum_marks,720,marks
+mean_marks,217.1565862121876,marks
+standard_deviation,166.24000440757194,marks
+median_marks,163.0,marks
+negative_score_rows,9477,candidate-mark rows
+score_720_rows,61,candidate-mark rows

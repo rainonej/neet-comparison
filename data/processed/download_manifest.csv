@@ -1,0 +1,2 @@
+local_file,source_url,retrieved_date,sha256,bytes,rows,redistribution,limitations
+data/external/neet-2024-center-marks.csv,https://github.com/hq969/neet-2024-center-marks/raw/refs/heads/main/csv/neet-2024-center-marks.csv,2026-07-24,35b67efe2fed174b49ff023e807b4f51cdb8f3c3a0396739b01f88cfb6bb114c,33800799,2333162,not committed; third-party reconstruction of official NTA PDFs,"centre marks contain no identity, domicile, category, gender, income, coaching, or admission outcome; row count should be reconciled with official appeared-candidate totals"
