@@ -1,0 +1,14 @@
+evidence_id,program,cohort_year,outcome,successes,trials,observed_rate,wilson_95_low,wilson_95_high,selection_into_program,evidence_role,causal_effect_usable
+secl_sushrut_2023_24,SECL Ke Sushrut,2023-24,neet_qualified,39,40,0.975,0.8711863103652591,0.9955731684973186,very strong,upper-bound calibration for selected intensive programs,no
+secl_sushrut_2023_24,SECL Ke Sushrut,2023-24,mbbs_admission,11,40,0.275,0.16108016247667337,0.42834955806210573,very strong,upper-bound calibration for selected intensive programs,no
+secl_sushrut_2024_25,SECL Ke Sushrut,2024-25,neet_qualified,31,40,0.775,0.6249690325768998,0.8768390867645927,very strong,temporal validation of qualification-rate variability,no
+apswreis_2024_25,Dr. B.R. Ambedkar IIT-NEET specialised centres,2024-25,neet_qualified,143,180,0.7944444444444444,0.729553985058642,0.847029777276408,very strong,calibration for selected welfare-school intensive coaching,no
+apswreis_2024_25,Dr. B.R. Ambedkar IIT-NEET specialised centres,2024-25,mbbs_admission,13,180,0.07222222222222222,0.042689740056337105,0.11963196372104293,very strong,calibration for selected welfare-school intensive coaching,no
+sigaram_2018,Sigaram Free NEET Coaching Centre,2018,neet_qualified,9,54,0.16666666666666666,0.09024391642997268,0.2873651422972916,low,lower-resource open-access cohort calibration,no
+sigaram_2018,Sigaram Free NEET Coaching Centre,2018,mbbs_admission,0,54,0.0,0.0,0.0664135880908964,low,lower-resource open-access cohort calibration,no
+sigaram_2018,Sigaram Free NEET Coaching Centre,2018,government_mbbs_admission,0,54,0.0,0.0,0.0664135880908964,low,lower-resource open-access cohort calibration,no
+sigaram_2019,Sigaram Free NEET Coaching Centre,2019,neet_qualified,17,104,0.16346153846153846,0.10463536095349271,0.24626362756642686,low,lower-resource open-access cohort calibration,no
+sigaram_2019,Sigaram Free NEET Coaching Centre,2019,mbbs_admission,0,104,0.0,0.0,0.03562135437245191,low,lower-resource open-access cohort calibration,no
+sigaram_2019,Sigaram Free NEET Coaching Centre,2019,government_mbbs_admission,0,104,0.0,0.0,0.03562135437245191,low,lower-resource open-access cohort calibration,no
+sigaram_2020,Sigaram Free NEET Coaching Centre,2020,neet_qualified,9,19,0.47368421052631576,0.2732980516117956,0.6829219075488682,low,lower-resource open-access cohort calibration,no
+sigaram_2020,Sigaram Free NEET Coaching Centre,2020,mbbs_admission,2,19,0.10526315789473684,0.02935856029887013,0.31394082711109006,low,lower-resource open-access cohort calibration,no

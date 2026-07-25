@@ -199,3 +199,51 @@ datasets:
   priority: medium
   expected_format: reports/data request
   license_review_required: true
+- id: osf_neet_jee_aspirants_2026
+  url: https://osf.io/tnh4x/overview?view_only=871cca8775f8420e802e172b5534673e
+  status: available_external
+  priority: critical
+  expected_format: data/codebook/methods
+  license_review_required: true
+- id: alagappa_neet_psychosocial_2026
+  url: https://doi.org/10.22159/ijoe.2026v14i2.58546
+  status: request_author
+  priority: critical
+  expected_format: survey microdata/codebook
+  license_review_required: true
+- id: puducherry_neet_mbbs_performance
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC12178463/
+  status: request_author
+  priority: high
+  expected_format: institutional analytic file
+  license_review_required: true
+- id: kerala_social_origin_523
+  url: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2679187
+  status: request_author
+  priority: high
+  expected_format: survey microdata/questionnaire
+  license_review_required: true
+- id: openicpsr_affirmative_action_engineering
+  url: https://doi.org/10.3886/E112992V1
+  status: downloadable
+  priority: high
+  expected_format: replication files/code/readme
+  license_review_required: true
+- id: kerala_cee_keam_archive
+  url: https://cee.kerala.gov.in/keam2024/
+  status: scriptable_pdf_html
+  priority: critical
+  expected_format: HTML/PDF
+  license_review_required: true
+- id: nirf_medical_institution_filings
+  url: https://www.nirfindia.org/
+  status: scrape_and_archive
+  priority: high
+  expected_format: PDF/HTML
+  license_review_required: true
+- id: moe_rti_neet_archive
+  url: https://www.education.gov.in/en/rti-higher-education
+  status: manual_recovery
+  priority: high
+  expected_format: HTML/attachments
+  license_review_required: true

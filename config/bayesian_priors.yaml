@@ -1,0 +1,119 @@
+model_version: 0.3.0
+default_profile: conservative
+
+principles:
+  preserve_observed_joint_structure: true
+  missing_cross_dataset_dependence: conditional_independence
+  absent_effect_evidence: neutral_zero_effect
+  publish_prior_and_posterior: true
+  publish_prior_sensitivity: true
+  causal_language_for_scenario_contrasts: prohibited
+
+# Effective sample size (ESS) controls how strongly a statistic is allowed to pull the model.
+# It is intentionally much smaller than nominal N when geography, cohort, denominator, or selection
+# differs from the target profile.
+evidence_weights:
+  same_population_random_or_complete_counts: 1.0
+  survey_estimate_with_design_effect: use_survey_effective_n
+  same_exam_other_state_or_year: 0.25
+  selected_program_cohort: validation_only
+  india_tutoring_proxy_not_neet: 0.05
+  international_exam_proxy: 0.01
+
+prior_profiles:
+  neutral:
+    binary_probability:
+      family: beta
+      mean: 0.50
+      effective_sample_size: 2
+    log_odds_effect:
+      family: normal
+      mean: 0.0
+      sd: 1.0
+    coaching_score_shift_sd:
+      family: truncated_normal
+      mean: 0.00
+      sd: 0.20
+      lower: -0.30
+      upper: 0.60
+
+  conservative:
+    binary_probability:
+      family: beta
+      center: closest_broad_benchmark_or_0.50
+      effective_sample_size: 4
+    log_odds_effect:
+      family: normal
+      mean: 0.0
+      sd: 0.35
+    coaching_score_shift_sd:
+      family: truncated_normal
+      mean: 0.08
+      sd: 0.08
+      lower: -0.05
+      upper: 0.30
+
+  reasonable:
+    binary_probability:
+      family: beta
+      center: closest_broad_benchmark_or_0.50
+      effective_sample_size: 10
+    log_odds_effect:
+      family: normal
+      mean: 0.0
+      sd: 0.50
+    coaching_score_shift_sd:
+      family: truncated_normal
+      mean: 0.14
+      sd: 0.10
+      lower: -0.05
+      upper: 0.45
+
+employment_model:
+  gates:
+    - degree_completion
+    - labor_force_participation
+    - employment_given_labor_force
+    - field_matched_job_given_employed
+    - formal_or_regular_job_given_employed
+  unemployment_definition: one_minus_employment_given_labor_force
+  zero_earnings_states:
+    - degree_not_completed
+    - out_of_labor_force
+    - unemployed
+  earnings_distribution: lognormal_conditional_on_employment_state
+  field_specific_hierarchy:
+    parent: age_x_sex_x_state_x_urbanity_graduate_rate
+    children:
+      - medicine
+      - engineering
+      - law
+      - nursing
+      - pharmacy
+      - general_science
+      - other_graduate
+    partial_pooling_required: true
+  broad_prior_centers:
+    graduate_youth_unemployment_2022: 0.287
+    graduate_unemployment_age_15_25_2023: 0.40
+    graduate_unemployment_age_25_29_2023: 0.20
+    graduate_formal_employment_share_2022: 0.361
+  warnings:
+    - Broad graduate unemployment is not a field-specific rate.
+    - PLFS salary means among workers must not be applied to all degree holders.
+    - Official unemployment can understate underemployment and involuntary low-quality work.
+    - Medicine, engineering, and law must each retain an explicit unemployment and mismatch state.
+
+validation:
+  holdouts:
+    - state_gender_category_qualified_marginals
+    - state_allotment_totals
+    - coaching_program_cohorts
+    - graduate_unemployment_age_bands
+    - formal_employment_by_education
+  posterior_predictive_checks:
+    - score_distribution_quantiles
+    - seat_outcome_counts
+    - employment_rate_by_degree_and_age
+    - zero_earnings_share
+    - wage_quantiles_among_employed

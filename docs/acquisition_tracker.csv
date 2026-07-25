@@ -1,0 +1,43 @@
+priority,provider,dataset,years,access_type,known_cost,status,date_requested,date_received,local_path,license_checked,notes
+A1,MoSPI Microdata Portal,Periodic Labour Force Survey (annual/calendar public-use files),2017-18 through 2023-24; calendar 2024; calendar 2025,Free account/login,₹0,not_requested,,,,no,
+A2,MoSPI Microdata Portal,Household Consumption Expenditure Survey (HCES),2022-23 and 2023-24,Free account/login,₹0,not_requested,,,,no,
+A3,MoSPI Microdata Portal,"Comprehensive Modular Survey on Education (CMSE), NSS 80th Round",2025,Free account/login,₹0,not_requested,,,,no,
+A4,MoSPI Microdata Portal,"Household Social Consumption: Education, NSS 75th Round",2017-18,Free account/login,₹0,not_requested,,,,no,
+A5,MoSPI Microdata Portal,"Debt and Investment Survey (AIDIS), NSS 77th Round",2019,Free account/login,₹0,not_requested,,,,no,
+A6,The DHS Program,National Family Health Survey NFHS-5,2019-21,Free request/login; approval required,₹0,not_requested,,,,no,
+A7,The DHS Program,National Family Health Survey NFHS-4,2015-16,Free request/login; approval required,₹0,not_requested,,,,no,
+A8,ICPSR / DSDR,India Human Development Survey I and II,2004-05 and 2011-12,Free account/terms,₹0,not_requested,,,,no,
+A9,PRICE,ICE 360 Household Surveys,"2014, 2016, 2021, 2023",Login/register; terms/approval or quote unclear,Unknown; ask PRICE,not_requested,,,,no,
+A10,MoSPI Microdata Portal,Time Use Survey,2019 and 2024,Free account/login,₹0,not_requested,,,,no,
+A11,MoSPI Microdata Portal,"Multiple Indicator Survey, NSS 78th Round",2020-21,Free account/login,₹0,not_requested,,,,no,
+A12,MoSPI Microdata Portal,Comprehensive Annual Modular Survey (CAMS),2022-23,Free account/login,₹0,not_requested,,,,no,
+A13,MoSPI Microdata Portal,Annual Survey of Unincorporated Sector Enterprises (ASUSE),"2022-23, 2023-24, and latest 2025 release if available",Free account/login,₹0,not_requested,,,,no,
+A14,MoSPI Microdata Portal,"Household Social Consumption: Health, NSS 75th Round",2017-18,Free account/login,₹0,not_requested,,,,no,
+A15,Young Lives / UK Data Service or World Bank Microdata,Young Lives India longitudinal cohorts and school surveys,2002 onward; all public rounds,Registration/terms; generally free,₹0,not_requested,,,,no,
+A16,ICMR National Health Research Data Repository,Relevant adolescent/mental-health and health-workforce datasets,various,Registration plus query/application; raw data often not released,Usually ₹0; project-specific,not_requested,,,,no,
+A17,Dataful,NEET 2024 centre-wise marks derived from NTA,2024,Free account or download gate,Likely ₹0 for listed dataset; verify,not_requested,,,,no,
+B1,EPWRF India Time Series,Selected aggregate modules via pay-per-use,long time series,Paid pay-per-use or annual subscription,₹20 per column up to 200 lines; ₹10 each additional 200 lines; small modules ₹120-₹230/year,not_requested,,,,no,
+B2,Indiastat Districts,District-level socioeconomic tables,various,Paid subscription,"15-day: ₹5,664 incl. GST in India or $283 foreign, 10 tables; 30-day: ₹8,142 or $354, 30 tables",not_requested,,,,no,
+B3,CMIE,Consumer Pyramids Household Survey Dx,"2014-present, three waves/year",Paid subscription; price by quote/institution,Current price not public; likely not small,not_requested,,,,no,
+B4,AAMC,Custom applicant/matriculant data report for U.S. comparator,recent 5-10 entering classes,Request; custom reports may have fee,Unknown; quote before acceptance,not_requested,,,,no,
+B5,NCES / Standard Application Process,NPSAS restricted-use microdata,2019-20 and latest available,Restricted-use application,No data fee stated; institutional security/compliance costs,not_requested,,,,no,
+B6,IPUMS USA,ACS microdata extracts,2010-latest; prioritize 2018-2024,Free registration,₹0 / $0,not_requested,,,,no,
+B7,IPUMS CPS,CPS ASEC and monthly microdata,2010-latest,Free registration,₹0 / $0,not_requested,,,,no,
+B8,NLS Investigator,NLSY97 and optionally NLSY79,all public rounds,Free account to save/download extracts,₹0 / $0,not_requested,,,,no,
+R1,National Testing Agency via RTI,NEET application/result database schema and anonymized socioeconomic-score tables,2019-2026,RTI request,₹10 central application fee; possible copying/media charges,not_requested,,,,no,
+R2,MCC / DGHS via RTI,Machine-readable counselling and joined-admission records,2019-2026,RTI request,Usually ₹10 central RTI fee,not_requested,,,,no,
+R3,National Medical Commission via RTI,"Historical medical-college capacity, ownership, fees, completion and attrition",2010-2026,RTI request,Usually ₹10 central RTI fee,not_requested,,,,no,
+R4,State counselling/medical education authorities via state RTI portals,"State applicant, merit, allotment, fee and joining records",2019-2026,State RTI request,Fee/process varies by state,not_requested,,,,no,
+O1,ASER Centre,ASER household/school unit records or custom tabulations,recent annual rural rounds; 2018 onward,Direct research request; access policy unclear,Unknown; likely request/partnership,not_requested,,,,no,
+O2,Major coaching providers and scholarship programs,Anonymized NEET cohort/outcome extracts,2019-2026,Direct data partnership,Unknown; negotiate,not_requested,,,,no,
+P1,OSF / Biswas and Maji,Anonymized NEET-JEE aspirant survey and codebook,2025-26,Public view-only project,₹0,not_downloaded,,,,no,Top immediate acquisition; verify exam-type and coaching/background fields
+P2,Alagappa University authors,NEET preparation psychosocial survey microdata,2026,Author request,₹0 expected; terms may apply,not_requested,,,,no,N=400; coaching intensity and repeat attempts
+P3,Sri Manakula Vinayagar Medical College authors,NEET score and first-year MBBS analytic data,2017-18 cohort,Author/institution request,₹0 expected; ethics terms may apply,not_requested,,,,no,N=150 admitted students
+P4,Katuri Medical College authors,NEET-UG 2020 anxiety survey microdata,2020,Author request,₹0 expected; ethics terms may apply,not_requested,,,,no,N=200 aspirants
+P5,Pondicherry University / Mahe Centre,Kerala backward-class social-origin and programme-choice survey,2015 study,Author request,₹0 expected; terms may apply,not_requested,,,,no,N=523; pre-NEET structural access evidence
+P6,OpenICPSR,Bagde-Epple-Taylor Indian engineering admissions replication package,2016 publication / 2019 deposit,Public download,₹0,not_downloaded,,,,no,Methodological analogue for caste/gender/reservation admissions
+P7,Kerala CEE,KEAM medical rank-category-allotment-last-rank-vacancy archive,2019-2026,Public official,₹0,not_downloaded,,,,no,Best first state admissions adapter
+P8,NIRF / medical institutions,Medical-college institution submissions,2018-2026,Public aggregate,₹0,not_downloaded,,,,no,Economic/social challenge and outcomes validation
+P9,NMC / medical colleges,Final admitted MBBS student submissions,available years,Public but privacy-sensitive,₹0,not_downloaded,,,,no,Aggregate-only ingestion; discard direct identifiers
+P10,Ministry of Education RTI archive,Historical NEET RTI replies and attachments,2019 onward,Public archive / recovery request,₹0,not_recovered,,,,no,Use exact request IDs in public_rti_archive_leads.csv
+P11,RankerCentral,Licensed normalized state counselling export,2021-2026,Vendor access / possible paid plan,Unknown; request quote/license,not_requested,,,,no,Require source-PDF provenance and dictionary

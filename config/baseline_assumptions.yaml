@@ -1,0 +1,81 @@
+model_version: 0.2.0
+purpose: descriptive_synthetic_life_course
+
+missing_joint_distributions:
+  rule: conditional_independence
+  implementation: independent_marginal_odds
+  description: >-
+    When outcome rates are available separately for multiple attributes but their joint
+    distribution is not, combine the marginal evidence on the odds scale. This is a
+    transparent naive-Bayes-style baseline, not a claim that the attributes are truly independent.
+
+unmeasured_attributes:
+  rule: neutral
+  multiplier: 1.0
+  description: >-
+    An attribute with no empirical applicant or admission evidence contributes no estimated
+    advantage or penalty in the baseline model. It may be varied in sensitivity analysis.
+
+admission:
+  target_outcomes:
+    - government_mbbs
+    - private_mbbs
+    - deemed_mbbs
+    - bds
+    - ayush
+    - other_health_course
+    - no_accepted_seat
+  rank_and_quota_logic: empirical_where_available
+  affordability_filter: after_offer
+
+coaching:
+  baseline_effect: unidentified
+  default_multiplier: 1.0
+  sensitivity_required: true
+  cost_distribution: empirical_or_source_range
+
+repeat_attempt:
+  score_effect: unidentified
+  default_multiplier: 1.0
+  cost_components:
+    - exam_and_travel
+    - coaching
+    - preparation_living_cost
+    - delayed_education_or_work
+  sensitivity_required: true
+
+language_and_board:
+  exam_medium: separate_from_school_medium
+  school_medium_effect: state_specific_proxy
+  default_outside_supported_state: 1.0
+  tamil_nadu_proxy_source: Justice A.K. Rajan Committee 2021 Table 7.18
+  warning: >-
+    Medium, board, school type, income, urbanity, and coaching are strongly confounded.
+    The observed medium association must not be described as causal.
+
+career_outcomes:
+  comparison: physician_trajectory_vs_alternative_path_mixture
+  causal_claim: prohibited
+  method: weighted_occupation_age_earnings_distributions
+  selection_sensitivity:
+    - raw_observed_gap
+    - partially_adjusted_gap
+    - conservative_gap
+  alternatives_conditioned_on:
+    - state
+    - sex
+    - social_group
+    - urbanity
+    - education_path
+  outcomes:
+    - earnings
+    - employment_probability
+    - formal_employment
+    - public_sector_employment
+    - education_cost
+    - debt
+    - net_present_value
+
+mental_health:
+  individual_probability: prohibited
+  output: exposure_and_pressure_context_only

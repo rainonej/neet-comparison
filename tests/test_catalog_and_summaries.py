@@ -20,6 +20,12 @@ def test_neet_histogram_matches_summary():
     assert abs(histogram["share"].sum() - 1) < 1e-9
 
 
-def test_raw_external_marks_are_not_tracked():
-    assert Path("data/external/neet-2024-center-marks.csv").exists()
-    assert Path(".gitignore").read_text().find("data/external/**/*") >= 0
+def test_raw_external_marks_are_manifested_but_not_required():
+    # The 32 MB third-party reconstruction is intentionally excluded from the
+    # distributable repository. Its provenance and checksum must remain.
+    assert not Path("data/external/neet-2024-center-marks.csv").exists()
+    manifest = pd.read_csv("data/processed/download_manifest.csv")
+    row = manifest.loc[manifest["local_file"] == "data/external/neet-2024-center-marks.csv"]
+    assert len(row) == 1
+    assert int(row.iloc[0]["rows"]) > 2_000_000
+    assert "data/external/**/*" in Path(".gitignore").read_text()

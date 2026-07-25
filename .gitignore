@@ -3,6 +3,7 @@ __pycache__/
 .venv/
 .env
 .ipynb_checkpoints/
+_incoming/
 data/raw/**/*
 !data/raw/**/.gitkeep
 data/external/**/*
@@ -20,3 +21,11 @@ data/processed/**/*
 *.sqlite
 *.db
 .DS_Store
+!data/processed/coaching_outcome_evidence.csv
+!data/processed/coaching_outcome_rate_summary.csv
+!data/processed/employment_benchmarks.csv
+!data/processed/tamil_nadu_medium_admission_rates.csv
+!data/processed/tamil_nadu_medium_admissions_2010_2021.csv
+!data/processed/tamil_nadu_medium_aggregate_rates.csv
+!data/processed/data_holder_and_researcher_leads.csv
+!data/processed/public_rti_archive_leads.csv
