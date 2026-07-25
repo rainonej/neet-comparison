@@ -22,7 +22,7 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 | ~2.33M appeared, ~1.32M qualified (2024) | NTA re-revised press + centre-marks reconciliation | `neet_2024_*` rows |
 | ~129,602 MBBS seats | NMC college page snapshot | `nmc_mbbs_seats_current_page` |
 | Marks distribution / quantiles | Anonymized 2024 centre marks | `neet_2024_marks_*.csv` |
-| +4 / −1 / 180 Q → max 720 | NTA NEET-UG scheme of examination | Used for “marks ÷ 4 ≈ questions” translation |
+| +4 / −1 / 180 Q → max 720 | NTA NEET-UG scheme of examination | Used for “marks ÷ 4 ≈ questions” translation; wrong→correct is a 5-mark swing |
 
 ## Privilege-weighted odds
 
@@ -52,6 +52,16 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 | Ticket-cost trajectories | `ticket_cost_summary.json` | Scenario bands; accessible ≠ qualify |
 | Resource runway formula | CMSE + HCES + AIDIS + PLFS (+ TUS) | Synthetic household; not NEET-linked |
 | NTA prior appearances / Class XII year / DOB | Not public | RTI template 1b |
+
+## Human accounts used in the visual essay
+
+These accounts make the mechanisms concrete. They are reported examples, **not representative samples or causal estimates**. The essay links readers directly to the originating reports and does not reuse publication photography.
+
+| Person / cohort | Reported facts used | Source | Editorial role / caveat |
+|---|---|---|---|
+| Kanakpriya and Virender Verma | Four years of preparation; 631/720; father reportedly committed roughly half his construction income to coaching EMIs for two years; family debt and sacrifice | ThePrint, Nootan Sharma, 5 July 2024: [NEET fiasco isn’t just about broken dreams](https://theprint.in/the-fineprint/neet-fiasco-isnt-just-about-broken-dreams-its-pushing-lakhs-of-families-into-poverty/2160783/) | Central family vignette showing the prize, coaching debt and strong-score uncertainty. One family, not prevalence evidence. |
+| Jeevith Kumar | 548/600 in Class XII; NEET 193 without private tuition; 664 after outside help financed a one-year residential coaching program | NDTV, 19 October 2020: [Tamil Nadu shepherd’s son who cracked NEET needs help to study medicine](https://www.ndtv.com/india-news/neet-2020-tamil-nadu-shepherds-son-who-cracked-medical-entrance-exam-neet-needs-help-to-study-medicine-2312276) | Mechanism vignette for exam-specific preparation and affordability. Not an average coaching effect. |
+| Seven Madurai government-school admits | All seven were repeat candidates who used private coaching; six had parents working as daily-wage earners; examples include ₹5.5 lakh and ₹1.5 lakh borrowing and cattle sold | Times of India, 1 August 2025: [7 from Madurai land MBBS seats under 7.5% quota](https://timesofindia.indiatimes.com/city/madurai/7-from-madurai-land-mbbs-seats-under-7-5-quota/articleshow/123029677.cms) | Human-scale corroboration of the repeater/coaching treadmill among a selected winning cohort. Not all TN candidates. |
 
 ## Citation keys used in the HTML
 
