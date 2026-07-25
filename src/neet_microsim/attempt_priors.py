@@ -72,7 +72,7 @@ def inject_calibrated_scenarios(cfg: dict[str, Any]) -> dict[str, Any]:
     scenarios = dict(cfg.get("scenarios", {}))
     scenarios["tn_post_neet_calibrated"] = {
         "label": (
-            f"TN post-NEET calibrated (r_admit={r:.4f}, ρ={rho:g})"
+            f"TN first/repeater-anchored (r_admit={r:.4f}, ρ={rho:g}; later decay assumed)"
         ),
         "continuation": cont,
         "calibration": {
@@ -83,7 +83,9 @@ def inject_calibrated_scenarios(cfg: dict[str, Any]) -> dict[str, Any]:
                 relative_admit_prob=rho,
             ),
             "grain": "admitted_tamil_nadu_composition_plus_labeled_rho",
+            "anchors_only": "P(K=1) via ρ; later continuation rates use assumed decay_of_r1",
             "is_national_estimate": False,
+            "identifies_full_attempt_count_distribution": False,
         },
     }
     out = dict(cfg)

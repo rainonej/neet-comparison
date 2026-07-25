@@ -1,5 +1,6 @@
 {
-  "model_version": "0.2.0",
+  "model_version": "0.3.0",
+  "public_story_trajectories_enabled": false,
   "admitted_composition": {
     "grain": "admitted_tamil_nadu_mbbs",
     "proxy_for_birth_year": "other_than_current_year_students \u2248 not the Class XII cohort of that admission year; implies most winners were older than a typical first-sit school-leaver. National DOB / Class XII year tables are still missing (see RTI Template 1b).",
@@ -52,16 +53,26 @@
     "calibration_rho": 1.75,
     "implied_p_first_among_applicants": 0.4118664306007329,
     "implied_p_repeater_among_applicants": 0.5881335693992671,
+    "anchored_continuation": {
+      "after_1": 0.5881,
+      "after_2": 0.3823,
+      "after_3": 0.2647,
+      "after_4_plus": 0.2058
+    },
+    "scenario_mean_sittings_under_assumed_decay": 1.8878370735238585,
+    "anchored_p_sit_1": 0.41190000000000004,
+    "calibrated_mean_sittings": 1.8878370735238585,
     "calibrated_continuation": {
       "after_1": 0.5881,
       "after_2": 0.3823,
       "after_3": 0.2647,
       "after_4_plus": 0.2058
     },
-    "calibrated_mean_sittings": 1.8878370735238585,
     "calibrated_p_sit_1": 0.41190000000000004,
+    "calibration_note": "Only P(K=1) is pinned via \u03c1 to the admitted first/repeater split; later continuation rates use assumed decay_of_r1. Mean sittings is scenario-driven.",
     "source": "Justice A.K. Rajan Committee Table 7.38",
-    "rajan_repeater_share_constant": 0.7142
+    "rajan_repeater_share_constant": 0.7142,
+    "prefer_over_pooled_bayes": true
   },
   "trajectories": [
     {
@@ -72,11 +83,12 @@
       "stratum_id": "tamil_cant_afford_nonmetro_none",
       "stratum_label": "Tamil \u00b7 cannot afford private \u00b7 non-metro \u00b7 no paid prep",
       "p_accessible_seat": 0.01435,
+      "p_accessible_is_single_application_stratum": true,
       "arms_race_scenario": "unilateral",
       "cash_coaching_inr": {
         "low": 0.0,
-        "mid": 12000.0,
-        "high": 39500.0
+        "mid": 0.0,
+        "high": 0.0
       },
       "cash_exam_travel_materials_inr": {
         "low": 1700.0,
@@ -95,22 +107,23 @@
       },
       "total_family_economic_cost_inr": {
         "low": 1700.0,
-        "mid": 16700.0,
-        "high": 49200.0
+        "mid": 4700.0,
+        "high": 9700.0
       },
+      "score_model_spend_anchor_inr": 0.0,
       "psych_burden": "One high-stakes exam year while finishing Class XII \u2014 acute stress, but not yet multi-year identity foreclosure around the exam.",
       "delayed_life_note": "Life start not yet delayed beyond a normal school-leaving year.",
-      "punch_line": "You paid almost nothing to sit right out of high school (cash outlay mid \u2248 \u20b90.2L). Your chance of an accessible MBBS seat your family can cash is 1.4% \u2014 not a rounding error of 0.01%, and still a brutal lottery.",
+      "punch_line": "Research scaffold only: exam/materials mid \u2248 \u20b90.0L; single-application stratum access \u2248 1.4% (not a multi-year trajectory probability).",
       "sources": [
         "score_inequality_story.json unilateral tamil_cant_afford_nonmetro_none",
-        "CMSE 2025 class_xii coaching spend (school frame)",
         "NTA exam fee order-of-magnitude"
       ],
       "caveats": [
-        "Accessible seat \u2260 qualify; private offer you cannot pay does not count.",
-        "CMSE is school tutoring, not NEET residential coaching.",
-        "Rate is synthetic-stratum model output, not a published individual probability."
-      ]
+        "p_accessible_seat is a single-application synthetic-stratum rate \u2014 NOT cumulative admission after multiple sittings, NOT conditional on prior failures.",
+        "No-prep coaching cash forced to \u20b90 (do not attach CMSE coached-spend bands).",
+        "Not for public HTML until attempt\u00d7spend\u00d7access are joined."
+      ],
+      "public_story_ok": false
     },
     {
       "id": "two_year_dropper_tamil_modest",
@@ -120,14 +133,15 @@
       "stratum_id": "tamil_cant_afford_nonmetro_modest",
       "stratum_label": "Tamil \u00b7 cannot afford private \u00b7 non-metro \u00b7 modest prep",
       "p_accessible_seat": 0.019425,
+      "p_accessible_is_single_application_stratum": true,
       "arms_race_scenario": "unilateral",
       "cash_coaching_inr": {
-        "low": 79000.0,
-        "mid": 500000.0,
+        "low": 500000.0,
+        "mid": 700000.0,
         "high": 1000000.0
       },
       "cash_exam_travel_materials_inr": {
-        "low": 3400.0,
+        "low": 5100.0,
         "mid": 20100.0,
         "high": 45100.0
       },
@@ -142,24 +156,26 @@
         "high": 360000.0
       },
       "total_family_economic_cost_inr": {
-        "low": 226400.0,
-        "mid": 968100.0,
+        "low": 649100.0,
+        "mid": 1168100.0,
         "high": 1765100.0
       },
-      "psych_burden": "Two years of full-time prep identity: higher distress among repeat aspirants is documented in convenience samples (e.g. Alagappa / district surveys). Not an individual clinical risk score.",
+      "score_model_spend_anchor_inr": 9900.0,
+      "psych_burden": "Two years of full-time prep identity: higher distress among repeat aspirants is documented in convenience samples. Not an individual clinical risk score.",
       "delayed_life_note": "Two years of delayed college/work entry; peers may already be earning or enrolled.",
-      "punch_line": "After ~2 years of studying, failed attempts, tutoring/lodging, and family opportunity cost (economic mid \u2248 \u20b99.7L; high coaching path \u2248 \u20b917.7L), your chance of an accessible seat your family can afford is still only 1.9% \u2014 a thin upgrade bought with years and money.",
+      "punch_line": "Research scaffold only: multi-year cost mid \u2248 \u20b911.7L; attached access 1.9% is the modest-stratum single-application rate \u2014 not P(seat | two failed attempts).",
       "sources": [
         "score_inequality_story.json unilateral tamil_cant_afford_nonmetro_modest",
-        "Rajan Committee: \u20b910L exclusive repeater coaching; long-term fee bands; avg \u20b995,033",
-        "CMSE 2025 class_xii p90 as school-tutoring floor",
-        "PLFS 2025 no_college monthly median \u00d7 24 months opportunity cost"
+        "Rajan Committee coaching fee bands / \u20b910L exclusive repeater coaching",
+        "PLFS 2025 no_college monthly median opportunity-cost proxy"
       ],
       "caveats": [
+        "p_accessible_seat is a single-application synthetic-stratum rate \u2014 NOT cumulative admission after multiple sittings, NOT conditional on prior failures.",
+        "Cost bands use Rajan/CMSE/PLFS anchors. Score-model modest/intensive spend plugs are \u2248\u20b99,900 / \u20b979,200 (CMSE median multiples) \u2014 not these Rajan package totals.",
         "Rajan \u20b910L is a TN narrative high for exclusive coaching \u2014 not a national mean.",
-        "Opportunity cost uses no_college wage median as a transparent counterfactual.",
-        "Modest prep does not unlock private seats the family still cannot pay."
-      ]
+        "Not for public HTML until attempt\u00d7spend\u00d7access are joined."
+      ],
+      "public_story_ok": false
     },
     {
       "id": "two_year_dropper_english_intensive_can_pay",
@@ -169,6 +185,7 @@
       "stratum_id": "english_can_afford_metro_intensive",
       "stratum_label": "English \u00b7 can afford private \u00b7 metro \u00b7 intensive prep",
       "p_accessible_seat": 0.07945,
+      "p_accessible_is_single_application_stratum": true,
       "arms_race_scenario": "unilateral",
       "cash_coaching_inr": {
         "low": 180000.0,
@@ -176,7 +193,7 @@
         "high": 1200000.0
       },
       "cash_exam_travel_materials_inr": {
-        "low": 3400.0,
+        "low": 5100.0,
         "mid": 20100.0,
         "high": 45100.0
       },
@@ -191,33 +208,45 @@
         "high": 360000.0
       },
       "total_family_economic_cost_inr": {
-        "low": 327400.0,
+        "low": 329100.0,
         "mid": 1368100.0,
         "high": 1965100.0
       },
+      "score_model_spend_anchor_inr": 79200.0,
       "psych_burden": "Same calendar years and exam stress \u2014 with a family that can keep buying prep and cash a private offer if the rank allows.",
       "delayed_life_note": "Same two-year delay; different ability to monetize a private allotment.",
-      "punch_line": "Same two-year ticket price in calendar time (economic mid \u2248 \u20b913.7L), but privilege raises accessible-seat chance to 7.9% \u2014 still a minority outcome, now with a privatized safety net.",
+      "punch_line": "Research scaffold only: multi-year cost mid \u2248 \u20b913.7L; attached access 7.9% is the top-stratum single-application rate \u2014 not a cumulative repeater trajectory.",
       "sources": [
         "score_inequality_story.json unilateral english_can_afford_metro_intensive",
         "Rajan Committee coaching fee bands",
         "PLFS 2025 no_college monthly median opportunity-cost proxy"
       ],
       "caveats": [
+        "p_accessible_seat is a single-application synthetic-stratum rate \u2014 NOT cumulative admission after multiple sittings, NOT conditional on prior failures.",
+        "Cost bands use Rajan/CMSE/PLFS anchors. Score-model modest/intensive spend plugs are \u2248\u20b99,900 / \u20b979,200 (CMSE median multiples) \u2014 not these Rajan package totals.",
         "Contrast is compositional / scenario, not a causal LATE of coaching.",
-        "Can-pay private converts more score ranks into cashable seats."
-      ]
+        "Not for public HTML until attempt\u00d7spend\u00d7access are joined."
+      ],
+      "public_story_ok": false
     }
   ],
   "attempt_cost_year_example": {
-    "direct_total_inr": 396700.0,
-    "with_opp_cost_inr": 540700.0,
-    "burden_share_of_3lakh_hh": 1.3223333333333334
+    "direct_total_inr": 496700.0,
+    "with_opp_cost_inr": 640700.0,
+    "burden_share_of_3lakh_hh": 1.6556666666666666
   },
   "attempt_priors_model_version": "0.2.0",
+  "score_model_spend_anchors_inr": {
+    "modest": 9900.0,
+    "intensive": 79200.0,
+    "note": "These are the plug-ins used in score\u2192rank\u2192seat, not Rajan package totals."
+  },
   "warnings": [
-    "Do not quote 0.01% unless a stratum model actually produces it; use published p_accessible.",
-    "TN admitted current-year share is not national birth-year microdata.",
+    "PUBLIC HTML: do not render trajectory cards \u2014 costs and access rates are not joined.",
+    "p_accessible_seat values are single-application synthetic strata, not multi-sitting trajectories.",
+    "Do not quote 0.01% unless a stratum model actually produces it.",
+    "TN admitted current-year share (Rajan Table 7.38) is an administrative proportion \u2014 prefer it over pooled Beta posteriors that invent ESS and collapse years.",
+    "Scenario mean sittings under assumed decay is not a calibrated attempt distribution.",
     "Costs are scenario bands with cited anchors, not causal treatment effects."
   ]
 }

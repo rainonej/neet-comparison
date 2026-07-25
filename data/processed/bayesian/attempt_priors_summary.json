@@ -12,7 +12,9 @@
     "relative_admit_prob": 1.75,
     "implied_p_first_among_applicants": 0.4118664306007329,
     "grain": "admitted_tamil_nadu_composition_plus_labeled_rho",
-    "is_national_estimate": false
+    "anchors_only": "P(K=1) via \u03c1; later continuation rates use assumed decay_of_r1",
+    "is_national_estimate": false,
+    "identifies_full_attempt_count_distribution": false
   },
   "calibrated_continuation": {
     "after_1": 0.5881,
@@ -77,7 +79,7 @@
     },
     {
       "scenario_id": "tn_post_neet_calibrated",
-      "label": "TN post-NEET calibrated (r_admit=0.7142, \u03c1=1.75)",
+      "label": "TN first/repeater-anchored (r_admit=0.7142, \u03c1=1.75; later decay assumed)",
       "r_after_1": 0.5881,
       "r_after_2": 0.3823,
       "r_after_3": 0.2647,
@@ -96,7 +98,7 @@
   ],
   "warnings": [
     "Continuation rates are labeled sensitivity, not NEET national estimates.",
-    "tn_post_neet_calibrated matches TN admitted composition under labeled \u03c1 \u2014 still not national applicant truth.",
+    "tn_post_neet_calibrated anchors only P(K=1) to TN admitted composition under labeled \u03c1; later r\u2082,r\u2083,r\u2084+ use assumed decay \u2014 not a calibrated full attempt distribution.",
     "Do not use a constant geometric q (continuation should decay with attempt/age/cost).",
     "Rajan / AIIMS-Bhopal figures are admitted composition, not applicant attempt histograms.",
     "Class XII completion year gap D is a better administrative proxy than age alone.",

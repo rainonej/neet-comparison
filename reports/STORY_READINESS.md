@@ -86,8 +86,9 @@
 | 71% of *admitted* were repeaters (TN 2020–21) | Admitted | **SHOW** | Rajan |
 | Applicant repeater share under ρ sensitivity | Algebraic | **SENS** | `attempt_repeater_sensitivity.csv` |
 | Continuation-rate sitting histograms (low/central/high/TN-cal) | Labeled prior | **SENS** | `config/attempt_priors.yaml` · TN-cal pins P(K=1) to Rajan under ρ=1.75 |
-| Ticket-cost trajectories (cash + opp cost + psych) | Scenario bands | **SHOW†** | `ticket_cost_summary.json` — honest ~1.4% first-sit access, not 0.01% |
-| Bayes P(current-year \| TN admit) | Admitted TN | **SHOW†** | `tn_first_among_admitted_mbbs` from Rajan Table 7.38 |
+| Joined cost × multi-sitting access trajectories | Need joint model | **BLOCK** | Cards withheld; cost bands ≠ score-model spend; access ≠ cumulative |
+| TN admitted current-year / repeater share | Rajan Table 7.38 | **SHOW†** | Year-specific administrative proportions (e.g. 28.6% / 71.4% in 2020–21) |
+| Full sitting histogram / mean sittings | Assumed decay | **SENS** | Only P(K=1) anchored via ρ; later rates assumption-driven |
 | National admitted birth years / Class XII year | National | **BLOCK** | RTI Template 1b; TN current-year share is best proxy |
 | Mean attempts / full histogram as national fact | National | **BLOCK** | Need NTA prior-appearances × Class XII year tables |
 | Resource runway in microsim loop | Synthetic household | **LATER** | Formula + ticket bands exist; not full agent loop |

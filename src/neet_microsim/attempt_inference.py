@@ -61,9 +61,12 @@ def applicant_repeater_share(
 def repeater_sensitivity_table(
     *,
     p_repeater_among_admitted: float = RAJAN_REPEATER_SHARE_AMONG_ADMITTED,
-    relative_admit_probs: tuple[float, ...] = (0.5, 1.0, 1.5, 2.0, 3.0, 4.0),
+    relative_admit_probs: tuple[float, ...] = (0.5, 1.0, 1.5, 1.75, 2.0, 3.0, 4.0),
 ) -> pd.DataFrame:
-    """Sensitivity of applicant repeater share to ρ = P(admit|rep) / P(admit|first)."""
+    """Sensitivity of applicant repeater share to ρ = P(admit|rep) / P(admit|first).
+
+    Includes 1.75 so the UI default can match the TN first/repeater-anchored scenario.
+    """
 
     rows: list[dict[str, float | str]] = []
     for rho in relative_admit_probs:

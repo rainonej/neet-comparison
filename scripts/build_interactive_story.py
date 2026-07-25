@@ -220,16 +220,10 @@ def build_payload() -> dict:
     ]
 
     ticket = json.loads((BAYES / "ticket_cost_summary.json").read_text(encoding="utf-8"))
-    ticket_trajectories = ticket.get("trajectories", [])
     admitted_comp = ticket.get("admitted_composition", {})
-    bayes_first = next(
-        (
-            row
-            for row in bayes.get("comparison", [])
-            if row.get("profile") == bayes.get("default_profile", "conservative")
-        ),
-        {},
-    )
+    # Trajectory cards are research scaffolds only — never ship mismatched cost×access pairs.
+    public_traj_ok = bool(ticket.get("public_story_trajectories_enabled", False))
+    ticket_trajectories = ticket.get("trajectories", []) if public_traj_ok else []
 
     # Profession medians from privilege Monte Carlo (employed), first stratum as shared priors
     eq = _read_csv(BAYES / "earnings_quantiles_by_outcome.csv")
@@ -356,16 +350,22 @@ def build_payload() -> dict:
             "note": "Show labeled low/central/high continuation scenarios instead",
         },
         {
-            "beat": "Admitted repeater composition + ρ",
-            "status": "SENS",
-            "grain": "TN Rajan + algebra",
-            "note": "Binary first vs ≥2; TN-calibrated sitting scenario pinned to ρ=1.75",
+            "beat": "TN admitted current-year / repeater composition",
+            "status": "SHOW†",
+            "grain": "Rajan Table 7.38 administrative proportions",
+            "note": "Use year-specific shares (e.g. 28.6% in 2020–21); prefer over pooled Beta collapse",
         },
         {
-            "beat": "Ticket cost (cash + years + opp cost)",
-            "status": "SHOW†",
-            "grain": "CMSE + Rajan + PLFS + score strata",
-            "note": "Scenario bands; honest ~1–8% access rates, not 0.01%",
+            "beat": "Full attempt-count distribution",
+            "status": "SENS",
+            "grain": "TN first/repeater-anchored + assumed decay",
+            "note": "Only P(K=1) pinned under ρ; later rates/mean sittings are assumption-driven",
+        },
+        {
+            "beat": "Joined cost × multi-sitting access trajectories",
+            "status": "BLOCK",
+            "grain": "Need attempt×spend×access joint model",
+            "note": "Cost bands and single-application stratum rates are not joined — cards withheld",
         },
         {
             "beat": "National admitted birth years",
@@ -489,20 +489,26 @@ def build_payload() -> dict:
         "attempt_scenarios": attempt_scenarios,
         "attempt_note": (
             "National sitting histogram is unidentified. "
-            "TN-calibrated continuation matches Rajan admitted repeater share under ρ=1.75; "
-            "low/central/high remain unanchored sensitivities. "
+            "The TN first/repeater-anchored scenario pins only P(K=1) under labeled ρ=1.75; "
+            "later continuation rates use assumed decay — mean sittings is scenario-driven, "
+            "not a calibrated attempt distribution. "
             "Success exit = acceptable seat joined, not mere qualify. "
             "See docs/ATTEMPT_PRIORS.md."
         ),
+        "attempt_default_rho": 1.75,
         "ticket_cost": {
+            "public_story_trajectories_enabled": public_traj_ok,
             "trajectories": ticket_trajectories,
             "admitted_composition": admitted_comp,
-            "bayes_tn_first_among_admitted": {
-                "mean": bayes_first.get("tn_first_among_admitted_mean"),
-                "ci_low": bayes_first.get("tn_first_among_admitted_ci_low"),
-                "ci_high": bayes_first.get("tn_first_among_admitted_ci_high"),
-            },
             "warnings": ticket.get("warnings", []),
+            "blocked_reason": (
+                None
+                if public_traj_ok
+                else (
+                    "Trajectory cards withheld: cost bands are not the score-model spend plugs, "
+                    "and access rates are single-application synthetic strata — not multi-sitting outcomes."
+                )
+            ),
         },
         "cmse_coaching": cmse,
         "privilege_affordability_ratio": privilege.get("affordability_only_access_ratio"),

@@ -19,6 +19,7 @@
       --teal: #2f8f86;
       --teal-deep: #1f6b65;
       --copper: #b85c38;
+      --amber: #e2a12b;
       --line: rgba(18, 26, 28, 0.12);
       --line-light: rgba(238, 242, 239, 0.16);
       --max: 1120px;
@@ -489,7 +490,7 @@
         <a href="#razor">One question</a>
         <a href="#odds">Buying odds</a>
         <a href="#arms">The tax</a>
-        <a href="#ticket">Ticket cost</a>
+        <a href="#ticket">Repeater tax</a>
         <a href="#attempts">Years</a>
         <a href="#sources">Sources</a>
       </div>
@@ -598,13 +599,15 @@
   <section id="razor">
     <div class="wrap fade">
       <p class="section-label">02b · Razor margin</p>
-      <h2>One question can be a life.</h2>
+      <h2>National capacity leaves a thin mark margin.</h2>
       <p class="lede">
         NEET marks are mostly high-school Biology, Chemistry, and Physics — +4 for a correct answer.
-        Under national capacity accounting, the any-MBBS capacity-equivalent threshold sits near
-        <strong id="razor-cutoff">~560</strong> marks. The median appeared candidate is about
+        Mapping <em>all</em> nationally approved MBBS seats onto the national marks distribution yields a
+        capacity-equivalent threshold near <strong id="razor-cutoff">~560</strong> marks.
+        The median appeared candidate is about
         <strong id="razor-median-gap">~99</strong> correct-answers-equivalent below that line.
-        Near the line itself, the gap between a seat and another year (or giving up) is absurdly small.
+        That is an accounting quantile — not a state/category counselling cutoff — but it shows how thin
+        the national funnel is even before domicile, quotas, fees, and rounds.
       </p>
       <div class="stat-row" id="razor-stats"></div>
       <div class="razor-scale" id="razor-bands"></div>
@@ -664,35 +667,13 @@
       </div>
       <div class="panel">
         <div class="controls">
-          <h3>Load the dice</h3>
+          <h3>Six modeled profiles</h3>
+          <p class="footnote" style="margin:0 0 0.75rem;border:0;padding:0;font-size:0.82rem">
+            Only these hand-written strata exist. There is no factorial calculator behind independent switches.
+          </p>
           <div class="ctrl">
-            <label>School medium</label>
-            <div class="seg" data-key="medium">
-              <button type="button" data-v="tamil">Tamil</button>
-              <button type="button" data-v="english" class="on">English</button>
-            </div>
-          </div>
-          <div class="ctrl">
-            <label>Private affordability</label>
-            <div class="seg" data-key="afford">
-              <button type="button" data-v="cant" class="on">Cannot pay</button>
-              <button type="button" data-v="can">Can pay</button>
-            </div>
-          </div>
-          <div class="ctrl">
-            <label>Location</label>
-            <div class="seg" data-key="metro">
-              <button type="button" data-v="nonmetro" class="on">Non-metro</button>
-              <button type="button" data-v="metro">Metro</button>
-            </div>
-          </div>
-          <div class="ctrl">
-            <label>Prep intensity</label>
-            <div class="seg" data-key="prep">
-              <button type="button" data-v="none">None</button>
-              <button type="button" data-v="modest" class="on">Modest</button>
-              <button type="button" data-v="intensive">Intensive</button>
-            </div>
+            <label>Preset profile</label>
+            <div class="seg" id="preset-seg" style="flex-wrap:wrap"></div>
           </div>
           <div class="ctrl">
             <label>Arms-race world</label>
@@ -712,7 +693,7 @@
           <div class="mini-grid">
             <div class="mini"><b id="profile-govt">—</b><span>Govt offer</span></div>
             <div class="mini"><b id="profile-marks">—</b><span>Mean marks</span></div>
-            <div class="mini"><b id="profile-qgap">—</b><span>≈Q below seat line</span></div>
+            <div class="mini"><b id="profile-qgap">—</b><span>≈Q below capacity thr.</span></div>
           </div>
         </div>
       </div>
@@ -787,21 +768,29 @@
 
   <section id="ticket" class="alt">
     <div class="wrap fade">
-      <p class="section-label">05 · Cost of the ticket</p>
-      <h2>What you pay to buy a thin chance.</h2>
+      <p class="section-label">05 · Repeater tax (observed)</p>
+      <h2>Most TN winners were not first-sit school-leavers.</h2>
       <p class="lede" id="ticket-lede">
-        Cash for coaching is only part of it. Families also pay years, lodging, foregone earnings,
-        and psychological wear. Among Tamil Nadu MBBS admits in 2020–21, only about 29% were
-        current-year students — most winners had already paid the repeater tax
+        Among Tamil Nadu MBBS admits in 2020–21, only <strong>28.6%</strong> were current-year students
+        and <strong>71.4%</strong> were classified as repeaters
         <span class="cite">[Rajan21]</span>.
+        That is admitted composition — a birth-year / Class XII proxy — not a national applicant attempt histogram.
       </p>
       <div class="stat-row" id="ticket-stats" style="margin-top:1.25rem"></div>
-      <div class="ticket-grid" id="ticket-cards"></div>
+      <div class="callout" id="ticket-block" style="margin-top:1.25rem">
+        <h3>Joined cost × access trajectories — BLOCKED</h3>
+        <p id="ticket-block-note">
+          We do not show “two years and ₹X lakh → Y% chance” cards here. Those would attach
+          single-application synthetic-stratum access rates to multi-year cost bands, and the
+          cost bands are not the spend plugs used in the score model. Until attempt, spend, and
+          access are actually joined, only the observed composition above is shown.
+        </p>
+      </div>
+      <div class="ticket-grid" id="ticket-cards" hidden></div>
       <p class="footnote" id="ticket-footnote" style="margin-top:1.25rem">
-        Access rates are synthetic-stratum model outputs (accessible seat ≠ qualify).
-        Cost bands use CMSE school tutoring, Rajan coaching anchors, and PLFS no-college wages —
-        not causal treatment effects. We do <em>not</em> invent a 0.01% first-sit probability;
-        the low-privilege first-sit accessible rate is about 1.4%.
+        Status: <span class="tag BLOCK">BLOCK</span> for quantitative ticket trajectories.
+        Score-model modest/intensive spend plugs remain CMSE-median multiples (≈₹9.9k / ₹79k),
+        separate from Rajan residential package narratives.
       </p>
     </div>
   </section>
@@ -809,11 +798,11 @@
   <section id="attempts">
     <div class="wrap fade">
       <p class="section-label">06 · Years as currency</p>
-      <h2>Most winners were not first-sit school-leavers.</h2>
+      <h2>Attempt counts remain mostly unidentified.</h2>
       <p class="lede" id="attempt-note">
-        NTA does not publish attempt counts or birth years. What we have is admitted composition
-        (TN: ~71% repeaters among winners) and a sitting model calibrated to that composition
-        under labeled ρ. Success exit = joined an acceptable seat — not “qualified.”
+        NTA does not publish attempt counts or birth years. What we have is TN admitted composition
+        and a first/repeater-anchored sitting scenario under labeled ρ — with assumed later decay.
+        Success exit = joined an acceptable seat — not “qualified.”
       </p>
       <div class="thesis-strip">
         <article>
@@ -821,8 +810,8 @@
           <p>TN admitted repeater share rose from ~12% (2016–17) to 71% (2020–21) <span class="cite">[Rajan21]</span>. Current-year winners fell to 28.6% — a birth-year / Class XII proxy for age at admission.</p>
         </article>
         <article>
-          <h3>Calibrated</h3>
-          <p>Default sitting scenario pins P(sittings=1) to the applicant first-share implied by that admitted r under ρ=1.75. Still not a national estimate.</p>
+          <h3>Anchored (partial)</h3>
+          <p>Default scenario pins <em>only</em> P(sittings=1) via ρ=1.75 to the admitted first/repeater split. Later continuation rates use assumed decay — not calibrated from data.</p>
         </article>
         <article>
           <h3 class="cruel">Missing</h3>
@@ -833,9 +822,9 @@
         <div class="controls">
           <h3>Persistence scenario</h3>
           <div class="ctrl">
-            <label>Continuation rates (TN-calibrated default)</label>
+            <label>Continuation rates (TN first/repeater-anchored default)</label>
             <div class="seg" id="persist-seg">
-              <button type="button" data-sc="tn_post_neet_calibrated" class="on">TN-cal</button>
+              <button type="button" data-sc="tn_post_neet_calibrated" class="on">TN-anchored</button>
               <button type="button" data-sc="low_persistence">Low</button>
               <button type="button" data-sc="central">Central</button>
               <button type="button" data-sc="high_persistence">High</button>
@@ -846,16 +835,16 @@
           </p>
           <div class="ctrl" style="margin-top:1.2rem">
             <label>ρ = P(admit|repeater) / P(admit|first)</label>
-            <input id="rho-slider" type="range" min="0" max="5" step="1" value="2" style="width:100%" />
+            <input id="rho-slider" type="range" min="0" max="6" step="1" value="3" style="width:100%" />
             <div class="seg" style="margin-top:0.6rem" id="rho-labels"></div>
           </div>
           <p class="footnote" style="margin:0.5rem 0 0;border:0;padding:0;font-size:0.82rem">
-            ρ only splits first vs ≥2 among applicants given TN admitted r=71.4%. Docs: <code>ATTEMPT_PRIORS.md</code>.
+            Default ρ=1.75 matches the TN-anchored scenario. ρ only splits first vs ≥2 among applicants given TN admitted r=71.4%. Docs: <code>ATTEMPT_PRIORS.md</code>.
           </p>
         </div>
         <div class="result">
           <div>
-            <p class="meta-line">Implied mean sittings (scenario — not a national estimate)</p>
+            <p class="meta-line">Scenario mean sittings (assumed decay — not a calibrated national mean)</p>
             <p class="big" id="persist-mean">—</p>
             <p class="meta-line" id="rho-out-line">—</p>
           </div>
@@ -1006,34 +995,32 @@
     }
     renderWaterfall();
 
-    // —— Profile state ——
-    const state = { medium: "english", afford: "cant", metro: "nonmetro", prep: "modest", scenario: "unilateral" };
+    // —— Profile state: only the six modeled ladder strata (no fake factorial) ——
+    const PRESETS = (D.ladders.unilateral || []).map((r) => ({
+      id: r.id,
+      short: r.label.split(" · ").slice(0, 2).join(" · "),
+    }));
+    const state = {
+      stratumId: PRESETS[2]?.id || PRESETS[0]?.id,
+      scenario: "unilateral",
+    };
 
-    function nearestStratum() {
+    function selectedStratum() {
       const rows = D.ladders[state.scenario] || [];
-      // Prefer exact-ish match by label tokens
-      const want = [];
-      want.push(state.medium === "tamil" ? "Tamil" : "English");
-      want.push(state.afford === "can" ? "can afford" : "cannot afford");
-      want.push(state.metro === "metro" ? "metro" : "non-metro");
-      const prepWord = state.prep === "none" ? "no prep" : state.prep + " prep";
-      want.push(prepWord);
+      return rows.find((r) => r.id === state.stratumId) || rows[0];
+    }
 
-      let best = rows[0], bestScore = -1;
-      for (const r of rows) {
-        let sc = 0;
-        for (const w of want) if (r.label.includes(w)) sc++;
-        // intensive only exists on top English metro strata
-        if (state.prep === "intensive" && r.label.includes("intensive")) sc += 2;
-        if (state.prep !== "intensive" && r.label.includes("intensive")) sc -= 2;
-        if (state.medium === "tamil" && state.prep === "none" && r.id.includes("none")) sc += 2;
-        if (sc > bestScore) { bestScore = sc; best = r; }
-      }
-      return best;
+    function renderPresets() {
+      const el = document.getElementById("preset-seg");
+      if (!el) return;
+      el.innerHTML = PRESETS.map((p) =>
+        `<button type="button" data-id="${p.id}" class="${p.id === state.stratumId ? "on" : ""}">${p.short}</button>`
+      ).join("");
     }
 
     function renderProfile() {
-      const r = nearestStratum();
+      const r = selectedStratum();
+      if (!r) return;
       const cut = D.razor.any_mbbs_capacity_threshold_marks ?? D.razor.any_mbbs_cutoff_marks;
       const qGap = (cut - r.mean_marks) / D.razor.marks_per_correct;
       document.getElementById("profile-label").textContent = r.label + " · " + state.scenario.replace(/_/g, " ");
@@ -1042,6 +1029,7 @@
       document.getElementById("profile-marks").textContent = Math.round(r.mean_marks);
       document.getElementById("profile-qgap").textContent =
         (qGap >= 0 ? "−" : "+") + Math.abs(qGap).toFixed(0);
+      renderPresets();
       renderLadder();
       drawArms();
     }
@@ -1059,25 +1047,18 @@
         </div>`).join("");
     }
 
-    document.querySelectorAll(".controls .seg").forEach((seg) => {
-      const key = seg.dataset.key;
-      if (!key) return;
+    document.getElementById("preset-seg")?.addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      state.stratumId = b.dataset.id;
+      renderProfile();
+    });
+    document.querySelectorAll('.controls .seg[data-key="scenario"]').forEach((seg) => {
       seg.querySelectorAll("button").forEach((btn) => {
         btn.addEventListener("click", () => {
           seg.querySelectorAll("button").forEach((b) => b.classList.remove("on"));
           btn.classList.add("on");
-          state[key] = btn.dataset.v;
-          // Constraints: tamil + intensive not in strata — snap prep
-          if (key === "medium" && state.medium === "tamil" && state.prep === "intensive") {
-            state.prep = "modest";
-            const prepSeg = document.querySelector('.seg[data-key="prep"]');
-            prepSeg.querySelectorAll("button").forEach((b) => {
-              b.classList.toggle("on", b.dataset.v === "modest");
-            });
-          }
-          if (key === "afford" && state.afford === "cant" && state.metro === "metro") {
-            // metro+cant exists only partially; nearest matcher handles it
-          }
+          state.scenario = btn.dataset.v;
           renderProfile();
         });
       });
@@ -1381,57 +1362,55 @@
          (p90 ≈ ₹${fmt.n(cmse.spend_p90)}). CMSE 2025 — not NEET-applicant specific.`;
     }
 
-    // —— Ticket cost ——
+    // —— Ticket / repeater composition (no mismatched trajectory cards) ——
     (function renderTicket() {
       const T = D.ticket_cost;
       if (!T) return;
       const ac = T.admitted_composition || {};
-      const bay = T.bayes_tn_first_among_admitted || {};
-      const firstShow = bay.mean != null ? bay.mean : ac.p_first_among_admitted;
+      // Prefer year-specific Rajan administrative share — never the pooled Beta collapse.
+      const firstShow = ac.p_first_among_admitted;
       document.getElementById("ticket-stats").innerHTML = [
-        [firstShow != null ? fmt.pct(firstShow, 1) : "—", "TN admits who were current-year (Bayes/Rajan)", "amber"],
-        [ac.p_repeater_among_admitted != null ? fmt.pct(ac.p_repeater_among_admitted, 1) : "71%", "TN admits who were repeaters (2020–21)", ""],
-        [ac.calibrated_mean_sittings != null ? ac.calibrated_mean_sittings.toFixed(2) : "—", "Mean sittings (TN-cal scenario)", "teal"],
-        [ac.calibration_rho != null ? ac.calibration_rho + "×" : "1.75×", "ρ used to pin sitting model", ""],
+        [firstShow != null ? fmt.pct(firstShow, 1) : "28.6%", "TN admits current-year (2020–21 Rajan)", "amber"],
+        [ac.p_repeater_among_admitted != null ? fmt.pct(ac.p_repeater_among_admitted, 1) : "71.4%", "TN admits repeaters (2020–21 Rajan)", ""],
+        [ac.calibration_rho != null ? ac.calibration_rho + "×" : "1.75×", "ρ for first/repeater algebra only", "teal"],
+        ["BLOCK", "Joined cost × multi-sit access cards", ""],
       ].map(([v, l, c]) =>
         `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
       ).join("");
 
-      const styles = ["", "cruel", "gold"];
-      const cards = (T.trajectories || []).map((t, i) => {
-        const mid = t.total_family_economic_cost_inr?.mid ?? 0;
-        const high = t.total_family_economic_cost_inr?.high ?? mid;
-        const midL = (mid / 1e5).toFixed(1);
-        const highL = (high / 1e5).toFixed(1);
-        return `<article class="ticket-card ${styles[i] || ""}">
-          <p class="who">${t.stratum_label || ""}</p>
-          <h3>${t.label}</h3>
-          <p class="odds">${fmt.pct(t.p_accessible_seat, 1)}</p>
-          <p class="meta-line">chance of an accessible seat</p>
-          <p class="cost">Economic cost mid ₹${midL}L · high ₹${highL}L</p>
-          <p>${t.punch_line}</p>
-          <p class="psych"><strong>Psych / life:</strong> ${t.psych_burden} ${t.delayed_life_note}</p>
-        </article>`;
-      }).join("");
-      document.getElementById("ticket-cards").innerHTML = cards;
-      if (ac.proxy_for_birth_year) {
+      const blockNote = document.getElementById("ticket-block-note");
+      if (blockNote && T.blocked_reason) blockNote.textContent = T.blocked_reason;
+      const cardsEl = document.getElementById("ticket-cards");
+      if (cardsEl) {
+        cardsEl.innerHTML = "";
+        cardsEl.hidden = true;
+      }
+      if (ac.p_first_among_admitted != null) {
         document.getElementById("ticket-lede").innerHTML =
-          `Cash for coaching is only part of it. Families also pay years, lodging, foregone earnings,
-           and psychological wear. Among Tamil Nadu MBBS admits in 2020–21, only
-           <strong>${fmt.pct(ac.p_first_among_admitted, 1)}</strong> were current-year students —
-           most winners had already paid the repeater tax
-           <span class="cite">[Rajan21]</span>. ${ac.proxy_for_birth_year}`;
+          `Among Tamil Nadu MBBS admits in ${ac.latest_session || "2020–21"}, only
+           <strong>${fmt.pct(ac.p_first_among_admitted, 1)}</strong> were current-year students
+           and <strong>${fmt.pct(ac.p_repeater_among_admitted, 1)}</strong> were repeaters
+           <span class="cite">[Rajan21]</span>.
+           That is admitted composition — not a national applicant attempt histogram.
+           ${ac.proxy_for_birth_year || ""}`;
       }
     })();
 
     // —— Attempts ——
     const rhos = D.attempts.map((a) => a.rho);
+    const defaultRho = D.attempt_default_rho ?? 1.75;
+    let rhoIndex = Math.max(0, rhos.findIndex((r) => Math.abs(r - defaultRho) < 1e-9));
+    if (rhoIndex < 0) rhoIndex = 0;
+    const rhoSlider = document.getElementById("rho-slider");
+    if (rhoSlider) {
+      rhoSlider.max = String(Math.max(rhos.length - 1, 0));
+      rhoSlider.value = String(rhoIndex);
+    }
     document.getElementById("rho-labels").innerHTML = rhos.map((r, i) =>
-      `<button type="button" data-i="${i}" class="${i === 2 ? "on" : ""}">${r}×</button>`
+      `<button type="button" data-i="${i}" class="${i === rhoIndex ? "on" : ""}">${r}×</button>`
     ).join("");
 
     let persistId = "tn_post_neet_calibrated";
-    let rhoIndex = 2;
 
     function syncRhoLine() {
       const a = D.attempts[rhoIndex];
@@ -1444,8 +1423,13 @@
         || (D.attempt_scenarios || [])[0];
       if (!sc) return;
       document.getElementById("persist-mean").textContent = sc.mean_sittings.toFixed(2);
+      const anchored = persistId === "tn_post_neet_calibrated";
       document.getElementById("persist-rates").textContent =
-        `r₁=${sc.r1} · r₂=${sc.r2} · r₃=${sc.r3} · r₄+=${sc.r4p} · success exit = acceptable seat joined`;
+        `r₁=${sc.r1} · r₂=${sc.r2} · r₃=${sc.r3} · r₄+=${sc.r4p}` +
+        (anchored
+          ? " · only r₁/P(K=1) anchored via ρ; later rates assumed decay"
+          : " · unanchored sensitivity") +
+        " · success exit = acceptable seat joined";
       document.querySelectorAll("#persist-seg button").forEach((b) => {
         b.classList.toggle("on", b.dataset.sc === persistId);
       });
@@ -1523,7 +1507,7 @@
     drawEarnings();
     drawRazor();
     renderPersist();
-    renderRho(2);
+    renderRho(rhoIndex);
 
     // reveal / fade
     const io = new IntersectionObserver((entries) => {

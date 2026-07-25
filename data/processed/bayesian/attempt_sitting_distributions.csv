@@ -23,11 +23,11 @@ high_persistence,High persistence,5,0.022968749999999996,False
 high_persistence,High persistence,6,0.005742187499999999,False
 high_persistence,High persistence,7,0.0014355468749999998,False
 high_persistence,High persistence,8,0.00047851562499999994,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",1,0.41190000000000004,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",2,0.36326937,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",3,0.165317962239,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",4,0.04726496073578619,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",5,0.009727128919424798,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",6,0.0020018431316176236,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",7,0.00041197931648690703,False
-tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",8,0.00010675565768446924,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",1,0.41190000000000004,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",2,0.36326937,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",3,0.165317962239,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",4,0.04726496073578619,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",5,0.009727128919424798,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",6,0.0020018431316176236,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",7,0.00041197931648690703,False
+tn_post_neet_calibrated,"TN first/repeater-anchored (r_admit=0.7142, ρ=1.75; later decay assumed)",8,0.00010675565768446924,False

@@ -127,7 +127,7 @@ competing_risks_after_each_sitting:
 
 warnings:
   - Continuation rates are labeled sensitivity, not NEET national estimates.
-  - tn_post_neet_calibrated matches TN admitted composition under labeled ρ — still not national applicant truth.
+  - tn_post_neet_calibrated anchors only P(K=1) to TN admitted composition under labeled ρ; later r₂,r₃,r₄+ use assumed decay — not a calibrated full attempt distribution.
   - Do not use a constant geometric q (continuation should decay with attempt/age/cost).
   - Rajan / AIIMS-Bhopal figures are admitted composition, not applicant attempt histograms.
   - Class XII completion year gap D is a better administrative proxy than age alone.
