@@ -40,7 +40,7 @@ Register once at the MoSPI microdata portal, then download **archives + document
 
 ### Local status (2026-07-25)
 
-Downloaded via official `mospi-unitdata` API (unit files + docs; not committed): **PLFS** (2019–20–2023–24 annual + calendar 2022/2023/2025), **HCES** 2022–23 + 2023–24, **CMSE** 2025, **NSS Education** 2017–18, **AIDIS** 2019, **TUS** 2019 + 2024, **MIS** 78th, **CAMS** 2022–23, **ASUSE** 2022–23 + 2023–24, **NSS Health** 2017–18 + 2025. Tracker: `docs/acquisition_tracker.csv` / `docs/gated_data_acquisition.csv`.
+Downloaded via official `mospi-unitdata` API (unit files + docs; not committed): **PLFS** (2019–20–2023–24 annual + calendar 2022/2023/2025), **HCES** 2022–23 + 2023–24, **CMSE** 2025, **NSS Education** 2017–18, **AIDIS** 2019, **TUS** 2019 + 2024, **MIS** 78th, **CAMS** 2022–23, **ASUSE** 2022–23 + 2023–24, **NSS Health** 2017–18 + 2025. Per-wave blurbs + paths: [MOSPI_LOCAL_INVENTORY.md](MOSPI_LOCAL_INVENTORY.md). Tracker: `docs/acquisition_tracker.csv` / `docs/gated_data_acquisition.csv`. Hashes: `data/processed/download_manifest.csv`.
 
 ### If the NADA pages hang (common)
 
