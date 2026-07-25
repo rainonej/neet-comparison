@@ -4,7 +4,7 @@ neet_2024_appeared_including_ufm,2333297,candidates,India,2024,NTA re-revised re
 neet_2024_qualified,1315853,candidates,India,2024,NTA re-revised result press release 2024-07-26,Re-revised after grace-mark/result litigation; initial 2024-06-04 press had 1316268 qualified.
 neet_2024_registered,2406079,candidates,India,2024,NTA re-revised result press release 2024-07-26,Registered count; not all appeared.
 neet_2024_exam_centres,4750,centres,India and overseas,2024,NTA press + reconstruction centre list,Centre IDs include multiple codes per venue in some cases; reconstruction unique centre_id count matches.
-neet_2024_cities,567,cities,India and overseas,2024,hq969 centres CSV,NTA press cites 571 cities; local centre list has 567 distinct city labels — small labeling difference.
+neet_2024_cities,567,cities,India and overseas,2024,hq969 centres CSV,NTA press cites 571 cities; local centre list has 567 distinct city labels â small labeling difference.
 nmc_mbbs_colleges_current_page,823,colleges,India,2025-26 current page,NMC MBBS college list,Dynamic page; snapshot date required.
 nmc_mbbs_seats_current_page,129602,seats,India,2025-26 current page,NMC MBBS college list,Dynamic page; reconcile with INIs and final matrix.
 world_bank_physician_monthly_wage,57218,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Mean wage; physician distribution is wide.
@@ -23,7 +23,11 @@ cmse_metadata_private_coaching_max,120000,INR/current academic year,CMSE metadat
 cmse_class_x_xii_coaching_rate,0.3954,share of enrolled Class X-XII,India,2025,MoSPI CMSE 2025 unit file (weighted),School tutoring only; not NEET-specific or exam-dropper coaching.
 cmse_class_x_xii_coaching_exp_p50,9900,INR/current academic year,India,2025,MoSPI CMSE 2025 unit file (weighted),Among coached Class X-XII with non-missing private_coaching_exp_total.
 cmse_class_xii_coaching_rate,0.4165,share of enrolled Class XII,India,2025,MoSPI CMSE 2025 unit file (weighted),School frame; see data/processed/mospi/cmse_coaching_priors.csv.
-plfs_2025_physician_monthly_median,53000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 221,Weighted median among positive earners; geometric_sd≈2.05 in mospi/plfs_wage_anchors.csv.
+plfs_2025_physician_monthly_median,53000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 221,Weighted median among positive earners; geometric_sdâ2.05 in mospi/plfs_wage_anchors.csv.
 plfs_2025_engineer_monthly_median,40000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 21x,Science/engineering professionals family; not only civil/software.
 plfs_2025_nurse_monthly_median,18000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 222,Nursing/midwifery professionals.
 plfs_2025_youth_grad_unemployment,0.2449,rate,India,2025,MoSPI PLFS 2025 unit file,Ages 15-29 gedu>=11 in LF; usual status 81-82.
+rajan_first_among_admitted_2020_21,28.58,percent of admitted students,Tamil Nadu,2020-21,Justice A.K. Rajan Committee Table 7.38,Current-year students among MBBS admits; proxy not national birth-year microdata.
+rajan_repeater_exclusive_coaching_inr,1000000,INR,Tamil Nadu narrative,circa 2021,Justice A.K. Rajan Committee section 5.4,Exclusive coaching cost cited for a repeater; not a national mean.
+rajan_avg_coaching_cost_inr,95033,INR,Tamil Nadu derived,circa 2021,Justice A.K. Rajan Committee section 7.5.9.1,Average from package fee bands x repeater data; opaque derivation.
+plfs_no_college_monthly_median,12000,INR/month,India,PLFS 2025 processed,MoSPI PLFS wage anchors,Used as opportunity-cost proxy for drop years; not NEET-linked.

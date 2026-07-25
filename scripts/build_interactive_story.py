@@ -179,7 +179,7 @@ def build_payload() -> dict:
         for r in _read_csv(BAYES / "attempt_repeater_sensitivity.csv")
     ]
 
-    # Ensure continuation prior artifacts exist, then load
+    # Ensure continuation prior + ticket-cost artifacts exist, then load
     from neet_microsim.attempt_priors import write_attempt_prior_artifacts
 
     write_attempt_prior_artifacts(out_dir=BAYES)
@@ -197,9 +197,23 @@ def build_payload() -> dict:
             "p3": float(r["p_sit_3"]),
             "p4": float(r["p_sit_4"]),
             "p5p": float(r["p_sit_5_plus"]),
+            "calibrated": str(r.get("is_calibrated_to_admitted_composition", "")).lower()
+            in {"true", "1"},
         }
         for r in _read_csv(BAYES / "attempt_continuation_scenarios.csv")
     ]
+
+    ticket = json.loads((BAYES / "ticket_cost_summary.json").read_text(encoding="utf-8"))
+    ticket_trajectories = ticket.get("trajectories", [])
+    admitted_comp = ticket.get("admitted_composition", {})
+    bayes_first = next(
+        (
+            row
+            for row in bayes.get("comparison", [])
+            if row.get("profile") == bayes.get("default_profile", "conservative")
+        ),
+        {},
+    )
 
     # Profession medians from privilege Monte Carlo (employed), first stratum as shared priors
     eq = _read_csv(BAYES / "earnings_quantiles_by_outcome.csv")
@@ -329,7 +343,19 @@ def build_payload() -> dict:
             "beat": "Admitted repeater composition + ρ",
             "status": "SENS",
             "grain": "TN Rajan + algebra",
-            "note": "Binary first vs ≥2 only",
+            "note": "Binary first vs ≥2; TN-calibrated sitting scenario pinned to ρ=1.75",
+        },
+        {
+            "beat": "Ticket cost (cash + years + opp cost)",
+            "status": "SHOW†",
+            "grain": "CMSE + Rajan + PLFS + score strata",
+            "note": "Scenario bands; honest ~1–8% access rates, not 0.01%",
+        },
+        {
+            "beat": "National admitted birth years",
+            "status": "BLOCK",
+            "grain": "Need NTA/NMC DOB or Class XII year",
+            "note": "TN current-year admit share is the best age/attempt proxy in hand",
         },
         {
             "beat": "Wage gaps by identity",
@@ -353,6 +379,9 @@ def build_payload() -> dict:
                 "neet_2024_marks_histogram.csv",
                 "neet_2024_marks_quantiles.csv",
                 "attempt_repeater_sensitivity.csv",
+                "attempt_continuation_scenarios.csv",
+                "ticket_cost_summary.json",
+                "rajan_repeater_by_year.csv",
                 "earnings_quantiles_by_outcome.csv",
                 "cmse_coaching_priors.csv",
                 "docs/STORY_BIBLIOGRAPHY.md",
@@ -426,10 +455,21 @@ def build_payload() -> dict:
         "attempt_scenarios": attempt_scenarios,
         "attempt_note": (
             "National sitting histogram is unidentified. "
-            "Low/central/high are continuation-rate sensitivities "
-            "(success exit = acceptable seat joined, not mere qualify). "
+            "TN-calibrated continuation matches Rajan admitted repeater share under ρ=1.75; "
+            "low/central/high remain unanchored sensitivities. "
+            "Success exit = acceptable seat joined, not mere qualify. "
             "See docs/ATTEMPT_PRIORS.md."
         ),
+        "ticket_cost": {
+            "trajectories": ticket_trajectories,
+            "admitted_composition": admitted_comp,
+            "bayes_tn_first_among_admitted": {
+                "mean": bayes_first.get("tn_first_among_admitted_mean"),
+                "ci_low": bayes_first.get("tn_first_among_admitted_ci_low"),
+                "ci_high": bayes_first.get("tn_first_among_admitted_ci_high"),
+            },
+            "warnings": ticket.get("warnings", []),
+        },
         "cmse_coaching": cmse,
         "privilege_affordability_ratio": privilege.get("affordability_only_access_ratio"),
         "readiness": readiness,

@@ -7,19 +7,27 @@ low_persistence,Low persistence,5,0.0008100000000000001,False
 low_persistence,Low persistence,6,8.100000000000002e-05,False
 low_persistence,Low persistence,7,8.100000000000002e-06,False
 low_persistence,Low persistence,8,9.000000000000002e-07,False
-central,Central (default simulation start),1,0.5,False
-central,Central (default simulation start),2,0.33499999999999996,False
-central,Central (default simulation start),3,0.12375,False
-central,Central (default simulation start),4,0.0342375,False
-central,Central (default simulation start),5,0.005820375,False
-central,Central (default simulation start),6,0.0009894637500000001,False
-central,Central (default simulation start),7,0.00016820883750000005,False
-central,Central (default simulation start),8,3.4452412500000013e-05,False
-high_persistence,High persistence,1,0.30000000000000004,False
-high_persistence,High persistence,2,0.35,False
-high_persistence,High persistence,3,0.22749999999999998,False
-high_persistence,High persistence,4,0.09187499999999998,False
-high_persistence,High persistence,5,0.022968749999999996,False
-high_persistence,High persistence,6,0.005742187499999999,False
-high_persistence,High persistence,7,0.0014355468749999998,False
-high_persistence,High persistence,8,0.00047851562499999994,False
+central,Central (unanchored sensitivity),1,0.5,False
+central,Central (unanchored sensitivity),2,0.33499999999999996,False
+central,Central (unanchored sensitivity),3,0.12375,False
+central,Central (unanchored sensitivity),4,0.0342375,False
+central,Central (unanchored sensitivity),5,0.005820375,False
+central,Central (unanchored sensitivity),6,0.0009894637500000001,False
+central,Central (unanchored sensitivity),7,0.00016820883750000005,False
+central,Central (unanchored sensitivity),8,3.4452412500000013e-05,False
+high_persistence,High persistence,1,0.3000000000000001,False
+high_persistence,High persistence,2,0.35000000000000003,False
+high_persistence,High persistence,3,0.2275,False
+high_persistence,High persistence,4,0.091875,False
+high_persistence,High persistence,5,0.02296875,False
+high_persistence,High persistence,6,0.0057421875,False
+high_persistence,High persistence,7,0.001435546875,False
+high_persistence,High persistence,8,0.000478515625,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",1,0.41190000000000004,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",2,0.36326937,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",3,0.165317962239,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",4,0.04726496073578619,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",5,0.009727128919424798,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",6,0.0020018431316176236,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",7,0.00041197931648690703,False
+tn_post_neet_calibrated,"TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",8,0.00010675565768446924,False

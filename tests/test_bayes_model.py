@@ -77,6 +77,8 @@ def test_fit_profiles_and_pipeline(tmp_path: Path) -> None:
     assert 0.04 < conservative.mbbs_capacity_rate.mean < 0.08
     assert conservative.tn_govt_english_post.mean > conservative.tn_govt_tamil_post.mean
     assert conservative.medium_rate_ratio_post > 1.5
+    # Post-NEET Rajan collapse: first-among-admitted well below pre-NEET ~90% prior center.
+    assert 0.25 < conservative.tn_first_among_admitted.mean < 0.55
 
     # Coaching cohorts must not update the coaching prior object identity/parameters.
     neutral = fit_profile("neutral", processed=PROCESSED)

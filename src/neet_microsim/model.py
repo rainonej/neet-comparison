@@ -58,6 +58,7 @@ class ProfilePosteriors:
     mbbs_capacity_rate: BetaEvidence
     tn_govt_english_post: BetaEvidence
     tn_govt_tamil_post: BetaEvidence
+    tn_first_among_admitted: BetaEvidence
     medium_rate_ratio_post: float
     coaching_score_shift: TruncatedNormalEvidence
     aiq_course_mix: DirichletEvidence
@@ -373,6 +374,69 @@ def _build_career_paths(profile: PriorProfile, processed: Path) -> tuple[CareerP
     return medicine, engineering, other
 
 
+def _fit_tn_first_among_admitted(profile: PriorProfile, processed: Path) -> BetaEvidence:
+    """Bayesian update for P(current-year / first-timer | TN MBBS admit).
+
+    Uses Rajan Table 7.38 post-NEET year shares with deliberately small ESS
+    (state admitted composition ≠ national applicant truth). Proxy for the
+    claim that most winners are not first-sit school-leavers — not birth-year microdata.
+    """
+
+    candidates = [
+        processed / "bayesian" / "rajan_repeater_by_year.csv",
+        processed / "tamil_nadu" / "rajan_repeater_by_year.csv",
+    ]
+    path = next((p for p in candidates if p.exists()), None)
+    if path is None:
+        # Fallback: single 2020-21 point from published prose.
+        prior = binary_prior(
+            profile,
+            center=0.50,
+            label="tn_first_among_admitted",
+            source="prior + Rajan Table 7.38 fallback",
+        )
+        return prior.update_binomial(
+            successes=0.2858 * 30.0,
+            trials=30.0,
+            evidence_weight=1.0,
+            label="tn_first_among_admitted",
+            source="Rajan 2020-21 current-students share 28.58% (ESS=30)",
+            evidence_class="same_exam_other_state_or_year",
+        )
+
+    df = pd.read_csv(path)
+    post = df.loc[df["neet_era"] == "post_neet"].copy()
+    # Broad prior near pre-NEET high first-timer share so the post-NEET collapse is visible.
+    prior = binary_prior(
+        profile,
+        center=0.90,
+        label="tn_first_among_admitted",
+        source="prior centered near pre-NEET TN first-timer admit share",
+    )
+    # Year ESS rises slightly for later years (clearer NEET equilibrium); still << nominal N.
+    year_ess = {
+        "2016-2017": 12.0,
+        "2017-2018": 16.0,
+        "2018-2019": 20.0,
+        "2019-2020": 24.0,
+        "2020-2021": 30.0,
+    }
+    post_ev = prior
+    for _, row in post.iterrows():
+        session = str(row["session"])
+        ess = year_ess.get(session, 15.0)
+        p = float(row["current_students_share"])
+        post_ev = post_ev.update_binomial(
+            successes=p * ess,
+            trials=ess,
+            evidence_weight=1.0,
+            label="tn_first_among_admitted",
+            source=f"Rajan Table 7.38 {session} current-students share (ESS={ess:g})",
+            evidence_class="same_exam_other_state_or_year",
+        )
+    return post_ev
+
+
 def fit_profile(profile_name: str, *, processed: Path | None = None) -> ProfilePosteriors:
     processed_root = PROCESSED if processed is None else processed
     config = load_prior_config()
@@ -381,6 +445,7 @@ def fit_profile(profile_name: str, *, processed: Path | None = None) -> ProfileP
     eng, tam, holdout_year, hold_eng, hold_tam, pred_eng, pred_tam = _fit_tamil_nadu_medium(
         profile, processed_root
     )
+    first_admit = _fit_tn_first_among_admitted(profile, processed_root)
     aiq = _fit_aiq_course_mix(profile, processed_root)
     medicine, engineering, other = _build_career_paths(profile, processed_root)
     return ProfilePosteriors(
@@ -389,6 +454,7 @@ def fit_profile(profile_name: str, *, processed: Path | None = None) -> ProfileP
         mbbs_capacity_rate=capacity,
         tn_govt_english_post=eng,
         tn_govt_tamil_post=tam,
+        tn_first_among_admitted=first_admit,
         medium_rate_ratio_post=eng.mean / tam.mean if tam.mean > 0 else float("inf"),
         coaching_score_shift=profile.coaching_shift,
         aiq_course_mix=aiq,
@@ -426,6 +492,16 @@ def posterior_summary_table(fits: list[ProfilePosteriors]) -> pd.DataFrame:
                     "tn_govt_allotment_tamil_post_neet",
                     fit.tn_govt_tamil_post,
                     notes="Tamil Nadu ordinary quota; not national",
+                ),
+                _beta_row(
+                    fit.profile,
+                    "tn_first_among_admitted_mbbs",
+                    fit.tn_first_among_admitted,
+                    notes=(
+                        "P(current-year student | TN MBBS admit) from Rajan Table 7.38; "
+                        "proxy that most winners are not first-sit school-leavers — "
+                        "not national birth-year microdata"
+                    ),
                 ),
             ]
         )
@@ -565,6 +641,9 @@ def profile_comparison_table(
                 "mbbs_capacity_rate_mean": fit.mbbs_capacity_rate.mean,
                 "tn_english_govt_rate_mean": fit.tn_govt_english_post.mean,
                 "tn_tamil_govt_rate_mean": fit.tn_govt_tamil_post.mean,
+                "tn_first_among_admitted_mean": fit.tn_first_among_admitted.mean,
+                "tn_first_among_admitted_ci_low": fit.tn_first_among_admitted.credible_interval()[0],
+                "tn_first_among_admitted_ci_high": fit.tn_first_among_admitted.credible_interval()[1],
                 "tn_english_to_tamil_rate_ratio": fit.medium_rate_ratio_post,
                 "tn_holdout_year": fit.holdout_tn_year,
                 "tn_holdout_english_observed": fit.holdout_english_rate,

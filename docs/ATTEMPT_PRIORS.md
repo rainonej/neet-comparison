@@ -50,15 +50,28 @@ Do **not** treat full home/land value as cash; sensitivity at 0% / 10% / 20% ple
 
 Priors are on **continuation rates** \(r_t = P(\text{sit again} \mid \text{reached sitting } t)\), then mapped to a sitting histogram.
 
-| Scenario | \(r_1\) | \(r_2\) | \(r_3\) | \(r_{4+}\) | Mean sittings |
-|---|---|---|---|---|---|
-| Low | 0.30 | 0.20 | 0.15 | 0.10 | ~1.37 |
-| **Central** | 0.50 | 0.33 | 0.25 | 0.17 | ~1.72 |
-| High | 0.70 | 0.50 | 0.35 | 0.25 | ~2.21 |
+| Scenario | \(r_1\) | \(r_2\) | \(r_3\) | \(r_{4+}\) | Mean sittings | Role |
+|---|---|---|---|---|---|---|
+| Low | 0.30 | 0.20 | 0.15 | 0.10 | ~1.37 | Unanchored sensitivity |
+| Central | 0.50 | 0.33 | 0.25 | 0.17 | ~1.72 | Unanchored sensitivity |
+| High | 0.70 | 0.50 | 0.35 | 0.25 | ~2.21 | Unanchored sensitivity |
+| **TN post-NEET calibrated** | ≈0.59 | decays | … | … | ~1.9 | Default story: matches Rajan \(r=0.7142\) under ρ=1.75 |
 
-Beta hyperparameters for the central family live in the YAML. Report scenario sweeps, not a single “NEET mean attempts” number.
+**Calibration rule:** given admitted repeater share \(r\) and labeled ρ,
 
-Artifacts: `data/processed/bayesian/attempt_continuation_scenarios.csv`, `attempt_sitting_distributions.csv`.
+\[
+a = \frac{r}{r + \rho(1-r)}, \quad r_1 = a,\quad P(K=1)=1-r_1
+\]
+
+Later \(r_t\) decay as fractions of \(r_1\). This pins the binary first vs ≥2 split to TN admitted composition; it does **not** identify national attempt counts.
+
+Beta hyperparameters live in the YAML (means near the calibrated \(r_1\)). Report scenario sweeps, not a single “NEET mean attempts” number.
+
+### Ticket cost (paired artifact)
+
+`make attempt-priors` also writes `ticket_cost_summary.json`: first-sit vs two-drop-year trajectories with cash (CMSE / Rajan), opportunity cost (PLFS no-college), psych/life notes, and score-model `p_accessible_seat`. Honest low-privilege first-sit access is ~**1.4%**, not 0.01%.
+
+Artifacts: `attempt_continuation_scenarios.csv`, `attempt_sitting_distributions.csv`, `rajan_repeater_by_year.csv`, `ticket_cost_*.csv/json`.
 
 ## How to get better data (priority order)
 
@@ -70,4 +83,8 @@ Artifacts: `data/processed/bayesian/attempt_continuation_scenarios.csv`, `attemp
 
 ## Relation to ρ-sensitivity
 
-`attempt_inference.py` still backs out `P(repeater | applicant)` from Rajan’s admitted repeater share under labeled ρ. That is a **binary** first vs ≥2 split. Continuation scenarios supply the **full sitting histogram** under explicit decay assumptions. Neither identifies the national truth alone.
+`attempt_inference.py` still backs out `P(repeater | applicant)` from Rajan’s admitted repeater share under labeled ρ. That is a **binary** first vs ≥2 split. Continuation scenarios supply the **full sitting histogram** under explicit decay assumptions. The TN-calibrated scenario is the hinge between those two. Neither identifies the national truth alone.
+
+## Bayesian wiring
+
+`model.py` updates `tn_first_among_admitted_mbbs` from Rajan Table 7.38 post-NEET year shares (small ESS). Posterior mean is the epistemic summary of **P(current-year | TN MBBS admit)** — a proxy that most winners are older than first-sit school-leavers, not national DOB microdata.

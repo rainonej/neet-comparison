@@ -1,11 +1,24 @@
 {
-  "model_version": "0.1.0",
+  "model_version": "0.2.0",
   "success_exit": "accepted_or_joined_acceptable_seat",
   "beta_prior_means": {
-    "after_sitting_1": 0.5,
-    "after_sitting_2": 0.3333333333333333,
-    "after_sitting_3": 0.25,
-    "after_sitting_4_plus": 0.16666666666666666
+    "after_sitting_1": 0.5833333333333334,
+    "after_sitting_2": 0.36363636363636365,
+    "after_sitting_3": 0.2727272727272727,
+    "after_sitting_4_plus": 0.18181818181818182
+  },
+  "calibration": {
+    "p_repeater_among_admitted": 0.7142,
+    "relative_admit_prob": 1.75,
+    "implied_p_first_among_applicants": 0.4118664306007329,
+    "grain": "admitted_tamil_nadu_composition_plus_labeled_rho",
+    "is_national_estimate": false
+  },
+  "calibrated_continuation": {
+    "after_1": 0.5881,
+    "after_2": 0.3823,
+    "after_3": 0.2647,
+    "after_4_plus": 0.2058
   },
   "scenarios": [
     {
@@ -15,18 +28,20 @@
       "r_after_2": 0.2,
       "r_after_3": 0.15,
       "r_after_4_plus": 0.1,
-      "mean_sittings": 1.3699999,
+      "mean_sittings": 1.3699999000000003,
       "p_sit_1": 0.7000000000000001,
       "p_sit_2": 0.24000000000000002,
       "p_sit_3": 0.051000000000000004,
       "p_sit_4": 0.008100000000000001,
       "p_sit_5_plus": 0.0009000000000000001,
       "is_national_estimate": false,
+      "is_calibrated_to_admitted_composition": false,
+      "calibration_rho": NaN,
       "success_exit": "accepted_or_joined_acceptable_seat"
     },
     {
       "scenario_id": "central",
-      "label": "Central (default simulation start)",
+      "label": "Central (unanchored sensitivity)",
       "r_after_1": 0.5,
       "r_after_2": 0.33,
       "r_after_3": 0.25,
@@ -38,6 +53,8 @@
       "p_sit_4": 0.0342375,
       "p_sit_5_plus": 0.0070125000000000005,
       "is_national_estimate": false,
+      "is_calibrated_to_admitted_composition": false,
+      "calibration_rho": NaN,
       "success_exit": "accepted_or_joined_acceptable_seat"
     },
     {
@@ -47,21 +64,43 @@
       "r_after_2": 0.5,
       "r_after_3": 0.35,
       "r_after_4_plus": 0.25,
-      "mean_sittings": 2.213173828125,
-      "p_sit_1": 0.30000000000000004,
-      "p_sit_2": 0.35,
-      "p_sit_3": 0.22749999999999998,
-      "p_sit_4": 0.09187499999999998,
+      "mean_sittings": 2.2131738281250004,
+      "p_sit_1": 0.3000000000000001,
+      "p_sit_2": 0.35000000000000003,
+      "p_sit_3": 0.2275,
+      "p_sit_4": 0.091875,
       "p_sit_5_plus": 0.030624999999999996,
       "is_national_estimate": false,
+      "is_calibrated_to_admitted_composition": false,
+      "calibration_rho": NaN,
+      "success_exit": "accepted_or_joined_acceptable_seat"
+    },
+    {
+      "scenario_id": "tn_post_neet_calibrated",
+      "label": "TN post-NEET calibrated (r_admit=0.7142, \u03c1=1.75)",
+      "r_after_1": 0.5881,
+      "r_after_2": 0.3823,
+      "r_after_3": 0.2647,
+      "r_after_4_plus": 0.2058,
+      "mean_sittings": 1.8878370735238588,
+      "p_sit_1": 0.41190000000000004,
+      "p_sit_2": 0.36326937,
+      "p_sit_3": 0.165317962239,
+      "p_sit_4": 0.04726496073578619,
+      "p_sit_5_plus": 0.012247707025213798,
+      "is_national_estimate": false,
+      "is_calibrated_to_admitted_composition": true,
+      "calibration_rho": 1.75,
       "success_exit": "accepted_or_joined_acceptable_seat"
     }
   ],
   "warnings": [
     "Continuation rates are labeled sensitivity, not NEET national estimates.",
+    "tn_post_neet_calibrated matches TN admitted composition under labeled \u03c1 \u2014 still not national applicant truth.",
     "Do not use a constant geometric q (continuation should decay with attempt/age/cost).",
     "Rajan / AIIMS-Bhopal figures are admitted composition, not applicant attempt histograms.",
-    "Class XII completion year gap D is a better administrative proxy than age alone."
+    "Class XII completion year gap D is a better administrative proxy than age alone.",
+    "National admitted birth years are not in-repo; RTI Template 1b is the ask."
   ],
-  "note": "Labeled continuation sensitivity for simulation. Not a measured national NEET attempt distribution."
+  "note": "Labeled continuation sensitivity for simulation. tn_post_neet_calibrated matches TN admitted repeater share under labeled \u03c1; still not a measured national NEET attempt distribution."
 }

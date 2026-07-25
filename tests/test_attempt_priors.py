@@ -34,8 +34,15 @@ def test_high_persistence_has_heavier_tail_than_low() -> None:
 
 def test_scenario_table_flags_not_national() -> None:
     table = scenario_table()
-    assert set(table["scenario_id"]) >= {"low_persistence", "central", "high_persistence"}
+    assert set(table["scenario_id"]) >= {
+        "low_persistence",
+        "central",
+        "high_persistence",
+        "tn_post_neet_calibrated",
+    }
     assert table["is_national_estimate"].eq(False).all()
+    cal = table.loc[table["scenario_id"] == "tn_post_neet_calibrated"].iloc[0]
+    assert bool(cal["is_calibrated_to_admitted_composition"])
 
 
 def test_resource_runway_log_ratio() -> None:

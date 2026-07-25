@@ -166,6 +166,39 @@
     }
     .thesis-strip h3.cruel { color: var(--copper); }
     .thesis-strip p { margin: 0; font-size: 0.98rem; color: var(--ink-soft); }
+
+    .ticket-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 1.75rem;
+    }
+    @media (max-width: 960px) { .ticket-grid { grid-template-columns: 1fr; } }
+    .ticket-card {
+      border-top: 3px solid var(--seat);
+      padding: 1.25rem 0 0.25rem;
+    }
+    .ticket-card.cruel { border-top-color: var(--copper); }
+    .ticket-card.gold { border-top-color: var(--amber); }
+    .ticket-card .who {
+      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.78rem;
+      letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin: 0 0 0.45rem;
+    }
+    .ticket-card h3 {
+      font-family: Syne, sans-serif; font-weight: 800; font-size: 1.25rem;
+      letter-spacing: -0.02em; margin: 0 0 0.75rem; line-height: 1.2;
+    }
+    .ticket-card .odds {
+      font-family: Syne, sans-serif; font-weight: 800;
+      font-size: clamp(2rem, 4vw, 2.6rem); letter-spacing: -0.03em;
+      color: var(--field); margin: 0.2rem 0;
+    }
+    .ticket-card .cost {
+      font-family: Syne, sans-serif; font-weight: 700; font-size: 1.05rem;
+      color: var(--copper); margin: 0.35rem 0 0.75rem;
+    }
+    .ticket-card p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); line-height: 1.45; }
+    .ticket-card .psych {
+      margin-top: 0.85rem; padding-top: 0.75rem; border-top: 1px solid var(--line);
+      font-size: 0.88rem; color: var(--ink-soft);
+    }
     .stake-row {
       display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.65rem;
       margin: 1.5rem 0 0;
@@ -433,6 +466,7 @@
         <a href="#razor">One question</a>
         <a href="#odds">Buying odds</a>
         <a href="#arms">The tax</a>
+        <a href="#ticket">Ticket cost</a>
         <a href="#attempts">Years</a>
         <a href="#sources">Sources</a>
       </div>
@@ -716,37 +750,59 @@
     </div>
   </section>
 
+  <section id="ticket" class="alt">
+    <div class="wrap fade">
+      <p class="section-label">05 · Cost of the ticket</p>
+      <h2>What you pay to buy a thin chance.</h2>
+      <p class="lede" id="ticket-lede">
+        Cash for coaching is only part of it. Families also pay years, lodging, foregone earnings,
+        and psychological wear. Among Tamil Nadu MBBS admits in 2020–21, only about 29% were
+        current-year students — most winners had already paid the repeater tax
+        <span class="cite">[Rajan21]</span>.
+      </p>
+      <div class="stat-row" id="ticket-stats" style="margin-top:1.25rem"></div>
+      <div class="ticket-grid" id="ticket-cards"></div>
+      <p class="footnote" id="ticket-footnote" style="margin-top:1.25rem">
+        Access rates are synthetic-stratum model outputs (accessible seat ≠ qualify).
+        Cost bands use CMSE school tutoring, Rajan coaching anchors, and PLFS no-college wages —
+        not causal treatment effects. We do <em>not</em> invent a 0.01% first-sit probability;
+        the low-privilege first-sit accessible rate is about 1.4%.
+      </p>
+    </div>
+  </section>
+
   <section id="attempts">
     <div class="wrap fade">
-      <p class="section-label">05 · Years as currency</p>
-      <h2>We do not know how many times people sit.</h2>
+      <p class="section-label">06 · Years as currency</p>
+      <h2>Most winners were not first-sit school-leavers.</h2>
       <p class="lede" id="attempt-note">
-        NTA does not publish attempt counts or age. What we have is admitted composition
-        (TN: ~71% repeaters among winners) and labeled continuation scenarios.
-        Success exit = joined an acceptable seat — not “qualified.”
+        NTA does not publish attempt counts or birth years. What we have is admitted composition
+        (TN: ~71% repeaters among winners) and a sitting model calibrated to that composition
+        under labeled ρ. Success exit = joined an acceptable seat — not “qualified.”
       </p>
       <div class="thesis-strip">
         <article>
           <h3>Observed</h3>
-          <p>TN admitted repeater share 71% <span class="cite">[Rajan21]</span>. Elite-admit samples can look closer to ~1/3 repeaters. Heterogeneity is huge.</p>
+          <p>TN admitted repeater share rose from ~12% (2016–17) to 71% (2020–21) <span class="cite">[Rajan21]</span>. Current-year winners fell to 28.6% — a birth-year / Class XII proxy for age at admission.</p>
         </article>
         <article>
-          <h3>Missing</h3>
-          <p>National P(sittings=1,2,3…). Best ask: prior appearances × Class XII year × score band from NTA.</p>
+          <h3>Calibrated</h3>
+          <p>Default sitting scenario pins P(sittings=1) to the applicant first-share implied by that admitted r under ρ=1.75. Still not a national estimate.</p>
         </article>
         <article>
-          <h3 class="cruel">Wrong model</h3>
-          <p>Constant geometric retake probability. Continuation should fall with attempt, cost runway, and burnout.</p>
+          <h3 class="cruel">Missing</h3>
+          <p>National P(sittings=1,2,3…) and admitted DOBs. Best ask: prior appearances × Class XII year × score band from NTA.</p>
         </article>
       </div>
       <div class="panel" style="margin-top:1.5rem">
         <div class="controls">
           <h3>Persistence scenario</h3>
           <div class="ctrl">
-            <label>Continuation rates (labeled prior)</label>
+            <label>Continuation rates (TN-calibrated default)</label>
             <div class="seg" id="persist-seg">
+              <button type="button" data-sc="tn_post_neet_calibrated" class="on">TN-cal</button>
               <button type="button" data-sc="low_persistence">Low</button>
-              <button type="button" data-sc="central" class="on">Central</button>
+              <button type="button" data-sc="central">Central</button>
               <button type="button" data-sc="high_persistence">High</button>
             </div>
           </div>
@@ -783,7 +839,7 @@
 
   <section id="evidence" class="alt">
     <div class="wrap fade">
-      <p class="section-label">06 · Evidence grain</p>
+      <p class="section-label">07 · Evidence grain</p>
       <h2>What the numbers can defend.</h2>
       <p class="lede">
         The emotional claim is sharp; the measurement is not magic.
@@ -800,7 +856,7 @@
 
   <section id="sources">
     <div class="wrap fade">
-      <p class="section-label">07 · Bibliography</p>
+      <p class="section-label">08 · Bibliography</p>
       <h2>Sources behind the claims.</h2>
       <p class="lede">
         Bracket keys like <span class="cite">[PLFS25]</span> point here.
@@ -1263,13 +1319,56 @@
          (p90 ≈ ₹${fmt.n(cmse.spend_p90)}). CMSE 2025 — not NEET-applicant specific.`;
     }
 
+    // —— Ticket cost ——
+    (function renderTicket() {
+      const T = D.ticket_cost;
+      if (!T) return;
+      const ac = T.admitted_composition || {};
+      const bay = T.bayes_tn_first_among_admitted || {};
+      const firstShow = bay.mean != null ? bay.mean : ac.p_first_among_admitted;
+      document.getElementById("ticket-stats").innerHTML = [
+        [firstShow != null ? fmt.pct(firstShow, 1) : "—", "TN admits who were current-year (Bayes/Rajan)", "amber"],
+        [ac.p_repeater_among_admitted != null ? fmt.pct(ac.p_repeater_among_admitted, 1) : "71%", "TN admits who were repeaters (2020–21)", ""],
+        [ac.calibrated_mean_sittings != null ? ac.calibrated_mean_sittings.toFixed(2) : "—", "Mean sittings (TN-cal scenario)", "teal"],
+        [ac.calibration_rho != null ? ac.calibration_rho + "×" : "1.75×", "ρ used to pin sitting model", ""],
+      ].map(([v, l, c]) =>
+        `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
+      ).join("");
+
+      const styles = ["", "cruel", "gold"];
+      const cards = (T.trajectories || []).map((t, i) => {
+        const mid = t.total_family_economic_cost_inr?.mid ?? 0;
+        const high = t.total_family_economic_cost_inr?.high ?? mid;
+        const midL = (mid / 1e5).toFixed(1);
+        const highL = (high / 1e5).toFixed(1);
+        return `<article class="ticket-card ${styles[i] || ""}">
+          <p class="who">${t.stratum_label || ""}</p>
+          <h3>${t.label}</h3>
+          <p class="odds">${fmt.pct(t.p_accessible_seat, 1)}</p>
+          <p class="meta-line">chance of an accessible seat</p>
+          <p class="cost">Economic cost mid ₹${midL}L · high ₹${highL}L</p>
+          <p>${t.punch_line}</p>
+          <p class="psych"><strong>Psych / life:</strong> ${t.psych_burden} ${t.delayed_life_note}</p>
+        </article>`;
+      }).join("");
+      document.getElementById("ticket-cards").innerHTML = cards;
+      if (ac.proxy_for_birth_year) {
+        document.getElementById("ticket-lede").innerHTML =
+          `Cash for coaching is only part of it. Families also pay years, lodging, foregone earnings,
+           and psychological wear. Among Tamil Nadu MBBS admits in 2020–21, only
+           <strong>${fmt.pct(ac.p_first_among_admitted, 1)}</strong> were current-year students —
+           most winners had already paid the repeater tax
+           <span class="cite">[Rajan21]</span>. ${ac.proxy_for_birth_year}`;
+      }
+    })();
+
     // —— Attempts ——
     const rhos = D.attempts.map((a) => a.rho);
     document.getElementById("rho-labels").innerHTML = rhos.map((r, i) =>
       `<button type="button" data-i="${i}" class="${i === 2 ? "on" : ""}">${r}×</button>`
     ).join("");
 
-    let persistId = "central";
+    let persistId = "tn_post_neet_calibrated";
     let rhoIndex = 2;
 
     function syncRhoLine() {

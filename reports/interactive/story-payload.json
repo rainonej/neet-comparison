@@ -12,6 +12,9 @@
       "neet_2024_marks_histogram.csv",
       "neet_2024_marks_quantiles.csv",
       "attempt_repeater_sensitivity.csv",
+      "attempt_continuation_scenarios.csv",
+      "ticket_cost_summary.json",
+      "rajan_repeater_by_year.csv",
       "earnings_quantiles_by_outcome.csv",
       "cmse_coaching_priors.csv",
       "docs/STORY_BIBLIOGRAPHY.md"
@@ -821,16 +824,17 @@
       "r2": 0.2,
       "r3": 0.15,
       "r4p": 0.1,
-      "mean_sittings": 1.3699999,
+      "mean_sittings": 1.3699999000000003,
       "p1": 0.7000000000000001,
       "p2": 0.24000000000000002,
       "p3": 0.051000000000000004,
       "p4": 0.008100000000000001,
-      "p5p": 0.0009000000000000001
+      "p5p": 0.0009000000000000001,
+      "calibrated": false
     },
     {
       "id": "central",
-      "label": "Central (default simulation start)",
+      "label": "Central (unanchored sensitivity)",
       "r1": 0.5,
       "r2": 0.33,
       "r3": 0.25,
@@ -840,7 +844,8 @@
       "p2": 0.33499999999999996,
       "p3": 0.12375,
       "p4": 0.0342375,
-      "p5p": 0.0070125000000000005
+      "p5p": 0.0070125000000000005,
+      "calibrated": false
     },
     {
       "id": "high_persistence",
@@ -849,15 +854,252 @@
       "r2": 0.5,
       "r3": 0.35,
       "r4p": 0.25,
-      "mean_sittings": 2.213173828125,
-      "p1": 0.30000000000000004,
-      "p2": 0.35,
-      "p3": 0.22749999999999998,
-      "p4": 0.09187499999999998,
-      "p5p": 0.030624999999999996
+      "mean_sittings": 2.2131738281250004,
+      "p1": 0.3000000000000001,
+      "p2": 0.35000000000000003,
+      "p3": 0.2275,
+      "p4": 0.091875,
+      "p5p": 0.030624999999999996,
+      "calibrated": false
+    },
+    {
+      "id": "tn_post_neet_calibrated",
+      "label": "TN post-NEET calibrated (r_admit=0.7142, ρ=1.75)",
+      "r1": 0.5881,
+      "r2": 0.3823,
+      "r3": 0.2647,
+      "r4p": 0.2058,
+      "mean_sittings": 1.8878370735238588,
+      "p1": 0.41190000000000004,
+      "p2": 0.36326937,
+      "p3": 0.165317962239,
+      "p4": 0.04726496073578619,
+      "p5p": 0.012247707025213798,
+      "calibrated": true
     }
   ],
-  "attempt_note": "National sitting histogram is unidentified. Low/central/high are continuation-rate sensitivities (success exit = acceptable seat joined, not mere qualify). See docs/ATTEMPT_PRIORS.md.",
+  "attempt_note": "National sitting histogram is unidentified. TN-calibrated continuation matches Rajan admitted repeater share under ρ=1.75; low/central/high remain unanchored sensitivities. Success exit = acceptable seat joined, not mere qualify. See docs/ATTEMPT_PRIORS.md.",
+  "ticket_cost": {
+    "trajectories": [
+      {
+        "id": "fresh_xii_tamil_no_prep",
+        "label": "First sit, right out of high school",
+        "years_out_of_school": 0,
+        "n_sittings_so_far": 1,
+        "stratum_id": "tamil_cant_afford_nonmetro_none",
+        "stratum_label": "Tamil · cannot afford private · non-metro · no paid prep",
+        "p_accessible_seat": 0.01435,
+        "arms_race_scenario": "unilateral",
+        "cash_coaching_inr": {
+          "low": 0.0,
+          "mid": 12000.0,
+          "high": 39500.0
+        },
+        "cash_exam_travel_materials_inr": {
+          "low": 1700.0,
+          "mid": 4700.0,
+          "high": 9700.0
+        },
+        "cash_lodging_relocation_inr": {
+          "low": 0.0,
+          "mid": 0.0,
+          "high": 0.0
+        },
+        "opportunity_cost_inr": {
+          "low": 0.0,
+          "mid": 0.0,
+          "high": 0.0
+        },
+        "total_family_economic_cost_inr": {
+          "low": 1700.0,
+          "mid": 16700.0,
+          "high": 49200.0
+        },
+        "psych_burden": "One high-stakes exam year while finishing Class XII — acute stress, but not yet multi-year identity foreclosure around the exam.",
+        "delayed_life_note": "Life start not yet delayed beyond a normal school-leaving year.",
+        "punch_line": "You paid almost nothing to sit right out of high school (cash outlay mid ≈ ₹0.2L). Your chance of an accessible MBBS seat your family can cash is 1.4% — not a rounding error of 0.01%, and still a brutal lottery.",
+        "sources": [
+          "score_inequality_story.json unilateral tamil_cant_afford_nonmetro_none",
+          "CMSE 2025 class_xii coaching spend (school frame)",
+          "NTA exam fee order-of-magnitude"
+        ],
+        "caveats": [
+          "Accessible seat ≠ qualify; private offer you cannot pay does not count.",
+          "CMSE is school tutoring, not NEET residential coaching.",
+          "Rate is synthetic-stratum model output, not a published individual probability."
+        ]
+      },
+      {
+        "id": "two_year_dropper_tamil_modest",
+        "label": "Two drop years, still cannot afford private",
+        "years_out_of_school": 2,
+        "n_sittings_so_far": 3,
+        "stratum_id": "tamil_cant_afford_nonmetro_modest",
+        "stratum_label": "Tamil · cannot afford private · non-metro · modest prep",
+        "p_accessible_seat": 0.019425,
+        "arms_race_scenario": "unilateral",
+        "cash_coaching_inr": {
+          "low": 79000.0,
+          "mid": 500000.0,
+          "high": 1000000.0
+        },
+        "cash_exam_travel_materials_inr": {
+          "low": 3400.0,
+          "mid": 20100.0,
+          "high": 45100.0
+        },
+        "cash_lodging_relocation_inr": {
+          "low": 0.0,
+          "mid": 160000.0,
+          "high": 360000.0
+        },
+        "opportunity_cost_inr": {
+          "low": 144000.0,
+          "mid": 288000.0,
+          "high": 360000.0
+        },
+        "total_family_economic_cost_inr": {
+          "low": 226400.0,
+          "mid": 968100.0,
+          "high": 1765100.0
+        },
+        "psych_burden": "Two years of full-time prep identity: higher distress among repeat aspirants is documented in convenience samples (e.g. Alagappa / district surveys). Not an individual clinical risk score.",
+        "delayed_life_note": "Two years of delayed college/work entry; peers may already be earning or enrolled.",
+        "punch_line": "After ~2 years of studying, failed attempts, tutoring/lodging, and family opportunity cost (economic mid ≈ ₹9.7L; high coaching path ≈ ₹17.7L), your chance of an accessible seat your family can afford is still only 1.9% — a thin upgrade bought with years and money.",
+        "sources": [
+          "score_inequality_story.json unilateral tamil_cant_afford_nonmetro_modest",
+          "Rajan Committee: ₹10L exclusive repeater coaching; long-term fee bands; avg ₹95,033",
+          "CMSE 2025 class_xii p90 as school-tutoring floor",
+          "PLFS 2025 no_college monthly median × 24 months opportunity cost"
+        ],
+        "caveats": [
+          "Rajan ₹10L is a TN narrative high for exclusive coaching — not a national mean.",
+          "Opportunity cost uses no_college wage median as a transparent counterfactual.",
+          "Modest prep does not unlock private seats the family still cannot pay."
+        ]
+      },
+      {
+        "id": "two_year_dropper_english_intensive_can_pay",
+        "label": "Two drop years, English + intensive + can pay private",
+        "years_out_of_school": 2,
+        "n_sittings_so_far": 3,
+        "stratum_id": "english_can_afford_metro_intensive",
+        "stratum_label": "English · can afford private · metro · intensive prep",
+        "p_accessible_seat": 0.07945,
+        "arms_race_scenario": "unilateral",
+        "cash_coaching_inr": {
+          "low": 180000.0,
+          "mid": 900000.0,
+          "high": 1200000.0
+        },
+        "cash_exam_travel_materials_inr": {
+          "low": 3400.0,
+          "mid": 20100.0,
+          "high": 45100.0
+        },
+        "cash_lodging_relocation_inr": {
+          "low": 0.0,
+          "mid": 160000.0,
+          "high": 360000.0
+        },
+        "opportunity_cost_inr": {
+          "low": 144000.0,
+          "mid": 288000.0,
+          "high": 360000.0
+        },
+        "total_family_economic_cost_inr": {
+          "low": 327400.0,
+          "mid": 1368100.0,
+          "high": 1965100.0
+        },
+        "psych_burden": "Same calendar years and exam stress — with a family that can keep buying prep and cash a private offer if the rank allows.",
+        "delayed_life_note": "Same two-year delay; different ability to monetize a private allotment.",
+        "punch_line": "Same two-year ticket price in calendar time (economic mid ≈ ₹13.7L), but privilege raises accessible-seat chance to 7.9% — still a minority outcome, now with a privatized safety net.",
+        "sources": [
+          "score_inequality_story.json unilateral english_can_afford_metro_intensive",
+          "Rajan Committee coaching fee bands",
+          "PLFS 2025 no_college monthly median opportunity-cost proxy"
+        ],
+        "caveats": [
+          "Contrast is compositional / scenario, not a causal LATE of coaching.",
+          "Can-pay private converts more score ranks into cashable seats."
+        ]
+      }
+    ],
+    "admitted_composition": {
+      "grain": "admitted_tamil_nadu_mbbs",
+      "proxy_for_birth_year": "other_than_current_year_students ≈ not the Class XII cohort of that admission year; implies most winners were older than a typical first-sit school-leaver. National DOB / Class XII year tables are still missing (see RTI Template 1b).",
+      "latest_session": "2020-2021",
+      "p_first_among_admitted": 0.2858,
+      "p_repeater_among_admitted": 0.7142,
+      "pre_neet_mean_repeater_share": 0.02744,
+      "post_neet_years": [
+        {
+          "session": "2016-2017",
+          "current_students_share": 0.8753,
+          "repeater_share": 0.1247,
+          "neet_era": "post_neet",
+          "source": "Justice A.K. Rajan Committee Table 7.38",
+          "notes": "Share among TN MBBS admits; other-than-current-year = repeater proxy"
+        },
+        {
+          "session": "2017-2018",
+          "current_students_share": 0.6164,
+          "repeater_share": 0.3836,
+          "neet_era": "post_neet",
+          "source": "Justice A.K. Rajan Committee Table 7.38",
+          "notes": "Share among TN MBBS admits; other-than-current-year = repeater proxy"
+        },
+        {
+          "session": "2018-2019",
+          "current_students_share": 0.4959,
+          "repeater_share": 0.5041,
+          "neet_era": "post_neet",
+          "source": "Justice A.K. Rajan Committee Table 7.38",
+          "notes": "Share among TN MBBS admits; other-than-current-year = repeater proxy"
+        },
+        {
+          "session": "2019-2020",
+          "current_students_share": 0.306,
+          "repeater_share": 0.694,
+          "neet_era": "post_neet",
+          "source": "Justice A.K. Rajan Committee Table 7.38",
+          "notes": "Share among TN MBBS admits; other-than-current-year = repeater proxy"
+        },
+        {
+          "session": "2020-2021",
+          "current_students_share": 0.2858,
+          "repeater_share": 0.7142,
+          "neet_era": "post_neet",
+          "source": "Justice A.K. Rajan Committee Table 7.38",
+          "notes": "Share among TN MBBS admits; other-than-current-year = repeater proxy"
+        }
+      ],
+      "calibration_rho": 1.75,
+      "implied_p_first_among_applicants": 0.4118664306007329,
+      "implied_p_repeater_among_applicants": 0.5881335693992671,
+      "calibrated_continuation": {
+        "after_1": 0.5881,
+        "after_2": 0.3823,
+        "after_3": 0.2647,
+        "after_4_plus": 0.2058
+      },
+      "calibrated_mean_sittings": 1.8878370735238588,
+      "calibrated_p_sit_1": 0.41190000000000004,
+      "source": "Justice A.K. Rajan Committee Table 7.38",
+      "rajan_repeater_share_constant": 0.7142
+    },
+    "bayes_tn_first_among_admitted": {
+      "mean": 0.46983018867924525,
+      "ci_low": 0.37599658898880184,
+      "ci_high": 0.5647426108375792
+    },
+    "warnings": [
+      "Do not quote 0.01% unless a stratum model actually produces it; use published p_accessible.",
+      "TN admitted current-year share is not national birth-year microdata.",
+      "Costs are scenario bands with cited anchors, not causal treatment effects."
+    ]
+  },
   "cmse_coaching": [
     {
       "sector": "rural",
@@ -944,7 +1186,19 @@
       "beat": "Admitted repeater composition + ρ",
       "status": "SENS",
       "grain": "TN Rajan + algebra",
-      "note": "Binary first vs ≥2 only"
+      "note": "Binary first vs ≥2; TN-calibrated sitting scenario pinned to ρ=1.75"
+    },
+    {
+      "beat": "Ticket cost (cash + years + opp cost)",
+      "status": "SHOW†",
+      "grain": "CMSE + Rajan + PLFS + score strata",
+      "note": "Scenario bands; honest ~1–8% access rates, not 0.01%"
+    },
+    {
+      "beat": "National admitted birth years",
+      "status": "BLOCK",
+      "grain": "Need NTA/NMC DOB or Class XII year",
+      "note": "TN current-year admit share is the best age/attempt proxy in hand"
     },
     {
       "beat": "Wage gaps by identity",

@@ -30,8 +30,12 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 |---|---|---|
 | TN English vs Tamil govt allotment gap | Justice A.K. Rajan Committee (2021) | State case; not national causal English effect |
 | ~98.5% of admitted coached (TN) | Rajan Committee | Admitted denominator only |
-| ~71.4% of admitted were repeaters (TN 2020–21) | Rajan Committee | Not mean attempts among applicants |
+| ~71.4% of admitted were repeaters (TN 2020–21) | Rajan Committee Table 7.38 | Not mean attempts among applicants |
+| ~28.6% of admitted were current-year (TN 2020–21) | Rajan Committee Table 7.38 | Best in-repo age/attempt proxy; not national DOB |
+| ₹10 lakh exclusive coaching for a repeater | Rajan Committee §5.4 | Narrative high, not national mean |
+| ~₹95,033 average coaching cost (TN packages) | Rajan Committee §7.5.9.1 | Derived from fee bands |
 | Coaching spend / participation | MoSPI CMSE 2025 unit aggregates | School tutoring frame; not NEET-dropper specific |
+| Youth opportunity-cost wage proxy | PLFS 2025 no_college monthly median | Not NEET-linked |
 
 ## Arms race / coaching effects
 
@@ -44,9 +48,10 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 
 | Claim | Source | Caveat |
 |---|---|---|
-| Sitting histograms (low/central/high) | `config/attempt_priors.yaml` | **Sensitivity only** — see docs/ATTEMPT_PRIORS.md |
+| Sitting histograms (low/central/high/TN-cal) | `config/attempt_priors.yaml` | TN-calibrated under ρ; still not national |
+| Ticket-cost trajectories | `ticket_cost_summary.json` | Scenario bands; accessible ≠ qualify |
 | Resource runway formula | CMSE + HCES + AIDIS + PLFS (+ TUS) | Synthetic household; not NEET-linked |
-| NTA prior appearances / Class XII year | Not public | RTI template 1b |
+| NTA prior appearances / Class XII year / DOB | Not public | RTI template 1b |
 
 ## Citation keys used in the HTML
 

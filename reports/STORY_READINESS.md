@@ -85,12 +85,14 @@
 |---|---|---|---|
 | 71% of *admitted* were repeaters (TN 2020–21) | Admitted | **SHOW** | Rajan |
 | Applicant repeater share under ρ sensitivity | Algebraic | **SENS** | `attempt_repeater_sensitivity.csv` |
-| Continuation-rate sitting histograms (low/central/high) | Labeled prior | **SENS** | `config/attempt_priors.yaml` · docs/ATTEMPT_PRIORS.md |
+| Continuation-rate sitting histograms (low/central/high/TN-cal) | Labeled prior | **SENS** | `config/attempt_priors.yaml` · TN-cal pins P(K=1) to Rajan under ρ=1.75 |
+| Ticket-cost trajectories (cash + opp cost + psych) | Scenario bands | **SHOW†** | `ticket_cost_summary.json` — honest ~1.4% first-sit access, not 0.01% |
+| Bayes P(current-year \| TN admit) | Admitted TN | **SHOW†** | `tn_first_among_admitted_mbbs` from Rajan Table 7.38 |
+| National admitted birth years / Class XII year | National | **BLOCK** | RTI Template 1b; TN current-year share is best proxy |
 | Mean attempts / full histogram as national fact | National | **BLOCK** | Need NTA prior-appearances × Class XII year tables |
-| Resource runway (CMSE/HCES/AIDIS/PLFS) | Synthetic household | **LATER** | Formula in code; not yet linked into microsim loop |
-| Attempt costs (money + years) in NPV | Life-course | **LATER** | Prep-cost knobs exist; not locked into story |
+| Resource runway in microsim loop | Synthetic household | **LATER** | Formula + ticket bands exist; not full agent loop |
 
-**Verdict:** Ready to teach the denominator trap and show **labeled** persistence scenarios. Not ready to quote a national “average attempts.”
+**Verdict:** Ready to teach the denominator trap, show **TN-calibrated** persistence, and price the ticket. Not ready to quote national mean attempts or birth-year histograms.
 
 ### 7. Earnings / life after the seat
 
