@@ -131,11 +131,11 @@
     .hero-cta:hover { transform: translateY(-2px); }
 
     .funnel {
-      position: absolute; right: -4%; top: 18%;
-      width: min(48vw, 520px); height: 58vh;
+      position: absolute; right: 2%; top: 16%;
+      width: min(42vw, 460px); height: 56vh;
       opacity: 0.9; pointer-events: none;
     }
-    .funnel svg { width: 100%; height: 100%; }
+    .funnel svg { width: 100%; height: 100%; overflow: visible; }
 
     section { padding: 5.5rem 0; }
     section.alt { background: rgba(255,255,255,0.35); }
@@ -314,7 +314,39 @@
     .chart-cap {
       font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 1rem;
     }
-    canvas { width: 100% !important; max-height: 320px; }
+    .chart-box canvas {
+      display: block; width: 100% !important; height: auto !important;
+    }
+    .cite {
+      font-family: Syne, sans-serif; font-size: 0.65rem; font-weight: 700;
+      color: var(--teal-deep); white-space: nowrap;
+    }
+    .razor-scale {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem;
+      margin: 1.25rem 0;
+    }
+    @media (max-width: 800px) { .razor-scale { grid-template-columns: repeat(2, 1fr); } }
+    .razor-card {
+      padding: 1rem 0.9rem; background: var(--field); color: var(--paper);
+    }
+    .razor-card b {
+      display: block; font-family: Syne, sans-serif; font-weight: 800;
+      font-size: 1.55rem; color: var(--seat); letter-spacing: -0.03em;
+    }
+    .razor-card span {
+      font-family: Syne, sans-serif; font-size: 0.68rem; letter-spacing: 0.04em;
+      text-transform: uppercase; color: rgba(238,242,239,0.65);
+    }
+    .biblio { list-style: none; padding: 0; margin: 0; }
+    .biblio li {
+      display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem;
+      padding: 0.65rem 0; border-bottom: 1px solid var(--line);
+      font-size: 0.9rem; color: var(--ink-soft);
+    }
+    .biblio code {
+      font-family: Syne, sans-serif; font-weight: 800; font-size: 0.72rem;
+      color: var(--teal-deep);
+    }
 
     .ladder {
       display: grid; gap: 0.55rem; margin-top: 1.25rem;
@@ -398,10 +430,11 @@
       <div class="toc">
         <a href="#prize">The prize</a>
         <a href="#lottery">Lottery</a>
+        <a href="#razor">One question</a>
         <a href="#odds">Buying odds</a>
         <a href="#arms">The tax</a>
         <a href="#attempts">Years</a>
-        <a href="#evidence">Evidence</a>
+        <a href="#sources">Sources</a>
       </div>
     </div>
   </nav>
@@ -411,8 +444,9 @@
       <svg viewBox="0 0 400 480" fill="none">
         <path d="M40 40 H360 L240 300 H160 Z" stroke="rgba(238,242,239,0.25)" stroke-width="1.5" fill="rgba(47,143,134,0.12)"/>
         <path d="M160 300 H240 L220 420 H180 Z" fill="#e2a12b" opacity="0.9"/>
-        <text x="200" y="120" text-anchor="middle" fill="rgba(238,242,239,0.55)" font-family="Syne,sans-serif" font-size="14" font-weight="700">2.33M APPEARED</text>
-        <text x="200" y="390" text-anchor="middle" fill="#0c2428" font-family="Syne,sans-serif" font-size="12" font-weight="800">~130K SEATS</text>
+        <text x="200" y="120" text-anchor="middle" fill="rgba(238,242,239,0.55)" font-family="Syne,sans-serif" font-size="13" font-weight="700">2.33M APPEARED</text>
+        <text x="200" y="372" text-anchor="middle" fill="#0c2428" font-family="Syne,sans-serif" font-size="11" font-weight="800">~130K</text>
+        <text x="200" y="388" text-anchor="middle" fill="#0c2428" font-family="Syne,sans-serif" font-size="11" font-weight="800">SEATS</text>
       </svg>
     </div>
     <div class="wrap hero-inner">
@@ -436,16 +470,31 @@
         Families are not irrational for wanting it. That is exactly why the rationing hurts.
       </p>
       <div class="stake-row">
-        <div class="stake"><b>Upward mobility</b><span>A profession that can rewrite a family’s trajectory</span></div>
-        <div class="stake"><b>Respect</b><span>Social standing that school marks alone rarely buy</span></div>
-        <div class="stake"><b>Job security</b><span>Credentialed work with persistent demand</span></div>
-        <div class="stake"><b>Quality of life</b><span>Autonomy and options most graduates do not get</span></div>
-        <div class="stake"><b>Income</b><span>Medicine sits above engineering, law, and no-college paths</span></div>
+        <div class="stake">
+          <b>Upward mobility <span class="cite">[AEJ24]</span></b>
+          <span>Education remains a primary intergenerational mobility channel in India</span>
+        </div>
+        <div class="stake">
+          <b>Respect / prestige <span class="cite">[Thomas10]</span></b>
+          <span>Medicine’s social standing is part of why families treat the seat as destiny</span>
+        </div>
+        <div class="stake">
+          <b>Job security <span class="cite">[IER24]</span></b>
+          <span>Technical / professional credentials track toward more regular employment than non-technical paths</span>
+        </div>
+        <div class="stake">
+          <b>Job quality <span class="cite">[WB25]</span></b>
+          <span>Health-labor markets show structured physician careers and sector wage gaps — not gig scraps</span>
+        </div>
+        <div class="stake">
+          <b>Income <span class="cite">[PLFS25]</span></b>
+          <span>Physician earnings sit above engineering and far above no-college paths among employed workers</span>
+        </div>
       </div>
       <div class="chart-box" style="margin-top:1.75rem">
         <p class="chart-title">Median annual earnings if employed (₹ lakh)</p>
-        <p class="chart-cap">The payoff that makes the tournament worth entering — and makes losing expensive.</p>
-        <canvas id="earn-canvas" height="280"></canvas>
+        <p class="chart-cap">Model paths anchored to PLFS / World Bank occupation wages. Bars: median; whiskers: p25–p75.</p>
+        <canvas id="earn-canvas" height="340"></canvas>
       </div>
       <div class="stat-row" id="zero-stats" style="margin-top:1.5rem"></div>
       <p class="footnote" id="zero-note">
@@ -477,14 +526,57 @@
         </div>
       </div>
       <div class="chart-box" style="margin-top:1.5rem">
-        <p class="chart-title">NEET 2024 marks — where the mass sits</p>
-        <p class="chart-cap">Most candidates are far below the seat line. Tiny rank moves near the cutoff decide life paths.</p>
-        <canvas id="marks-canvas" height="280"></canvas>
+        <p class="chart-title">NEET 2024 marks — where the mass sits <span class="cite">[hq969][NTA24]</span></p>
+        <p class="chart-cap">Most candidates are far below the seat line. The next section zooms into how thin that line is.</p>
+        <canvas id="marks-canvas" height="360"></canvas>
       </div>
       <p class="footnote">
         Source: reconciled NTA appeared/qualified counts and NMC seat capacity.
         Cutoffs shown as national accounting shares (seats ÷ appeared), not state or category counselling pools.
       </p>
+    </div>
+  </section>
+
+  <section id="razor">
+    <div class="wrap fade">
+      <p class="section-label">02b · Razor margin</p>
+      <h2>One question can be a life.</h2>
+      <p class="lede">
+        NEET marks are mostly high-school Biology, Chemistry, and Physics — +4 for a correct answer.
+        Under national capacity accounting, the any-MBBS seat line sits near
+        <strong id="razor-cutoff">~560</strong> marks. The median appeared candidate is about
+        <strong id="razor-median-gap">~99</strong> correct-answers-equivalent below that line.
+        Near the line itself, the gap between a seat and another year (or giving up) is absurdly small.
+      </p>
+      <div class="stat-row" id="razor-stats"></div>
+      <div class="razor-scale" id="razor-bands"></div>
+      <div class="chart-box">
+        <p class="chart-title">Candidates within ±N correct answers of the any-MBBS line</p>
+        <p class="chart-cap">
+          Interpolated from national marks quantiles. “Questions” = marks ÷ 4 (one extra correct, holding others fixed).
+          Not the same as counselling cutoffs by state/category.
+        </p>
+        <canvas id="razor-canvas" height="300"></canvas>
+      </div>
+      <div class="two-col" style="margin-top:1.5rem">
+        <div class="callout">
+          <h3>Why this feels like a lottery</h3>
+          <p>
+            When tens of thousands of students sit within a few questions of the seat line,
+            tiny noise — one silly mistake, one lucky guess, one coaching drill — rearranges futures.
+            That is not “clear merit separation.” It is a knife-edge rank auction.
+          </p>
+        </div>
+        <div class="callout" style="background:#1a3338">
+          <h3>Sample items?</h3>
+          <p>
+            Official NEET items are copyrighted, so we do not paste them here.
+            The pedagogical point still holds: the exam is largely Class 11–12 syllabus content.
+            The cruelty is not that the questions are PhD-hard — it is that <em>high-school trivia margins</em>
+            decide who gets the mobility prize after years of extraction.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -561,7 +653,7 @@
           <div class="mini-grid">
             <div class="mini"><b id="profile-govt">—</b><span>Govt offer</span></div>
             <div class="mini"><b id="profile-marks">—</b><span>Mean marks</span></div>
-            <div class="mini"><b id="profile-shift">—</b><span>Score shift (SD)</span></div>
+            <div class="mini"><b id="profile-qgap">—</b><span>≈Q below seat line</span></div>
           </div>
         </div>
       </div>
@@ -579,12 +671,12 @@
         <div class="chart-box">
           <p class="chart-title">Weaker ticket — mark shape</p>
           <p class="chart-cap" id="marks-low-cap">Tamil · cannot afford · no prep</p>
-          <canvas id="marks-low" height="220"></canvas>
+          <canvas id="marks-low" height="300"></canvas>
         </div>
         <div class="chart-box">
           <p class="chart-title">Stronger ticket — mark shape</p>
           <p class="chart-cap" id="marks-top-cap">English · can afford · metro · intensive</p>
-          <canvas id="marks-top" height="220"></canvas>
+          <canvas id="marks-top" height="300"></canvas>
         </div>
       </div>
     </div>
@@ -602,7 +694,7 @@
       <div class="chart-box">
         <p class="chart-title">Accessible-seat odds when the pool arms up</p>
         <p class="chart-cap">Unilateral advantage vs everyone-escalates worlds. The tax keeps rising even when the positional gain collapses.</p>
-        <canvas id="arms-canvas" height="300"></canvas>
+        <canvas id="arms-canvas" height="380"></canvas>
       </div>
       <div class="two-col" style="margin-top:1.5rem">
         <div class="callout">
@@ -653,7 +745,7 @@
             <p class="meta-line" id="rho-first">—</p>
           </div>
           <div class="chart-box" style="background:transparent;border:0;padding:0;margin:0">
-            <canvas id="rho-canvas" height="160"></canvas>
+            <canvas id="rho-canvas" height="220"></canvas>
           </div>
         </div>
       </div>
@@ -674,6 +766,18 @@
         <p class="chart-title">Guardrails</p>
         <ul id="warnings" style="margin:0.5rem 0 1rem; padding-left:1.2rem; color:var(--ink-soft)"></ul>
       </div>
+    </div>
+  </section>
+
+  <section id="sources">
+    <div class="wrap fade">
+      <p class="section-label">07 · Bibliography</p>
+      <h2>Sources behind the claims.</h2>
+      <p class="lede">
+        Bracket keys like <span class="cite">[PLFS25]</span> point here.
+        Full write-up: <code>docs/STORY_BIBLIOGRAPHY.md</code>.
+      </p>
+      <ol class="biblio" id="biblio"></ol>
     </div>
   </section>
 
@@ -787,12 +891,14 @@
 
     function renderProfile() {
       const r = nearestStratum();
+      const cut = D.razor.any_mbbs_cutoff_marks;
+      const qGap = (cut - r.mean_marks) / D.razor.marks_per_correct;
       document.getElementById("profile-label").textContent = r.label + " · " + state.scenario.replace(/_/g, " ");
       document.getElementById("profile-p").textContent = fmt.pct(r.p_accessible, 2);
       document.getElementById("profile-govt").textContent = fmt.pct(r.p_govt, 2);
       document.getElementById("profile-marks").textContent = Math.round(r.mean_marks);
-      document.getElementById("profile-shift").textContent =
-        (r.total_location_shift_sd >= 0 ? "+" : "") + r.total_location_shift_sd.toFixed(2);
+      document.getElementById("profile-qgap").textContent =
+        (qGap >= 0 ? "−" : "+") + Math.abs(qGap).toFixed(0);
       renderLadder();
       drawArms();
     }
@@ -834,26 +940,46 @@
       });
     });
 
-    // —— Canvas helpers ——
-    function drawBars(canvas, labels, values, opts = {}) {
-      const ctx = canvas.getContext("2d");
+    // —— Canvas helpers (preserve CSS height; leave room for axis labels) ——
+    function canvasSize(canvas) {
+      if (!canvas.dataset.cssH) {
+        canvas.dataset.cssH = String(
+          parseInt(canvas.getAttribute("height"), 10) || canvas.clientHeight || 280
+        );
+      }
+      const cssW = Math.max(canvas.clientWidth || canvas.parentElement?.clientWidth || 640, 280);
+      const cssH = Number(canvas.dataset.cssH);
+      canvas.style.width = "100%";
+      canvas.style.height = cssH + "px";
       const dpr = window.devicePixelRatio || 1;
-      const cssW = canvas.clientWidth || 640;
-      const cssH = canvas.height;
-      canvas.width = cssW * dpr;
-      canvas.height = cssH * dpr;
+      canvas.width = Math.round(cssW * dpr);
+      canvas.height = Math.round(cssH * dpr);
+      const ctx = canvas.getContext("2d");
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, cssW, cssH);
+      return { ctx, cssW, cssH };
+    }
 
-      const pad = { t: 16, r: 12, b: 48, l: 36 };
+    function drawBars(canvas, labels, values, opts = {}) {
+      const { ctx, cssW, cssH } = canvasSize(canvas);
+      const rotate = opts.rotate !== false;
+      const pad = Object.assign(
+        { t: 32, r: 18, b: rotate ? 100 : 64, l: 48 },
+        opts.pad || {}
+      );
       const w = cssW - pad.l - pad.r;
       const h = cssH - pad.t - pad.b;
       const maxV = opts.max || Math.max(...values, 0.001);
       const n = values.length;
-      const gap = opts.gap ?? 0.22;
+      const gap = opts.gap ?? 0.28;
       const bw = w / n;
 
-      // cutoff lines
+      if (opts.yLabel) {
+        ctx.fillStyle = "#3a4a4e";
+        ctx.font = "600 11px Syne, sans-serif";
+        ctx.fillText(opts.yLabel, 4, 14);
+      }
+
       if (opts.lines) {
         for (const ln of opts.lines) {
           const x = pad.l + ln.xFrac * w;
@@ -867,7 +993,8 @@
           ctx.setLineDash([]);
           ctx.fillStyle = ln.color || "#e2a12b";
           ctx.font = "600 10px Syne, sans-serif";
-          ctx.fillText(ln.label, x + 4, pad.t + 12);
+          const lx = Math.min(x + 4, cssW - 90);
+          ctx.fillText(ln.label, lx, pad.t + 12);
         }
       }
 
@@ -876,31 +1003,54 @@
         const x = pad.l + i * bw + (bw * gap) / 2;
         const y = pad.t + h - bh;
         ctx.fillStyle = opts.colors ? opts.colors[i] : "#2f8f86";
-        ctx.fillRect(x, y, bw * (1 - gap), bh);
-        ctx.fillStyle = "#3a4a4e";
-        ctx.font = "600 10px Syne, sans-serif";
-        ctx.save();
-        ctx.translate(pad.l + i * bw + bw / 2, cssH - 8);
-        ctx.rotate(-Math.PI / 4);
-        ctx.textAlign = "right";
-        ctx.fillText(labels[i], 0, 0);
-        ctx.restore();
+        ctx.fillRect(x, y, bw * (1 - gap), Math.max(bh, 0));
+
+        if (opts.valueLabels) {
+          ctx.fillStyle = "#121a1c";
+          ctx.font = "700 11px Syne, sans-serif";
+          ctx.textAlign = "center";
+          ctx.fillText(opts.valueLabels[i], x + (bw * (1 - gap)) / 2, y - 6);
+          ctx.textAlign = "left";
+        }
+
+        ctx.fillStyle = "#121a1c";
+        ctx.font = "700 12px Syne, sans-serif";
+        const label = labels[i];
+        const cx = pad.l + i * bw + bw / 2;
+        if (rotate) {
+          ctx.save();
+          ctx.translate(cx, pad.t + h + 16);
+          ctx.rotate(-Math.PI / 4);
+          ctx.textAlign = "right";
+          ctx.fillText(label, 0, 0);
+          ctx.restore();
+        } else {
+          ctx.textAlign = "center";
+          ctx.fillText(label, cx, pad.t + h + 28);
+          ctx.textAlign = "left";
+        }
       });
+
+      return { pad, w, h, maxV, bw, gap, cssW, cssH, ctx };
+    }
+
+    function shortStratum(label) {
+      // "English · can afford private · non-metro · modest prep" → "Eng / can$ / metro?"
+      const parts = label.split(" · ");
+      const med = parts[0] === "Tamil" ? "Tam" : "Eng";
+      const pay = (parts[1] || "").includes("cannot") ? "no$" : "can$";
+      const place = (parts[2] || "").includes("metro") && !(parts[2] || "").includes("non")
+        ? "metro" : "non-m";
+      const prep = (parts[3] || "").includes("intensive")
+        ? "int" : (parts[3] || "").includes("modest") ? "mod" : "none";
+      return `${med}/${pay}/${place}/${prep}`;
     }
 
     function drawGrouped(canvas, groups) {
-      // groups: [{label, values: number[]}], categories from first
       const cats = groups[0].labels;
       const series = groups;
-      const ctx = canvas.getContext("2d");
-      const dpr = window.devicePixelRatio || 1;
-      const cssW = canvas.clientWidth || 640;
-      const cssH = canvas.height;
-      canvas.width = cssW * dpr;
-      canvas.height = cssH * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.clearRect(0, 0, cssW, cssH);
-      const pad = { t: 20, r: 12, b: 70, l: 40 };
+      const { ctx, cssW, cssH } = canvasSize(canvas);
+      const pad = { t: 36, r: 14, b: 110, l: 44 };
       const w = cssW - pad.l - pad.r;
       const h = cssH - pad.t - pad.b;
       const all = series.flatMap((s) => s.values);
@@ -908,48 +1058,56 @@
       const n = cats.length;
       const gw = w / n;
       const colors = ["#2f8f86", "#e2a12b", "#b85c38"];
+
+      series.forEach((s, si) => {
+        const x = pad.l + si * 150;
+        ctx.fillStyle = colors[si];
+        ctx.fillRect(x, 8, 10, 10);
+        ctx.fillStyle = "#3a4a4e";
+        ctx.font = "600 11px Syne, sans-serif";
+        ctx.fillText(s.name, x + 16, 17);
+      });
+
       cats.forEach((_, i) => {
         series.forEach((s, si) => {
           const v = s.values[i];
-          const sw = gw / (series.length + 0.6);
-          const x = pad.l + i * gw + si * sw + sw * 0.3;
+          const sw = gw / (series.length + 0.55);
+          const x = pad.l + i * gw + si * sw + sw * 0.25;
           const bh = (v / maxV) * h;
           ctx.fillStyle = colors[si % colors.length];
-          ctx.fillRect(x, pad.t + h - bh, sw * 0.9, bh);
+          ctx.fillRect(x, pad.t + h - bh, sw * 0.88, Math.max(bh, 0));
         });
         ctx.fillStyle = "#3a4a4e";
-        ctx.font = "600 9px Syne, sans-serif";
+        ctx.font = "600 10px Syne, sans-serif";
         ctx.save();
-        ctx.translate(pad.l + i * gw + gw / 2, cssH - 10);
-        ctx.rotate(-Math.PI / 3.2);
+        ctx.translate(pad.l + i * gw + gw / 2, pad.t + h + 12);
+        ctx.rotate(-Math.PI / 3.4);
         ctx.textAlign = "right";
-        const short = cats[i].replace(" · ", "\n").split(" · ");
-        ctx.fillText(cats[i].split(" · ").slice(0, 2).join(" / "), 0, 0);
+        ctx.fillText(shortStratum(cats[i]), 0, 0);
         ctx.restore();
-      });
-      // legend
-      series.forEach((s, si) => {
-        const x = pad.l + si * 140;
-        ctx.fillStyle = colors[si];
-        ctx.fillRect(x, 4, 10, 10);
-        ctx.fillStyle = "#3a4a4e";
-        ctx.font = "600 11px Syne, sans-serif";
-        ctx.fillText(s.name, x + 16, 13);
       });
     }
 
     function drawMarksNational() {
       const labels = D.marks_national.map((r) => r.band);
       const values = D.marks_national.map((r) => r.share);
-      // Approximate x positions for cutoffs: top ~2.7% and ~5.6% from right
-      // Map score bands roughly; cutoffs are percentile of rank, not score band centers.
-      // Visual: put lines near high-score end (right).
-      const canvas = document.getElementById("marks-canvas");
-      drawBars(canvas, labels, values, {
+      const anyM = D.razor.any_mbbs_cutoff_marks;
+      const govM = D.razor.government_cutoff_marks;
+      // Map marks onto band centers for line placement
+      const centers = D.marks_national.map((r) => {
+        if (r.band.startsWith("<")) return -90;
+        const bits = r.band.replace("–", "-").split("-").map(Number);
+        return (bits[0] + bits[1]) / 2;
+      });
+      const minC = centers[0];
+      const maxC = centers[centers.length - 1];
+      const xFrac = (m) => (m - minC) / (maxC - minC);
+      drawBars(document.getElementById("marks-canvas"), labels, values, {
+        yLabel: "Share of appeared",
         colors: values.map((_, i) => (i >= labels.length - 3 ? "#e2a12b" : "#2f8f86")),
         lines: [
-          { xFrac: 0.93, label: "govt ~top 2.7%", color: "#b85c38" },
-          { xFrac: 0.88, label: "any MBBS ~top 5.6%", color: "#e2a12b" },
+          { xFrac: xFrac(govM), label: `govt ~${Math.round(govM)}`, color: "#b85c38" },
+          { xFrac: xFrac(anyM), label: `any MBBS ~${Math.round(anyM)}`, color: "#e2a12b" },
         ],
       });
     }
@@ -959,17 +1117,22 @@
       if (!block) return;
       document.getElementById(capId).textContent = block.label;
       const labels = block.bins.map((b) =>
-        b.left < 0 ? "<0" : `${b.left|0}–${b.right|0}`
+        b.left < 0 ? "<0" : `${b.left | 0}-${b.right | 0}`
       );
       const values = block.bins.map((b) => b.share);
       drawBars(document.getElementById(canvasId), labels, values, {
         colors: values.map(() => "#1f6b65"),
+        yLabel: "Share",
       });
     }
 
     function drawArms() {
       const scenarios = ["unilateral", "everyone_modest", "everyone_intensive"];
-      const names = { unilateral: "Unilateral", everyone_modest: "Everyone modest", everyone_intensive: "Everyone intensive" };
+      const names = {
+        unilateral: "Unilateral",
+        everyone_modest: "Everyone modest",
+        everyone_intensive: "Everyone intensive",
+      };
       const base = D.ladders.unilateral;
       const cats = base.map((r) => r.label);
       const groups = scenarios.map((sc) => ({
@@ -984,26 +1147,21 @@
     }
 
     function drawEarnings() {
-      const labels = D.professions.map((p) => p.label);
+      const labels = D.professions.map((p) =>
+        p.label.replace("Non-professional grad", "Non-prof grad").replace("Law (proxy)", "Law")
+      );
       const values = D.professions.map((p) => p.median_lakh);
       const canvas = document.getElementById("earn-canvas");
-      drawBars(canvas, labels, values, {
+      const maxV = Math.max(...D.professions.map((p) => p.p75_lakh)) * 1.08;
+      const geom = drawBars(canvas, labels, values, {
         colors: ["#e2a12b", "#2f8f86", "#3a4a4e", "#5a6e72", "#8a9a9e"],
-        max: Math.max(...D.professions.map((p) => p.p75_lakh)) * 1.05,
+        max: maxV,
+        yLabel: "₹ lakh / year",
+        valueLabels: values.map((v) => v.toFixed(1)),
+        rotate: false,
+        pad: { t: 36, r: 16, b: 56, l: 44 },
       });
-      // overlay p25-p75 as thin marks
-      const ctx = canvas.getContext("2d");
-      const dpr = window.devicePixelRatio || 1;
-      const cssW = canvas.clientWidth || 640;
-      const cssH = canvas.height;
-      const pad = { t: 16, r: 12, b: 48, l: 36 };
-      const w = cssW - pad.l - pad.r;
-      const h = cssH - pad.t - pad.b;
-      const maxV = Math.max(...D.professions.map((p) => p.p75_lakh)) * 1.05;
-      const n = D.professions.length;
-      const bw = w / n;
-      const gap = 0.22;
-      ctx.save();
+      const { ctx, pad, h, bw, gap } = geom;
       D.professions.forEach((p, i) => {
         const x = pad.l + i * bw + bw / 2;
         const y1 = pad.t + h - (p.p75_lakh / maxV) * h;
@@ -1019,11 +1177,44 @@
         ctx.moveTo(x - 6, y2); ctx.lineTo(x + 6, y2);
         ctx.stroke();
       });
-      ctx.restore();
 
       document.getElementById("zero-stats").innerHTML = D.professions.slice(0, 4).map((p) =>
         `<div class="stat"><b>${fmt.pct(p.zero_share, 0)}</b><span>Zero-earn share · ${p.label}</span></div>`
       ).join("");
+    }
+
+    function drawRazor() {
+      const R = D.razor;
+      document.getElementById("razor-cutoff").textContent = `~${Math.round(R.any_mbbs_cutoff_marks)}`;
+      document.getElementById("razor-median-gap").textContent =
+        `~${Math.round(R.questions_median_below_any_cutoff)}`;
+      document.getElementById("razor-stats").innerHTML = [
+        [`${Math.round(R.any_mbbs_cutoff_marks)}`, "Any-MBBS line (marks)", "amber"],
+        [`${Math.round(R.government_cutoff_marks)}`, "Govt-like line (marks)", ""],
+        [`${R.national_median_marks}`, "National median marks", "teal"],
+        [`+${R.marks_per_correct}`, "Marks per correct answer", ""],
+      ].map(([v, l, c]) =>
+        `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
+      ).join("");
+
+      document.getElementById("razor-bands").innerHTML = R.near_cutoff_bands.map((b) => `
+        <div class="razor-card">
+          <b>${fmt.n(b.n_candidates)}</b>
+          <span>within ±${b.questions} question${b.questions > 1 ? "s" : ""} · ${fmt.pct(b.share, 2)}</span>
+        </div>`).join("");
+
+      drawBars(
+        document.getElementById("razor-canvas"),
+        R.near_cutoff_bands.map((b) => `±${b.questions} Q`),
+        R.near_cutoff_bands.map((b) => b.n_candidates),
+        {
+          colors: ["#e2a12b", "#d4892a", "#2f8f86", "#1f6b65"],
+          yLabel: "Candidates near line",
+          valueLabels: R.near_cutoff_bands.map((b) => fmt.n(b.n_candidates)),
+          rotate: false,
+          pad: { t: 36, r: 16, b: 56, l: 52 },
+        }
+      );
     }
 
     // Arms stats
@@ -1086,12 +1277,17 @@
     document.getElementById("warnings").innerHTML =
       D.meta.warnings.map((w) => `<li>${w}</li>`).join("");
 
+    document.getElementById("biblio").innerHTML = (D.bibliography || []).map((b) =>
+      `<li><code>[${b.key}]</code><span>${b.text}</span></li>`
+    ).join("");
+
     // —— Init draws ——
     renderProfile();
     drawMarksNational();
     drawStratumMarks("marks-low", "tamil_cant_afford_nonmetro_none", "marks-low-cap");
     drawStratumMarks("marks-top", "english_can_afford_metro_intensive", "marks-top-cap");
     drawEarnings();
+    drawRazor();
     renderRho(2);
 
     // reveal / fade
@@ -1115,13 +1311,18 @@
     const sv = document.getElementById("scarcity-viz");
     if (sv) sio.observe(sv);
 
+    let resizeTimer;
     window.addEventListener("resize", () => {
-      drawMarksNational();
-      drawStratumMarks("marks-low", "tamil_cant_afford_nonmetro_none", "marks-low-cap");
-      drawStratumMarks("marks-top", "english_can_afford_metro_intensive", "marks-top-cap");
-      drawArms();
-      drawEarnings();
-      renderRho(Number(document.getElementById("rho-slider").value));
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        drawMarksNational();
+        drawStratumMarks("marks-low", "tamil_cant_afford_nonmetro_none", "marks-low-cap");
+        drawStratumMarks("marks-top", "english_can_afford_metro_intensive", "marks-top-cap");
+        drawArms();
+        drawEarnings();
+        drawRazor();
+        renderRho(Number(document.getElementById("rho-slider").value));
+      }, 120);
     });
   })();
   </script>

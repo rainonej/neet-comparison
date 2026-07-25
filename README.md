@@ -71,7 +71,8 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/PRIVILEGE_INEQUALITY_STORY.md](reports/PRIVILEGE_INEQUALITY_STORY.md) | Privilege access ladder + seat vs no-seat lifetime earnings distributions |
 | [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Score → rank → seat model with coaching arms-race scenarios |
 | [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
-| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (scarcity → privilege → arms race → earnings) |
+| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (prize → lottery → razor margin → privilege tax) |
+| [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
 
 ## Ethical and statistical guardrails
 

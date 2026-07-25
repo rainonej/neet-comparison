@@ -26,6 +26,135 @@ def _f(x: str | float | int | None) -> float | None:
     return float(x)
 
 
+MARKS_PER_CORRECT = 4  # NTA NEET-UG: +4 correct, −1 wrong, 0 blank; 180 Q → max 720
+
+
+def _quantile_table() -> list[tuple[float, float]]:
+    rows = _read_csv(ROOT / "data" / "processed" / "neet_2024_marks_quantiles.csv")
+    return sorted((float(r["quantile"]), float(r["marks"])) for r in rows)
+
+
+def _marks_at_cdf(table: list[tuple[float, float]], p: float) -> float:
+    if p <= table[0][0]:
+        return table[0][1]
+    if p >= table[-1][0]:
+        return table[-1][1]
+    for i in range(len(table) - 1):
+        p0, m0 = table[i]
+        p1, m1 = table[i + 1]
+        if p0 <= p <= p1:
+            t = (p - p0) / ((p1 - p0) or 1e-12)
+            return m0 + t * (m1 - m0)
+    return table[-1][1]
+
+
+def _cdf_at_marks(table: list[tuple[float, float]], m: float) -> float:
+    if m <= table[0][1]:
+        return table[0][0]
+    if m >= table[-1][1]:
+        return table[-1][0]
+    for i in range(len(table) - 1):
+        p0, m0 = table[i]
+        p1, m1 = table[i + 1]
+        if m0 <= m <= m1:
+            t = (m - m0) / ((m1 - m0) or 1e-12)
+            return p0 + t * (p1 - p0)
+    return 1.0
+
+
+def build_razor_margin(n_appeared: int, govt_seats: int, private_seats: int) -> dict:
+    """Translate seat cutoffs into marks and 'questions correct' equivalents."""
+    table = _quantile_table()
+    total_seats = govt_seats + private_seats
+    gov_cdf = 1.0 - govt_seats / n_appeared
+    any_cdf = 1.0 - total_seats / n_appeared
+    gov_marks = _marks_at_cdf(table, gov_cdf)
+    any_marks = _marks_at_cdf(table, any_cdf)
+    median_marks = _marks_at_cdf(table, 0.5)
+
+    bands = []
+    for k in (1, 2, 5, 10):
+        dm = MARKS_PER_CORRECT * k
+        lo, hi = any_marks - dm, any_marks + dm
+        share = _cdf_at_marks(table, hi) - _cdf_at_marks(table, lo)
+        bands.append(
+            {
+                "questions": k,
+                "marks_window": MARKS_PER_CORRECT * k * 2,
+                "marks_lo": round(lo, 1),
+                "marks_hi": round(hi, 1),
+                "share": share,
+                "n_candidates": int(round(share * n_appeared)),
+            }
+        )
+
+    return {
+        "marks_per_correct": MARKS_PER_CORRECT,
+        "n_questions": 180,
+        "max_marks": 720,
+        "scoring_note": (
+            "NTA NEET-UG: 180 questions, +4 correct / -1 wrong / 0 blank. "
+            "One extra correct answer (holding others fixed) is +4 marks."
+        ),
+        "government_cutoff_marks": round(gov_marks, 1),
+        "any_mbbs_cutoff_marks": round(any_marks, 1),
+        "national_median_marks": round(median_marks, 1),
+        "questions_median_below_any_cutoff": round(
+            (any_marks - median_marks) / MARKS_PER_CORRECT, 1
+        ),
+        "questions_median_below_govt_cutoff": round(
+            (gov_marks - median_marks) / MARKS_PER_CORRECT, 1
+        ),
+        "near_cutoff_bands": bands,
+        "interpolation": "Linear between published national marks quantiles",
+    }
+
+
+def build_bibliography() -> list[dict[str, str]]:
+    return [
+        {
+            "key": "PLFS25",
+            "text": "MoSPI Periodic Labour Force Survey unit files (processed 2025 wage anchors): physician vs engineering / other occupation medians.",
+        },
+        {
+            "key": "WB25",
+            "text": "World Bank (2025), An Overview of the Indian Health Labor Markets — PLFS-based physician/engineer wages and sector job-quality gaps.",
+        },
+        {
+            "key": "IER24",
+            "text": "ILO / Institute for Human Development, India Employment Report 2024 — graduate youth unemployment; technical degree and regular employment.",
+        },
+        {
+            "key": "AEJ24",
+            "text": "Asher, Novosad, et al. (AEJ Applied, 2024), Intergenerational Mobility in India — education as a mobility channel.",
+        },
+        {
+            "key": "Thomas10",
+            "text": "Thomas (2010), Medicine, merit, money and caste — prestige, private purchase, and contested merit in Indian medical education.",
+        },
+        {
+            "key": "NTA24",
+            "text": "NTA NEET-UG 2024 re-revised result press release + scheme of examination (+4/−1/180Q).",
+        },
+        {
+            "key": "NMC",
+            "text": "National Medical Commission MBBS college/seat list snapshot used for capacity accounting.",
+        },
+        {
+            "key": "hq969",
+            "text": "Public anonymized NEET-2024 centre-marks reconstruction (~2.33M rows), reconciled to NTA appeared counts.",
+        },
+        {
+            "key": "Rajan21",
+            "text": "Justice A.K. Rajan Committee report (Tamil Nadu, 2021) — medium, coaching, and repeater composition among admitted students.",
+        },
+        {
+            "key": "CMSE25",
+            "text": "MoSPI Comprehensive Modular Survey on Education 2025 — coaching participation and spend among enrolled students.",
+        },
+    ]
+
+
 def build_payload() -> dict:
     score = json.loads((BAYES / "score_inequality_story.json").read_text(encoding="utf-8"))
     privilege = json.loads((BAYES / "inequality_story.json").read_text(encoding="utf-8"))
@@ -194,9 +323,11 @@ def build_payload() -> dict:
                 "inequality_story.json",
                 "bayesian_results.json",
                 "neet_2024_marks_histogram.csv",
+                "neet_2024_marks_quantiles.csv",
                 "attempt_repeater_sensitivity.csv",
                 "earnings_quantiles_by_outcome.csv",
                 "cmse_coaching_priors.csv",
+                "docs/STORY_BIBLIOGRAPHY.md",
             ],
             "thesis": (
                 "Medicine’s rewards are real. The rationing machine is cruel: "
@@ -257,11 +388,17 @@ def build_payload() -> dict:
         "ladders": ladders,
         "marks_national": marks_hist,
         "marks_by_stratum": marks_by_stratum,
+        "razor": build_razor_margin(
+            score["capacity"]["n_appeared"],
+            score["capacity"]["government_like_seats"],
+            score["capacity"]["private_like_seats"],
+        ),
         "professions": professions,
         "attempts": attempts,
         "cmse_coaching": cmse,
         "privilege_affordability_ratio": privilege.get("affordability_only_access_ratio"),
         "readiness": readiness,
+        "bibliography": build_bibliography(),
         "zero_earnings_note": privilege.get("zero_earnings_note"),
     }
 

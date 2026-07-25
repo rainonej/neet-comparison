@@ -10,9 +10,11 @@
       "inequality_story.json",
       "bayesian_results.json",
       "neet_2024_marks_histogram.csv",
+      "neet_2024_marks_quantiles.csv",
       "attempt_repeater_sensitivity.csv",
       "earnings_quantiles_by_outcome.csv",
-      "cmse_coaching_priors.csv"
+      "cmse_coaching_priors.csv",
+      "docs/STORY_BIBLIOGRAPHY.md"
     ],
     "thesis": "Medicine’s rewards are real. The rationing machine is cruel: a heavily taxing lottery that sells better odds to families who can afford the ticket, then launders the outcome as merit.",
     "arms_race_blurb": "Coaching is the entry fee of the lottery. Holding others fixed, prep can raise absolute scores. When the whole pool escalates, relative ranks barely move while money and years are still extracted.",
@@ -680,6 +682,52 @@
       ]
     }
   },
+  "razor": {
+    "marks_per_correct": 4,
+    "n_questions": 180,
+    "max_marks": 720,
+    "scoring_note": "NTA NEET-UG: 180 questions, +4 correct / -1 wrong / 0 blank. One extra correct answer (holding others fixed) is +4 marks.",
+    "government_cutoff_marks": 619.2,
+    "any_mbbs_cutoff_marks": 560.5,
+    "national_median_marks": 163.0,
+    "questions_median_below_any_cutoff": 99.4,
+    "questions_median_below_govt_cutoff": 114.1,
+    "near_cutoff_bands": [
+      {
+        "questions": 1,
+        "marks_window": 8,
+        "marks_lo": 556.5,
+        "marks_hi": 564.5,
+        "share": 0.0046511627906976605,
+        "n_candidates": 10852
+      },
+      {
+        "questions": 2,
+        "marks_window": 16,
+        "marks_lo": 552.5,
+        "marks_hi": 568.5,
+        "share": 0.009302325581395321,
+        "n_candidates": 21704
+      },
+      {
+        "questions": 5,
+        "marks_window": 40,
+        "marks_lo": 540.5,
+        "marks_hi": 580.5,
+        "share": 0.02198388208100477,
+        "n_candidates": 51292
+      },
+      {
+        "questions": 10,
+        "marks_window": 80,
+        "marks_lo": 520.5,
+        "marks_hi": 600.5,
+        "share": 0.042807191356599605,
+        "n_candidates": 99876
+      }
+    ],
+    "interpolation": "Linear between published national marks quantiles"
+  },
   "professions": [
     {
       "id": "government_mbbs",
@@ -852,6 +900,48 @@
       "status": "BLOCK",
       "grain": "Joint microdata",
       "note": "Privilege enters on access, not invented wage curves"
+    }
+  ],
+  "bibliography": [
+    {
+      "key": "PLFS25",
+      "text": "MoSPI Periodic Labour Force Survey unit files (processed 2025 wage anchors): physician vs engineering / other occupation medians."
+    },
+    {
+      "key": "WB25",
+      "text": "World Bank (2025), An Overview of the Indian Health Labor Markets — PLFS-based physician/engineer wages and sector job-quality gaps."
+    },
+    {
+      "key": "IER24",
+      "text": "ILO / Institute for Human Development, India Employment Report 2024 — graduate youth unemployment; technical degree and regular employment."
+    },
+    {
+      "key": "AEJ24",
+      "text": "Asher, Novosad, et al. (AEJ Applied, 2024), Intergenerational Mobility in India — education as a mobility channel."
+    },
+    {
+      "key": "Thomas10",
+      "text": "Thomas (2010), Medicine, merit, money and caste — prestige, private purchase, and contested merit in Indian medical education."
+    },
+    {
+      "key": "NTA24",
+      "text": "NTA NEET-UG 2024 re-revised result press release + scheme of examination (+4/−1/180Q)."
+    },
+    {
+      "key": "NMC",
+      "text": "National Medical Commission MBBS college/seat list snapshot used for capacity accounting."
+    },
+    {
+      "key": "hq969",
+      "text": "Public anonymized NEET-2024 centre-marks reconstruction (~2.33M rows), reconciled to NTA appeared counts."
+    },
+    {
+      "key": "Rajan21",
+      "text": "Justice A.K. Rajan Committee report (Tamil Nadu, 2021) — medium, coaching, and repeater composition among admitted students."
+    },
+    {
+      "key": "CMSE25",
+      "text": "MoSPI Comprehensive Modular Survey on Education 2025 — coaching participation and spend among enrolled students."
     }
   ],
   "zero_earnings_note": "Annual zeros are an employment/non-completion filter. For highly educated young adults they usually mean family support / delayed independence, not street poverty. Do not lock zeros into a 35-year lifetime NPV."
