@@ -25,7 +25,12 @@ make test
 make bayes
 make privilege
 make score-privilege
+make story
 ```
+
+Open the interactive story after `make story`:
+
+`reports/interactive/the-accessible-seat.html`
 
 See [docs/SETUP.md](docs/SETUP.md) for directory layout and gitignore rules.
 
@@ -65,6 +70,8 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/BAYESIAN_MODEL_REPORT.md](reports/BAYESIAN_MODEL_REPORT.md) | Fitted posteriors + profile sensitivity (current data freeze) |
 | [reports/PRIVILEGE_INEQUALITY_STORY.md](reports/PRIVILEGE_INEQUALITY_STORY.md) | Privilege access ladder + seat vs no-seat lifetime earnings distributions |
 | [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Score → rank → seat model with coaching arms-race scenarios |
+| [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
+| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (scarcity → privilege → arms race → earnings) |
 
 ## Ethical and statistical guardrails
 

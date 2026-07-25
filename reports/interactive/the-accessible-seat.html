@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Accessible Seat — NEET privilege & scarcity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #121a1c;
+      --ink-soft: #3a4a4e;
+      --mist: #dfe6e3;
+      --paper: #eef2ef;
+      --field: #0c2428;
+      --field-2: #14363c;
+      --seat: #e2a12b;
+      --teal: #2f8f86;
+      --teal-deep: #1f6b65;
+      --copper: #b85c38;
+      --line: rgba(18, 26, 28, 0.12);
+      --line-light: rgba(238, 242, 239, 0.16);
+      --max: 1120px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(47, 143, 134, 0.12), transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, rgba(226, 161, 43, 0.10), transparent 50%),
+        linear-gradient(180deg, #e7eeea 0%, var(--paper) 28%, #f4f6f4 100%);
+      font-family: "Source Serif 4", Georgia, serif;
+      font-optical-sizing: auto;
+      line-height: 1.55;
+    }
+
+    a { color: var(--teal-deep); }
+    .wrap { width: min(var(--max), calc(100% - 2.5rem)); margin: 0 auto; }
+
+    /* —— Nav —— */
+    .topnav {
+      position: sticky; top: 0; z-index: 40;
+      backdrop-filter: blur(10px);
+      background: rgba(238, 242, 239, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+    .topnav .inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; padding: 0.7rem 0;
+    }
+    .brand {
+      font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -0.03em;
+      font-size: 0.95rem; text-decoration: none; color: var(--ink);
+    }
+    .brand span { color: var(--seat); }
+    .toc {
+      display: flex; gap: 0.85rem; flex-wrap: wrap; justify-content: flex-end;
+      font-family: Syne, sans-serif; font-size: 0.72rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .toc a { color: var(--ink-soft); text-decoration: none; }
+    .toc a:hover { color: var(--ink); }
+
+    /* —— Hero —— */
+    .hero {
+      min-height: 100vh; min-height: 100dvh;
+      display: grid; align-items: end;
+      background:
+        linear-gradient(180deg, rgba(12, 36, 40, 0.15) 0%, rgba(12, 36, 40, 0.92) 70%, var(--field) 100%),
+        radial-gradient(ellipse 80% 50% at 50% 20%, #1d4d55 0%, transparent 70%),
+        var(--field);
+      color: var(--paper);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(
+          90deg,
+          transparent 0,
+          transparent 18px,
+          rgba(238, 242, 239, 0.03) 18px,
+          rgba(238, 242, 239, 0.03) 19px
+        );
+      mask-image: linear-gradient(180deg, black 0%, transparent 75%);
+      animation: drift 28s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes drift {
+      from { transform: translateX(0); }
+      to { transform: translateX(-19px); }
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      padding: 18vh 0 4.5rem;
+      max-width: 40rem;
+    }
+    .hero-kicker {
+      font-family: Syne, sans-serif; font-weight: 700;
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--seat); margin: 0 0 1rem;
+    }
+    .hero h1 {
+      font-family: Syne, sans-serif; font-weight: 800;
+      font-size: clamp(3rem, 9vw, 5.6rem);
+      line-height: 0.95; letter-spacing: -0.04em;
+      margin: 0 0 1.25rem;
+    }
+    .hero h1 em {
+      font-style: normal; color: var(--seat);
+    }
+    .hero-lead {
+      font-size: 1.2rem; color: rgba(238, 242, 239, 0.86);
+      max-width: 32rem; margin: 0 0 2rem;
+    }
+    .hero-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.85rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--field); background: var(--seat);
+      padding: 0.85rem 1.2rem; text-decoration: none;
+      transition: transform 0.25s var(--ease);
+    }
+    .hero-cta:hover { transform: translateY(-2px); }
+
+    .funnel {
+      position: absolute; right: -4%; top: 18%;
+      width: min(48vw, 520px); height: 58vh;
+      opacity: 0.9; pointer-events: none;
+    }
+    .funnel svg { width: 100%; height: 100%; }
+
+    section { padding: 5.5rem 0; }
+    section.alt { background: rgba(255,255,255,0.35); }
+    .section-label {
+      font-family: Syne, sans-serif; font-weight: 700;
+      font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--teal-deep); margin: 0 0 0.75rem;
+    }
+    h2 {
+      font-family: Syne, sans-serif; font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.03em; line-height: 1.1;
+      margin: 0 0 1rem; max-width: 18ch;
+    }
+    .lede { font-size: 1.12rem; color: var(--ink-soft); max-width: 40rem; margin: 0 0 2rem; }
+    .footnote {
+      font-size: 0.88rem; color: var(--ink-soft); max-width: 42rem;
+      border-left: 3px solid var(--seat); padding-left: 0.9rem; margin-top: 1.5rem;
+    }
+
+    .stat-row {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+      margin: 2rem 0;
+    }
+    @media (max-width: 800px) {
+      .stat-row { grid-template-columns: repeat(2, 1fr); }
+      .toc { display: none; }
+      .funnel { opacity: 0.35; width: 70vw; right: -20%; }
+    }
+    .stat {
+      padding: 1.1rem 1rem 1rem;
+      border-top: 2px solid var(--ink);
+      background: rgba(255,255,255,0.4);
+    }
+    .stat b {
+      display: block; font-family: Syne, sans-serif; font-weight: 800;
+      font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.03em;
+      line-height: 1; margin-bottom: 0.35rem;
+    }
+    .stat b.amber { color: var(--seat); }
+    .stat b.teal { color: var(--teal-deep); }
+    .stat span {
+      font-family: Syne, sans-serif; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-soft);
+    }
+
+    /* —— Funnel viz —— */
+    .scarcity-viz {
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; align-items: end;
+      margin-top: 2rem;
+    }
+    @media (max-width: 860px) { .scarcity-viz { grid-template-columns: 1fr; } }
+    .bar-stack { display: grid; gap: 0.65rem; }
+    .bar-row { display: grid; grid-template-columns: 7.5rem 1fr 4.2rem; gap: 0.75rem; align-items: center; }
+    .bar-row label { font-family: Syne, sans-serif; font-size: 0.78rem; font-weight: 600; }
+    .track { height: 1.35rem; background: rgba(18,26,28,0.06); position: relative; overflow: hidden; }
+    .fill {
+      height: 100%; background: var(--teal);
+      transform-origin: left; transform: scaleX(0);
+      transition: transform 1.1s var(--ease);
+    }
+    .fill.seat { background: var(--seat); }
+    .fill.thin { background: var(--copper); }
+    .reveal .fill { transform: scaleX(var(--w, 1)); }
+    .bar-row em {
+      font-style: normal; font-family: Syne, sans-serif; font-weight: 700; font-size: 0.85rem;
+      text-align: right;
+    }
+    .callout {
+      padding: 1.4rem 1.35rem; background: var(--field); color: var(--paper);
+    }
+    .callout h3 {
+      font-family: Syne, sans-serif; margin: 0 0 0.6rem; font-size: 1.15rem; letter-spacing: -0.02em;
+    }
+    .callout p { margin: 0; color: rgba(238,242,239,0.85); font-size: 0.98rem; }
+    .callout strong { color: var(--seat); }
+
+    /* —— Interactive panel —— */
+    .panel {
+      display: grid; grid-template-columns: 280px 1fr; gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 860px) { .panel { grid-template-columns: 1fr; } }
+    .controls {
+      padding: 1.2rem; background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+    }
+    .controls h3 {
+      font-family: Syne, sans-serif; font-size: 0.85rem; margin: 0 0 1rem;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .ctrl { margin-bottom: 1.1rem; }
+    .ctrl label {
+      display: block; font-family: Syne, sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft);
+      margin-bottom: 0.4rem;
+    }
+    .seg {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 0.3rem;
+    }
+    .seg button {
+      font-family: Syne, sans-serif; font-size: 0.72rem; font-weight: 700;
+      border: 1px solid var(--line); background: transparent; color: var(--ink-soft);
+      padding: 0.55rem 0.35rem; cursor: pointer; transition: 0.2s var(--ease);
+    }
+    .seg button.on {
+      background: var(--ink); color: var(--paper); border-color: var(--ink);
+    }
+    .seg button:hover:not(.on) { border-color: var(--ink); color: var(--ink); }
+
+    .result {
+      padding: 1.4rem 1.5rem; background: var(--field); color: var(--paper);
+      min-height: 280px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .result .big {
+      font-family: Syne, sans-serif; font-weight: 800;
+      font-size: clamp(3rem, 8vw, 4.8rem); letter-spacing: -0.04em; line-height: 0.95;
+      color: var(--seat); margin: 0.4rem 0;
+    }
+    .result .meta-line {
+      font-family: Syne, sans-serif; font-size: 0.8rem; color: rgba(238,242,239,0.7);
+      margin: 0;
+    }
+    .mini-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-top: 1.2rem;
+    }
+    .mini {
+      border-top: 1px solid var(--line-light); padding-top: 0.5rem;
+    }
+    .mini b {
+      display: block; font-family: Syne, sans-serif; font-size: 1.15rem; font-weight: 700;
+    }
+    .mini span {
+      font-family: Syne, sans-serif; font-size: 0.65rem; letter-spacing: 0.05em;
+      text-transform: uppercase; color: rgba(238,242,239,0.55);
+    }
+
+    /* —— Charts —— */
+    .chart-box {
+      margin-top: 1.5rem; padding: 1.25rem 1.25rem 0.75rem;
+      background: rgba(255,255,255,0.5); border: 1px solid var(--line);
+    }
+    .chart-title {
+      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.9rem;
+      margin: 0 0 0.25rem;
+    }
+    .chart-cap {
+      font-size: 0.82rem; color: var(--ink-soft); margin: 0 0 1rem;
+    }
+    canvas { width: 100% !important; max-height: 320px; }
+
+    .ladder {
+      display: grid; gap: 0.55rem; margin-top: 1.25rem;
+    }
+    .ladder-row {
+      display: grid; grid-template-columns: minmax(10rem, 1.4fr) 1fr 3.5rem;
+      gap: 0.75rem; align-items: center;
+    }
+    .ladder-row .name {
+      font-family: Syne, sans-serif; font-size: 0.78rem; font-weight: 600;
+    }
+    .ladder-row .name small {
+      display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.68rem;
+    }
+    .ladder-track { height: 1.1rem; background: rgba(18,26,28,0.07); }
+    .ladder-fill {
+      height: 100%; background: linear-gradient(90deg, var(--teal), var(--seat));
+      width: 0; transition: width 0.8s var(--ease);
+    }
+    .ladder-row .pct {
+      font-family: Syne, sans-serif; font-weight: 700; text-align: right; font-size: 0.9rem;
+    }
+
+    .two-col {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;
+    }
+    @media (max-width: 800px) { .two-col { grid-template-columns: 1fr; } }
+
+    .readiness {
+      display: grid; gap: 0.5rem; margin-top: 1.25rem;
+    }
+    .ready-row {
+      display: grid; grid-template-columns: 7rem 1fr; gap: 0.75rem;
+      padding: 0.7rem 0; border-bottom: 1px solid var(--line);
+      align-items: start;
+    }
+    .tag {
+      font-family: Syne, sans-serif; font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.25rem 0.45rem; text-align: center; align-self: start;
+    }
+    .tag.SHOW { background: var(--teal); color: white; }
+    .tag.SHOW\u2020, .tag.show-caveat { background: #c9a227; color: var(--ink); }
+    .tag.SENS { background: var(--copper); color: white; }
+    .tag.BLOCK { background: var(--ink); color: var(--paper); }
+    .ready-row strong {
+      font-family: Syne, sans-serif; font-size: 0.92rem; display: block;
+    }
+    .ready-row p { margin: 0.15rem 0 0; font-size: 0.88rem; color: var(--ink-soft); }
+
+    .closing {
+      background: var(--field); color: var(--paper); padding: 6rem 0;
+    }
+    .closing h2 { color: var(--paper); max-width: 16ch; }
+    .closing .lede { color: rgba(238,242,239,0.8); }
+    .closing .punch {
+      font-family: Syne, sans-serif; font-weight: 800;
+      font-size: clamp(1.6rem, 4vw, 2.4rem); letter-spacing: -0.03em;
+      color: var(--seat); max-width: 22ch; margin: 2rem 0 0; line-height: 1.15;
+    }
+
+    footer {
+      padding: 2rem 0 3rem; font-size: 0.85rem; color: var(--ink-soft);
+      border-top: 1px solid var(--line); background: rgba(255,255,255,0.3);
+    }
+    footer code {
+      font-size: 0.8rem; background: rgba(18,26,28,0.06); padding: 0.1rem 0.35rem;
+    }
+
+    .fade {
+      opacity: 0; transform: translateY(18px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    }
+    .fade.in { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+  <nav class="topnav">
+    <div class="wrap inner">
+      <a class="brand" href="#top">The <span>Accessible</span> Seat</a>
+      <div class="toc">
+        <a href="#scarcity">Scarcity</a>
+        <a href="#access">Access</a>
+        <a href="#ladder">Ladder</a>
+        <a href="#scores">Scores</a>
+        <a href="#arms">Arms race</a>
+        <a href="#earnings">Earnings</a>
+        <a href="#attempts">Attempts</a>
+        <a href="#evidence">Evidence</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="funnel" aria-hidden="true">
+      <svg viewBox="0 0 400 480" fill="none">
+        <path d="M40 40 H360 L240 300 H160 Z" stroke="rgba(238,242,239,0.25)" stroke-width="1.5" fill="rgba(47,143,134,0.12)"/>
+        <path d="M160 300 H240 L220 420 H180 Z" fill="#e2a12b" opacity="0.9"/>
+        <text x="200" y="120" text-anchor="middle" fill="rgba(238,242,239,0.55)" font-family="Syne,sans-serif" font-size="14" font-weight="700">2.33M APPEARED</text>
+        <text x="200" y="390" text-anchor="middle" fill="#0c2428" font-family="Syne,sans-serif" font-size="12" font-weight="800">~130K SEATS</text>
+      </svg>
+    </div>
+    <div class="wrap hero-inner">
+      <p class="hero-kicker">NEET-UG · India · calibrated story</p>
+      <h1>The <em>Accessible</em> Seat</h1>
+      <p class="hero-lead" id="hero-lead">
+        Privilege and coaching shift who can take a medical seat they can actually afford.
+        Mobility is real. Meritocracy-as-description-of-access is not.
+      </p>
+      <a class="hero-cta" href="#scarcity">Enter the funnel</a>
+    </div>
+  </header>
+
+  <section id="scarcity">
+    <div class="wrap fade">
+      <p class="section-label">01 · National ecology</p>
+      <h2>One exam. Extreme scarcity.</h2>
+      <p class="lede">
+        In 2024, more than two million students sat NEET-UG. About one hundred thirty thousand
+        MBBS seats exist in the national capacity account. Qualifying is common. Getting a seat is not.
+      </p>
+      <div class="stat-row" id="scarcity-stats"></div>
+      <div class="scarcity-viz reveal" id="scarcity-viz">
+        <div class="bar-stack" id="scarcity-bars"></div>
+        <div class="callout">
+          <h3>Qualify ≠ seat</h3>
+          <p>
+            Roughly <strong id="qual-rate">56%</strong> qualify. There are still about
+            <strong id="qual-per-seat">10</strong> qualified students for every MBBS seat.
+            The story that matters for families is not the soft qualify line —
+            it is whether they get a seat they can take.
+          </p>
+        </div>
+      </div>
+      <p class="footnote">
+        Source: reconciled NTA appeared/qualified counts and NMC seat capacity.
+        Capacity cutoffs are national accounting shares (seats ÷ appeared), not state or category counselling pools.
+      </p>
+    </div>
+  </section>
+
+  <section id="access" class="alt">
+    <div class="wrap fade">
+      <p class="section-label">02 · The right outcome</p>
+      <h2>Accessible, not merely offered.</h2>
+      <p class="lede">
+        A private offer that a family cannot pay is not access. Government seats are scarce.
+        Private capacity widens offers — then affordability decides who can walk through the door.
+      </p>
+      <div class="two-col">
+        <div class="callout">
+          <h3>What we count</h3>
+          <p>
+            <strong>P(accessible MBBS seat)</strong> = government offer,
+            or private offer that clears the affordability filter.
+            Private offers that fail the filter do not count.
+          </p>
+        </div>
+        <div class="callout" style="background:#1a3338">
+          <h3>What we refuse</h3>
+          <p>
+            We do not treat “share of admitted students who were coached” as
+            <strong>P(seat | coaching)</strong>. That is the winning pool, not the applicant pool.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ladder">
+    <div class="wrap fade">
+      <p class="section-label">03 · Privilege ladder</p>
+      <h2>Build a student. Watch access move.</h2>
+      <p class="lede">
+        Medium, money, metro, and prep shift latent scores and whether a private offer is usable.
+        Tamil Nadu’s English/Tamil government allotment gap anchors the medium channel;
+        affordability and metro are labeled model knobs.
+      </p>
+      <div class="panel">
+        <div class="controls">
+          <h3>Student profile</h3>
+          <div class="ctrl">
+            <label>School medium</label>
+            <div class="seg" data-key="medium">
+              <button type="button" data-v="tamil">Tamil</button>
+              <button type="button" data-v="english" class="on">English</button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <label>Private affordability</label>
+            <div class="seg" data-key="afford">
+              <button type="button" data-v="cant" class="on">Cannot pay</button>
+              <button type="button" data-v="can">Can pay</button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <label>Location</label>
+            <div class="seg" data-key="metro">
+              <button type="button" data-v="nonmetro" class="on">Non-metro</button>
+              <button type="button" data-v="metro">Metro</button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <label>Prep intensity</label>
+            <div class="seg" data-key="prep">
+              <button type="button" data-v="none">None</button>
+              <button type="button" data-v="modest" class="on">Modest</button>
+              <button type="button" data-v="intensive">Intensive</button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <label>Arms-race world</label>
+            <div class="seg" data-key="scenario">
+              <button type="button" data-v="unilateral" class="on">Unilateral</button>
+              <button type="button" data-v="everyone_modest">Everyone modest</button>
+              <button type="button" data-v="everyone_intensive">Everyone intensive</button>
+            </div>
+          </div>
+        </div>
+        <div class="result" id="profile-result">
+          <div>
+            <p class="meta-line" id="profile-label">—</p>
+            <p class="big" id="profile-p">—</p>
+            <p class="meta-line">chance of an accessible MBBS seat</p>
+          </div>
+          <div class="mini-grid">
+            <div class="mini"><b id="profile-govt">—</b><span>Govt offer</span></div>
+            <div class="mini"><b id="profile-marks">—</b><span>Mean marks</span></div>
+            <div class="mini"><b id="profile-shift">—</b><span>Score shift (SD)</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-box" style="margin-top:1.5rem">
+        <p class="chart-title">Access ladder under current arms-race world</p>
+        <p class="chart-cap">Full synthetic ladder from model strata. Top / bottom ratio shown in amber.</p>
+        <div class="ladder" id="ladder-chart"></div>
+        <p class="footnote" style="margin-top:1rem">
+          Full ladder ratio (unilateral baseline): <strong id="ladder-ratio">~5.5×</strong>.
+          TN English/Tamil government allotment association ≈ <strong id="tn-ratio">2.3×</strong> (state case, not a national causal English effect).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="scores" class="alt">
+    <div class="wrap fade">
+      <p class="section-label">04 · Marks & cutoffs</p>
+      <h2>Most students sit far below the seat line.</h2>
+      <p class="lede">
+        The anonymized 2024 centre-marks release shows where the mass of the distribution lives.
+        National capacity cutoffs sit in the thin upper tail — which is why small location shifts from privilege and prep can matter.
+      </p>
+      <div class="chart-box">
+        <p class="chart-title">NEET 2024 marks distribution (national)</p>
+        <p class="chart-cap">Share of appeared candidates by score band. Amber markers: government-like and any-MBBS accounting cutoffs.</p>
+        <canvas id="marks-canvas" height="280"></canvas>
+      </div>
+      <div class="two-col">
+        <div class="chart-box">
+          <p class="chart-title">Bottom of ladder — mark shape</p>
+          <p class="chart-cap" id="marks-low-cap">Tamil · cannot afford · no prep</p>
+          <canvas id="marks-low" height="220"></canvas>
+        </div>
+        <div class="chart-box">
+          <p class="chart-title">Top of ladder — mark shape</p>
+          <p class="chart-cap" id="marks-top-cap">English · can afford · metro · intensive</p>
+          <canvas id="marks-top" height="220"></canvas>
+        </div>
+      </div>
+      <p class="footnote">
+        Centre geography is not domicile, caste, or income. Privilege enters the score model through synthetic shifts, not by reading SES off centres.
+      </p>
+    </div>
+  </section>
+
+  <section id="arms">
+    <div class="wrap fade">
+      <p class="section-label">05 · Coaching arms race</p>
+      <h2>Prep helps you — until everyone prep’s.</h2>
+      <p class="lede" id="arms-blurb">
+        Holding others fixed, prep raises absolute scores. When the whole pool escalates equally,
+        relative ranks barely move while costs still rise.
+      </p>
+      <div class="stat-row" id="arms-stats"></div>
+      <div class="chart-box">
+        <p class="chart-title">Accessible-seat probability by stratum × arms-race world</p>
+        <p class="chart-cap">Toggle worlds above in the ladder panel, or compare all three here. Skeptical coaching prior (conservative profile) — not a NEET LATE.</p>
+        <canvas id="arms-canvas" height="300"></canvas>
+      </div>
+      <div class="two-col" style="margin-top:1.5rem">
+        <div class="callout">
+          <h3>Composition fact</h3>
+          <p>
+            In Tamil Nadu, nearly all admitted students had coaching in one reported year —
+            and <strong>~71%</strong> of admits were repeaters. That describes the winning pool.
+            It does not identify the causal effect of coaching or mean attempts among applicants.
+          </p>
+        </div>
+        <div class="callout" style="background:#1a3338">
+          <h3>CMSE coaching spend (Class X–XII)</h3>
+          <p id="cmse-note">
+            National coaching participation and spend among enrolled students inform intensity priors.
+            Median positive prep spend anchors the two-part score shift.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="earnings" class="alt">
+    <div class="wrap fade">
+      <p class="section-label">06 · After the seat</p>
+      <h2>Wages by profession — not by college ownership.</h2>
+      <p class="lede">
+        Once on a path, earnings are modeled by career. Government and private medical colleges share the same physician wage prior.
+        Private mainly buys access for families who can pay.
+      </p>
+      <div class="chart-box">
+        <p class="chart-title">Median annual earnings if employed (₹ lakh)</p>
+        <p class="chart-cap">Monte Carlo medians from privilege model. Bars show p25–p75. Zeros are a separate story.</p>
+        <canvas id="earn-canvas" height="280"></canvas>
+      </div>
+      <div class="stat-row" id="zero-stats" style="margin-top:1.5rem"></div>
+      <p class="footnote" id="zero-note">
+        Annual zeros are an employment / non-completion filter for young adults — usually family support or delayed independence, not street poverty. Do not lock zeros into a 35-year lifetime NPV.
+      </p>
+    </div>
+  </section>
+
+  <section id="attempts">
+    <div class="wrap fade">
+      <p class="section-label">07 · Years of trying</p>
+      <h2>What one number can — and cannot — tell you.</h2>
+      <p class="lede">
+        We observe the share of <em>admitted</em> students who were repeaters.
+        Turning that into the share of <em>applicants</em> who are repeaters needs an assumption about relative admit odds (ρ).
+      </p>
+      <div class="panel">
+        <div class="controls">
+          <h3>Sensitivity</h3>
+          <div class="ctrl">
+            <label>ρ = P(admit|repeater) / P(admit|first)</label>
+            <input id="rho-slider" type="range" min="0" max="5" step="1" value="2" style="width:100%" />
+            <div class="seg" style="margin-top:0.6rem" id="rho-labels"></div>
+          </div>
+          <p class="footnote" style="margin:0;border:0;padding:0;font-size:0.82rem">
+            Formula: a = r / (r + ρ(1−r)), with r = 71.4% among admitted (TN 2020–21).
+            This does <strong>not</strong> identify mean attempts or the full 1,2,3… histogram.
+          </p>
+        </div>
+        <div class="result">
+          <div>
+            <p class="meta-line">Implied P(repeater | applicants)</p>
+            <p class="big" id="rho-out">—</p>
+            <p class="meta-line" id="rho-first">—</p>
+          </div>
+          <div class="chart-box" style="background:transparent;border:0;padding:0;margin:0">
+            <canvas id="rho-canvas" height="160"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="evidence" class="alt">
+    <div class="wrap fade">
+      <p class="section-label">08 · How ready is the story?</p>
+      <h2>Show, sensitivity, or blocked.</h2>
+      <p class="lede">
+        A useful simulator is a calibrated synthetic-population model — not a fully empirical causal machine.
+        Here is the grain at which each beat can be shown today.
+      </p>
+      <div class="readiness" id="readiness"></div>
+      <div class="chart-box" style="margin-top:1.5rem">
+        <p class="chart-title">Warnings baked into the model</p>
+        <ul id="warnings" style="margin:0.5rem 0 1rem; padding-left:1.2rem; color:var(--ink-soft)"></ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap fade">
+      <p class="section-label" style="color:var(--seat)">Close</p>
+      <h2>The bottleneck is not mysterious.</h2>
+      <p class="lede">
+        Seats are scarce. Privilege shifts scores and who can afford the private door.
+        Coaching has a private return and a positional trap. Earnings then diverge by profession —
+        with a large honest zero-mass for young adults.
+      </p>
+      <p class="punch">Mobility is real.<br/>Meritocracy-as-access is not.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        Interactive story for <strong>neet-comparison</strong>.
+        Numbers frozen from <code>make score-privilege</code> / <code>make privilege</code> / <code>make bayes</code>
+        via <code>python scripts/build_interactive_story.py</code>.
+        Model versions: score <span id="mv-score">—</span>, privilege <span id="mv-priv">—</span>,
+        coaching profile <span id="mv-coach">—</span>.
+      </p>
+      <p style="margin-top:0.5rem">
+        Full readiness matrix: <code>reports/STORY_READINESS.md</code>.
+        Do not interpret scenario contrasts as causal effects.
+      </p>
+    </div>
+  </footer>
+
+  <script src="story-data.js"></script>
+  <script>
+  (function () {
+    const D = window.STORY_DATA;
+    if (!D) {
+      document.body.insertAdjacentHTML("afterbegin",
+        "<p style='padding:2rem;font-family:sans-serif'>Missing story-data.js — run <code>python scripts/build_interactive_story.py</code>.</p>");
+      return;
+    }
+
+    const fmt = {
+      pct: (x, d = 1) => (100 * x).toFixed(d) + "%",
+      n: (x) => Math.round(x).toLocaleString("en-IN"),
+      lakh: (x) => (x / 1e5).toFixed(2),
+    };
+
+    // —— Hero / meta ——
+    document.getElementById("hero-lead").textContent = D.meta.thesis;
+    document.getElementById("arms-blurb").textContent = D.meta.arms_race_blurb;
+    document.getElementById("mv-score").textContent = D.meta.model_version_score;
+    document.getElementById("mv-priv").textContent = D.meta.model_version_privilege;
+    document.getElementById("mv-coach").textContent = D.meta.coaching_profile;
+    if (D.zero_earnings_note) document.getElementById("zero-note").textContent = D.zero_earnings_note;
+
+    // —— Scarcity ——
+    const S = D.scarcity;
+    document.getElementById("scarcity-stats").innerHTML = [
+      ["2.33M", "Appeared (2024)", ""],
+      [S.appeared_per_seat.toFixed(0) + ":1", "Appeared per MBBS seat", "amber"],
+      [fmt.pct(S.qualify_rate, 1), "Qualify rate", "teal"],
+      [S.qualified_per_seat.toFixed(1) + ":1", "Qualified per seat", ""],
+    ].map(([v, l, c]) =>
+      `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
+    ).join("");
+
+    document.getElementById("qual-rate").textContent = fmt.pct(S.qualify_rate, 1);
+    document.getElementById("qual-per-seat").textContent = S.qualified_per_seat.toFixed(1);
+
+    const maxBar = S.n_appeared;
+    const bars = [
+      ["Appeared", S.n_appeared, 1, ""],
+      ["Qualified", Math.round(S.n_appeared * S.qualify_rate), S.qualify_rate, ""],
+      ["Any MBBS seat", S.total_mbbs_seats, S.total_mbbs_seats / maxBar, "seat"],
+      ["Govt-like seats", S.govt_seats, S.govt_seats / maxBar, "thin"],
+    ];
+    document.getElementById("scarcity-bars").innerHTML = bars.map(([lab, n, w, cls]) => `
+      <div class="bar-row">
+        <label>${lab}</label>
+        <div class="track"><div class="fill ${cls}" style="--w:${Math.max(w, 0.012)}"></div></div>
+        <em>${fmt.n(n)}</em>
+      </div>`).join("");
+
+    document.getElementById("ladder-ratio").textContent =
+      D.decomposition.full_ladder_ratio_top_over_low.toFixed(1) + "×";
+    document.getElementById("tn-ratio").textContent =
+      (S.tn_english_to_tamil_ratio || 2.35).toFixed(2) + "×";
+
+    // —— Profile state ——
+    const state = { medium: "english", afford: "cant", metro: "nonmetro", prep: "modest", scenario: "unilateral" };
+
+    function nearestStratum() {
+      const rows = D.ladders[state.scenario] || [];
+      // Prefer exact-ish match by label tokens
+      const want = [];
+      want.push(state.medium === "tamil" ? "Tamil" : "English");
+      want.push(state.afford === "can" ? "can afford" : "cannot afford");
+      want.push(state.metro === "metro" ? "metro" : "non-metro");
+      const prepWord = state.prep === "none" ? "no prep" : state.prep + " prep";
+      want.push(prepWord);
+
+      let best = rows[0], bestScore = -1;
+      for (const r of rows) {
+        let sc = 0;
+        for (const w of want) if (r.label.includes(w)) sc++;
+        // intensive only exists on top English metro strata
+        if (state.prep === "intensive" && r.label.includes("intensive")) sc += 2;
+        if (state.prep !== "intensive" && r.label.includes("intensive")) sc -= 2;
+        if (state.medium === "tamil" && state.prep === "none" && r.id.includes("none")) sc += 2;
+        if (sc > bestScore) { bestScore = sc; best = r; }
+      }
+      return best;
+    }
+
+    function renderProfile() {
+      const r = nearestStratum();
+      document.getElementById("profile-label").textContent = r.label + " · " + state.scenario.replace(/_/g, " ");
+      document.getElementById("profile-p").textContent = fmt.pct(r.p_accessible, 2);
+      document.getElementById("profile-govt").textContent = fmt.pct(r.p_govt, 2);
+      document.getElementById("profile-marks").textContent = Math.round(r.mean_marks);
+      document.getElementById("profile-shift").textContent =
+        (r.total_location_shift_sd >= 0 ? "+" : "") + r.total_location_shift_sd.toFixed(2);
+      renderLadder();
+      drawArms();
+    }
+
+    function renderLadder() {
+      const rows = D.ladders[state.scenario] || [];
+      const maxP = Math.max(...rows.map((r) => r.p_accessible), 0.01);
+      document.getElementById("ladder-chart").innerHTML = rows.map((r) => `
+        <div class="ladder-row">
+          <div class="name">${r.label.split(" · ").slice(0, 2).join(" · ")}
+            <small>${r.label.split(" · ").slice(2).join(" · ")}</small>
+          </div>
+          <div class="ladder-track"><div class="ladder-fill" style="width:${(100 * r.p_accessible / maxP).toFixed(1)}%"></div></div>
+          <div class="pct">${fmt.pct(r.p_accessible, 2)}</div>
+        </div>`).join("");
+    }
+
+    document.querySelectorAll(".controls .seg").forEach((seg) => {
+      const key = seg.dataset.key;
+      if (!key) return;
+      seg.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          seg.querySelectorAll("button").forEach((b) => b.classList.remove("on"));
+          btn.classList.add("on");
+          state[key] = btn.dataset.v;
+          // Constraints: tamil + intensive not in strata — snap prep
+          if (key === "medium" && state.medium === "tamil" && state.prep === "intensive") {
+            state.prep = "modest";
+            const prepSeg = document.querySelector('.seg[data-key="prep"]');
+            prepSeg.querySelectorAll("button").forEach((b) => {
+              b.classList.toggle("on", b.dataset.v === "modest");
+            });
+          }
+          if (key === "afford" && state.afford === "cant" && state.metro === "metro") {
+            // metro+cant exists only partially; nearest matcher handles it
+          }
+          renderProfile();
+        });
+      });
+    });
+
+    // —— Canvas helpers ——
+    function drawBars(canvas, labels, values, opts = {}) {
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const cssW = canvas.clientWidth || 640;
+      const cssH = canvas.height;
+      canvas.width = cssW * dpr;
+      canvas.height = cssH * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, cssW, cssH);
+
+      const pad = { t: 16, r: 12, b: 48, l: 36 };
+      const w = cssW - pad.l - pad.r;
+      const h = cssH - pad.t - pad.b;
+      const maxV = opts.max || Math.max(...values, 0.001);
+      const n = values.length;
+      const gap = opts.gap ?? 0.22;
+      const bw = w / n;
+
+      // cutoff lines
+      if (opts.lines) {
+        for (const ln of opts.lines) {
+          const x = pad.l + ln.xFrac * w;
+          ctx.strokeStyle = ln.color || "#e2a12b";
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([4, 4]);
+          ctx.beginPath();
+          ctx.moveTo(x, pad.t);
+          ctx.lineTo(x, pad.t + h);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          ctx.fillStyle = ln.color || "#e2a12b";
+          ctx.font = "600 10px Syne, sans-serif";
+          ctx.fillText(ln.label, x + 4, pad.t + 12);
+        }
+      }
+
+      values.forEach((v, i) => {
+        const bh = (v / maxV) * h;
+        const x = pad.l + i * bw + (bw * gap) / 2;
+        const y = pad.t + h - bh;
+        ctx.fillStyle = opts.colors ? opts.colors[i] : "#2f8f86";
+        ctx.fillRect(x, y, bw * (1 - gap), bh);
+        ctx.fillStyle = "#3a4a4e";
+        ctx.font = "600 10px Syne, sans-serif";
+        ctx.save();
+        ctx.translate(pad.l + i * bw + bw / 2, cssH - 8);
+        ctx.rotate(-Math.PI / 4);
+        ctx.textAlign = "right";
+        ctx.fillText(labels[i], 0, 0);
+        ctx.restore();
+      });
+    }
+
+    function drawGrouped(canvas, groups) {
+      // groups: [{label, values: number[]}], categories from first
+      const cats = groups[0].labels;
+      const series = groups;
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const cssW = canvas.clientWidth || 640;
+      const cssH = canvas.height;
+      canvas.width = cssW * dpr;
+      canvas.height = cssH * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, cssW, cssH);
+      const pad = { t: 20, r: 12, b: 70, l: 40 };
+      const w = cssW - pad.l - pad.r;
+      const h = cssH - pad.t - pad.b;
+      const all = series.flatMap((s) => s.values);
+      const maxV = Math.max(...all, 0.001);
+      const n = cats.length;
+      const gw = w / n;
+      const colors = ["#2f8f86", "#e2a12b", "#b85c38"];
+      cats.forEach((_, i) => {
+        series.forEach((s, si) => {
+          const v = s.values[i];
+          const sw = gw / (series.length + 0.6);
+          const x = pad.l + i * gw + si * sw + sw * 0.3;
+          const bh = (v / maxV) * h;
+          ctx.fillStyle = colors[si % colors.length];
+          ctx.fillRect(x, pad.t + h - bh, sw * 0.9, bh);
+        });
+        ctx.fillStyle = "#3a4a4e";
+        ctx.font = "600 9px Syne, sans-serif";
+        ctx.save();
+        ctx.translate(pad.l + i * gw + gw / 2, cssH - 10);
+        ctx.rotate(-Math.PI / 3.2);
+        ctx.textAlign = "right";
+        const short = cats[i].replace(" · ", "\n").split(" · ");
+        ctx.fillText(cats[i].split(" · ").slice(0, 2).join(" / "), 0, 0);
+        ctx.restore();
+      });
+      // legend
+      series.forEach((s, si) => {
+        const x = pad.l + si * 140;
+        ctx.fillStyle = colors[si];
+        ctx.fillRect(x, 4, 10, 10);
+        ctx.fillStyle = "#3a4a4e";
+        ctx.font = "600 11px Syne, sans-serif";
+        ctx.fillText(s.name, x + 16, 13);
+      });
+    }
+
+    function drawMarksNational() {
+      const labels = D.marks_national.map((r) => r.band);
+      const values = D.marks_national.map((r) => r.share);
+      // Approximate x positions for cutoffs: top ~2.7% and ~5.6% from right
+      // Map score bands roughly; cutoffs are percentile of rank, not score band centers.
+      // Visual: put lines near high-score end (right).
+      const canvas = document.getElementById("marks-canvas");
+      drawBars(canvas, labels, values, {
+        colors: values.map((_, i) => (i >= labels.length - 3 ? "#e2a12b" : "#2f8f86")),
+        lines: [
+          { xFrac: 0.93, label: "govt ~top 2.7%", color: "#b85c38" },
+          { xFrac: 0.88, label: "any MBBS ~top 5.6%", color: "#e2a12b" },
+        ],
+      });
+    }
+
+    function drawStratumMarks(canvasId, stratumId, capId) {
+      const block = D.marks_by_stratum[stratumId];
+      if (!block) return;
+      document.getElementById(capId).textContent = block.label;
+      const labels = block.bins.map((b) =>
+        b.left < 0 ? "<0" : `${b.left|0}–${b.right|0}`
+      );
+      const values = block.bins.map((b) => b.share);
+      drawBars(document.getElementById(canvasId), labels, values, {
+        colors: values.map(() => "#1f6b65"),
+      });
+    }
+
+    function drawArms() {
+      const scenarios = ["unilateral", "everyone_modest", "everyone_intensive"];
+      const names = { unilateral: "Unilateral", everyone_modest: "Everyone modest", everyone_intensive: "Everyone intensive" };
+      const base = D.ladders.unilateral;
+      const cats = base.map((r) => r.label);
+      const groups = scenarios.map((sc) => ({
+        name: names[sc],
+        labels: cats,
+        values: cats.map((lab) => {
+          const row = (D.ladders[sc] || []).find((r) => r.label === lab);
+          return row ? row.p_accessible : 0;
+        }),
+      }));
+      drawGrouped(document.getElementById("arms-canvas"), groups);
+    }
+
+    function drawEarnings() {
+      const labels = D.professions.map((p) => p.label);
+      const values = D.professions.map((p) => p.median_lakh);
+      const canvas = document.getElementById("earn-canvas");
+      drawBars(canvas, labels, values, {
+        colors: ["#e2a12b", "#2f8f86", "#3a4a4e", "#5a6e72", "#8a9a9e"],
+        max: Math.max(...D.professions.map((p) => p.p75_lakh)) * 1.05,
+      });
+      // overlay p25-p75 as thin marks
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const cssW = canvas.clientWidth || 640;
+      const cssH = canvas.height;
+      const pad = { t: 16, r: 12, b: 48, l: 36 };
+      const w = cssW - pad.l - pad.r;
+      const h = cssH - pad.t - pad.b;
+      const maxV = Math.max(...D.professions.map((p) => p.p75_lakh)) * 1.05;
+      const n = D.professions.length;
+      const bw = w / n;
+      const gap = 0.22;
+      ctx.save();
+      D.professions.forEach((p, i) => {
+        const x = pad.l + i * bw + bw / 2;
+        const y1 = pad.t + h - (p.p75_lakh / maxV) * h;
+        const y2 = pad.t + h - (p.p25_lakh / maxV) * h;
+        ctx.strokeStyle = "rgba(18,26,28,0.55)";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(x, y1);
+        ctx.lineTo(x, y2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(x - 6, y1); ctx.lineTo(x + 6, y1);
+        ctx.moveTo(x - 6, y2); ctx.lineTo(x + 6, y2);
+        ctx.stroke();
+      });
+      ctx.restore();
+
+      document.getElementById("zero-stats").innerHTML = D.professions.slice(0, 4).map((p) =>
+        `<div class="stat"><b>${fmt.pct(p.zero_share, 0)}</b><span>Zero-earn share · ${p.label}</span></div>`
+      ).join("");
+    }
+
+    // Arms stats
+    const ar = D.arms_race.signatures;
+    document.getElementById("arms-stats").innerHTML = [
+      ["+" + ar.beta1_private_return_sd.toFixed(2) + " SD", "Private return (intensive δ)", "amber"],
+      [ar.beta2_positional_externality_sd.toFixed(2) + " SD", "Positional externality (−δ̄)", ""],
+      [ar.population_mean_coaching_sd.toFixed(2) + " SD", "Pop. mean coaching shift", "teal"],
+      [fmt.pct(D.cmse_coaching.find(c => c.sector==="all" && c.band==="class_x_xii")?.coaching_rate || 0.4, 0), "CMSE X–XII coaching rate", ""],
+    ].map(([v,l,c]) => `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`).join("");
+
+    const cmse = D.cmse_coaching.find((c) => c.sector === "all" && c.band === "class_x_xii");
+    if (cmse) {
+      document.getElementById("cmse-note").innerHTML =
+        `Among Class X–XII enrolled students, weighted coaching rate ≈ <strong>${fmt.pct(cmse.coaching_rate, 0)}</strong>,
+         median coaching spend among coached ≈ <strong>₹${fmt.n(cmse.spend_p50)}</strong>
+         (p90 ≈ ₹${fmt.n(cmse.spend_p90)}). CMSE 2025 — not NEET-applicant specific.`;
+    }
+
+    // —— Attempts ——
+    const rhos = D.attempts.map((a) => a.rho);
+    document.getElementById("rho-labels").innerHTML = rhos.map((r, i) =>
+      `<button type="button" data-i="${i}" class="${i === 2 ? "on" : ""}">${r}×</button>`
+    ).join("");
+
+    function renderRho(i) {
+      const a = D.attempts[i];
+      document.getElementById("rho-out").textContent = fmt.pct(a.p_repeater_applicants, 1);
+      document.getElementById("rho-first").textContent =
+        `First-attempt among applicants: ${fmt.pct(a.p_first_applicants, 1)} · admitted repeater share fixed at ${fmt.pct(a.r_admitted, 1)}`;
+      document.getElementById("rho-slider").value = String(i);
+      document.querySelectorAll("#rho-labels button").forEach((b) => {
+        b.classList.toggle("on", Number(b.dataset.i) === i);
+      });
+      drawBars(
+        document.getElementById("rho-canvas"),
+        D.attempts.map((x) => x.rho + "×"),
+        D.attempts.map((x) => x.p_repeater_applicants),
+        {
+          colors: D.attempts.map((_, j) => (j === i ? "#e2a12b" : "#2f8f86")),
+          gap: 0.3,
+        }
+      );
+    }
+    document.getElementById("rho-slider").addEventListener("input", (e) => renderRho(Number(e.target.value)));
+    document.getElementById("rho-labels").addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (b) renderRho(Number(b.dataset.i));
+    });
+
+    // —— Readiness ——
+    document.getElementById("readiness").innerHTML = D.readiness.map((r) => {
+      const tagClass = r.status === "SHOW†" ? "show-caveat" : r.status;
+      return `<div class="ready-row">
+        <div class="tag ${tagClass}">${r.status}</div>
+        <div><strong>${r.beat}</strong><p>${r.grain} — ${r.note}</p></div>
+      </div>`;
+    }).join("");
+
+    document.getElementById("warnings").innerHTML =
+      D.meta.warnings.map((w) => `<li>${w}</li>`).join("");
+
+    // —— Init draws ——
+    renderProfile();
+    drawMarksNational();
+    drawStratumMarks("marks-low", "tamil_cant_afford_nonmetro_none", "marks-low-cap");
+    drawStratumMarks("marks-top", "english_can_afford_metro_intensive", "marks-top-cap");
+    drawEarnings();
+    renderRho(2);
+
+    // reveal / fade
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) {
+          en.target.classList.add("in");
+          if (en.target.querySelector) {
+            const rev = en.target.classList.contains("reveal") ? en.target : en.target.querySelector(".reveal");
+            if (rev) rev.classList.add("reveal");
+            document.getElementById("scarcity-viz")?.classList.add("reveal");
+          }
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".fade").forEach((el) => io.observe(el));
+    // trigger scarcity bars
+    const sio = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) en.target.classList.add("reveal"); });
+    }, { threshold: 0.3 });
+    const sv = document.getElementById("scarcity-viz");
+    if (sv) sio.observe(sv);
+
+    window.addEventListener("resize", () => {
+      drawMarksNational();
+      drawStratumMarks("marks-low", "tamil_cant_afford_nonmetro_none", "marks-low-cap");
+      drawStratumMarks("marks-top", "english_can_afford_metro_intensive", "marks-top-cap");
+      drawArms();
+      drawEarnings();
+      renderRho(Number(document.getElementById("rho-slider").value));
+    });
+  })();
+  </script>
+</body>
+</html>
