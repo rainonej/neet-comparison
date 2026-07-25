@@ -36,7 +36,11 @@ Register once at the MoSPI microdata portal, then download **archives + document
 | Time Use | 2019 and 2024 |
 | MIS 78th / CAMS | 2022–23 |
 | ASUSE | recent waves |
-| NSS Health | 2017–18 (lower priority) |
+| NSS Health | 2017–18 and **2025** (A14 / A14b) |
+
+### Local status (2026-07-25)
+
+Downloaded via official `mospi-unitdata` API (CSV + docs; not committed): **PLFS** 2023–24 + calendar 2025, **HCES** 2022–23 + 2023–24, **CMSE** 2025, **NSS Education** 2017–18, **AIDIS** 2019. Further waves (extra PLFS, TUS, MIS, CAMS, ASUSE, Health) are in `python scripts/download_mospi_unitdata.py --model-batch`. Tracker: `docs/acquisition_tracker.csv` / `docs/gated_data_acquisition.csv`.
 
 ### If the NADA pages hang (common)
 

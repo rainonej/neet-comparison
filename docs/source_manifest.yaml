@@ -51,19 +51,19 @@ datasets:
   license_review_required: true
 - id: hces_2023_24
   url: https://www.mospi.gov.in/themes/product/71-household-consumption-expenditure-survey-hces
-  status: registration_required
+  status: local_archive_csv_docs
   priority: critical
   expected_format: unit microdata
   license_review_required: true
 - id: cmse_2025
   url: https://microdata.gov.in/NADA/index.php/catalog/255
-  status: registration_required
+  status: local_archive_csv_docs
   priority: critical
   expected_format: unit microdata plus metadata
   license_review_required: true
 - id: nss_education_2017_18
   url: https://microdata.gov.in/NADA/index.php/catalog/151
-  status: downloadable_catalog
+  status: local_archive_csv_docs
   priority: critical
   expected_format: unit microdata
   license_review_required: true
@@ -75,7 +75,7 @@ datasets:
   license_review_required: true
 - id: aidis_2019
   url: https://microdata.gov.in/NADA/index.php/catalog/154
-  status: registration_required
+  status: local_archive_csv_docs
   priority: high
   expected_format: unit microdata
   license_review_required: true
@@ -99,7 +99,7 @@ datasets:
   license_review_required: true
 - id: plfs_2022_23_2023_24
   url: https://microdata.gov.in/NADA/index.php/catalog/213
-  status: registration_required
+  status: local_archive_csv_docs_partial
   priority: critical
   expected_format: unit microdata
   license_review_required: true

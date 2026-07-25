@@ -54,6 +54,42 @@ REMAINING = [
     ),
 ]
 
+# Extra waves useful for Bayesian fit / validation (CSV+docs; skip alt formats).
+MODEL_BATCH = [
+    # Education costs / coaching historical depth
+    (
+        "DDI-IND-MOSPI-NSSO-75Rnd-Sch25.2-July2017-June2018",
+        "data/external/mospi/nss_education/2017-18/raw",
+    ),
+    # Consumption robustness
+    ("DDI-IND-MOSPI-NSSO-HCES22-23", "data/external/mospi/hces/2022-23/raw"),
+    # Career-outcome pooling (rare occupations)
+    ("DDI-IND-CSO-PLFS-2022-23", "data/external/mospi/plfs/2022-23/raw"),
+    ("DDI-IND-CSO-PLFS-2021-22", "data/external/mospi/plfs/2021-22/raw"),
+    ("DDI-IND-CSO-PLFS-2020-21", "data/external/mospi/plfs/2020-21/raw"),
+    ("DDI-IND-CSO-PLFS-2019-20", "data/external/mospi/plfs/2019-20/raw"),
+    ("DDI-IND-CSO-PLFS-2023-23", "data/external/mospi/plfs/2023-calendar/raw"),
+    ("DDI-IND-CSO-PLFS-2022-22", "data/external/mospi/plfs/2022-calendar/raw"),
+    # Opportunity cost / gendered time
+    ("DDI-IND-NSO-TUS-2024-24", "data/external/mospi/tus/2024/raw"),
+    ("DDI-IND-CSO-TUS-2019-19", "data/external/mospi/tus/2019/raw"),
+    # Access / digital / migration context
+    ("DDI-IND-CSO-MIS-78-2020", "data/external/mospi/mis/2020-21/raw"),
+    ("DDI-IND-MOSPI-NSSO-CAMS22-23", "data/external/mospi/cams/2022-23/raw"),
+    # Informal / family-business alternatives
+    ("DDI-IND-MOSPI-NSS-ASUSE23-24", "data/external/mospi/asuse/2023-24/raw"),
+    ("DDI-IND-MOSPI-NSSO-ASUSE2223", "data/external/mospi/asuse/2022-23/raw"),
+    # Health shock / QoL + recent health consumption
+    (
+        "DDI-IND-MOSPI-NSSO-75Rnd-Sch25.0-July2017-June2018",
+        "data/external/mospi/nss_health/2017-18/raw",
+    ),
+    (
+        "DDI-IND-NSO-HSCHealth80R-Jan2025-Dec2025",
+        "data/external/mospi/nss_health/2025/raw",
+    ),
+]
+
 
 def load_dotenv() -> None:
     env = Path(".env")
@@ -176,6 +212,11 @@ def main() -> int:
         action="store_true",
         help="HCES (fill missing) + CMSE + AIDIS with skip/CSV prefer",
     )
+    parser.add_argument(
+        "--model-batch",
+        action="store_true",
+        help="Download extra MoSPI waves useful for Bayesian fit/validation",
+    )
     args = parser.parse_args()
     key = api_key(args.api_key)
 
@@ -197,15 +238,19 @@ def main() -> int:
     if args.download:
         return 0 if download_smart(key, args.download[0], args.download[1]) else 1
 
-    if args.resume_remaining:
+    if args.resume_remaining or args.model_batch:
+        batch = MODEL_BATCH if args.model_batch else REMAINING
+        label = "model batch" if args.model_batch else "remaining batch"
         failures = []
-        for idno, dest in REMAINING:
+        for i, (idno, dest) in enumerate(batch):
+            if i:
+                time.sleep(2)  # ease portal rate limits
             if not download_smart(key, idno, dest):
                 failures.append(idno)
         if failures:
             print("failures:", "; ".join(failures), file=sys.stderr, flush=True)
             return 1
-        print("\nDone remaining batch.", flush=True)
+        print(f"\nDone {label}.", flush=True)
         return 0
 
     parser.print_help()
