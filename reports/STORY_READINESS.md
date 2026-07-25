@@ -1,7 +1,7 @@
 # Story readiness — what we can show, at what grain
 
 **Date:** 2026-07-25  
-**Thesis we are trying to show:** Privilege loads who can take an *accessible* MBBS seat; scarce ranks + coaching arms race make “merit alone” a misleading description of access; a seat then widens earnings versus same-background peers who miss. Mobility is real. Meritocracy-as-description-of-access is not.
+**Thesis we are trying to show:** Medicine’s rewards are real (mobility, respect, security, income). Because seats are scarce, prep is expensive, and private capacity is unequally affordable, NEET functions as a **heavily taxing lottery that privilege can bias** — then launders the outcome as merit. The emotional story is cruelty, not “school is useless.”
 
 **Primary interactive product:** [reports/interactive/the-accessible-seat.html](interactive/the-accessible-seat.html)  
 **Reproduce numbers:** `make bayes && make privilege && make score-privilege && make story`

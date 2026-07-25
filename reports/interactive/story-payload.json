@@ -14,8 +14,8 @@
       "earnings_quantiles_by_outcome.csv",
       "cmse_coaching_priors.csv"
     ],
-    "thesis": "Privilege and coaching shift latent NEET scores; scarce seats are allocated by rank; affordability turns private offers into accessible seats. A seat then widens earnings versus same-background peers who miss. Mobility is real; meritocracy is not.",
-    "arms_race_blurb": "Holding others fixed, prep raises private admission odds (β1>0). When the whole pool escalates equally, relative ranks barely move while costs rise (β2<0 / positional externality). NEET-specific coaching LATEs are unidentified; we use skeptical international priors.",
+    "thesis": "Medicine’s rewards are real. The rationing machine is cruel: a heavily taxing lottery that sells better odds to families who can afford the ticket, then launders the outcome as merit.",
+    "arms_race_blurb": "Coaching is the entry fee of the lottery. Holding others fixed, prep can raise absolute scores. When the whole pool escalates, relative ranks barely move while money and years are still extracted.",
     "warnings": [
       "National capacity cutoffs are accounting shares (seats/appeared), not state/category counselling pools.",
       "Medium score shifts are calibrated toward TN associations; not national causal English effects.",

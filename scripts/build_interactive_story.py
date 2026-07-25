@@ -198,8 +198,15 @@ def build_payload() -> dict:
                 "earnings_quantiles_by_outcome.csv",
                 "cmse_coaching_priors.csv",
             ],
-            "thesis": score["narrative"]["short"],
-            "arms_race_blurb": score["narrative"]["arms_race"],
+            "thesis": (
+                "Medicine’s rewards are real. The rationing machine is cruel: "
+                "a heavily taxing lottery that sells better odds to families who can afford the ticket, "
+                "then launders the outcome as merit."
+            ),
+            "arms_race_blurb": (
+                "Coaching is the entry fee of the lottery. Holding others fixed, prep can raise absolute scores. "
+                "When the whole pool escalates, relative ranks barely move while money and years are still extracted."
+            ),
             "warnings": score.get("warnings", []),
         },
         "scarcity": {

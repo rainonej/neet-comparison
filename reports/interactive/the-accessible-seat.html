@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Accessible Seat — NEET privilege & scarcity</title>
+  <title>The Accessible Seat — a taxing lottery sold as merit</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -151,6 +151,35 @@
       margin: 0 0 1rem; max-width: 18ch;
     }
     .lede { font-size: 1.12rem; color: var(--ink-soft); max-width: 40rem; margin: 0 0 2rem; }
+    .thesis-strip {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--line); margin: 2rem 0 0; border: 1px solid var(--line);
+    }
+    @media (max-width: 800px) { .thesis-strip { grid-template-columns: 1fr; } }
+    .thesis-strip article {
+      background: rgba(255,255,255,0.55); padding: 1.15rem 1.2rem;
+    }
+    .thesis-strip h3 {
+      font-family: Syne, sans-serif; font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.45rem;
+      color: var(--teal-deep);
+    }
+    .thesis-strip h3.cruel { color: var(--copper); }
+    .thesis-strip p { margin: 0; font-size: 0.98rem; color: var(--ink-soft); }
+    .stake-row {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.65rem;
+      margin: 1.5rem 0 0;
+    }
+    @media (max-width: 900px) { .stake-row { grid-template-columns: repeat(2, 1fr); } }
+    .stake {
+      padding: 1rem 0.9rem; border-top: 2px solid var(--seat);
+      background: rgba(255,255,255,0.45);
+    }
+    .stake b {
+      display: block; font-family: Syne, sans-serif; font-weight: 800;
+      font-size: 0.95rem; letter-spacing: -0.02em; margin-bottom: 0.25rem;
+    }
+    .stake span { font-size: 0.88rem; color: var(--ink-soft); }
     .footnote {
       font-size: 0.88rem; color: var(--ink-soft); max-width: 42rem;
       border-left: 3px solid var(--seat); padding-left: 0.9rem; margin-top: 1.5rem;
@@ -367,13 +396,11 @@
     <div class="wrap inner">
       <a class="brand" href="#top">The <span>Accessible</span> Seat</a>
       <div class="toc">
-        <a href="#scarcity">Scarcity</a>
-        <a href="#access">Access</a>
-        <a href="#ladder">Ladder</a>
-        <a href="#scores">Scores</a>
-        <a href="#arms">Arms race</a>
-        <a href="#earnings">Earnings</a>
-        <a href="#attempts">Attempts</a>
+        <a href="#prize">The prize</a>
+        <a href="#lottery">Lottery</a>
+        <a href="#odds">Buying odds</a>
+        <a href="#arms">The tax</a>
+        <a href="#attempts">Years</a>
         <a href="#evidence">Evidence</a>
       </div>
     </div>
@@ -389,84 +416,104 @@
       </svg>
     </div>
     <div class="wrap hero-inner">
-      <p class="hero-kicker">NEET-UG · India · calibrated story</p>
-      <h1>The <em>Accessible</em> Seat</h1>
+      <p class="hero-kicker">NEET-UG · India · a cruelty story with numbers</p>
+      <h1>Merit on<br/>the <em>label</em>.<br/>Lottery in<br/>the machine.</h1>
       <p class="hero-lead" id="hero-lead">
-        Privilege and coaching shift who can take a medical seat they can actually afford.
-        Mobility is real. Meritocracy-as-description-of-access is not.
+        Medicine really does buy mobility, respect, security, and income.
+        The system that rations it is cruel: a heavily taxing lottery that sells better odds to families who can afford the ticket.
       </p>
-      <a class="hero-cta" href="#scarcity">Enter the funnel</a>
+      <a class="hero-cta" href="#prize">See the prize — then the trap</a>
     </div>
   </header>
 
-  <section id="scarcity">
+  <section id="prize">
     <div class="wrap fade">
-      <p class="section-label">01 · National ecology</p>
-      <h2>One exam. Extreme scarcity.</h2>
+      <p class="section-label">01 · Why people chase it</p>
+      <h2>The prize is real.</h2>
       <p class="lede">
-        In 2024, more than two million students sat NEET-UG. About one hundred thirty thousand
-        MBBS seats exist in the national capacity account. Qualifying is common. Getting a seat is not.
+        This is not a story that medicine is a scam. An MBBS seat is a genuine ladder:
+        status, job security, quality of life, and higher earnings than most alternate paths.
+        Families are not irrational for wanting it. That is exactly why the rationing hurts.
+      </p>
+      <div class="stake-row">
+        <div class="stake"><b>Upward mobility</b><span>A profession that can rewrite a family’s trajectory</span></div>
+        <div class="stake"><b>Respect</b><span>Social standing that school marks alone rarely buy</span></div>
+        <div class="stake"><b>Job security</b><span>Credentialed work with persistent demand</span></div>
+        <div class="stake"><b>Quality of life</b><span>Autonomy and options most graduates do not get</span></div>
+        <div class="stake"><b>Income</b><span>Medicine sits above engineering, law, and no-college paths</span></div>
+      </div>
+      <div class="chart-box" style="margin-top:1.75rem">
+        <p class="chart-title">Median annual earnings if employed (₹ lakh)</p>
+        <p class="chart-cap">The payoff that makes the tournament worth entering — and makes losing expensive.</p>
+        <canvas id="earn-canvas" height="280"></canvas>
+      </div>
+      <div class="stat-row" id="zero-stats" style="margin-top:1.5rem"></div>
+      <p class="footnote" id="zero-note">
+        Annual zeros are an employment / non-completion filter for young adults — usually family support or delayed independence, not street poverty.
+        Government and private medical colleges share the same physician wage prior here: private mainly buys <em>access</em>, not a different doctor salary.
+      </p>
+    </div>
+  </section>
+
+  <section id="lottery" class="alt">
+    <div class="wrap fade">
+      <p class="section-label">02 · The lottery</p>
+      <h2>Too few seats for a fair race.</h2>
+      <p class="lede">
+        Call it an exam if you want. Mechanically it is a mass lottery with a rank ticket.
+        In 2024, more than two million appeared for roughly one hundred thirty thousand MBBS seats.
+        Most diligent students will lose — not because they are worthless, but because the funnel is that thin.
       </p>
       <div class="stat-row" id="scarcity-stats"></div>
       <div class="scarcity-viz reveal" id="scarcity-viz">
         <div class="bar-stack" id="scarcity-bars"></div>
         <div class="callout">
-          <h3>Qualify ≠ seat</h3>
+          <h3>Qualify is not the prize</h3>
           <p>
-            Roughly <strong id="qual-rate">56%</strong> qualify. There are still about
+            Roughly <strong id="qual-rate">56%</strong> “qualify.” There are still about
             <strong id="qual-per-seat">10</strong> qualified students for every MBBS seat.
-            The story that matters for families is not the soft qualify line —
-            it is whether they get a seat they can take.
+            The soft qualify line flatters the system. Families care about a seat they can actually take.
           </p>
         </div>
+      </div>
+      <div class="chart-box" style="margin-top:1.5rem">
+        <p class="chart-title">NEET 2024 marks — where the mass sits</p>
+        <p class="chart-cap">Most candidates are far below the seat line. Tiny rank moves near the cutoff decide life paths.</p>
+        <canvas id="marks-canvas" height="280"></canvas>
       </div>
       <p class="footnote">
         Source: reconciled NTA appeared/qualified counts and NMC seat capacity.
-        Capacity cutoffs are national accounting shares (seats ÷ appeared), not state or category counselling pools.
+        Cutoffs shown as national accounting shares (seats ÷ appeared), not state or category counselling pools.
       </p>
     </div>
   </section>
 
-  <section id="access" class="alt">
+  <section id="odds">
     <div class="wrap fade">
-      <p class="section-label">02 · The right outcome</p>
-      <h2>Accessible, not merely offered.</h2>
+      <p class="section-label">03 · Buying better odds</p>
+      <h2>Privilege does not invent the prize. It loads the dice.</h2>
       <p class="lede">
-        A private offer that a family cannot pay is not access. Government seats are scarce.
-        Private capacity widens offers — then affordability decides who can walk through the door.
+        A private offer a family cannot pay is a ticket they cannot cash.
+        English-medium schooling, metro prep markets, and the ability to buy coaching or private seats
+        do not replace “merit” — they purchase better chances inside a scarce lottery, then the winners look like they earned it alone.
       </p>
-      <div class="two-col">
-        <div class="callout">
-          <h3>What we count</h3>
-          <p>
-            <strong>P(accessible MBBS seat)</strong> = government offer,
-            or private offer that clears the affordability filter.
-            Private offers that fail the filter do not count.
-          </p>
-        </div>
-        <div class="callout" style="background:#1a3338">
-          <h3>What we refuse</h3>
-          <p>
-            We do not treat “share of admitted students who were coached” as
-            <strong>P(seat | coaching)</strong>. That is the winning pool, not the applicant pool.
-          </p>
-        </div>
+      <div class="thesis-strip">
+        <article>
+          <h3>Claimed</h3>
+          <p>One exam. Same paper. Rank decides. Meritocracy.</p>
+        </article>
+        <article>
+          <h3>Actual machine</h3>
+          <p>Scarce seats + years of prep cost + private fees. A lottery you can afford to bias.</p>
+        </article>
+        <article>
+          <h3 class="cruel">The laundering</h3>
+          <p>Winners are praised as meritorious. The unequal ticket price disappears from the story.</p>
+        </article>
       </div>
-    </div>
-  </section>
-
-  <section id="ladder">
-    <div class="wrap fade">
-      <p class="section-label">03 · Privilege ladder</p>
-      <h2>Build a student. Watch access move.</h2>
-      <p class="lede">
-        Medium, money, metro, and prep shift latent scores and whether a private offer is usable.
-        Tamil Nadu’s English/Tamil government allotment gap anchors the medium channel;
-        affordability and metro are labeled model knobs.
-      </p>
       <div class="panel">
         <div class="controls">
-          <h3>Student profile</h3>
+          <h3>Load the dice</h3>
           <div class="ctrl">
             <label>School medium</label>
             <div class="seg" data-key="medium">
@@ -509,7 +556,7 @@
           <div>
             <p class="meta-line" id="profile-label">—</p>
             <p class="big" id="profile-p">—</p>
-            <p class="meta-line">chance of an accessible MBBS seat</p>
+            <p class="meta-line">chance of cashing an accessible MBBS ticket</p>
           </div>
           <div class="mini-grid">
             <div class="mini"><b id="profile-govt">—</b><span>Govt offer</span></div>
@@ -519,73 +566,55 @@
         </div>
       </div>
       <div class="chart-box" style="margin-top:1.5rem">
-        <p class="chart-title">Access ladder under current arms-race world</p>
-        <p class="chart-cap">Full synthetic ladder from model strata. Top / bottom ratio shown in amber.</p>
+        <p class="chart-title">How much better odds money and medium buy</p>
+        <p class="chart-cap">Accessible-seat chance by synthetic stratum. Same national seat scarcity — different starting tickets.</p>
         <div class="ladder" id="ladder-chart"></div>
         <p class="footnote" style="margin-top:1rem">
-          Full ladder ratio (unilateral baseline): <strong id="ladder-ratio">~5.5×</strong>.
+          Full ladder ratio (unilateral): <strong id="ladder-ratio">~5.5×</strong>.
           TN English/Tamil government allotment association ≈ <strong id="tn-ratio">2.3×</strong> (state case, not a national causal English effect).
+          Affordability is an accounting filter: private offers you cannot pay do not count as access.
         </p>
       </div>
-    </div>
-  </section>
-
-  <section id="scores" class="alt">
-    <div class="wrap fade">
-      <p class="section-label">04 · Marks & cutoffs</p>
-      <h2>Most students sit far below the seat line.</h2>
-      <p class="lede">
-        The anonymized 2024 centre-marks release shows where the mass of the distribution lives.
-        National capacity cutoffs sit in the thin upper tail — which is why small location shifts from privilege and prep can matter.
-      </p>
-      <div class="chart-box">
-        <p class="chart-title">NEET 2024 marks distribution (national)</p>
-        <p class="chart-cap">Share of appeared candidates by score band. Amber markers: government-like and any-MBBS accounting cutoffs.</p>
-        <canvas id="marks-canvas" height="280"></canvas>
-      </div>
-      <div class="two-col">
+      <div class="two-col" style="margin-top:1.5rem">
         <div class="chart-box">
-          <p class="chart-title">Bottom of ladder — mark shape</p>
+          <p class="chart-title">Weaker ticket — mark shape</p>
           <p class="chart-cap" id="marks-low-cap">Tamil · cannot afford · no prep</p>
           <canvas id="marks-low" height="220"></canvas>
         </div>
         <div class="chart-box">
-          <p class="chart-title">Top of ladder — mark shape</p>
+          <p class="chart-title">Stronger ticket — mark shape</p>
           <p class="chart-cap" id="marks-top-cap">English · can afford · metro · intensive</p>
           <canvas id="marks-top" height="220"></canvas>
         </div>
       </div>
-      <p class="footnote">
-        Centre geography is not domicile, caste, or income. Privilege enters the score model through synthetic shifts, not by reading SES off centres.
-      </p>
     </div>
   </section>
 
-  <section id="arms">
+  <section id="arms" class="alt">
     <div class="wrap fade">
-      <p class="section-label">05 · Coaching arms race</p>
-      <h2>Prep helps you — until everyone prep’s.</h2>
+      <p class="section-label">04 · The tax</p>
+      <h2>Everyone pays. Rank barely moves.</h2>
       <p class="lede" id="arms-blurb">
-        Holding others fixed, prep raises absolute scores. When the whole pool escalates equally,
-        relative ranks barely move while costs still rise.
+        Coaching is the entry fee of the lottery. Holding others fixed, more prep can raise your absolute score.
+        When the whole pool escalates, relative ranks barely move — while money and years are still extracted from families who mostly will not get a seat.
       </p>
       <div class="stat-row" id="arms-stats"></div>
       <div class="chart-box">
-        <p class="chart-title">Accessible-seat probability by stratum × arms-race world</p>
-        <p class="chart-cap">Toggle worlds above in the ladder panel, or compare all three here. Skeptical coaching prior (conservative profile) — not a NEET LATE.</p>
+        <p class="chart-title">Accessible-seat odds when the pool arms up</p>
+        <p class="chart-cap">Unilateral advantage vs everyone-escalates worlds. The tax keeps rising even when the positional gain collapses.</p>
         <canvas id="arms-canvas" height="300"></canvas>
       </div>
       <div class="two-col" style="margin-top:1.5rem">
         <div class="callout">
-          <h3>Composition fact</h3>
+          <h3>What the winners look like</h3>
           <p>
             In Tamil Nadu, nearly all admitted students had coaching in one reported year —
-            and <strong>~71%</strong> of admits were repeaters. That describes the winning pool.
-            It does not identify the causal effect of coaching or mean attempts among applicants.
+            and <strong>~71%</strong> of admits were repeaters. The winning pool is soaked in prep and second chances.
+            That is composition, not proof that coaching “caused” each seat — and it is exactly how privilege gets laundered into a merit story.
           </p>
         </div>
         <div class="callout" style="background:#1a3338">
-          <h3>CMSE coaching spend (Class X–XII)</h3>
+          <h3>What families actually spend</h3>
           <p id="cmse-note">
             National coaching participation and spend among enrolled students inform intensity priors.
             Median positive prep spend anchors the two-part score shift.
@@ -595,33 +624,14 @@
     </div>
   </section>
 
-  <section id="earnings" class="alt">
-    <div class="wrap fade">
-      <p class="section-label">06 · After the seat</p>
-      <h2>Wages by profession — not by college ownership.</h2>
-      <p class="lede">
-        Once on a path, earnings are modeled by career. Government and private medical colleges share the same physician wage prior.
-        Private mainly buys access for families who can pay.
-      </p>
-      <div class="chart-box">
-        <p class="chart-title">Median annual earnings if employed (₹ lakh)</p>
-        <p class="chart-cap">Monte Carlo medians from privilege model. Bars show p25–p75. Zeros are a separate story.</p>
-        <canvas id="earn-canvas" height="280"></canvas>
-      </div>
-      <div class="stat-row" id="zero-stats" style="margin-top:1.5rem"></div>
-      <p class="footnote" id="zero-note">
-        Annual zeros are an employment / non-completion filter for young adults — usually family support or delayed independence, not street poverty. Do not lock zeros into a 35-year lifetime NPV.
-      </p>
-    </div>
-  </section>
-
   <section id="attempts">
     <div class="wrap fade">
-      <p class="section-label">07 · Years of trying</p>
-      <h2>What one number can — and cannot — tell you.</h2>
+      <p class="section-label">05 · Years as currency</p>
+      <h2>The lottery charges time, not only money.</h2>
       <p class="lede">
-        We observe the share of <em>admitted</em> students who were repeaters.
-        Turning that into the share of <em>applicants</em> who are repeaters needs an assumption about relative admit odds (ρ).
+        Repeat years are part of the tax. We can see that most <em>admitted</em> students were repeaters —
+        but converting that into how many <em>applicants</em> are trapped in the loop needs an assumption (ρ).
+        Either way, the machine burns calendar years while promising a fair race.
       </p>
       <div class="panel">
         <div class="controls">
@@ -652,15 +662,16 @@
 
   <section id="evidence" class="alt">
     <div class="wrap fade">
-      <p class="section-label">08 · How ready is the story?</p>
-      <h2>Show, sensitivity, or blocked.</h2>
+      <p class="section-label">06 · Evidence grain</p>
+      <h2>What the numbers can defend.</h2>
       <p class="lede">
-        A useful simulator is a calibrated synthetic-population model — not a fully empirical causal machine.
-        Here is the grain at which each beat can be shown today.
+        The emotional claim is sharp; the measurement is not magic.
+        Scarcity and the prize are solid. Privilege-weighted odds are a calibrated synthetic ladder.
+        Coaching effects are skeptical priors. Causal “return to a seat” is not identified.
       </p>
       <div class="readiness" id="readiness"></div>
       <div class="chart-box" style="margin-top:1.5rem">
-        <p class="chart-title">Warnings baked into the model</p>
+        <p class="chart-title">Guardrails</p>
         <ul id="warnings" style="margin:0.5rem 0 1rem; padding-left:1.2rem; color:var(--ink-soft)"></ul>
       </div>
     </div>
@@ -669,13 +680,12 @@
   <section class="closing">
     <div class="wrap fade">
       <p class="section-label" style="color:var(--seat)">Close</p>
-      <h2>The bottleneck is not mysterious.</h2>
+      <h2>The cruelty is the laundering.</h2>
       <p class="lede">
-        Seats are scarce. Privilege shifts scores and who can afford the private door.
-        Coaching has a private return and a positional trap. Earnings then diverge by profession —
-        with a large honest zero-mass for young adults.
+        Medicine is worth wanting. Seats are scarce. Prep and private capacity extract years and money from millions who will lose.
+        Families with resources can buy better odds — then the system points at the rank list and calls the outcome merit.
       </p>
-      <p class="punch">Mobility is real.<br/>Meritocracy-as-access is not.</p>
+      <p class="punch">A taxing lottery<br/>sold as a fair race.</p>
     </div>
   </section>
 
@@ -711,21 +721,18 @@
       lakh: (x) => (x / 1e5).toFixed(2),
     };
 
-    // —— Hero / meta ——
-    document.getElementById("hero-lead").textContent = D.meta.thesis;
-    document.getElementById("arms-blurb").textContent = D.meta.arms_race_blurb;
+    // —— Meta (narrative copy stays in HTML; do not overwrite the thesis) ——
     document.getElementById("mv-score").textContent = D.meta.model_version_score;
     document.getElementById("mv-priv").textContent = D.meta.model_version_privilege;
     document.getElementById("mv-coach").textContent = D.meta.coaching_profile;
-    if (D.zero_earnings_note) document.getElementById("zero-note").textContent = D.zero_earnings_note;
 
     // —— Scarcity ——
     const S = D.scarcity;
     document.getElementById("scarcity-stats").innerHTML = [
-      ["2.33M", "Appeared (2024)", ""],
+      ["2.33M", "Tickets punched (appeared)", ""],
       [S.appeared_per_seat.toFixed(0) + ":1", "Appeared per MBBS seat", "amber"],
-      [fmt.pct(S.qualify_rate, 1), "Qualify rate", "teal"],
-      [S.qualified_per_seat.toFixed(1) + ":1", "Qualified per seat", ""],
+      [fmt.pct(S.qualify_rate, 1), "Soft “qualify” rate", "teal"],
+      [S.qualified_per_seat.toFixed(1) + ":1", "Still qualified per seat", ""],
     ].map(([v, l, c]) =>
       `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
     ).join("");
