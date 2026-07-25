@@ -1,0 +1,25 @@
+sector,sector_label,social_group,consumption_tercile,enrolment_band,n_unweighted,n_coached_unweighted,coaching_rate_weighted,coaching_exp_p50,coaching_exp_p90,coaching_exp_mean_weighted,notes
+1,rural,1,high,class_x_xii,228,45,0.16289346894513096,10250.0,33460.0,15863.604252632762,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,1,low,class_x_xii,474,97,0.22855953801773113,7000.0,14750.0,8650.156657472497,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,1,mid,class_x_xii,277,60,0.21224323507710227,10100.0,20700.0,10254.273674093542,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,2,high,class_x_xii,314,94,0.32181162366699934,8000.0,28200.0,14789.942458967858,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,2,low,class_x_xii,414,140,0.37917621207841296,7750.0,18000.0,9411.295530811038,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,2,mid,class_x_xii,388,140,0.36135045060156706,8400.0,16030.0,10407.08514160656,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,3,high,class_x_xii,868,318,0.370205747449615,8850.0,30000.0,14268.075385180744,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,3,low,class_x_xii,865,318,0.39710429649211293,7400.0,16000.0,9253.406010317465,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,3,mid,class_x_xii,925,341,0.3957928793860993,7470.0,20800.0,10284.033113492467,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,9,high,class_x_xii,523,210,0.3719856228008318,10800.0,27100.0,13870.422340392728,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,9,low,class_x_xii,315,116,0.4232212310378055,10250.0,23600.0,14065.54647811815,CMSE 2025; school Class X-XII; not NEET-specific
+1,rural,9,mid,class_x_xii,440,193,0.41908158147111657,11000.0,28600.0,14424.001450722484,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,1,high,class_x_xii,320,82,0.4097995087509705,12700.0,41100.0,19999.55516789065,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,1,low,class_x_xii,156,36,0.19813645406749425,11400.0,15700.0,10887.199594347667,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,1,mid,class_x_xii,120,27,0.30152312501175943,14200.0,27500.0,16819.22606095366,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,2,high,class_x_xii,289,140,0.4382053284985482,17150.0,47500.0,21902.501047124286,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,2,low,class_x_xii,191,67,0.5599176805302264,800.0,11550.0,3444.8883450786566,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,2,mid,class_x_xii,233,101,0.49916461023784986,9900.0,28700.0,13671.60767998316,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,3,high,class_x_xii,1127,488,0.4365339105665364,15300.0,46500.0,20255.35064905658,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,3,low,class_x_xii,415,141,0.34217610530871584,11900.0,37000.0,16607.914931592215,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,3,mid,class_x_xii,645,226,0.35789035901228844,12500.0,31200.0,16157.429004798203,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,9,high,class_x_xii,1184,621,0.5318113991410418,23550.0,67500.0,31892.368937193867,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,9,low,class_x_xii,196,91,0.545392672808265,9200.0,35700.0,13472.299654622651,CMSE 2025; school Class X-XII; not NEET-specific
+2,urban,9,mid,class_x_xii,422,202,0.49012166884039066,15700.0,45000.0,20225.01652381711,CMSE 2025; school Class X-XII; not NEET-specific

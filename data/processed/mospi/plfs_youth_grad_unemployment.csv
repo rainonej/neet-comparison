@@ -1,0 +1,2 @@
+measure,source_wave,age_band,education,estimate,estimate_type,denominator,notes
+youth_graduate_unemployment_usual_status,plfs_2025,15-29,gedu_lvl>=11,0.24494889665134778,weighted_rate,in labor force (usual status),"pas in {81,82} / LF statuses; not field-specific"

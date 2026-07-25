@@ -17,6 +17,13 @@ wid_top_1_wealth_share,40.1,percent,India,2022-23,World Inequality Lab,Net perso
 rajan_admitted_coached_2019_20,98.5,percent of admitted students,Tamil Nadu,2019-20,Justice A.K. Rajan Committee,Approximate reported figure; admitted denominator only.
 rajan_repeaters_admitted_2020_21,71.42,percent of admitted students,Tamil Nadu,2020-21,Justice A.K. Rajan Committee,Does not give national applicant success probability.
 neet_anxiety_stressed_sample,75.5,percent of sample,one private junior college,2020,Thiriveedhi et al.,n=200 convenience sample; not national prevalence.
-cmse_metadata_private_coaching_mean,15312.45,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Metadata page showed 319 valid values; investigate file/skip pattern before use.
+cmse_metadata_private_coaching_mean,15312.45,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Superseded for modeling by cmse_class_x_xii_* rows from unit-file aggregates.
 cmse_metadata_private_coaching_sd,19242.44,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Unweighted catalog summary; not population estimate.
 cmse_metadata_private_coaching_max,120000,INR/current academic year,CMSE metadata subset,2025,MoSPI CMSE 80th metadata,Unweighted catalog maximum in displayed subset.
+cmse_class_x_xii_coaching_rate,0.3954,share of enrolled Class X-XII,India,2025,MoSPI CMSE 2025 unit file (weighted),School tutoring only; not NEET-specific or exam-dropper coaching.
+cmse_class_x_xii_coaching_exp_p50,9900,INR/current academic year,India,2025,MoSPI CMSE 2025 unit file (weighted),Among coached Class X-XII with non-missing private_coaching_exp_total.
+cmse_class_xii_coaching_rate,0.4165,share of enrolled Class XII,India,2025,MoSPI CMSE 2025 unit file (weighted),School frame; see data/processed/mospi/cmse_coaching_priors.csv.
+plfs_2025_physician_monthly_median,53000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 221,Weighted median among positive earners; geometric_sd≈2.05 in mospi/plfs_wage_anchors.csv.
+plfs_2025_engineer_monthly_median,40000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 21x,Science/engineering professionals family; not only civil/software.
+plfs_2025_nurse_monthly_median,18000,INR/month,India,2025,MoSPI PLFS 2025 unit file NCO 222,Nursing/midwifery professionals.
+plfs_2025_youth_grad_unemployment,0.2449,rate,India,2025,MoSPI PLFS 2025 unit file,Ages 15-29 gedu>=11 in LF; usual status 81-82.

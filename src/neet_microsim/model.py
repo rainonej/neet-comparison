@@ -299,7 +299,7 @@ def _build_career_paths(profile: PriorProfile, processed: Path) -> tuple[CareerP
         completion_mean: float,
         match_mean: float,
         wage_key: str,
-        unmatched_monthly: float,
+        unmatched_annual: float,
         geometric_sd: float = 1.75,
     ) -> CareerPathModel:
         wage = wages[wage_key]
@@ -333,41 +333,40 @@ def _build_career_paths(profile: PriorProfile, processed: Path) -> tuple[CareerP
             ),
             formal_job_given_employed=formal,
             matched_earnings=LogNormalEarnings.from_median_and_geometric_sd(
-                # Approximate median from published mean with moderate right skew.
-                median=wage.monthly_inr * 12.0 / 1.15,
-                geometric_sd=geometric_sd,
+                median=wage.annual_median_inr(),
+                geometric_sd=wage.geometric_sd if wage.geometric_sd > 1.0 else geometric_sd,
                 label=f"{name}_matched_annual_earnings",
                 source=wage.source,
             ),
             unmatched_earnings=LogNormalEarnings.from_median_and_geometric_sd(
-                median=unmatched_monthly * 12.0 / 1.15,
-                geometric_sd=geometric_sd,
+                median=unmatched_annual,
+                geometric_sd=wage.geometric_sd if wage.geometric_sd > 1.0 else geometric_sd,
                 label=f"{name}_unmatched_annual_earnings",
-                source="World Bank comparator wages / weak prior",
+                source="PLFS/World Bank comparator wages / weak prior",
             ),
         )
 
-    nurse_monthly = wages["nursing"].monthly_inr
+    nurse_annual = wages["nursing"].annual_median_inr()
     medicine = _path(
         "medicine",
         completion_mean=0.92,
         match_mean=0.70,
         wage_key="medicine",
-        unmatched_monthly=nurse_monthly,
+        unmatched_annual=nurse_annual,
     )
     engineering = _path(
         "engineering",
         completion_mean=0.82,
         match_mean=0.55,
         wage_key="engineering",
-        unmatched_monthly=nurse_monthly,
+        unmatched_annual=nurse_annual,
     )
     other = _path(
         "other_graduate",
         completion_mean=0.78,
         match_mean=0.40,
         wage_key="nursing",
-        unmatched_monthly=nurse_monthly * 0.85,
+        unmatched_annual=nurse_annual * 0.85,
     )
     # Attach shrinkage note via unused computation for report diagnostics.
     _ = shrinkage_weight(parent_employment.effective_sample_size, young.suggested_prior_ess)

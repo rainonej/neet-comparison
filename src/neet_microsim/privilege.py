@@ -33,7 +33,12 @@ from .career import (
     kde_curve,
     simulate_one_year,
 )
-from .evidence import PROCESSED, load_wage_anchors
+from .evidence import (
+    PROCESSED,
+    load_cmse_coaching_priors,
+    load_plfs_extended_wage_anchors,
+    load_wage_anchors,
+)
 from .model import fit_profile
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -231,12 +236,15 @@ def build_career_paths_for_privilege(
       student. Both use the same overall physician wage anchor. Fees differ; wages do not.
     - ``physician_public_sector`` / ``physician_private_sector`` are *post-graduation employment
       sector* anchors from World Bank (optional comparison), not college type.
+    - Core medicine/engineering/nursing levels prefer MoSPI PLFS 2025 medians when
+      ``data/processed/mospi/plfs_wage_anchors.csv`` exists.
     """
 
     processed_root = PROCESSED if processed is None else processed
     fit = fit_profile(bayes_profile, processed=processed_root)
     wages = load_wage_anchors(processed_root)
-    nurse = wages["nursing"].monthly_inr
+    extended = load_plfs_extended_wage_anchors(processed_root)
+    nurse = wages["nursing"]
     employment = fit.career_medicine.employment_given_labor_force
     formal = fit.career_medicine.formal_job_given_employed
 
@@ -245,12 +253,14 @@ def build_career_paths_for_privilege(
         *,
         completion: float,
         match: float,
-        monthly_matched: float,
-        monthly_unmatched: float,
+        annual_matched: float,
+        annual_unmatched: float,
         source: str,
+        geometric_sd: float = 1.75,
         lfp: float = 0.85,
         employment_override=None,
     ) -> CareerPathModel:
+        geom = geometric_sd if geometric_sd > 1.0 else 1.75
         return CareerPathModel(
             name=name,
             completion=beta_from_mean_ess(
@@ -277,14 +287,14 @@ def build_career_paths_for_privilege(
             ),
             formal_job_given_employed=formal,
             matched_earnings=LogNormalEarnings.from_median_and_geometric_sd(
-                median=monthly_matched * 12.0 / 1.15,
-                geometric_sd=1.75,
+                median=annual_matched,
+                geometric_sd=geom,
                 label=f"{name}_matched_earnings",
                 source=source,
             ),
             unmatched_earnings=LogNormalEarnings.from_median_and_geometric_sd(
-                median=monthly_unmatched * 12.0 / 1.15,
-                geometric_sd=1.75,
+                median=annual_unmatched,
+                geometric_sd=geom,
                 label=f"{name}_unmatched_earnings",
                 source=source,
             ),
@@ -292,16 +302,32 @@ def build_career_paths_for_privilege(
 
     estimates = pd.read_csv(processed_root / "published_estimates.csv")
     by_id = estimates.set_index("estimate_id")["value"].astype(float)
-    overall_phys = wages["medicine"].monthly_inr
-    public_monthly = float(by_id.get("world_bank_public_physician_monthly_wage", overall_phys))
-    private_monthly = float(
-        by_id.get("world_bank_private_physician_monthly_wage", overall_phys * 0.8)
+    phys = wages["medicine"]
+    eng = wages["engineering"]
+    # Public/private *sector* physician wages remain World Bank means (not in PLFS extract yet).
+    public_annual = float(by_id.get("world_bank_public_physician_monthly_wage", phys.monthly_inr)) * 12.0 / 1.15
+    private_annual = (
+        float(by_id.get("world_bank_private_physician_monthly_wage", phys.monthly_inr * 0.8)) * 12.0 / 1.15
     )
-    eng_monthly = wages["engineering"].monthly_inr
-    law_monthly = 0.5 * eng_monthly + 0.5 * nurse
-    # Non-professional graduate and no-college: stylized relative knobs until PLFS arrives.
-    nonprof_monthly = nurse * 0.85
-    no_college_monthly = nurse * 0.45
+    law_annual = 0.5 * eng.annual_median_inr() + 0.5 * nurse.annual_median_inr()
+    if "non_professional_graduate" in extended:
+        nonprof = extended["non_professional_graduate"]
+        nonprof_annual = nonprof.annual_median_inr()
+        nonprof_source = nonprof.source
+        nonprof_geom = nonprof.geometric_sd
+    else:
+        nonprof_annual = nurse.annual_median_inr() * 0.85
+        nonprof_source = "stylized non-professional BA/BSc wage knob (PLFS extended anchors missing)"
+        nonprof_geom = nurse.geometric_sd
+    if "no_college" in extended:
+        no_college = extended["no_college"]
+        no_college_annual = no_college.annual_median_inr()
+        no_college_source = no_college.source
+        no_college_geom = no_college.geometric_sd
+    else:
+        no_college_annual = nurse.annual_median_inr() * 0.45
+        no_college_source = "stylized secondary/no-college wage knob (PLFS extended anchors missing)"
+        no_college_geom = nurse.geometric_sd
     weaker_employment = beta_from_mean_ess(
         max(employment.mean - 0.08, 0.45),
         employment.effective_sample_size,
@@ -311,7 +337,7 @@ def build_career_paths_for_privilege(
     )
 
     physician_source = (
-        "World Bank overall physician wage; SAME for govt/private college — "
+        f"{phys.source}; SAME for govt/private college — "
         "no identified college-quality earnings effect"
     )
     return {
@@ -319,73 +345,82 @@ def build_career_paths_for_privilege(
             "government_mbbs",
             completion=0.92,
             match=0.72,
-            monthly_matched=overall_phys,
-            monthly_unmatched=nurse,
+            annual_matched=phys.annual_median_inr(),
+            annual_unmatched=nurse.annual_median_inr(),
             source=physician_source,
+            geometric_sd=phys.geometric_sd,
         ),
         "private_mbbs": _path(
             "private_mbbs",
             completion=0.90,
             match=0.70,
-            monthly_matched=overall_phys,
-            monthly_unmatched=nurse,
+            annual_matched=phys.annual_median_inr(),
+            annual_unmatched=nurse.annual_median_inr(),
             source=physician_source,
+            geometric_sd=phys.geometric_sd,
         ),
         "physician_public_sector": _path(
             "physician_public_sector",
             completion=0.92,
             match=0.75,
-            monthly_matched=public_monthly,
-            monthly_unmatched=nurse,
+            annual_matched=public_annual,
+            annual_unmatched=nurse.annual_median_inr(),
             source="World Bank public-sector physician wage (employment sector, not college)",
+            geometric_sd=phys.geometric_sd,
         ),
         "physician_private_sector": _path(
             "physician_private_sector",
             completion=0.92,
             match=0.70,
-            monthly_matched=private_monthly,
-            monthly_unmatched=nurse,
+            annual_matched=private_annual,
+            annual_unmatched=nurse.annual_median_inr(),
             source="World Bank private-sector physician wage (employment sector, not college)",
+            geometric_sd=phys.geometric_sd,
         ),
         "engineering": _path(
             "engineering",
             completion=0.82,
             match=0.55,
-            monthly_matched=eng_monthly,
-            monthly_unmatched=nurse,
-            source="World Bank engineer wage anchor",
+            annual_matched=eng.annual_median_inr(),
+            annual_unmatched=nurse.annual_median_inr(),
+            source=eng.source,
+            geometric_sd=eng.geometric_sd,
         ),
         "law": _path(
             "law",
             completion=0.80,
             match=0.50,
-            monthly_matched=law_monthly,
-            monthly_unmatched=nurse * 0.9,
-            source="weak law wage proxy (not PLFS-identified)",
+            annual_matched=law_annual,
+            annual_unmatched=nurse.annual_median_inr() * 0.9,
+            source="weak law wage proxy (blend of PLFS eng/nurse; not law-identified)",
+            geometric_sd=eng.geometric_sd,
         ),
         "other_graduate": _path(
             "other_graduate",
             completion=0.78,
             match=0.40,
-            monthly_matched=nurse,
-            monthly_unmatched=nurse * 0.85,
-            source="World Bank nurse wage as other-graduate proxy",
+            annual_matched=nurse.annual_median_inr(),
+            annual_unmatched=nurse.annual_median_inr() * 0.85,
+            source=f"{nurse.source} (other-graduate proxy)",
+            geometric_sd=nurse.geometric_sd,
         ),
         "non_professional_graduate": _path(
             "non_professional_graduate",
             completion=0.75,
             match=0.35,
-            monthly_matched=nonprof_monthly,
-            monthly_unmatched=nonprof_monthly * 0.8,
-            source="stylized non-professional BA/BSc wage knob",
+            annual_matched=nonprof_annual,
+            annual_unmatched=nonprof_annual * 0.8,
+            source=nonprof_source,
+            geometric_sd=nonprof_geom,
         ),
         "no_college": _path(
             "no_college",
             completion=0.99,
             match=0.30,
-            monthly_matched=no_college_monthly,
-            monthly_unmatched=no_college_monthly * 0.75,
-            source="stylized secondary/no-college wage knob",
+            annual_matched=no_college_annual,
+            annual_unmatched=no_college_annual * 0.75,
+            source=no_college_source,
+            geometric_sd=no_college_geom,
             lfp=0.80,
             employment_override=weaker_employment,
         ),
@@ -821,6 +856,12 @@ def run_privilege_pipeline(
     )
     top = ladder_summary[-1]
     afford_ratio = affordability_only_ratio(config)
+    cmse_priors = load_cmse_coaching_priors(processed_root)
+    cmse_x_xii = (
+        cmse_priors.query("sector_label == 'all' and enrolment_band == 'class_x_xii'")
+        if not cmse_priors.empty
+        else cmse_priors
+    )
 
     story = {
         "model_version": config.get("model_version"),
@@ -891,13 +932,25 @@ def run_privilege_pipeline(
                 "(ratio ~1). Public vs private *sector* physician wages differ (World Bank). "
                 "Not a US-style private-college quality premium."
             ),
+            "wage_source": careers["government_mbbs"].matched_earnings.source,
+            "cmse_class_x_xii_coaching_rate": (
+                float(cmse_x_xii["coaching_rate_weighted"].iloc[0])
+                if not cmse_x_xii.empty
+                else None
+            ),
+            "cmse_class_x_xii_coaching_exp_p50": (
+                float(cmse_x_xii["coaching_exp_p50"].iloc[0])
+                if not cmse_x_xii.empty and pd.notna(cmse_x_xii["coaching_exp_p50"].iloc[0])
+                else None
+            ),
         },
         "warnings": [
             "TN medium rates are observed associations among counselling applicants, not national causal English effects.",
             "Affordability ~2x is a mechanical accounting identity under match_government_rate private offers.",
             "Metro and prep admission multipliers are labeled sensitivity knobs unless prep_sensitivity profile is selected.",
             "Government vs private MBBS college wages are intentionally equal; do not read as college-quality effect.",
-            "Non-professional and no-college wages are stylized knobs until PLFS microdata arrive.",
+            "Medicine/engineering/nursing/non-professional/no-college wages prefer PLFS 2025 medians when mospi aggregates exist.",
+            "CMSE coaching priors are school Class X–XII tutoring, not NEET-specific or dropper coaching.",
             "Histogram bins are display-only; KDE uses continuous Monte Carlo draws.",
             "Zeros mean employment filter / family support for young graduates, not lifetime destitution.",
             "Causal language for scenario contrasts is prohibited.",

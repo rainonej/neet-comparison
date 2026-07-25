@@ -1,0 +1,10 @@
+sector_label,enrolment_band,n_unweighted,n_coached_unweighted,coaching_rate_weighted,coaching_exp_p25,coaching_exp_p50,coaching_exp_p75,coaching_exp_p90,coaching_exp_mean_weighted,school_exp_p50,notes
+rural,all_enrolled,32654,7558,0.25501253164342563,3300.0,5100.0,8030.0,13300.0,7066.040017530642,3300.0,CMSE 2025 weighted with mult; academic-year INR
+rural,class_x_xii,6031,2072,0.36687379833540723,5650.0,8350.0,13200.0,21500.0,11457.582111203119,7450.0,CMSE 2025 weighted with mult; academic-year INR
+rural,class_xii,1876,652,0.36622082463008837,6650.0,10500.0,17600.0,28600.0,14278.904332845028,9200.0,CMSE 2025 weighted with mult; academic-year INR
+urban,all_enrolled,25088,7372,0.3071282116752049,4600.0,7980.0,15500.0,28500.0,13025.691345948284,15000.0,CMSE 2025 weighted with mult; academic-year INR
+urban,class_x_xii,5298,2222,0.45544204524124027,7500.0,14000.0,26000.0,47500.0,20471.63519621855,15000.0,CMSE 2025 weighted with mult; academic-year INR
+urban,class_xii,1786,735,0.5041390039796814,4942.0,15500.0,28000.0,48800.0,21494.428571523862,14500.0,CMSE 2025 weighted with mult; academic-year INR
+all,all_enrolled,57742,14930,0.26963616786350153,3600.0,5900.0,10200.0,18500.0,8973.060486641602,5200.0,CMSE 2025 weighted with mult; academic-year INR
+all,class_x_xii,11329,4294,0.3954206233215033,6010.0,9900.0,17500.0,30900.0,14804.615436509177,8950.0,CMSE 2025 weighted with mult; academic-year INR
+all,class_xii,3662,1387,0.4165078993873098,6500.0,12000.0,21500.0,39500.0,17463.255724292743,10100.0,CMSE 2025 weighted with mult; academic-year INR

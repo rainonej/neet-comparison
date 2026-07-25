@@ -1,0 +1,6 @@
+field,source_wave,source_field,monthly_median_inr,monthly_mean_weighted_inr,geometric_sd,n_unweighted,p25,p75,p90,preferred_for_model,notes
+medicine,plfs_2025,medicine_nco_221,53000.0,67332.23704027598,2.047124693907394,981,34200.0,85000.0,135000.0,True,Prefer median+geometric_sd for lognormal career paths; means for validation only
+engineering,plfs_2025,engineering_nco_21x,40000.0,48971.418449935554,1.848652466907679,2173,28000.0,62800.0,85000.0,True,Prefer median+geometric_sd for lognormal career paths; means for validation only
+nursing,plfs_2025,nursing_nco_222,18000.0,24321.39208699748,2.0171323314761356,986,12000.0,31100.0,50000.0,True,Prefer median+geometric_sd for lognormal career paths; means for validation only
+non_professional_graduate,plfs_2025,non_professional_graduate,24000.0,31424.815037802437,2.2902259173717447,74207,14600.0,40000.0,62500.0,True,Prefer median+geometric_sd for lognormal career paths; means for validation only
+no_college,plfs_2025,no_college,12000.0,13957.570957819311,2.2229745867070347,207051,7000.0,18000.0,25000.0,True,Prefer median+geometric_sd for lognormal career paths; means for validation only

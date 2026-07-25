@@ -46,6 +46,16 @@ class WageAnchor:
     estimate_id: str
     monthly_inr: float
     source: str
+    geometric_sd: float = 1.75
+    # "median" for PLFS microdata medians; "mean" for World Bank published means.
+    statistic: str = "mean"
+
+    def annual_median_inr(self) -> float:
+        """Annual earnings median for lognormal career paths (INR)."""
+        monthly_median = (
+            self.monthly_inr if self.statistic == "median" else self.monthly_inr / 1.15
+        )
+        return float(monthly_median * 12.0)
 
 
 @dataclass(frozen=True)
@@ -146,21 +156,101 @@ def load_employment_benchmarks(processed: Path | None = None) -> list[Employment
 
 
 def load_wage_anchors(processed: Path | None = None) -> dict[str, WageAnchor]:
+    """Load medicine/engineering/nursing wage anchors.
+
+    Prefers MoSPI PLFS 2025 medians + geometric SDs from
+    ``data/processed/mospi/plfs_wage_anchors.csv`` when present; falls back to
+    World Bank published means in ``published_estimates.csv``.
+    """
+
+    root = PROCESSED if processed is None else processed
+    plfs_path = root / "mospi" / "plfs_wage_anchors.csv"
+    anchors: dict[str, WageAnchor] = {}
+    if plfs_path.exists():
+        frame = pd.read_csv(plfs_path)
+        preferred = frame
+        if "preferred_for_model" in frame.columns:
+            preferred = frame[frame["preferred_for_model"].astype(bool)]
+        if "source_wave" in preferred.columns:
+            wave = preferred[preferred["source_wave"].astype(str) == "plfs_2025"]
+            if not wave.empty:
+                preferred = wave
+        for row in preferred.to_dict("records"):
+            field = str(row["field"])
+            if field not in {"medicine", "engineering", "nursing"}:
+                continue
+            geom = float(row.get("geometric_sd", 1.75) or 1.75)
+            if not (geom > 1.0):
+                geom = 1.75
+            anchors[field] = WageAnchor(
+                estimate_id=f"plfs_2025_{field}_monthly_median",
+                monthly_inr=float(row["monthly_median_inr"]),
+                source=(
+                    f"MoSPI PLFS 2025 unit file; NCO bucket {row.get('source_field', field)}; "
+                    f"n={int(row.get('n_unweighted', 0))}"
+                ),
+                geometric_sd=geom,
+                statistic="median",
+            )
+        if {"medicine", "engineering", "nursing"} <= anchors.keys():
+            return anchors
+
     estimates = load_published_estimates(processed)
     wanted = {
         "world_bank_physician_monthly_wage": "medicine",
         "world_bank_engineer_monthly_wage": "engineering",
         "world_bank_professional_nurse_monthly_wage": "nursing",
     }
-    anchors: dict[str, WageAnchor] = {}
     for estimate_id, key in wanted.items():
+        if key in anchors:
+            continue
         row = estimates.loc[estimates["estimate_id"] == estimate_id].iloc[0]
         anchors[key] = WageAnchor(
             estimate_id=estimate_id,
             monthly_inr=float(row["value"]),
             source=str(row["source"]),
+            geometric_sd=1.75,
+            statistic="mean",
         )
     return anchors
+
+
+def load_plfs_extended_wage_anchors(processed: Path | None = None) -> dict[str, WageAnchor]:
+    """Optional extended fields (non_professional_graduate, no_college) from PLFS aggregates."""
+
+    root = PROCESSED if processed is None else processed
+    path = root / "mospi" / "plfs_wage_anchors.csv"
+    if not path.exists():
+        return {}
+    frame = pd.read_csv(path)
+    if "source_wave" in frame.columns:
+        frame = frame[frame["source_wave"].astype(str) == "plfs_2025"]
+    out: dict[str, WageAnchor] = {}
+    for row in frame.to_dict("records"):
+        field = str(row["field"])
+        if field not in {"non_professional_graduate", "no_college"}:
+            continue
+        geom = float(row.get("geometric_sd", 1.75) or 1.75)
+        if not (geom > 1.0):
+            geom = 1.75
+        out[field] = WageAnchor(
+            estimate_id=f"plfs_2025_{field}_monthly_median",
+            monthly_inr=float(row["monthly_median_inr"]),
+            source=f"MoSPI PLFS 2025; {row.get('source_field', field)}; n={int(row.get('n_unweighted', 0))}",
+            geometric_sd=geom,
+            statistic="median",
+        )
+    return out
+
+
+def load_cmse_coaching_priors(processed: Path | None = None) -> pd.DataFrame:
+    """CMSE 2025 weighted coaching participation/spend margins (school frame)."""
+
+    root = PROCESSED if processed is None else processed
+    path = root / "mospi" / "cmse_coaching_priors.csv"
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
 
 
 def load_coaching_rate_summary(processed: Path | None = None) -> list[CoachingCohortOutcome]:

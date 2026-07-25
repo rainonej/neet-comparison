@@ -1,4 +1,4 @@
-.PHONY: audit status test summarize bayes privilege
+.PHONY: audit status test summarize bayes privilege mospi
 
 audit:
 	python scripts/audit_catalog.py
@@ -11,6 +11,9 @@ test:
 
 summarize:
 	python scripts/summarize_neet_2024_marks.py
+
+mospi:
+	python scripts/process_mospi_priority.py
 
 bayes:
 	python scripts/run_bayesian_model.py

@@ -48,3 +48,5 @@ docs/draft_emails/
 !data/processed/kerala/**
 !data/processed/bayesian/
 !data/processed/bayesian/**
+!data/processed/mospi/
+!data/processed/mospi/**

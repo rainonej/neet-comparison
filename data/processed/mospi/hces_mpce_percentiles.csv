@@ -1,0 +1,4 @@
+sector_label,n_households,mpce_p10,mpce_p25,mpce_p50,mpce_p75,mpce_p90,mpce_p95,mpce_mean_weighted,unit,definition,source_wave
+all,261953,1375.0,1900.0,2750.0,4140.0,6333.333333333333,8333.333333333334,3502.3076026485332,INR/person/month,MONTHLY_CONSUMPTION_EXP / HOUSEHOLD_SIZE on Level 15 (proxy; confirm vs official MPCE),hces_2023_24
+rural,154357,1250.0,1700.0,2400.0,3333.3333333333335,4600.0,5600.0,2738.4306497848197,INR/person/month,MONTHLY_CONSUMPTION_EXP / HOUSEHOLD_SIZE on Level 15 (proxy; confirm vs official MPCE),hces_2023_24
+urban,107596,1875.0,2700.0,4000.0,6125.0,9300.0,12000.0,5014.527375746806,INR/person/month,MONTHLY_CONSUMPTION_EXP / HOUSEHOLD_SIZE on Level 15 (proxy; confirm vs official MPCE),hces_2023_24

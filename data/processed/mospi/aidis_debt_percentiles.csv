@@ -1,0 +1,5 @@
+population,n_households,share_of_all_hh,debt_p25,debt_p50,debt_p75,debt_p90,debt_p95,debt_mean_weighted,unit,definition,notes
+all_hh,116461,1.0,24000.0,60800.0,182000.0,469330.0,805000.0,224625.60723736868,INR outstanding (2019),Sum of Visit1 Block12 b12q14 excluding item code 99,Upper-bound indebtedness incidence until purpose filters applied; inflate to NEET-year INR
+indebted_hh,71003,0.6096719073337855,24000.0,60800.0,182000.0,469330.0,805000.0,224625.60723736868,INR outstanding (2019),Sum of Visit1 Block12 b12q14 excluding item code 99,Upper-bound indebtedness incidence until purpose filters applied; inflate to NEET-year INR
+rural_indebted,43347,0.3722018529808262,22100.0,54700.0,150000.0,338000.0,538722.0,147322.45748443986,INR outstanding (2019),Sum of Visit1 Block12 b12q14 excluding item code 99,Upper-bound indebtedness incidence until purpose filters applied; inflate to NEET-year INR
+urban_indebted,27656,0.23747005435295937,30466.0,100000.0,360000.0,984798.0,1907904.0,457632.4753509885,INR outstanding (2019),Sum of Visit1 Block12 b12q14 excluding item code 99,Upper-bound indebtedness incidence until purpose filters applied; inflate to NEET-year INR
