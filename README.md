@@ -22,6 +22,8 @@ pip install -e ".[dev]"
 make audit
 make status
 make test
+make bayes
+make privilege
 ```
 
 See [docs/SETUP.md](docs/SETUP.md) for directory layout and gitignore rules.
@@ -58,6 +60,9 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [docs/PRIVACY_AND_DATA_HANDLING.md](docs/PRIVACY_AND_DATA_HANDLING.md) | Lawful use; no retained identifiers |
 | [docs/source_catalog.csv](docs/source_catalog.csv) | Auditable source registry |
 | [reports/INITIAL_FINDINGS.md](reports/INITIAL_FINDINGS.md) | Audit bottom line |
+| [docs/BAYESIAN_MODEL.md](docs/BAYESIAN_MODEL.md) | Bayesian evidence design |
+| [reports/BAYESIAN_MODEL_REPORT.md](reports/BAYESIAN_MODEL_REPORT.md) | Fitted posteriors + profile sensitivity (current data freeze) |
+| [reports/PRIVILEGE_INEQUALITY_STORY.md](reports/PRIVILEGE_INEQUALITY_STORY.md) | Privilege access ladder + seat vs no-seat lifetime earnings distributions |
 
 ## Ethical and statistical guardrails
 

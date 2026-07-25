@@ -1,0 +1,184 @@
+model_version: 0.4.0
+purpose: privilege_compounding_inequality_story
+causal_language: prohibited
+
+narrative:
+  short: >-
+    Starting privilege loads medical-seat access; a seat then widens lifetime earnings
+    versus same-background peers who miss. Mobility is real; meritocracy is not.
+
+# Default profile: coaching does NOT change admission odds (cost only).
+# Sensitivity profiles may turn on prep_admission multipliers.
+default_admission_profile: baseline_neutral_prep
+
+admission_profiles:
+  baseline_neutral_prep:
+    description: Prep intensity adds cost only; admission multipliers are 1.0
+    apply_prep_admission_multipliers: false
+  prep_sensitivity:
+    description: Labeled scenario where intensive prep raises offer odds
+    apply_prep_admission_multipliers: true
+
+# Tamil Nadu ordinary-quota government allotment rates (post-NEET aggregate).
+# Observed association among counselling applicants — not a national causal English effect.
+tamil_nadu_medium:
+  source: Justice A.K. Rajan Committee 2021 Table 7.18 post-NEET aggregate
+  english_government_rate: 0.09502670581160907
+  tamil_government_rate: 0.043419496536577125
+  evidence_class: same_exam_state_complete_counts
+
+# Mechanical affordability channel: private offer is inaccessible if household cannot pay.
+# National NMC ownership is roughly half government / half private-like.
+nmc_capacity:
+  government_like_seats: 63859
+  private_like_seats: 65743
+  source: NMC MBBS college list scrape (stateName/managementupdate)
+
+# Private-offer rate among applicants who reach counselling competitiveness.
+# Default: set equal to the stratum government rate so can-afford ≈ 2× can't-afford
+# when private and government channels are similarly available (accounting identity).
+private_offer:
+  mode: match_government_rate
+  evidence_class: capacity_accounting_identity
+  note: >-
+    Not a fitted P(private offer | applicant). Assumes private offers arrive at the same
+    rate as government offers for the competitive pool used in the scenario.
+
+fees_inr_per_year:
+  government_mbbs: 25000
+  private_mbbs: 800000
+  physician_public_sector: 25000
+  physician_private_sector: 25000
+  engineering: 120000
+  law: 100000
+  other_graduate: 40000
+  non_professional_graduate: 35000
+  no_college: 0
+  source: >-
+    Stylized scenario assumptions for affordability demos; replace with state fee-committee
+    schedules when collected. Private MBBS is an order-of-magnitude self-financing figure.
+
+# Government vs private *college* seats use the SAME physician wage prior (no identified
+# college-quality earnings effect). World Bank public/private physician wages are
+# employment-sector comparisons, not college-type effects.
+college_vs_sector_wages:
+  government_and_private_college_share_same_physician_wage: true
+  public_vs_private_sector_physician_wages_are_employment_sector: true
+  note: >-
+    Unlike selective US private universities, Indian private MBBS seats are often a paid
+    capacity expansion path. We do not claim private colleges raise wages for a student who
+    could have taken either seat. Fees differ sharply; modeled wages do not.
+
+household_resource_tiers_inr_per_year:
+  cannot_afford_private: 300000
+  can_afford_private: 2000000
+  affordability_rule: private_annual_fee_leq_half_annual_household_resources
+  note: Stylized tiers until HCES/AIDIS microdata are available.
+
+# Metro proximity: labeled sensitivity only (no national NEET joint).
+metro_sensitivity:
+  non_metro_offer_multiplier: 1.0
+  metro_offer_multiplier: 1.25
+  evidence_class: labeled_sensitivity
+  note: Weak scenario knob; not an identified urban causal effect.
+
+# Prep intensity: costs always applied; admission multipliers only in prep_sensitivity profile.
+prep_intensity:
+  none:
+    annual_prep_cost_inr: 0
+    offer_odds_multiplier: 1.0
+  modest:
+    annual_prep_cost_inr: 40000
+    offer_odds_multiplier: 1.15
+  intensive:
+    annual_prep_cost_inr: 200000
+    offer_odds_multiplier: 1.40
+  prep_years_before_degree: 2
+  evidence_class: labeled_sensitivity
+
+degree_years:
+  government_mbbs: 5.5
+  private_mbbs: 5.5
+  engineering: 4
+  law: 5
+  other_graduate: 3
+
+career_horizon:
+  training_start_age: 18
+  earnings_start_after_training: true
+  working_years_after_training: 35
+  real_discount_rates: [0.0, 0.03, 0.05]
+  default_discount_rate: 0.03
+  age_earnings_growth_real: 0.015
+
+# No-seat alternative mixture weights by stratum (background-relevant, stylized).
+no_seat_mixture_weights:
+  default:
+    engineering: 0.45
+    law: 0.15
+    other_graduate: 0.40
+  high_privilege:
+    engineering: 0.50
+    law: 0.20
+    other_graduate: 0.30
+  low_privilege:
+    engineering: 0.35
+    law: 0.10
+    other_graduate: 0.55
+
+# Ordered access ladder for the story figures.
+access_ladder:
+  - id: tamil_cant_afford_nonmetro_none
+    school_medium: tamil
+    can_afford_private: false
+    metro_proximity: non_metro
+    prep_intensity: none
+    label: Tamil · cannot afford private · non-metro · no prep
+  - id: tamil_cant_afford_nonmetro_modest
+    school_medium: tamil
+    can_afford_private: false
+    metro_proximity: non_metro
+    prep_intensity: modest
+    label: Tamil · cannot afford private · non-metro · modest prep
+  - id: english_cant_afford_nonmetro_modest
+    school_medium: english
+    can_afford_private: false
+    metro_proximity: non_metro
+    prep_intensity: modest
+    label: English · cannot afford private · non-metro · modest prep
+  - id: english_can_afford_nonmetro_modest
+    school_medium: english
+    can_afford_private: true
+    metro_proximity: non_metro
+    prep_intensity: modest
+    label: English · can afford private · non-metro · modest prep
+  - id: english_can_afford_metro_modest
+    school_medium: english
+    can_afford_private: true
+    metro_proximity: metro
+    prep_intensity: modest
+    label: English · can afford private · metro · modest prep
+  - id: english_can_afford_metro_intensive
+    school_medium: english
+    can_afford_private: true
+    metro_proximity: metro
+    prep_intensity: intensive
+    label: English · can afford private · metro · intensive prep
+
+simulation:
+  draws: 40000
+  seed: 42
+  cdf_grid_size: 41
+  # Primary outcome is annual earnings. Lifetime NPV with locked zeros is disabled.
+  primary_metric: annual_earnings
+  compute_lifetime_npv: false
+  # Histogram edges for annual earnings (INR). First bin captures the zero / family-support mass.
+  annual_histogram_edges_inr:
+    - 0
+    - 1
+    - 100000
+    - 250000
+    - 500000
+    - 1000000
+    - 2000000
+    - 5000000

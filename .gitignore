@@ -46,3 +46,5 @@ docs/draft_emails/
 !data/processed/mcc_2024/**
 !data/processed/kerala/
 !data/processed/kerala/**
+!data/processed/bayesian/
+!data/processed/bayesian/**

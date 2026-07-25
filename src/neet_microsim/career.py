@@ -102,6 +102,10 @@ class CareerSimulationSummary:
     probability_zero_earnings: float
     p10_annual_earnings: float
     p90_annual_earnings: float
+    mean_annual_earnings_if_employed: float
+    median_annual_earnings_if_employed: float
+    p10_annual_earnings_if_employed: float
+    p90_annual_earnings_if_employed: float
 
 
 def simulate_one_year(
@@ -109,12 +113,16 @@ def simulate_one_year(
     *,
     draws: int = 100_000,
     seed: int = 0,
-) -> tuple[np.ndarray, CareerSimulationSummary]:
+) -> tuple[np.ndarray, CareerSimulationSummary, np.ndarray]:
     """Simulate one post-training year while propagating parameter uncertainty.
 
-    Each draw samples population probabilities from their posterior and then samples an individual
-    state.  The resulting earnings distribution therefore includes zeros for non-completion,
-    labor-force exit, and unemployment.
+    Returns ``(earnings, summary, employed_mask)``.
+
+    Earnings include zeros for non-completion, labor-force exit, and unemployment. Those zeros
+    are an *employment filter*, not a claim of lifetime destitution: for highly educated young
+    adults they often mean delayed independence / family support, not street poverty.
+
+    Conditional-on-employment quantiles are reported separately in the summary.
     """
 
     if draws <= 0:
@@ -145,6 +153,15 @@ def simulate_one_year(
     if unmatched_count:
         earnings[unmatched] = model.unmatched_earnings.sample(unmatched_count, rng=rng)
 
+    if employed.any():
+        employed_earnings = earnings[employed]
+        mean_if_emp = float(employed_earnings.mean())
+        median_if_emp = float(np.median(employed_earnings))
+        p10_if_emp = float(np.quantile(employed_earnings, 0.10))
+        p90_if_emp = float(np.quantile(employed_earnings, 0.90))
+    else:
+        mean_if_emp = median_if_emp = p10_if_emp = p90_if_emp = float("nan")
+
     summary = CareerSimulationSummary(
         path=model.name,
         probability_degree_completed=float(completed.mean()),
@@ -157,5 +174,177 @@ def simulate_one_year(
         probability_zero_earnings=float((earnings == 0).mean()),
         p10_annual_earnings=float(np.quantile(earnings, 0.10)),
         p90_annual_earnings=float(np.quantile(earnings, 0.90)),
+        mean_annual_earnings_if_employed=mean_if_emp,
+        median_annual_earnings_if_employed=median_if_emp,
+        p10_annual_earnings_if_employed=p10_if_emp,
+        p90_annual_earnings_if_employed=p90_if_emp,
     )
-    return earnings, summary
+    return earnings, summary, employed
+
+
+
+def earnings_quantiles(earnings: np.ndarray) -> dict[str, float]:
+    """Return distribution summaries including a zero-earnings share."""
+
+    if earnings.size == 0:
+        return {
+            "mean": float("nan"),
+            "zero_share": float("nan"),
+            "p0": float("nan"),
+            "p10": float("nan"),
+            "p25": float("nan"),
+            "p50": float("nan"),
+            "p75": float("nan"),
+            "p90": float("nan"),
+            "p99": float("nan"),
+            "n": 0.0,
+        }
+    return {
+        "mean": float(earnings.mean()),
+        "zero_share": float((earnings == 0).mean()),
+        "p0": float(np.quantile(earnings, 0.0)),
+        "p10": float(np.quantile(earnings, 0.10)),
+        "p25": float(np.quantile(earnings, 0.25)),
+        "p50": float(np.quantile(earnings, 0.50)),
+        "p75": float(np.quantile(earnings, 0.75)),
+        "p90": float(np.quantile(earnings, 0.90)),
+        "p99": float(np.quantile(earnings, 0.99)),
+        "n": float(earnings.size),
+    }
+
+
+def histogram_shares(
+    values: np.ndarray,
+    *,
+    edges: list[float],
+) -> list[dict[str, float]]:
+    """Return share of mass in each half-open bin [edges[i], edges[i+1])."""
+
+    if len(edges) < 2:
+        raise ValueError("edges must contain at least two values")
+    if values.size == 0:
+        return []
+    counts, _ = np.histogram(values, bins=np.asarray(edges, dtype=float))
+    shares = counts / values.size
+    rows = []
+    for index, share in enumerate(shares):
+        rows.append(
+            {
+                "bin_left": float(edges[index]),
+                "bin_right": float(edges[index + 1]),
+                "share": float(share),
+                "count": float(counts[index]),
+            }
+        )
+    return rows
+
+
+def kde_curve(
+    values: np.ndarray,
+    *,
+    grid: np.ndarray | None = None,
+    points: int = 80,
+    lower: float | None = None,
+    upper: float | None = None,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Gaussian KDE on positive earnings (zeros excluded).
+
+    Histograms use coarse bins for display only; underlying Monte Carlo draws are continuous.
+    Density is estimated on log-earnings and transformed back to the rupee scale.
+    """
+
+    from scipy.stats import gaussian_kde
+
+    positive = values[values > 0]
+    if positive.size < 5:
+        raise ValueError("need at least five positive values for KDE")
+    lo = float(positive.min() if lower is None else lower)
+    hi = float(np.quantile(positive, 0.995) if upper is None else upper)
+    if hi <= lo:
+        hi = lo * 1.1 + 1.0
+    xs = np.linspace(lo, hi, points) if grid is None else np.asarray(grid, dtype=float)
+    kde = gaussian_kde(np.log(np.clip(positive, 1e-6, None)))
+    log_dens = kde(np.log(np.clip(xs, 1e-6, None)))
+    dens = log_dens / np.clip(xs, 1e-6, None)
+    return xs, dens.astype(float)
+
+
+def cdf_points(values: np.ndarray, *, grid_size: int = 41) -> tuple[np.ndarray, np.ndarray]:
+    """Empirical CDF on a linear grid from min to max (or a zero-aware span)."""
+
+    if grid_size < 2:
+        raise ValueError("grid_size must be at least 2")
+    if values.size == 0:
+        raise ValueError("values must be non-empty")
+    lo = float(np.min(values))
+    hi = float(np.max(values))
+    if hi <= lo:
+        xs = np.array([lo, hi if hi > lo else lo + 1.0])
+        ys = np.array([0.0, 1.0])
+        return xs, ys
+    xs = np.linspace(lo, hi, grid_size)
+    sorted_vals = np.sort(values)
+    ys = np.searchsorted(sorted_vals, xs, side="right") / values.size
+    return xs, ys.astype(float)
+
+
+def simulate_lifetime_npv(
+    model: CareerPathModel,
+    *,
+    annual_education_cost: float,
+    degree_years: float,
+    working_years: int = 35,
+    real_discount_rate: float = 0.03,
+    age_earnings_growth_real: float = 0.015,
+    prep_cost_total: float = 0.0,
+    draws: int = 40_000,
+    seed: int = 0,
+) -> tuple[np.ndarray, dict[str, float]]:
+    """Simulate lifetime NPV: upfront prep + training costs, then earnings path.
+
+    Training years contribute negative cash flows (fees). After training, each draw samples one
+    annual earnings level from ``simulate_one_year`` logic (parameter uncertainty + individual
+    state) and grows it at a constant real rate. Zeros from non-completion / non-employment are
+    retained for the whole career in that draw.
+    """
+
+    if annual_education_cost < 0 or prep_cost_total < 0:
+        raise ValueError("costs cannot be negative")
+    if degree_years < 0 or working_years <= 0:
+        raise ValueError("degree_years must be non-negative and working_years positive")
+    if draws <= 0:
+        raise ValueError("draws must be positive")
+    if real_discount_rate <= -1.0:
+        raise ValueError("real_discount_rate must be greater than -1")
+
+    base_earnings, _, _ = simulate_one_year(model, draws=draws, seed=seed)
+    train_years = int(np.ceil(degree_years))
+    n_flows = 1 + train_years + working_years
+    years = np.arange(n_flows, dtype=float)
+    discount = (1.0 + real_discount_rate) ** years
+
+    # Flow template shared across draws except the earnings block.
+    flow_template = np.zeros(n_flows, dtype=float)
+    flow_template[0] = -prep_cost_total
+    for year in range(train_years):
+        if year + 1 > degree_years:
+            fraction = degree_years - year
+            flow_template[1 + year] = -annual_education_cost * fraction
+        else:
+            flow_template[1 + year] = -annual_education_cost
+
+    growth = (1.0 + age_earnings_growth_real) ** np.arange(working_years, dtype=float)
+    # earnings[d, t] = base[d] * growth[t]
+    earnings_block = base_earnings[:, None] * growth[None, :]
+    flows = np.broadcast_to(flow_template, (draws, n_flows)).copy()
+    flows[:, 1 + train_years :] = earnings_block
+    npvs = (flows / discount[None, :]).sum(axis=1)
+
+    summary = earnings_quantiles(npvs)
+    summary["path"] = model.name
+    summary["real_discount_rate"] = real_discount_rate
+    summary["working_years"] = float(working_years)
+    summary["degree_years"] = float(degree_years)
+    summary["annual_education_cost"] = float(annual_education_cost)
+    summary["prep_cost_total"] = float(prep_cost_total)
+    return npvs, summary

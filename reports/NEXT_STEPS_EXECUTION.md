@@ -14,6 +14,7 @@
 | Register/download HCES, CMSE, PLFS, NFHS, AIDIS | **Blocked — login** | `data/processed/gated_download_status.csv`; runbook unchanged in `docs/GATED_NEXT.md` |
 | Complete OpenICPSR E112992 download | **Blocked — login** | Same status CSV; local README still documents wall |
 | Machine-readable companion JSON | **Done** | `data/processed/prelim_analysis/data_examination_summary.json` (+ `summary.json`) |
+| Bayesian evidence model (data freeze) | **Done** | `reports/BAYESIAN_MODEL_REPORT.md`; `data/processed/bayesian/`; `make bayes` |
 
 ## 1. NEET reconciliation
 

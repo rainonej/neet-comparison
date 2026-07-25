@@ -1,4 +1,4 @@
-.PHONY: audit status test summarize
+.PHONY: audit status test summarize bayes privilege
 
 audit:
 	python scripts/audit_catalog.py
@@ -11,3 +11,9 @@ test:
 
 summarize:
 	python scripts/summarize_neet_2024_marks.py
+
+bayes:
+	python scripts/run_bayesian_model.py
+
+privilege:
+	python scripts/run_privilege_inequality.py

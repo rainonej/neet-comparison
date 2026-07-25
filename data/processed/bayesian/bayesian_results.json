@@ -1,0 +1,114 @@
+{
+  "model_version": "0.3.0",
+  "profiles": [
+    "neutral",
+    "conservative",
+    "reasonable"
+  ],
+  "default_profile": "conservative",
+  "scarcity": {
+    "neutral": {
+      "log_odds_qualify": 0.25732399578808357,
+      "log_odds_capacity": -2.8333612974212223,
+      "appeared_per_mbbs_seat": 18.002515393280966,
+      "qualified_per_mbbs_seat": 10.153029058527535
+    },
+    "conservative": {
+      "log_odds_qualify": 0.2573237727664716,
+      "log_odds_capacity": -2.8333612974212223,
+      "appeared_per_mbbs_seat": 18.002515393280966,
+      "qualified_per_mbbs_seat": 10.153028071224135
+    },
+    "reasonable": {
+      "log_odds_qualify": 0.25732310370396805,
+      "log_odds_capacity": -2.8333612974212223,
+      "appeared_per_mbbs_seat": 18.002515393280966,
+      "qualified_per_mbbs_seat": 10.153025109324089
+    }
+  },
+  "comparison": [
+    {
+      "profile": "neutral",
+      "qualify_rate_mean": 0.5639783572865003,
+      "qualify_rate_ci_low": 0.5633420073295281,
+      "qualify_rate_ci_high": 0.5646146033548634,
+      "mbbs_capacity_rate_mean": 0.05554779308080622,
+      "tn_english_govt_rate_mean": 0.08770452771484256,
+      "tn_tamil_govt_rate_mean": 0.03725621309285026,
+      "tn_english_to_tamil_rate_ratio": 2.3540913161588533,
+      "tn_holdout_year": "2020-2021",
+      "tn_holdout_english_observed": 0.1232506224778913,
+      "tn_holdout_tamil_observed": 0.0779510022271715,
+      "tn_holdout_english_abs_error": 0.035546094763048736,
+      "tn_holdout_tamil_abs_error": 0.04069478913432124,
+      "coaching_shift_prior_mean_sd": 0.0,
+      "medicine_mean_annual_earnings": 310284.1523467593,
+      "medicine_zero_earnings_share": 0.45215,
+      "engineering_mean_annual_earnings": 214271.25102914558,
+      "engineering_zero_earnings_share": 0.5,
+      "other_graduate_mean_annual_earnings": 107909.74113478647,
+      "other_graduate_zero_earnings_share": 0.53185,
+      "medicine_minus_engineering_mean_earnings": 96012.9013176137,
+      "medicine_minus_other_mean_earnings": 202374.41121197282,
+      "aiq_mbbs_share": 0.8480259179265659
+    },
+    {
+      "profile": "conservative",
+      "qualify_rate_mean": 0.5639783024439753,
+      "qualify_rate_ci_low": 0.5633419527507317,
+      "qualify_rate_ci_high": 0.5646145482487879,
+      "mbbs_capacity_rate_mean": 0.05554779308080622,
+      "tn_english_govt_rate_mean": 0.0877044112651434,
+      "tn_tamil_govt_rate_mean": 0.03726883915040273,
+      "tn_english_to_tamil_rate_ratio": 2.3532906649225662,
+      "tn_holdout_year": "2020-2021",
+      "tn_holdout_english_observed": 0.1232506224778913,
+      "tn_holdout_tamil_observed": 0.0779510022271715,
+      "tn_holdout_english_abs_error": 0.0355462112127479,
+      "tn_holdout_tamil_abs_error": 0.040682163076768765,
+      "coaching_shift_prior_mean_sd": 0.08,
+      "medicine_mean_annual_earnings": 311486.50868148386,
+      "medicine_zero_earnings_share": 0.44605,
+      "engineering_mean_annual_earnings": 215224.90289265852,
+      "engineering_zero_earnings_share": 0.5024,
+      "other_graduate_mean_annual_earnings": 107231.48624785681,
+      "other_graduate_zero_earnings_share": 0.53515,
+      "medicine_minus_engineering_mean_earnings": 96261.60578882534,
+      "medicine_minus_other_mean_earnings": 204255.02243362705,
+      "aiq_mbbs_share": 0.8480052525182715
+    },
+    {
+      "profile": "reasonable",
+      "qualify_rate_mean": 0.5639781379169645,
+      "qualify_rate_ci_low": 0.563341789014905,
+      "qualify_rate_ci_high": 0.5646143829311276,
+      "mbbs_capacity_rate_mean": 0.05554779308080623,
+      "tn_english_govt_rate_mean": 0.08770406194716833,
+      "tn_tamil_govt_rate_mean": 0.03730665709142005,
+      "tn_english_to_tamil_rate_ratio": 2.3508957592273494,
+      "tn_holdout_year": "2020-2021",
+      "tn_holdout_english_observed": 0.1232506224778913,
+      "tn_holdout_tamil_observed": 0.0779510022271715,
+      "tn_holdout_english_abs_error": 0.03554656053072297,
+      "tn_holdout_tamil_abs_error": 0.04064434513575144,
+      "coaching_shift_prior_mean_sd": 0.14,
+      "medicine_mean_annual_earnings": 309133.92453594983,
+      "medicine_zero_earnings_share": 0.44655,
+      "engineering_mean_annual_earnings": 214311.17802123944,
+      "engineering_zero_earnings_share": 0.49995,
+      "other_graduate_mean_annual_earnings": 107768.22892572274,
+      "other_graduate_zero_earnings_share": 0.5286,
+      "medicine_minus_engineering_mean_earnings": 94822.7465147104,
+      "medicine_minus_other_mean_earnings": 201365.6956102271,
+      "aiq_mbbs_share": 0.8479432648618765
+    }
+  ],
+  "assumptions": [
+    "Missing cross-dataset joints use conditional independence only where explicitly combined.",
+    "Absent effect evidence remains neutral.",
+    "Selected coaching cohorts are PPC targets, not treatment-effect updates.",
+    "Employment rates are broad graduate proxies, not field-identified NEET outcomes.",
+    "NMC seats / appeared is capacity accounting, not an individual offer probability.",
+    "No additional gated microdata were used."
+  ]
+}

@@ -38,6 +38,24 @@ Register once at the MoSPI microdata portal, then download **archives + document
 | ASUSE | recent waves |
 | NSS Health | 2017–18 (lower priority) |
 
+### If the NADA pages hang (common)
+
+`get-microdata` HTML often never finishes. There is **no public mirror** of recent PLFS/HCES/CMSE unit files (World Bank/IPUMS only have older NSS employment rounds). Use MoSPI’s official API client instead:
+
+1. When https://microdata.gov.in loads at all, open **Profile → Generate API Key**.
+2. Put the key in gitignored `.env` as `MOSPI_API_KEY=...` (do not paste it into chat).
+3. Run:
+
+   ```bash
+   pip install mospi-unitdata
+   python scripts/download_mospi_unitdata.py --search "PLFS"
+   python scripts/download_mospi_unitdata.py --priority
+   ```
+
+Docs: https://www.mospi.gov.in/unitdata-python-library and https://github.com/nso-india/mospi-unitdata
+
+If `microdata.gov.in` itself connection-refuses, the API is down too — wait/retry later; do not use unofficial redistributed copies.
+
 ## Then other free archives
 
 | Archive | What to request | Paste text |

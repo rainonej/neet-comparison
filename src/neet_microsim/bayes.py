@@ -122,6 +122,55 @@ def beta_from_mean_ess(
     )
 
 
+def partial_pool_beta(
+    parent: BetaEvidence,
+    *,
+    child_successes: float = 0.0,
+    child_trials: float = 0.0,
+    child_evidence_weight: float = 1.0,
+    label: str = "",
+    source: str = "",
+    evidence_class: str = "hierarchical",
+) -> BetaEvidence:
+    """Shrink a child cell toward a parent Beta using a conjugate update.
+
+    With no child evidence this returns a copy of the parent (re-labeled). Observed support and
+    parent ESS jointly determine the degree of shrinkage.
+    """
+
+    if child_trials < 0 or child_successes < 0 or child_successes > child_trials:
+        raise ValueError("child_successes must lie between zero and child_trials")
+    if child_evidence_weight < 0:
+        raise ValueError("child_evidence_weight cannot be negative")
+    if child_trials == 0:
+        return BetaEvidence(
+            alpha=parent.alpha,
+            beta=parent.beta,
+            label=label or parent.label,
+            source=source or parent.source,
+            evidence_class=evidence_class,
+        )
+    return parent.update_binomial(
+        successes=child_successes,
+        trials=child_trials,
+        evidence_weight=child_evidence_weight,
+        label=label or parent.label,
+        source=source or parent.source,
+        evidence_class=evidence_class,
+    )
+
+
+def shrinkage_weight(parent_ess: float, child_ess: float) -> float:
+    """Fraction of posterior mean attributable to the parent, in [0, 1]."""
+
+    if parent_ess < 0 or child_ess < 0:
+        raise ValueError("ESS values cannot be negative")
+    total = parent_ess + child_ess
+    if total == 0:
+        raise ValueError("at least one ESS must be positive")
+    return parent_ess / total
+
+
 @dataclass(frozen=True)
 class DirichletEvidence:
     """Dirichlet distribution for alternative-path or employment-state mixtures."""
