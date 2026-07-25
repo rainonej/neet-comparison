@@ -20,13 +20,15 @@ Do not commit restricted or licensed microdata to a public repository. Register 
 
 These now rank ahead of speculative government requests:
 
-1. **OSF `tnh4x`:** download the anonymized NEET/JEE aspirant dataset, codebook, detailed methods and measures. Verify whether the file distinguishes NEET from JEE and records coaching, repeat status, home state or family background.
-2. **OpenICPSR E112992:** download the full Bagde–Epple–Taylor engineering-admissions replication package as an admissions/reservation analogue.
-3. **Kerala CEE/KEAM:** archive medical rank, category, allotment, last-rank and vacancy records for 2019–2026.
-4. **NIRF medical filings:** download institution submissions for every medical college, retaining aggregate economic/social challenge and outcome fields.
-5. **Researcher requests:** contact the Alagappa University N=400 team, the Puducherry N=150 admitted-student team, the Guntur N=200 aspirant team, and the Kerala N=523 social-origin team. Use `RESEARCHER_OUTREACH_TEMPLATE.md`.
-6. **Tamil Nadu committee trail:** request the deidentified analytical extract, codebook, tabulation workbook or scripts used by the A.K. Rajan Committee from DME/Selection Committee, School Education, M.G.R. Medical University and committee analysts.
-7. **Historical RTI replies:** recover the specific request IDs in `PUBLIC_RTI_ARCHIVE_LEADS.md`; these may contain old government tables without requiring a new politically sensitive request.
+1. **OSF `tnh4x`:** ~~download~~ **done** (local CSV). Mental-health/demographics only; does not close coaching→seat.
+2. **Coaching-gap public artifacts:** ~~download~~ **done** for Dakshana reports/JDST notice, CBSE dummy-school lists, TN rank/allotment PDFs. See `OPEN_DATA_DOWNLOADS.md`.
+3. **Coaching-gap outreach (ask-for):** Dakshana JDST applicants, BSEB Super 50, SATHEE logs, CSRL, Careers360 raw survey — tracked in `COACHING_GAP_ASK_LIST.md` and `acquisition_tracker.csv` rows C1–C8.
+4. **OpenICPSR E112992:** download the full Bagde–Epple–Taylor engineering-admissions replication package as an admissions/reservation analogue.
+5. **Kerala CEE/KEAM:** archive medical rank, category, allotment, last-rank and vacancy records for 2019–2026.
+6. **NIRF medical filings:** download institution submissions for every medical college, retaining aggregate economic/social challenge and outcome fields.
+7. **Researcher requests:** contact the Alagappa University N=400 team, the Puducherry N=150 admitted-student team, the Guntur N=200 aspirant team, and the Kerala N=523 social-origin team. Use `RESEARCHER_OUTREACH_TEMPLATE.md`.
+8. **Tamil Nadu committee trail:** request the deidentified analytical extract, codebook, tabulation workbook or scripts used by the A.K. Rajan Committee from DME/Selection Committee, School Education, M.G.R. Medical University and committee analysts. Public rank/allotment PDFs are already archived.
+9. **Historical RTI replies:** recover the specific request IDs in `PUBLIC_RTI_ARCHIVE_LEADS.md`; these may contain old government tables without requiring a new politically sensitive request.
 
 Do not download or retain named candidate records merely because they are publicly indexed. The project needs aggregate fields, not identities.
 
