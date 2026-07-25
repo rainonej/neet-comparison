@@ -94,13 +94,67 @@ def load_score_distribution(
     )
 
 
-def coaching_shift_sd(prep_intensity: str, config: dict, *, profile: str | None = None) -> float:
+def _profile_params(config: dict, profile: str | None = None) -> dict:
     coach = config["coaching"]
     name = profile or coach["default_profile"]
-    table = coach["profiles"][name]
-    if prep_intensity not in table:
+    if name not in coach["profiles"]:
+        raise ValueError(f"unknown coaching profile {name!r}")
+    return coach["profiles"][name]
+
+
+def coaching_components_sd(
+    prep_intensity: str, config: dict, *, profile: str | None = None
+) -> dict[str, float]:
+    """Two-part coaching shift: any-prep jump θ + log2 intensity above median spend.
+
+    δ = 1{S>0} * θ + 1{S>0} * β_doubling * log2(S / S_median)
+
+    Intensity labels map to spend multiples of median (config). At the median,
+    the intensity term is zero so modest prep = θ only.
+    """
+
+    coach = config["coaching"]
+    params = _profile_params(config, profile)
+    multiples = coach["intensity_spend_multiples_of_median"]
+    if prep_intensity not in multiples:
         raise ValueError(f"unknown prep_intensity {prep_intensity!r}")
-    return float(table[prep_intensity])
+
+    # Backward compatibility: flat per-intensity tables (legacy configs).
+    if "theta_any_prep_sd" not in params and prep_intensity in params:
+        delta = float(params[prep_intensity])
+        return {
+            "theta_any_prep_sd": delta,
+            "intensity_shift_sd": 0.0,
+            "coaching_shift_sd": delta,
+            "spend_multiple_of_median": float(multiples[prep_intensity]),
+            "log2_spend_vs_median": 0.0,
+        }
+
+    theta = float(params["theta_any_prep_sd"])
+    beta = float(params["beta_doubling_sd"])
+    multiple = float(multiples[prep_intensity])
+    if multiple <= 0.0:
+        return {
+            "theta_any_prep_sd": 0.0,
+            "intensity_shift_sd": 0.0,
+            "coaching_shift_sd": 0.0,
+            "spend_multiple_of_median": 0.0,
+            "log2_spend_vs_median": 0.0,
+        }
+
+    log2_ratio = float(np.log2(multiple))
+    intensity = beta * log2_ratio
+    return {
+        "theta_any_prep_sd": theta,
+        "intensity_shift_sd": intensity,
+        "coaching_shift_sd": theta + intensity,
+        "spend_multiple_of_median": multiple,
+        "log2_spend_vs_median": log2_ratio,
+    }
+
+
+def coaching_shift_sd(prep_intensity: str, config: dict, *, profile: str | None = None) -> float:
+    return float(coaching_components_sd(prep_intensity, config, profile=profile)["coaching_shift_sd"])
 
 
 def population_mean_coaching_shift(config: dict, *, profile: str | None = None) -> float:
@@ -108,6 +162,26 @@ def population_mean_coaching_shift(config: dict, *, profile: str | None = None) 
     return float(
         sum(float(w) * coaching_shift_sd(str(k), config, profile=profile) for k, w in mix.items())
     )
+
+
+def arms_race_signatures(
+    config: dict, *, profile: str | None = None
+) -> dict[str, float]:
+    """Private return vs positional externality under the relative-prep convention.
+
+    β1_proxy: unilateral intensive vs none (absolute δ_intensive - δ_none).
+    β2_proxy: -population mean δ (how much equal escalation cancels private gains).
+    Arms-race signature: β1_proxy > 0 and β2_proxy < 0 under relative scoring.
+    """
+
+    delta_none = coaching_shift_sd("none", config, profile=profile)
+    delta_intensive = coaching_shift_sd("intensive", config, profile=profile)
+    delta_pop = population_mean_coaching_shift(config, profile=profile)
+    return {
+        "beta1_private_return_sd": delta_intensive - delta_none,
+        "beta2_positional_externality_sd": -delta_pop,
+        "population_mean_coaching_sd": delta_pop,
+    }
 
 
 def medium_shift_sd(school_medium: str, config: dict) -> float:
@@ -141,7 +215,8 @@ def apply_score_shifts(
 
     tau_m = medium_shift_sd(school_medium, config)
     tau_u = metro_shift_sd(metro_proximity, config)
-    delta_i = coaching_shift_sd(prep_intensity, config, profile=coaching_profile)
+    parts = coaching_components_sd(prep_intensity, config, profile=coaching_profile)
+    delta_i = float(parts["coaching_shift_sd"])
     if force_population_prep is not None:
         # Individual still labeled by prep_intensity for cost accounting; relative shift uses forced pop.
         delta_pop = coaching_shift_sd(force_population_prep, config, profile=coaching_profile)
@@ -157,13 +232,18 @@ def apply_score_shifts(
     shifted = baseline_marks + dist.sd * total_sd
     # NEET marks are bounded in practice.
     shifted = np.clip(shifted, float(dist.marks.min()), float(dist.marks.max()))
+    signatures = arms_race_signatures(config, profile=coaching_profile)
     meta = {
         "medium_shift_sd": tau_m,
         "metro_shift_sd": tau_u,
+        "theta_any_prep_sd": float(parts["theta_any_prep_sd"]),
+        "intensity_shift_sd": float(parts["intensity_shift_sd"]),
         "coaching_shift_sd": delta_i,
         "population_coaching_shift_sd": delta_pop,
         "relative_coaching_shift_sd": delta_rel,
         "total_location_shift_sd": total_sd,
+        "beta1_private_return_sd": signatures["beta1_private_return_sd"],
+        "beta2_positional_externality_sd": signatures["beta2_positional_externality_sd"],
     }
     return shifted, meta
 

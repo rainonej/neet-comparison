@@ -1,4 +1,4 @@
-model_version: 0.5.0
+model_version: 0.5.1
 purpose: score_rank_seat_privilege_inequality_story
 causal_language: prohibited
 
@@ -7,6 +7,10 @@ narrative:
     Privilege and coaching shift latent NEET scores; scarce seats are allocated by rank;
     affordability turns private offers into accessible seats. A seat then widens earnings
     versus same-background peers who miss. Mobility is real; meritocracy is not.
+  arms_race: >-
+    Holding others fixed, prep raises private admission odds (β1>0). When the whole pool
+    escalates equally, relative ranks barely move while costs rise (β2<0 / positional externality).
+    NEET-specific coaching LATEs are unidentified; we use skeptical international priors.
 
 # Empirical NEET marks (processed quantiles; optional full centre-marks CSV).
 score_distribution:
@@ -24,30 +28,65 @@ nmc_capacity:
   source: NMC MBBS college list scrape
   evidence_class: capacity_accounting
 
-# Coaching score shifts in SD units of the national marks distribution.
-# Default profile applies private returns; arms-race scenarios subtract the population mean shift.
+# Two-part coaching score model (SD units of national marks distribution).
+#
+#   δ = 1{S>0} * θ  +  1{S>0} * β_doubling * log2(S / S_median)
+#
+# θ = jump from no structured prep → some targeted prep
+# β_doubling = incremental return to doubling positive spend (diminishing / weak)
+#
+# Literature-backed skeptical priors (NOT NEET LATEs):
+#   θ ~ N(0.12, 0.10^2)   # ~0.1–0.3 SD test-prep meta; Colombia ~0.07; Dongre ~0.14
+#   β_doubling ~ N(0.05, 0.08^2)  # Korea: modest returns to +10% spend; no universal log law
+#
+# Arms-race scenarios subtract the population-mean δ so equal escalation leaves ranks unchanged.
 coaching:
   default_profile: conservative
+  functional_form: two_part_log2_spend
+  median_positive_spend_inr: 9900  # CMSE Class X-XII coached p50 (school tutoring proxy)
+  intensity_spend_multiples_of_median:
+    none: 0.0
+    modest: 1.0      # at median → intensity term 0; only θ applies
+    intensive: 8.0   # ~3 doublings above median (residential / Kota-like cost band)
   profiles:
+    # Point values used as plug-in means; full Bayesian draws can sample θ,β from prior.
     "null":
-      none: 0.0
-      modest: 0.0
-      intensive: 0.0
+      theta_any_prep_sd: 0.0
+      beta_doubling_sd: 0.0
+      prior_theta: {mean: 0.0, sd: 0.20}
+      prior_beta_doubling: {mean: 0.0, sd: 0.08}
     conservative:
-      none: 0.0
-      modest: 0.08
-      intensive: 0.20
+      # Slightly below literature central; null still in the mass.
+      theta_any_prep_sd: 0.08
+      beta_doubling_sd: 0.03
+      prior_theta: {mean: 0.08, sd: 0.08}
+      prior_beta_doubling: {mean: 0.03, sd: 0.06}
+    literature_central:
+      # Recommended skeptical prior means from cross-exam synthesis.
+      theta_any_prep_sd: 0.12
+      beta_doubling_sd: 0.05
+      prior_theta: {mean: 0.12, sd: 0.10}
+      prior_beta_doubling: {mean: 0.05, sd: 0.08}
     reasonable:
-      none: 0.0
-      modest: 0.14
-      intensive: 0.30
+      # Upper half of 0.1–0.3 SD band; still below commercial-coaching meta ~0.31.
+      theta_any_prep_sd: 0.18
+      beta_doubling_sd: 0.07
+      prior_theta: {mean: 0.18, sd: 0.10}
+      prior_beta_doubling: {mean: 0.07, sd: 0.08}
+  # Implied plug-in δ by intensity = theta + beta * log2(multiple) for multiple>=1.
   population_mix_for_arms_race:
     none: 0.45
     modest: 0.40
     intensive: 0.15
+  neet_descriptive_constraints:
+    tn_admitted_coached_2019_20: 0.99
+    tn_admitted_repeaters_2020_21: 0.7142
+    source: Justice A.K. Rajan Committee
+    role: prevalence / composition PPC — not a score LATE
   notes: >-
-    Central modest shift borrows Dongre-Tewary ~0.14 SD Indian tutoring proxy (elementary).
-    Not a NEET LATE. Intensive is a labeled residential/Kota-like dose.
+    Direct NEET coaching→marks LATE is unidentified. Priors triangulate test-prep meta (~0.1–0.3 SD),
+    Colombia SaberEs (~0.07 SD), Dongre-Tewary India FE (~0.14 SD), Zhang Gaokao (avg ~0 / heterogeneous),
+    Korea spend elasticities (modest), and US mandatory-testing → +16% tutoring (strategic response).
 
 # Medium baseline location shifts (SD), calibrated so English/Tamil govt-offer odds
 # roughly match Rajan post-NEET aggregates when coaching is held at modest.

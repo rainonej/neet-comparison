@@ -9,6 +9,9 @@ import pytest
 
 from neet_microsim.score_engine import (
     apply_score_shifts,
+    arms_race_signatures,
+    coaching_components_sd,
+    coaching_shift_sd,
     load_score_config,
     load_score_distribution,
     population_mean_coaching_shift,
@@ -122,3 +125,30 @@ def test_population_mean_coaching_shift_between_profiles() -> None:
     cons = population_mean_coaching_shift(config, profile="conservative")
     assert null == pytest.approx(0.0)
     assert cons > 0.0
+
+
+def test_two_part_coaching_diminishing_intensity() -> None:
+    if not CONFIG.exists():
+        pytest.skip("missing config")
+    config = load_score_config(CONFIG)
+    none = coaching_components_sd("none", config, profile="literature_central")
+    modest = coaching_components_sd("modest", config, profile="literature_central")
+    intensive = coaching_components_sd("intensive", config, profile="literature_central")
+    assert none["coaching_shift_sd"] == pytest.approx(0.0)
+    # At median spend, intensity term is zero: only θ.
+    assert modest["intensity_shift_sd"] == pytest.approx(0.0)
+    assert modest["coaching_shift_sd"] == pytest.approx(0.12)
+    # 8× median => three doublings: θ + 3β = 0.12 + 0.15
+    assert intensive["coaching_shift_sd"] == pytest.approx(0.12 + 3 * 0.05)
+    assert coaching_shift_sd("intensive", config, profile="literature_central") > modest[
+        "coaching_shift_sd"
+    ]
+
+
+def test_arms_race_signature_signs() -> None:
+    if not CONFIG.exists():
+        pytest.skip("missing config")
+    config = load_score_config(CONFIG)
+    sig = arms_race_signatures(config, profile="conservative")
+    assert sig["beta1_private_return_sd"] > 0.0
+    assert sig["beta2_positional_externality_sd"] < 0.0

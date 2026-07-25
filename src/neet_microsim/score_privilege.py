@@ -20,6 +20,8 @@ from .evidence import PROCESSED
 from .privilege import PrivilegeStratum, build_career_paths_for_privilege
 from .score_engine import (
     apply_score_shifts,
+    arms_race_signatures,
+    coaching_components_sd,
     load_score_config,
     load_score_distribution,
     marks_to_percentile_rank,
@@ -291,10 +293,20 @@ def run_score_privilege_pipeline(
         None,
     )
 
+    coach_cfg = config["coaching"]
+    plug_in_deltas = {
+        intensity: coaching_components_sd(intensity, config, profile=profile)
+        for intensity in coach_cfg["intensity_spend_multiples_of_median"]
+    }
+    signatures = arms_race_signatures(config, profile=profile)
+
     story = {
         "model_version": config.get("model_version"),
         "model_family": "score_rank_seat",
         "coaching_profile": profile,
+        "coaching_functional_form": coach_cfg.get("functional_form"),
+        "coaching_plug_in_deltas_sd": plug_in_deltas,
+        "arms_race_signatures": signatures,
         "narrative": config.get("narrative", {}),
         "capacity": {
             "government_like_seats": capacity.government_like_seats,
@@ -320,13 +332,17 @@ def run_score_privilege_pipeline(
             "mean_marks_top": None if high is None else high["mean_marks"],
         },
         "arms_race_note": (
-            "Relative coaching shifts subtract the population-mean coaching SD so that "
-            "universal escalation does not improve ranks — the arms-race property."
+            "Private return (β1>0): unilateral prep raises absolute scores. "
+            "Positional externality (β2<0): relative coaching shifts subtract the population-mean "
+            "coaching SD so universal escalation does not improve ranks while costs still rise. "
+            "Strategic response (families buy more prep when exams matter more) is documented "
+            "externally (e.g. US mandatory-testing → +16% tutoring), not estimated here."
         ),
         "warnings": [
             "National capacity cutoffs are accounting shares (seats/appeared), not state/category counselling pools.",
             "Medium score shifts are calibrated toward TN associations; not national causal English effects.",
-            "Coaching SD shifts are priors / proxies (Dongre-style), not NEET LATEs.",
+            "Coaching uses a two-part skeptical prior (θ any-prep + β doubling spend); not a NEET LATE.",
+            "TN Rajan 99% coached admits / 71% repeaters are prevalence constraints, not score effects.",
             "Centre-marks file has no SES/coaching/domicile; privilege enters via synthetic shifts.",
             "Causal language for scenario contrasts is prohibited.",
         ],

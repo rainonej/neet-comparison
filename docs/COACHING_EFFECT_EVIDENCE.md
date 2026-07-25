@@ -50,31 +50,68 @@ Studies of Australia's UMAT generally find small, section-specific, or statistic
 commercial-coaching effects after adjustment. This supplies a defensible lower-bound scenario, but
 UMAT is more aptitude-oriented than NEET's school-curriculum examination.
 
-## 5. Initial modeling policy
+## 5. Cross-exam experimental / quasi-experimental priors
 
-Coaching no longer has one silent neutral baseline. The model uses an explicit sensitivity grid for
-an **individual score shift**, expressed in standard deviations of the relevant uncoached score
-distribution:
+NEET-specific causal score effects remain unidentified. International and Indian tutoring
+evidence still supports a **skeptical prior** that targeted preparation usually moves scores a
+little, with diminishing and heterogeneous returns to spend:
 
-- null: 0.00 SD;
-- central proxy: 0.14 SD;
-- strong: 0.30 SD.
+| Source | Approximate result | Role for NEET |
+|---|---|---|
+| Large-scale test-prep meta (exp/quasi-exp, ~2025) | Overall ~0.26 SD; commercial ~0.31; admission-test subgroup ~0.14 (inconclusive) | Upper band for targeted prep; do not paste 0.26 into NEET |
+| Colombia SaberEs DiD | ~0.07 SD / +2.2 percentile ranks | Credible small positive |
+| Dongre–Tewary (India HH FE, elementary) | ~0.14 SD | India tutoring proxy (weak ESS) |
+| China Gaokao private tutoring | Average ~0; positive for some subgroups | Heterogeneity / quality matter |
+| Korea tutoring expenditure IV | +10% spend → at most ~0.8–1.3% subject-score gains | Modest intensity returns |
+| US mandatory college-entrance testing | +16% private tutoring prevalence (esp. affluent areas) | Strategic response / arms-race behavior |
 
-The 0.14-SD value is borrowed from general Indian tutoring research and is not claimed as a NEET
-estimate. The grid is converted into admission changes through the empirical score/rank and seat
-allocation model. Program cohorts are then used for posterior predictive checks after accounting
-for their strong selection mechanisms.
+**Spending shape:** there is no established universal \(\log\) law. Returns look closer to a jump from
+none → some targeted prep, then diminishing / noisy gains. Money is a noisy intensity proxy
+(selection, scholarships, branding, lodging).
+
+**Recommended skeptical priors** (modeling, not published LATEs):
+
+- \(\theta\) (any meaningful prep vs none) \(\sim N(0.12, 0.10^2)\)
+- \(\beta_{\mathrm{doubling}}\) (doubling positive spend) \(\sim N(0.05, 0.08^2)\)
+
+Implemented in `config/score_privilege_scenarios.yaml` as the two-part form
+\(\delta = 1\{S>0\}\theta + 1\{S>0\}\beta\log_2(S/\tilde{S})\) with profiles
+`null` / `conservative` / `literature_central` / `reasonable`.
+
+## 6. Arms race is not “coaching teaches more”
+
+An educational arms race needs three claims:
+
+1. **Private return:** holding others fixed, more prep raises score/rank/admission odds.
+2. **Strategic response:** when the exam matters more (or rivals prep more), families buy more prep.
+3. **Positional externality:** when rivals prep more, own admission odds fall at fixed own prep.
+
+Fixed seats make the social return smaller than the private return: if everyone coaches equally,
+scores may rise while relative admission probabilities largely return to baseline and costs rise.
+TN Rajan composition (near-universal coaching among admits; rising repeater share) is strong
+**institutional** evidence of escalation, not a score LATE.
+
+## 7. Modeling policy in this repo
+
+The score → rank → seat model (`make score-privilege`) uses the two-part prior above, converts
+shifts through the empirical marks distribution and capacity cutoffs, and encodes the positional
+externality by subtracting population-mean coaching shifts (or forcing equal prep). Program
+cohorts remain for posterior predictive checks after selection adjustment — not for identifying θ.
 
 Intensive residential programs require a separate selection model. Fitting their observed 20–30%
 MBBS rates by assigning all of the difference to coaching would be a serious error.
 
-## 6. Evidence hierarchy
+## 8. Evidence hierarchy
 
 1. Randomized or quasi-experimental NEET intervention: none found yet.
 2. NEET cohorts with denominators and a comparison group: not yet found.
 3. NEET program cohorts with denominators but no controls: available.
-4. NEET admitted-student composition: available.
-5. General Indian tutoring causal/quasi-causal research: available as a proxy.
-6. Foreign medical-admission-test coaching studies: available as an external bound.
-7. Coaching-company claims: admissible only as low-trust audit inputs after denominator and outcome
+4. NEET admitted-student composition: available (TN Rajan).
+5. Cross-exam experimental / quasi-experimental test-prep effects: available as skeptical priors.
+6. General Indian tutoring causal/quasi-causal research: available as a weak proxy.
+7. Foreign medical-admission-test coaching studies: available as an external bound.
+8. Coaching-company claims: admissible only as low-trust audit inputs after denominator and outcome
    definitions are verified.
+
+**Priority data gap:** longitudinal or quasi-experimental Indian candidate data linking coaching
+type, duration, hours, and expenditure to changes in NEET marks/rank conditional on baseline.

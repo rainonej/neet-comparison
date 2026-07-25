@@ -1,4 +1,4 @@
-model_version: 0.3.0
+model_version: 0.3.1
 default_profile: conservative
 
 principles:
@@ -30,6 +30,20 @@ prior_profiles:
       family: normal
       mean: 0.0
       sd: 1.0
+    # Two-part coaching priors (SD of marks). See score_privilege_scenarios.yaml.
+    coaching_theta_any_prep_sd:
+      family: truncated_normal
+      mean: 0.00
+      sd: 0.20
+      lower: -0.30
+      upper: 0.60
+    coaching_beta_doubling_sd:
+      family: truncated_normal
+      mean: 0.00
+      sd: 0.08
+      lower: -0.10
+      upper: 0.25
+    # Legacy single-shift prior retained for older pipelines (modest ≈ θ).
     coaching_score_shift_sd:
       family: truncated_normal
       mean: 0.00
@@ -46,12 +60,53 @@ prior_profiles:
       family: normal
       mean: 0.0
       sd: 0.35
+    coaching_theta_any_prep_sd:
+      family: truncated_normal
+      mean: 0.08
+      sd: 0.08
+      lower: -0.05
+      upper: 0.30
+    coaching_beta_doubling_sd:
+      family: truncated_normal
+      mean: 0.03
+      sd: 0.06
+      lower: -0.05
+      upper: 0.20
     coaching_score_shift_sd:
       family: truncated_normal
       mean: 0.08
       sd: 0.08
       lower: -0.05
       upper: 0.30
+
+  literature_central:
+    # Skeptical cross-exam prior: θ ~ N(0.12, 0.10^2), β_doubling ~ N(0.05, 0.08^2).
+    binary_probability:
+      family: beta
+      center: closest_broad_benchmark_or_0.50
+      effective_sample_size: 6
+    log_odds_effect:
+      family: normal
+      mean: 0.0
+      sd: 0.40
+    coaching_theta_any_prep_sd:
+      family: truncated_normal
+      mean: 0.12
+      sd: 0.10
+      lower: -0.08
+      upper: 0.35
+    coaching_beta_doubling_sd:
+      family: truncated_normal
+      mean: 0.05
+      sd: 0.08
+      lower: -0.08
+      upper: 0.22
+    coaching_score_shift_sd:
+      family: truncated_normal
+      mean: 0.12
+      sd: 0.10
+      lower: -0.08
+      upper: 0.35
 
   reasonable:
     binary_probability:
@@ -62,9 +117,21 @@ prior_profiles:
       family: normal
       mean: 0.0
       sd: 0.50
+    coaching_theta_any_prep_sd:
+      family: truncated_normal
+      mean: 0.18
+      sd: 0.10
+      lower: -0.05
+      upper: 0.40
+    coaching_beta_doubling_sd:
+      family: truncated_normal
+      mean: 0.07
+      sd: 0.08
+      lower: -0.05
+      upper: 0.25
     coaching_score_shift_sd:
       family: truncated_normal
-      mean: 0.14
+      mean: 0.18
       sd: 0.10
       lower: -0.05
       upper: 0.45
