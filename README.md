@@ -29,7 +29,9 @@ make story
 make attempt-priors
 ```
 
-Open the public visual essay after `make story`:
+**Live site (GitHub Pages):** [rainonej.github.io/neet-comparison](https://rainonej.github.io/neet-comparison/)
+
+Open the public visual essay locally after `make story`:
 
 `reports/interactive/the-accessible-seat.html`
 
