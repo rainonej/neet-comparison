@@ -1,0 +1,33 @@
+stratum_type,sector,social_group,medium_code,institution_type,n_unweighted,n_coached_unweighted,coaching_rate_weighted,population,source_wave,notes,medium_label
+all,all,all,all,all,34504,9882,0.2906499952287386,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector,rural,all,all,all,20347,4673,0.25555190369668734,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector,urban,all,all,all,14157,5209,0.37606663029588716,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+social_group,all,ST,all,all,5013,829,0.14632984983011096,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+social_group,all,SC,all,all,5577,1359,0.2585799760560974,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+social_group,all,OBC,all,all,14030,3848,0.26136630318075865,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+social_group,all,Others,all,all,9884,3846,0.41331948843544625,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,rural,ST,all,all,3577,557,0.13662959461824997,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,rural,SC,all,all,3861,776,0.23855659834032963,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,rural,OBC,all,all,8288,1934,0.243909274648423,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,rural,Others,all,all,4621,1406,0.35545504689510204,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,urban,ST,all,all,1436,272,0.20531653225110016,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,urban,SC,all,all,1716,583,0.34188750253812256,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,urban,OBC,all,all,5742,1914,0.30412450745167197,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+sector_x_social_group,urban,Others,all,all,5263,2440,0.4949646638631079,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+medium,all,all,1,all,11202,2703,0.25098080590726124,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",hindi
+medium,all,all,2,all,12764,3772,0.3109862654767311,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",english
+medium,all,all,3,all,693,234,0.3309759062225086,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_3
+medium,all,all,4,all,2177,1913,0.9139104188953154,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_4
+medium,all,all,7,all,1046,216,0.19682036027318717,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_7
+medium,all,all,8,all,781,41,0.04199745813957884,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_8
+medium,all,all,13,all,530,111,0.24275667748258714,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_13
+medium,all,all,15,all,1627,249,0.14142184599632932,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_15
+medium,all,all,17,all,852,370,0.45210405756199207,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_17
+medium,all,all,18,all,420,52,0.19950383932534338,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_18
+medium,all,all,23,all,1263,94,0.07051059013898862,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_23
+medium,all,all,24,all,806,38,0.03530185513972858,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_24
+medium,all,all,25,all,158,31,0.17598366635717425,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; medium labels hindi=1 english=2 per NSS75 dict",code_25
+institution_type,all,all,all,govt_like,20411,5642,0.3077030756439235,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+institution_type,all,all,all,local_body_or_aided,5643,1666,0.2837851364481447,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+institution_type,all,all,all,private,8383,2555,0.2525598479710863,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",
+institution_type,all,all,all,other,67,19,0.2788833165561104,secondary_higher_secondary_attending,nss_education_2017_18,"Enrol_basic_course in {10,11}; Taking_pvt_coaching==1; weight MULT_Combined",

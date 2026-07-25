@@ -2,18 +2,29 @@
   "output_dir": "data/processed/mospi",
   "files": [
     "aidis_debt_percentiles.csv",
+    "cmse_coaching_by_school_type.csv",
     "cmse_coaching_by_stratum.csv",
     "cmse_coaching_priors.csv",
     "hces_mpce_percentiles.csv",
+    "nss_education_aspirant_prep.csv",
+    "nss_education_coaching_joints.csv",
+    "nss_education_prep_spend.csv",
     "plfs_earnings_by_occupation.csv",
+    "plfs_field_employment.csv",
     "plfs_wage_anchors.csv",
-    "plfs_youth_grad_unemployment.csv"
+    "plfs_youth_grad_unemployment.csv",
+    "tus_conversion_status.csv"
   ],
   "redistribution": "aggregates only; unit microdata remain local/gitignored",
   "model_hooks": {
     "wages": "plfs_wage_anchors.csv -> evidence.load_wage_anchors / privilege careers",
     "coaching": "cmse_coaching_priors.csv + cmse_coaching_by_stratum.csv",
     "resources": "hces_mpce_percentiles.csv",
-    "financing": "aidis_debt_percentiles.csv"
+    "financing": "aidis_debt_percentiles.csv",
+    "coaching_joints_nss": "nss_education_coaching_joints.csv",
+    "prep_spend_nss": "nss_education_prep_spend.csv + nss_education_aspirant_prep.csv",
+    "field_employment": "plfs_field_employment.csv",
+    "coaching_school_type": "cmse_coaching_by_school_type.csv",
+    "tus_status": "tus_conversion_status.csv"
   }
 }

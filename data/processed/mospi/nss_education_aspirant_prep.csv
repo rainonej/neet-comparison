@@ -1,0 +1,4 @@
+stratum_type,sector,age_band,n_unweighted,preparing_rate_weighted,prep_exp_p50_among_preparing,prep_exp_p90_among_preparing,source_wave,notes
+all,all,15_25_not_attending,55823,0.022570233840812727,5000.0,30000.0,nss_education_2017_18,Block 7 not-attending; Preparing_higher_last365days; aspirant/dropper proxy
+sector,rural,15_25_not_attending,35615,0.01501358778614845,3500.0,15000.0,nss_education_2017_18,Block 7 not-attending; Preparing_higher_last365days; aspirant/dropper proxy
+sector,urban,15_25_not_attending,20208,0.043185891507950096,8000.0,70000.0,nss_education_2017_18,Block 7 not-attending; Preparing_higher_last365days; aspirant/dropper proxy
