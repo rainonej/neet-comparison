@@ -287,6 +287,8 @@ def build_payload() -> dict:
                 "p_private": r["p_private_offer"],
                 "mean_marks": r["mean_marks"],
                 "median_marks": r["median_marks"],
+                "labeled_prep_intensity": r.get("labeled_prep_intensity"),
+                "effective_prep_intensity": r.get("effective_prep_intensity"),
                 "coaching_shift_sd": r["coaching_shift_sd"],
                 "relative_coaching_shift_sd": r["relative_coaching_shift_sd"],
                 "total_location_shift_sd": r["total_location_shift_sd"],
@@ -326,15 +328,15 @@ def build_payload() -> dict:
             "note": "Affordability filter; qualify ≠ seat",
         },
         {
-            "beat": "Privilege channel waterfall",
+            "beat": "Ordered scenario pathway",
             "status": "SENS",
             "grain": "Synthetic strata + TN medium",
-            "note": "One channel at a time; evidence class labeled; extreme top/bottom is not a national estimate",
+            "note": "Order-dependent increments; not Shapley/Oaxaca; extreme top/bottom is not a national estimate",
         },
         {
             "beat": "Coaching arms race",
             "status": "SENS",
-            "grain": "Skeptical priors",
+            "grain": "Skeptical plug-in priors + assumed 45/40/15 prep mix",
             "note": "everyone_* = universal prep; rivals_escalate_* = focal keeps label; not NEET LATE",
         },
         {
@@ -413,7 +415,9 @@ def build_payload() -> dict:
                 "move while money and years are still extracted."
             ),
             "warnings": score.get("warnings", []),
-            "production_pathway": "score_rank_seat",
+            "production_pathway": score.get("model_family", "fixed_reference_threshold"),
+            "model_description": score.get("model_description"),
+            "estimation": score.get("estimation", "plug_in_sensitivity"),
             "legacy_privilege_demo": privilege.get("status") == "legacy_accounting_demo",
         },
         "scarcity": {
@@ -470,10 +474,19 @@ def build_payload() -> dict:
             .get("qualified_per_mbbs_seat"),
         },
         "decomposition": score["decomposition_unilateral"],
-        "waterfall": score.get("waterfall_unilateral", []),
+        "ordered_scenario_pathway": score.get(
+            "ordered_scenario_pathway_unilateral",
+            score.get("waterfall_unilateral", []),
+        ),
+        "waterfall": score.get(
+            "ordered_scenario_pathway_unilateral",
+            score.get("waterfall_unilateral", []),
+        ),
         "arms_race": {
             "signatures": score["arms_race_signatures"],
             "plug_in_deltas_sd": score["coaching_plug_in_deltas_sd"],
+            "population_coaching_mix_assumed": score.get("population_coaching_mix_assumed"),
+            "population_coaching_mix_note": score.get("population_coaching_mix_note"),
             "note": score.get("arms_race_note"),
         },
         "ladders": ladders,
@@ -496,6 +509,15 @@ def build_payload() -> dict:
             "See docs/ATTEMPT_PRIORS.md."
         ),
         "attempt_default_rho": 1.75,
+        "tn_repeater_time_series": [
+            {
+                "session": str(y.get("session")),
+                "repeater_share": float(y["repeater_share"]),
+                "current_students_share": float(y["current_students_share"]),
+            }
+            for y in (admitted_comp.get("post_neet_years") or [])
+            if y.get("repeater_share") is not None
+        ],
         "ticket_cost": {
             "public_story_trajectories_enabled": public_traj_ok,
             "trajectories": ticket_trajectories,

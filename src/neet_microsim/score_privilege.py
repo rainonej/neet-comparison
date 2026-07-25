@@ -1,9 +1,13 @@
-"""Score → rank → seat privilege inequality story (production pathway).
+"""Fixed-reference threshold privilege story (production pathway).
 
-Replaces direct P(accessible seat) with latent NEET marks shifted by medium / metro /
-coaching, national capacity-equivalent rank thresholds, and an affordability filter.
-Arms-race scenarios subtract population-mean coaching shifts so equal escalation
-leaves ranks unchanged.
+Synthetic strata receive latent NEET mark shifts (medium / metro / coaching), then are
+evaluated against a **fixed** national marks CDF and capacity-equivalent threshold shares,
+plus an affordability filter. This is not a joint applicant-pool ranking or a state
+counselling allocator.
+
+Arms-race scenarios subtract population-mean coaching shifts so equal escalation leaves
+relative ranks unchanged. Shared baseline draws (common random numbers) keep
+counterfactual comparisons CRN-stable.
 """
 
 from __future__ import annotations
@@ -36,9 +40,8 @@ from .seat_allocation import (
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG = REPO_ROOT / "config" / "score_privilege_scenarios.yaml"
 
-# Ordered one-channel-at-a-time contrast for story waterfall (unilateral scenario).
-# Each step changes one privilege channel relative to the previous stratum.
-WATERFALL_STEPS: list[dict[str, str]] = [
+# Ordered scenario pathway (not Shapley / Oaxaca / mediation). Increments depend on order.
+ORDERED_PATHWAY_STEPS: list[dict[str, str]] = [
     {
         "stratum_id": "tamil_cant_afford_nonmetro_none",
         "step_id": "baseline",
@@ -90,6 +93,8 @@ class ScoreStratumResult:
     label: str
     arms_race_scenario: str
     coaching_profile: str
+    labeled_prep_intensity: str
+    effective_prep_intensity: str
     mean_marks: float
     median_marks: float
     p90_marks: float
@@ -137,15 +142,32 @@ def simulate_score_stratum(
     privilege_tier: str | None = None,
     draws: int | None = None,
     seed: int | None = None,
+    baseline_marks: np.ndarray | None = None,
 ) -> dict[str, Any]:
+    """Simulate one synthetic stratum against the fixed national reference distribution.
+
+    Pass ``baseline_marks`` (common random numbers) so counterfactual strata/scenarios
+    that become mathematically identical after ``force_all_prep`` yield identical marks
+    and access rates.
+    """
+
     sim = config["simulation"]
-    n = int(sim["draws"] if draws is None else draws)
-    rng = np.random.default_rng(int(sim["seed"] if seed is None else seed))
+    base_seed = int(sim["seed"] if seed is None else seed)
     dist = load_score_distribution(config=config, repo_root=REPO_ROOT)
     capacity = capacity_from_config(config)
     profile = coaching_profile or config["coaching"]["default_profile"]
 
-    baseline = dist.sample(n, rng=rng)
+    if baseline_marks is None:
+        n = int(sim["draws"] if draws is None else draws)
+        baseline = dist.sample(n, rng=np.random.default_rng(base_seed))
+    else:
+        baseline = np.asarray(baseline_marks, dtype=float)
+        if baseline.ndim != 1:
+            raise ValueError("baseline_marks must be a 1-d array")
+        n = int(baseline.shape[0])
+        if draws is not None and int(draws) != n:
+            raise ValueError("draws does not match baseline_marks length")
+
     shifted, meta = apply_score_shifts(
         baseline,
         dist=dist,
@@ -162,18 +184,30 @@ def simulate_score_stratum(
     afford = can_afford_private_fee(stratum.can_afford_private, config)
     offers = allocate_offers(rank_pct, capacity=capacity, can_afford_private=afford)
 
-    # Career draws
+    # Career draws use shared seeds (not stratum index) so they do not reintroduce
+    # ladder-row Monte Carlo differences into access comparisons.
     path_annual: dict[str, np.ndarray] = {}
     path_employed: dict[str, np.ndarray] = {}
     for i, (path_name, model) in enumerate(careers.items(), start=1):
-        annual, _summary, employed = simulate_one_year(model, draws=n, seed=int(sim["seed"]) + i)
+        annual, _summary, employed = simulate_one_year(
+            model, draws=n, seed=int(sim["seed"]) + i
+        )
         path_annual[path_name] = annual
         path_employed[path_name] = employed
 
     mix_w = _mixture_weights(stratum, config, privilege_tier=privilege_tier)
     mix_names = list(mix_w.keys())
     mix_probs = np.array([mix_w[k] for k in mix_names], dtype=float)
-    no_seat_choice = rng.choice(mix_names, size=n, p=mix_probs)
+    # Deterministic mixture draws from stratum attributes only (not ladder row index).
+    mix_seed = (
+        int(sim["seed"])
+        + 10_000 * (0 if stratum.school_medium == "tamil" else 1)
+        + 1_000 * (0 if stratum.can_afford_private else 1)
+        + 100 * (0 if stratum.metro_proximity == "non_metro" else 1)
+        + 10 * {"none": 0, "modest": 1, "intensive": 2}.get(str(meta["effective_prep_intensity"]), 0)
+    )
+    mix_rng = np.random.default_rng(mix_seed)
+    no_seat_choice = mix_rng.choice(mix_names, size=n, p=mix_probs)
     no_seat_annual = np.zeros(n, dtype=float)
     no_seat_employed = np.zeros(n, dtype=bool)
     for name in mix_names:
@@ -198,6 +232,8 @@ def simulate_score_stratum(
         label=stratum.label,
         arms_race_scenario=str(arms_race["id"]),
         coaching_profile=profile,
+        labeled_prep_intensity=stratum.prep_intensity,
+        effective_prep_intensity=str(meta["effective_prep_intensity"]),
         mean_marks=float(np.mean(shifted)),
         median_marks=float(np.median(shifted)),
         p90_marks=float(np.quantile(shifted, 0.90)),
@@ -288,6 +324,13 @@ def run_score_privilege_pipeline(
     if arms_race_ids is not None:
         scenarios = [s for s in scenarios if s["id"] in set(arms_race_ids)]
 
+    # Common random numbers: one shared baseline marks vector for all strata/scenarios.
+    sim = config["simulation"]
+    n = int(sim["draws"] if draws is None else draws)
+    shared_seed = int(sim["seed"])
+    dist = load_score_distribution(config=config, repo_root=REPO_ROOT)
+    shared_baseline = dist.sample(n, rng=np.random.default_rng(shared_seed))
+
     access_rows: list[dict[str, Any]] = []
     hist_rows: list[dict[str, Any]] = []
     score_hist_rows: list[dict[str, Any]] = []
@@ -295,7 +338,7 @@ def run_score_privilege_pipeline(
 
     for arms in scenarios:
         ladder_by_scenario[arms["id"]] = []
-        for i, row in enumerate(config["access_ladder"]):
+        for row in config["access_ladder"]:
             stratum = PrivilegeStratum(
                 id=str(row["id"]),
                 label=str(row["label"]),
@@ -311,8 +354,8 @@ def run_score_privilege_pipeline(
                 arms_race=arms,
                 coaching_profile=profile,
                 privilege_tier=str(row.get("privilege_tier", "mid")),
-                draws=draws,
-                seed=int(config["simulation"]["seed"]) + 1000 * i,
+                baseline_marks=shared_baseline,
+                seed=shared_seed,
             )
             summary = result["summary"]
             access_rows.append(asdict(summary))
@@ -337,7 +380,7 @@ def run_score_privilege_pipeline(
     eng_cant = by_id.get("english_cant_afford_nonmetro_modest")
     eng_can = by_id.get("english_can_afford_nonmetro_modest")
 
-    waterfall = _build_waterfall(by_id)
+    ordered_pathway = _build_ordered_pathway(by_id)
 
     coach_cfg = config["coaching"]
     plug_in_deltas = {
@@ -345,16 +388,29 @@ def run_score_privilege_pipeline(
         for intensity in coach_cfg["intensity_spend_multiples_of_median"]
     }
     signatures = arms_race_signatures(config, profile=profile)
+    pop_mix = {str(k): float(v) for k, v in coach_cfg.get("population_mix_for_arms_race", {}).items()}
 
     gov_thr = capacity.government_capacity_threshold_percentile
     any_thr = capacity.any_mbbs_capacity_threshold_percentile
     story = {
         "model_version": config.get("model_version"),
-        "model_family": "score_rank_seat",
+        "model_family": config.get("model_family", "fixed_reference_threshold"),
+        "model_description": (
+            "Synthetic-stratum score shifts evaluated against a fixed national marks CDF "
+            "and capacity-equivalent threshold shares. Not a joint applicant-pool ranking "
+            "or state/category counselling allocator."
+        ),
         "production_pathway": True,
+        "common_random_numbers": True,
+        "estimation": "plug_in_sensitivity",
         "coaching_profile": profile,
         "coaching_functional_form": coach_cfg.get("functional_form"),
         "coaching_plug_in_deltas_sd": plug_in_deltas,
+        "population_coaching_mix_assumed": pop_mix,
+        "population_coaching_mix_note": (
+            "Assumed NEET-applicant prep mix for unilateral population-mean subtraction; "
+            "not a measured applicant distribution."
+        ),
         "arms_race_signatures": signatures,
         "narrative": config.get("narrative", {}),
         "capacity": {
@@ -368,7 +424,9 @@ def run_score_privilege_pipeline(
             "any_mbbs_cutoff_percentile": any_thr,
         },
         "access_ladder_by_scenario": ladder_by_scenario,
-        "waterfall_unilateral": waterfall,
+        "ordered_scenario_pathway_unilateral": ordered_pathway,
+        # Alias retained for older story builders
+        "waterfall_unilateral": ordered_pathway,
         "decomposition_unilateral": {
             "p_accessible_low": None if low is None else low["p_accessible_seat"],
             "p_accessible_english_cant_afford": None
@@ -383,7 +441,7 @@ def run_score_privilege_pipeline(
             ),
             "full_ladder_note": (
                 "Extreme all-channels-at-once scenario contrast, not a national inequality estimate, "
-                "causal effect, or posterior result. Prefer waterfall_unilateral for provenance."
+                "causal effect, or posterior result. Prefer ordered_scenario_pathway_unilateral."
             ),
             "mean_marks_low": None if low is None else low["mean_marks"],
             "mean_marks_top": None if high is None else high["mean_marks"],
@@ -391,18 +449,21 @@ def run_score_privilege_pipeline(
         "arms_race_note": (
             "Private return (β1>0): unilateral prep raises absolute scores. "
             "Positional externality (β2<0): relative coaching shifts subtract the population-mean "
-            "coaching SD so universal escalation (everyone_*) does not improve ranks while costs rise. "
-            "rivals_escalate_* keeps the focal candidate's labeled prep while forcing rivals. "
-            "Strategic response (families buy more prep when exams matter more) is documented "
-            "externally (e.g. US mandatory-testing → +16% tutoring), not estimated here."
+            "coaching SD (from the assumed prep mix) so universal escalation (everyone_*) does not "
+            "improve ranks while costs rise. rivals_escalate_* keeps the focal candidate's labeled "
+            "prep while forcing rivals. Strategic response is documented externally, not estimated here."
         ),
         "warnings": [
+            "Fixed-reference threshold model — not a joint ranked counselling simulation.",
             "National capacity-equivalent thresholds are accounting shares (seats/appeared), not state/category counselling cutoffs.",
             "Medium score shifts are calibrated toward TN associations; not national causal English effects.",
-            "Coaching uses a two-part skeptical prior (θ any-prep + β doubling spend); not a NEET LATE.",
+            "English-medium pathway step is partly circular with that TN calibration target.",
+            "Coaching uses plug-in skeptical prior means (θ, β); access rates have no posterior intervals.",
+            "Population coaching mix (arms race) is an assumed composition, not measured NEET applicants.",
+            "Ordered scenario pathway increments depend on step order; not Shapley/Oaxaca/mediation.",
             "TN Rajan 99% coached admits / 71% repeaters are prevalence constraints, not score effects.",
             "Centre-marks file has no SES/coaching/domicile; privilege enters via synthetic shifts.",
-            "Full ladder top/bottom ratio is an extreme scenario contrast; use the labeled waterfall for channel provenance.",
+            "Full ladder top/bottom ratio is an extreme scenario contrast.",
             "Causal language for scenario contrasts is prohibited.",
         ],
     }
@@ -424,13 +485,13 @@ def run_score_privilege_pipeline(
     }
 
 
-def _build_waterfall(by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
-    """One-channel-at-a-time access contrast with evidence-class labels."""
+def _build_ordered_pathway(by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    """Ordered scenario pathway with evidence-class labels (order-dependent increments)."""
 
     rows: list[dict[str, Any]] = []
     baseline_p: float | None = None
     prev_p: float | None = None
-    for step in WATERFALL_STEPS:
+    for step in ORDERED_PATHWAY_STEPS:
         stratum = by_id.get(step["stratum_id"])
         if stratum is None:
             continue
@@ -447,14 +508,20 @@ def _build_waterfall(by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
                 "delta_p_accessible": delta,
                 "ratio_vs_baseline": ratio_vs_baseline,
                 "mean_marks": stratum["mean_marks"],
+                "pathway_note": "Ordered scenario pathway; increments depend on step order.",
             }
         )
         prev_p = p
     return rows
 
 
+# Backward-compatible alias
+WATERFALL_STEPS = ORDERED_PATHWAY_STEPS
+
+
 __all__ = [
     "ScoreStratumResult",
+    "ORDERED_PATHWAY_STEPS",
     "WATERFALL_STEPS",
     "run_score_privilege_pipeline",
     "simulate_score_stratum",

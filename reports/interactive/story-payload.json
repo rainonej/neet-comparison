@@ -2,7 +2,7 @@
   "meta": {
     "title": "The Accessible Seat",
     "subtitle": "Privilege, scarcity, and the coaching arms race in NEET-UG",
-    "model_version_score": "0.5.2",
+    "model_version_score": "0.5.3",
     "model_version_privilege": "0.4.1",
     "coaching_profile": "conservative",
     "generated_from": [
@@ -22,15 +22,21 @@
     "thesis": "Medicine’s rewards are real. Seats are scarce, preparation is costly, and private capacity is unequally affordable — so qualification is not access, and exam rank should not be read as a pure measure of individual merit.",
     "arms_race_blurb": "Coaching can be the entry fee of a rank tournament. Holding others fixed, prep can raise absolute scores. When the whole pool escalates equally, relative ranks barely move while money and years are still extracted.",
     "warnings": [
+      "Fixed-reference threshold model — not a joint ranked counselling simulation.",
       "National capacity-equivalent thresholds are accounting shares (seats/appeared), not state/category counselling cutoffs.",
       "Medium score shifts are calibrated toward TN associations; not national causal English effects.",
-      "Coaching uses a two-part skeptical prior (θ any-prep + β doubling spend); not a NEET LATE.",
+      "English-medium pathway step is partly circular with that TN calibration target.",
+      "Coaching uses plug-in skeptical prior means (θ, β); access rates have no posterior intervals.",
+      "Population coaching mix (arms race) is an assumed composition, not measured NEET applicants.",
+      "Ordered scenario pathway increments depend on step order; not Shapley/Oaxaca/mediation.",
       "TN Rajan 99% coached admits / 71% repeaters are prevalence constraints, not score effects.",
       "Centre-marks file has no SES/coaching/domicile; privilege enters via synthetic shifts.",
-      "Full ladder top/bottom ratio is an extreme scenario contrast; use the labeled waterfall for channel provenance.",
+      "Full ladder top/bottom ratio is an extreme scenario contrast.",
       "Causal language for scenario contrasts is prohibited."
     ],
-    "production_pathway": "score_rank_seat",
+    "production_pathway": "fixed_reference_threshold",
+    "model_description": "Synthetic-stratum score shifts evaluated against a fixed national marks CDF and capacity-equivalent threshold shares. Not a joint applicant-pool ranking or state/category counselling allocator.",
+    "estimation": "plug_in_sensitivity",
     "legacy_privilege_demo": true
   },
   "scarcity": {
@@ -50,14 +56,94 @@
   },
   "decomposition": {
     "p_accessible_low": 0.01435,
-    "p_accessible_english_cant_afford": 0.036325,
-    "p_accessible_english_can_afford": 0.070275,
-    "p_accessible_top": 0.07945,
-    "full_ladder_ratio_top_over_low": 5.536585365853659,
-    "full_ladder_note": "Extreme all-channels-at-once scenario contrast, not a national inequality estimate, causal effect, or posterior result. Prefer waterfall_unilateral for provenance.",
+    "p_accessible_english_cant_afford": 0.03665,
+    "p_accessible_english_can_afford": 0.0674,
+    "p_accessible_top": 0.081,
+    "full_ladder_ratio_top_over_low": 5.644599303135888,
+    "full_ladder_note": "Extreme all-channels-at-once scenario contrast, not a national inequality estimate, causal effect, or posterior result. Prefer ordered_scenario_pathway_unilateral.",
     "mean_marks_low": 192.33521780156892,
-    "mean_marks_top": 263.0583543191615
+    "mean_marks_top": 265.3878524695264
   },
+  "ordered_scenario_pathway": [
+    {
+      "stratum_id": "tamil_cant_afford_nonmetro_none",
+      "step_id": "baseline",
+      "channel": "baseline",
+      "evidence_class": "scenario",
+      "label": "Baseline · Tamil · cannot afford · non-metro · no prep",
+      "stratum_label": "Tamil · cannot afford private · non-metro · no prep",
+      "p_accessible_seat": 0.01435,
+      "delta_p_accessible": null,
+      "ratio_vs_baseline": 1.0,
+      "mean_marks": 192.33521780156892,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
+    },
+    {
+      "stratum_id": "tamil_cant_afford_nonmetro_modest",
+      "step_id": "modest_prep",
+      "channel": "prep",
+      "evidence_class": "transported_prior",
+      "label": "+ Modest prep prior",
+      "stratum_label": "Tamil · cannot afford private · non-metro · modest prep",
+      "p_accessible_seat": 0.02,
+      "delta_p_accessible": 0.0056500000000000005,
+      "ratio_vs_baseline": 1.3937282229965158,
+      "mean_marks": 205.6316310109136,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
+    },
+    {
+      "stratum_id": "english_cant_afford_nonmetro_modest",
+      "step_id": "english_medium",
+      "channel": "medium",
+      "evidence_class": "transported_association",
+      "label": "+ English-medium association (TN-calibrated)",
+      "stratum_label": "English · cannot afford private · non-metro · modest prep",
+      "p_accessible_seat": 0.03665,
+      "delta_p_accessible": 0.01665,
+      "ratio_vs_baseline": 2.554006968641115,
+      "mean_marks": 242.19356395940184,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
+    },
+    {
+      "stratum_id": "english_can_afford_nonmetro_modest",
+      "step_id": "afford_private",
+      "channel": "affordability",
+      "evidence_class": "scenario",
+      "label": "+ Private-seat affordability",
+      "stratum_label": "English · can afford private · non-metro · modest prep",
+      "p_accessible_seat": 0.0674,
+      "delta_p_accessible": 0.03075,
+      "ratio_vs_baseline": 4.696864111498258,
+      "mean_marks": 242.19356395940184,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
+    },
+    {
+      "stratum_id": "english_can_afford_metro_modest",
+      "step_id": "metro",
+      "channel": "metro",
+      "evidence_class": "scenario",
+      "label": "+ Metro sensitivity",
+      "stratum_label": "English · can afford private · metro · modest prep",
+      "p_accessible_seat": 0.072525,
+      "delta_p_accessible": 0.0051250000000000046,
+      "ratio_vs_baseline": 5.054006968641115,
+      "mean_marks": 250.49211266644178,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
+    },
+    {
+      "stratum_id": "english_can_afford_metro_intensive",
+      "step_id": "intensive_prep",
+      "channel": "prep",
+      "evidence_class": "transported_prior",
+      "label": "+ Intensive prep prior",
+      "stratum_label": "English · can afford private · metro · intensive prep",
+      "p_accessible_seat": 0.081,
+      "delta_p_accessible": 0.008474999999999996,
+      "ratio_vs_baseline": 5.644599303135888,
+      "mean_marks": 265.3878524695264,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
+    }
+  ],
   "waterfall": [
     {
       "stratum_id": "tamil_cant_afford_nonmetro_none",
@@ -69,7 +155,8 @@
       "p_accessible_seat": 0.01435,
       "delta_p_accessible": null,
       "ratio_vs_baseline": 1.0,
-      "mean_marks": 192.33521780156892
+      "mean_marks": 192.33521780156892,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
     },
     {
       "stratum_id": "tamil_cant_afford_nonmetro_modest",
@@ -78,10 +165,11 @@
       "evidence_class": "transported_prior",
       "label": "+ Modest prep prior",
       "stratum_label": "Tamil · cannot afford private · non-metro · modest prep",
-      "p_accessible_seat": 0.019425,
-      "delta_p_accessible": 0.005075000000000001,
-      "ratio_vs_baseline": 1.353658536585366,
-      "mean_marks": 205.59457935158838
+      "p_accessible_seat": 0.02,
+      "delta_p_accessible": 0.0056500000000000005,
+      "ratio_vs_baseline": 1.3937282229965158,
+      "mean_marks": 205.6316310109136,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
     },
     {
       "stratum_id": "english_cant_afford_nonmetro_modest",
@@ -90,10 +178,11 @@
       "evidence_class": "transported_association",
       "label": "+ English-medium association (TN-calibrated)",
       "stratum_label": "English · cannot afford private · non-metro · modest prep",
-      "p_accessible_seat": 0.036325,
-      "delta_p_accessible": 0.016900000000000002,
-      "ratio_vs_baseline": 2.531358885017422,
-      "mean_marks": 242.54727181811305
+      "p_accessible_seat": 0.03665,
+      "delta_p_accessible": 0.01665,
+      "ratio_vs_baseline": 2.554006968641115,
+      "mean_marks": 242.19356395940184,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
     },
     {
       "stratum_id": "english_can_afford_nonmetro_modest",
@@ -102,10 +191,11 @@
       "evidence_class": "scenario",
       "label": "+ Private-seat affordability",
       "stratum_label": "English · can afford private · non-metro · modest prep",
-      "p_accessible_seat": 0.070275,
-      "delta_p_accessible": 0.03395,
-      "ratio_vs_baseline": 4.897212543554008,
-      "mean_marks": 244.264823681108
+      "p_accessible_seat": 0.0674,
+      "delta_p_accessible": 0.03075,
+      "ratio_vs_baseline": 4.696864111498258,
+      "mean_marks": 242.19356395940184,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
     },
     {
       "stratum_id": "english_can_afford_metro_modest",
@@ -114,10 +204,11 @@
       "evidence_class": "scenario",
       "label": "+ Metro sensitivity",
       "stratum_label": "English · can afford private · metro · modest prep",
-      "p_accessible_seat": 0.07365,
-      "delta_p_accessible": 0.003374999999999989,
-      "ratio_vs_baseline": 5.132404181184668,
-      "mean_marks": 252.24971630805172
+      "p_accessible_seat": 0.072525,
+      "delta_p_accessible": 0.0051250000000000046,
+      "ratio_vs_baseline": 5.054006968641115,
+      "mean_marks": 250.49211266644178,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
     },
     {
       "stratum_id": "english_can_afford_metro_intensive",
@@ -126,10 +217,11 @@
       "evidence_class": "transported_prior",
       "label": "+ Intensive prep prior",
       "stratum_label": "English · can afford private · metro · intensive prep",
-      "p_accessible_seat": 0.07945,
-      "delta_p_accessible": 0.0058000000000000135,
-      "ratio_vs_baseline": 5.536585365853659,
-      "mean_marks": 263.0583543191615
+      "p_accessible_seat": 0.081,
+      "delta_p_accessible": 0.008474999999999996,
+      "ratio_vs_baseline": 5.644599303135888,
+      "mean_marks": 265.3878524695264,
+      "pathway_note": "Ordered scenario pathway; increments depend on step order."
     }
   ],
   "arms_race": {
@@ -161,7 +253,13 @@
         "log2_spend_vs_median": 3.0
       }
     },
-    "note": "Private return (β1>0): unilateral prep raises absolute scores. Positional externality (β2<0): relative coaching shifts subtract the population-mean coaching SD so universal escalation (everyone_*) does not improve ranks while costs rise. rivals_escalate_* keeps the focal candidate's labeled prep while forcing rivals. Strategic response (families buy more prep when exams matter more) is documented externally (e.g. US mandatory-testing → +16% tutoring), not estimated here."
+    "population_coaching_mix_assumed": {
+      "none": 0.45,
+      "modest": 0.4,
+      "intensive": 0.15
+    },
+    "population_coaching_mix_note": "Assumed NEET-applicant prep mix for unilateral population-mean subtraction; not a measured applicant distribution.",
+    "note": "Private return (β1>0): unilateral prep raises absolute scores. Positional externality (β2<0): relative coaching shifts subtract the population-mean coaching SD (from the assumed prep mix) so universal escalation (everyone_*) does not improve ranks while costs rise. rivals_escalate_* keeps the focal candidate's labeled prep while forcing rivals. Strategic response is documented externally, not estimated here."
   },
   "ladders": {
     "unilateral": [
@@ -173,87 +271,99 @@
         "p_private": 0.026875,
         "mean_marks": 192.33521780156892,
         "median_marks": 135.4479581624349,
+        "labeled_prep_intensity": "none",
+        "effective_prep_intensity": "none",
         "coaching_shift_sd": 0.0,
         "relative_coaching_shift_sd": -0.057499999999999996,
         "total_location_shift_sd": -0.1775,
-        "unconditional_annual_mean": 174602.2648894467,
+        "unconditional_annual_mean": 174653.8570335975,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 251614.43960923224
+        "no_seat_median_if_employed": 249272.1949950601
       },
       {
         "id": "tamil_cant_afford_nonmetro_modest",
         "label": "Tamil · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.019425,
-        "p_govt": 0.019425,
-        "p_private": 0.027225,
-        "mean_marks": 205.59457935158838,
-        "median_marks": 146.2098133511726,
+        "p_accessible": 0.02,
+        "p_govt": 0.02,
+        "p_private": 0.026925,
+        "mean_marks": 205.6316310109136,
+        "median_marks": 148.74715851504067,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.022500000000000006,
         "total_location_shift_sd": -0.09749999999999999,
-        "unconditional_annual_mean": 173712.4740455946,
+        "unconditional_annual_mean": 174822.00257734876,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 250067.1878996765
+        "no_seat_median_if_employed": 247993.69014957667
       },
       {
         "id": "english_cant_afford_nonmetro_modest",
         "label": "English · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.036325,
-        "p_govt": 0.036325,
-        "p_private": 0.030025,
-        "mean_marks": 242.54727181811305,
-        "median_marks": 185.22124467563515,
+        "p_accessible": 0.03665,
+        "p_govt": 0.03665,
+        "p_private": 0.03075,
+        "mean_marks": 242.19356395940184,
+        "median_marks": 185.3199594847065,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.022500000000000006,
         "total_location_shift_sd": 0.12250000000000001,
-        "unconditional_annual_mean": 195985.5509509751,
+        "unconditional_annual_mean": 194937.11655891972,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 269448.8677761957
+        "no_seat_median_if_employed": 266184.0532806351
       },
       {
         "id": "english_can_afford_nonmetro_modest",
         "label": "English · can afford private · non-metro · modest prep",
-        "p_accessible": 0.070275,
-        "p_govt": 0.039375,
-        "p_private": 0.0309,
-        "mean_marks": 244.264823681108,
-        "median_marks": 187.94961227624452,
+        "p_accessible": 0.0674,
+        "p_govt": 0.03665,
+        "p_private": 0.03075,
+        "mean_marks": 242.19356395940184,
+        "median_marks": 185.3199594847065,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.022500000000000006,
         "total_location_shift_sd": 0.12250000000000001,
-        "unconditional_annual_mean": 210993.3253706838,
+        "unconditional_annual_mean": 207975.4502656219,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278196.75404560455
+        "no_seat_median_if_employed": 276760.2757787431
       },
       {
         "id": "english_can_afford_metro_modest",
         "label": "English · can afford private · metro · modest prep",
-        "p_accessible": 0.07365,
-        "p_govt": 0.04165,
-        "p_private": 0.032,
-        "mean_marks": 252.24971630805172,
-        "median_marks": 194.58848353640605,
+        "p_accessible": 0.072525,
+        "p_govt": 0.040825,
+        "p_private": 0.0317,
+        "mean_marks": 250.49211266644178,
+        "median_marks": 193.63195970508508,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.022500000000000006,
         "total_location_shift_sd": 0.17250000000000004,
-        "unconditional_annual_mean": 209834.20875307222,
+        "unconditional_annual_mean": 212349.87373048908,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278309.3312183828
+        "no_seat_median_if_employed": 280188.51384094
       },
       {
         "id": "english_can_afford_metro_intensive",
         "label": "English · can afford private · metro · intensive prep",
-        "p_accessible": 0.07945,
-        "p_govt": 0.04735,
-        "p_private": 0.0321,
-        "mean_marks": 263.0583543191615,
-        "median_marks": 204.9138367888039,
+        "p_accessible": 0.081,
+        "p_govt": 0.047575,
+        "p_private": 0.033425,
+        "mean_marks": 265.3878524695264,
+        "median_marks": 208.59356010176654,
+        "labeled_prep_intensity": "intensive",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.11249999999999999,
         "total_location_shift_sd": 0.2625,
-        "unconditional_annual_mean": 212099.1138364764,
+        "unconditional_annual_mean": 211320.60990012487,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 276002.2835812754
+        "no_seat_median_if_employed": 279300.0919743993
       }
     ],
     "everyone_modest": [
@@ -265,87 +375,99 @@
         "p_private": 0.026925,
         "mean_marks": 201.8917456771926,
         "median_marks": 145.00675841587028,
+        "labeled_prep_intensity": "none",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": -0.12,
-        "unconditional_annual_mean": 175518.20827916218,
+        "unconditional_annual_mean": 174650.50920854235,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 251614.43960923224
+        "no_seat_median_if_employed": 247993.69014957667
       },
       {
         "id": "tamil_cant_afford_nonmetro_modest",
         "label": "Tamil · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.017525,
-        "p_govt": 0.017525,
-        "p_private": 0.027625,
-        "mean_marks": 201.8547403124329,
-        "median_marks": 142.46941325200225,
+        "p_accessible": 0.018375,
+        "p_govt": 0.018375,
+        "p_private": 0.026925,
+        "mean_marks": 201.8917456771926,
+        "median_marks": 145.00675841587028,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": -0.12,
-        "unconditional_annual_mean": 173319.01780490164,
+        "unconditional_annual_mean": 174650.50920854235,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 250067.1878996765
+        "no_seat_median_if_employed": 247993.69014957667
       },
       {
         "id": "english_cant_afford_nonmetro_modest",
         "label": "English · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.03475,
-        "p_govt": 0.03475,
-        "p_private": 0.029725,
-        "mean_marks": 238.8098783196102,
-        "median_marks": 181.48084457646476,
+        "p_accessible": 0.034775,
+        "p_govt": 0.034775,
+        "p_private": 0.03065,
+        "mean_marks": 238.45620231234292,
+        "median_marks": 181.5795593855361,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.1,
-        "unconditional_annual_mean": 195755.81468024518,
+        "unconditional_annual_mean": 194526.21451446385,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 269448.8677761957
+        "no_seat_median_if_employed": 266184.0532806351
       },
       {
         "id": "english_can_afford_nonmetro_modest",
         "label": "English · can afford private · non-metro · modest prep",
-        "p_accessible": 0.068275,
-        "p_govt": 0.037475,
-        "p_private": 0.0308,
-        "mean_marks": 240.52725099003013,
-        "median_marks": 184.2092121770741,
+        "p_accessible": 0.065425,
+        "p_govt": 0.034775,
+        "p_private": 0.03065,
+        "mean_marks": 238.45620231234292,
+        "median_marks": 181.5795593855361,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.1,
-        "unconditional_annual_mean": 210301.6007642094,
+        "unconditional_annual_mean": 207455.67854977274,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278196.75404560455
+        "no_seat_median_if_employed": 276760.2757787431
       },
       {
         "id": "english_can_afford_metro_modest",
         "label": "English · can afford private · metro · modest prep",
-        "p_accessible": 0.071375,
-        "p_govt": 0.04,
-        "p_private": 0.031375,
-        "mean_marks": 248.51643146684697,
-        "median_marks": 190.8480834372357,
+        "p_accessible": 0.06985,
+        "p_govt": 0.03905,
+        "p_private": 0.0308,
+        "mean_marks": 246.7592977348412,
+        "median_marks": 189.89155960591472,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.15000000000000002,
-        "unconditional_annual_mean": 209402.4384921621,
+        "unconditional_annual_mean": 211504.68506264573,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278309.3312183828
+        "no_seat_median_if_employed": 280188.51384094
       },
       {
         "id": "english_can_afford_metro_intensive",
         "label": "English · can afford private · metro · intensive prep",
-        "p_accessible": 0.068675,
-        "p_govt": 0.039075,
-        "p_private": 0.0296,
-        "mean_marks": 244.42542012853366,
-        "median_marks": 186.21183629295206,
+        "p_accessible": 0.06985,
+        "p_govt": 0.03905,
+        "p_private": 0.0308,
+        "mean_marks": 246.7592977348412,
+        "median_marks": 189.89155960591472,
+        "labeled_prep_intensity": "intensive",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.15000000000000002,
-        "unconditional_annual_mean": 209240.25957707848,
+        "unconditional_annual_mean": 211504.68506264573,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 276002.2835812754
+        "no_seat_median_if_employed": 280188.51384094
       }
     ],
     "everyone_intensive": [
@@ -357,87 +479,99 @@
         "p_private": 0.026925,
         "mean_marks": 201.8917456771926,
         "median_marks": 145.00675841587028,
+        "labeled_prep_intensity": "none",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": -0.12,
-        "unconditional_annual_mean": 175518.20827916218,
+        "unconditional_annual_mean": 175516.68251275588,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 251614.43960923224
+        "no_seat_median_if_employed": 250248.22461913107
       },
       {
         "id": "tamil_cant_afford_nonmetro_modest",
         "label": "Tamil · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.017525,
-        "p_govt": 0.017525,
-        "p_private": 0.027625,
-        "mean_marks": 201.8547403124329,
-        "median_marks": 142.46941325200225,
+        "p_accessible": 0.018375,
+        "p_govt": 0.018375,
+        "p_private": 0.026925,
+        "mean_marks": 201.8917456771926,
+        "median_marks": 145.00675841587028,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": -0.12,
-        "unconditional_annual_mean": 173319.01780490164,
+        "unconditional_annual_mean": 175516.68251275588,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 250067.1878996765
+        "no_seat_median_if_employed": 250248.22461913107
       },
       {
         "id": "english_cant_afford_nonmetro_modest",
         "label": "English · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.03475,
-        "p_govt": 0.03475,
-        "p_private": 0.029725,
-        "mean_marks": 238.8098783196102,
-        "median_marks": 181.48084457646476,
+        "p_accessible": 0.034775,
+        "p_govt": 0.034775,
+        "p_private": 0.03065,
+        "mean_marks": 238.45620231234292,
+        "median_marks": 181.5795593855361,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.1,
-        "unconditional_annual_mean": 195755.81468024518,
+        "unconditional_annual_mean": 194082.678402983,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 269448.8677761957
+        "no_seat_median_if_employed": 267199.26384982513
       },
       {
         "id": "english_can_afford_nonmetro_modest",
         "label": "English · can afford private · non-metro · modest prep",
-        "p_accessible": 0.068275,
-        "p_govt": 0.037475,
-        "p_private": 0.0308,
-        "mean_marks": 240.52725099003013,
-        "median_marks": 184.2092121770741,
+        "p_accessible": 0.065425,
+        "p_govt": 0.034775,
+        "p_private": 0.03065,
+        "mean_marks": 238.45620231234292,
+        "median_marks": 181.5795593855361,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.1,
-        "unconditional_annual_mean": 210301.6007642094,
+        "unconditional_annual_mean": 209178.30423742524,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278196.75404560455
+        "no_seat_median_if_employed": 278094.8365074182
       },
       {
         "id": "english_can_afford_metro_modest",
         "label": "English · can afford private · metro · modest prep",
-        "p_accessible": 0.071375,
-        "p_govt": 0.04,
-        "p_private": 0.031375,
-        "mean_marks": 248.51643146684697,
-        "median_marks": 190.8480834372357,
+        "p_accessible": 0.06985,
+        "p_govt": 0.03905,
+        "p_private": 0.0308,
+        "mean_marks": 246.7592977348412,
+        "median_marks": 189.89155960591472,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.15000000000000002,
-        "unconditional_annual_mean": 209402.4384921621,
+        "unconditional_annual_mean": 209112.2490439984,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278309.3312183828
+        "no_seat_median_if_employed": 279300.0919743993
       },
       {
         "id": "english_can_afford_metro_intensive",
         "label": "English · can afford private · metro · intensive prep",
-        "p_accessible": 0.068675,
-        "p_govt": 0.039075,
-        "p_private": 0.0296,
-        "mean_marks": 244.42542012853366,
-        "median_marks": 186.21183629295206,
+        "p_accessible": 0.06985,
+        "p_govt": 0.03905,
+        "p_private": 0.0308,
+        "mean_marks": 246.7592977348412,
+        "median_marks": 189.89155960591472,
+        "labeled_prep_intensity": "intensive",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.15000000000000002,
-        "unconditional_annual_mean": 209240.25957707848,
+        "unconditional_annual_mean": 209112.2490439984,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 276002.2835812754
+        "no_seat_median_if_employed": 279300.0919743993
       }
     ],
     "rivals_escalate_modest": [
@@ -449,87 +583,99 @@
         "p_private": 0.0266,
         "mean_marks": 188.5959942578908,
         "median_marks": 131.7075580632645,
+        "labeled_prep_intensity": "none",
+        "effective_prep_intensity": "none",
         "coaching_shift_sd": 0.0,
         "relative_coaching_shift_sd": -0.08,
         "total_location_shift_sd": -0.2,
-        "unconditional_annual_mean": 174122.302163812,
+        "unconditional_annual_mean": 174228.11404263732,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 251614.43960923224
+        "no_seat_median_if_employed": 249272.1949950601
       },
       {
         "id": "tamil_cant_afford_nonmetro_modest",
         "label": "Tamil · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.017525,
-        "p_govt": 0.017525,
-        "p_private": 0.027625,
-        "mean_marks": 201.8547403124329,
-        "median_marks": 142.46941325200225,
+        "p_accessible": 0.018375,
+        "p_govt": 0.018375,
+        "p_private": 0.026925,
+        "mean_marks": 201.8917456771926,
+        "median_marks": 145.00675841587028,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": -0.12,
-        "unconditional_annual_mean": 173319.01780490164,
+        "unconditional_annual_mean": 174650.50920854235,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 250067.1878996765
+        "no_seat_median_if_employed": 247993.69014957667
       },
       {
         "id": "english_cant_afford_nonmetro_modest",
         "label": "English · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.03475,
-        "p_govt": 0.03475,
-        "p_private": 0.029725,
-        "mean_marks": 238.8098783196102,
-        "median_marks": 181.48084457646476,
+        "p_accessible": 0.034775,
+        "p_govt": 0.034775,
+        "p_private": 0.03065,
+        "mean_marks": 238.45620231234292,
+        "median_marks": 181.5795593855361,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.1,
-        "unconditional_annual_mean": 195755.81468024518,
+        "unconditional_annual_mean": 194526.21451446385,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 269448.8677761957
+        "no_seat_median_if_employed": 266184.0532806351
       },
       {
         "id": "english_can_afford_nonmetro_modest",
         "label": "English · can afford private · non-metro · modest prep",
-        "p_accessible": 0.068275,
-        "p_govt": 0.037475,
-        "p_private": 0.0308,
-        "mean_marks": 240.52725099003013,
-        "median_marks": 184.2092121770741,
+        "p_accessible": 0.065425,
+        "p_govt": 0.034775,
+        "p_private": 0.03065,
+        "mean_marks": 238.45620231234292,
+        "median_marks": 181.5795593855361,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.1,
-        "unconditional_annual_mean": 210301.6007642094,
+        "unconditional_annual_mean": 207455.67854977274,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278196.75404560455
+        "no_seat_median_if_employed": 276760.2757787431
       },
       {
         "id": "english_can_afford_metro_modest",
         "label": "English · can afford private · metro · modest prep",
-        "p_accessible": 0.071375,
-        "p_govt": 0.04,
-        "p_private": 0.031375,
-        "mean_marks": 248.51643146684697,
-        "median_marks": 190.8480834372357,
+        "p_accessible": 0.06985,
+        "p_govt": 0.03905,
+        "p_private": 0.0308,
+        "mean_marks": 246.7592977348412,
+        "median_marks": 189.89155960591472,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.15000000000000002,
-        "unconditional_annual_mean": 209402.4384921621,
+        "unconditional_annual_mean": 211504.68506264573,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278309.3312183828
+        "no_seat_median_if_employed": 280188.51384094
       },
       {
         "id": "english_can_afford_metro_intensive",
         "label": "English · can afford private · metro · intensive prep",
-        "p_accessible": 0.077525,
-        "p_govt": 0.04575,
-        "p_private": 0.031775,
-        "mean_marks": 259.3386930147936,
-        "median_marks": 201.17343668963355,
+        "p_accessible": 0.078675,
+        "p_govt": 0.045925,
+        "p_private": 0.03275,
+        "mean_marks": 261.66895881349495,
+        "median_marks": 204.85316000259618,
+        "labeled_prep_intensity": "intensive",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.08999999999999998,
         "total_location_shift_sd": 0.24,
-        "unconditional_annual_mean": 211615.03028848142,
+        "unconditional_annual_mean": 211035.60303134244,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 276002.2835812754
+        "no_seat_median_if_employed": 279300.0919743993
       }
     ],
     "rivals_escalate_intensive": [
@@ -541,87 +687,99 @@
         "p_private": 0.023525,
         "mean_marks": 173.63976035246168,
         "median_marks": 116.74595766658305,
+        "labeled_prep_intensity": "none",
+        "effective_prep_intensity": "none",
         "coaching_shift_sd": 0.0,
         "relative_coaching_shift_sd": -0.16999999999999998,
         "total_location_shift_sd": -0.29,
-        "unconditional_annual_mean": 173203.02052182445,
+        "unconditional_annual_mean": 173236.21286383102,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 251614.43960923224
+        "no_seat_median_if_employed": 249272.1949950601
       },
       {
         "id": "tamil_cant_afford_nonmetro_modest",
         "label": "Tamil · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.010375,
-        "p_govt": 0.010375,
-        "p_private": 0.02775,
-        "mean_marks": 186.89600380599433,
-        "median_marks": 127.50781285532078,
+        "p_accessible": 0.0119,
+        "p_govt": 0.0119,
+        "p_private": 0.026525,
+        "mean_marks": 186.93417605383053,
+        "median_marks": 130.04515801918882,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": -0.08999999999999998,
         "total_location_shift_sd": -0.20999999999999996,
-        "unconditional_annual_mean": 172041.22174515834,
+        "unconditional_annual_mean": 173194.24563857488,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 250067.1878996765
+        "no_seat_median_if_employed": 247993.69014957667
       },
       {
         "id": "english_cant_afford_nonmetro_modest",
         "label": "English · cannot afford private · non-metro · modest prep",
-        "p_accessible": 0.027375,
-        "p_govt": 0.027375,
-        "p_private": 0.02865,
-        "mean_marks": 223.8539265355364,
-        "median_marks": 166.5192441797833,
+        "p_accessible": 0.027925,
+        "p_govt": 0.027925,
+        "p_private": 0.02915,
+        "mean_marks": 223.50096107888027,
+        "median_marks": 166.61795898885464,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": -0.08999999999999998,
         "total_location_shift_sd": 0.010000000000000023,
-        "unconditional_annual_mean": 194245.79384349237,
+        "unconditional_annual_mean": 193057.3968416686,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 269448.8677761957
+        "no_seat_median_if_employed": 266184.0532806351
       },
       {
         "id": "english_can_afford_nonmetro_modest",
         "label": "English · can afford private · non-metro · modest prep",
-        "p_accessible": 0.0594,
-        "p_govt": 0.029825,
-        "p_private": 0.029575,
-        "mean_marks": 225.57080510782586,
-        "median_marks": 169.24761178039267,
+        "p_accessible": 0.057075,
+        "p_govt": 0.027925,
+        "p_private": 0.02915,
+        "mean_marks": 223.50096107888027,
+        "median_marks": 166.61795898885464,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": -0.08999999999999998,
         "total_location_shift_sd": 0.010000000000000023,
-        "unconditional_annual_mean": 208711.4743808328,
+        "unconditional_annual_mean": 205639.67469385415,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278196.75404560455
+        "no_seat_median_if_employed": 276760.2757787431
       },
       {
         "id": "english_can_afford_metro_modest",
         "label": "English · can afford private · metro · modest prep",
-        "p_accessible": 0.062475,
-        "p_govt": 0.0327,
-        "p_private": 0.029775,
-        "mean_marks": 233.56804952830035,
-        "median_marks": 175.8864830405542,
+        "p_accessible": 0.061375,
+        "p_govt": 0.031575,
+        "p_private": 0.0298,
+        "mean_marks": 231.8106675139654,
+        "median_marks": 174.92995920923323,
+        "labeled_prep_intensity": "modest",
+        "effective_prep_intensity": "modest",
         "coaching_shift_sd": 0.08,
         "relative_coaching_shift_sd": -0.08999999999999998,
         "total_location_shift_sd": 0.06000000000000004,
-        "unconditional_annual_mean": 207639.47939572984,
+        "unconditional_annual_mean": 209754.96050913358,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 278309.3312183828
+        "no_seat_median_if_employed": 280188.51384094
       },
       {
         "id": "english_can_afford_metro_intensive",
         "label": "English · can afford private · metro · intensive prep",
-        "p_accessible": 0.068675,
-        "p_govt": 0.039075,
-        "p_private": 0.0296,
-        "mean_marks": 244.42542012853366,
-        "median_marks": 186.21183629295206,
+        "p_accessible": 0.06985,
+        "p_govt": 0.03905,
+        "p_private": 0.0308,
+        "mean_marks": 246.7592977348412,
+        "median_marks": 189.89155960591472,
+        "labeled_prep_intensity": "intensive",
+        "effective_prep_intensity": "intensive",
         "coaching_shift_sd": 0.16999999999999998,
         "relative_coaching_shift_sd": 0.0,
         "total_location_shift_sd": 0.15000000000000002,
-        "unconditional_annual_mean": 209240.25957707848,
+        "unconditional_annual_mean": 209112.2490439984,
         "medicine_median_if_employed": 490251.6864046687,
-        "no_seat_median_if_employed": 276002.2835812754
+        "no_seat_median_if_employed": 279300.0919743993
       }
     ]
   },
@@ -729,42 +887,42 @@
         {
           "left": -180.0,
           "right": 0.0,
-          "share": 0.021425
+          "share": 0.021675
         },
         {
           "left": 0.0,
           "right": 100.0,
-          "share": 0.32485
+          "share": 0.323725
         },
         {
           "left": 100.0,
           "right": 200.0,
-          "share": 0.241075
+          "share": 0.23945
         },
         {
           "left": 200.0,
           "right": 300.0,
-          "share": 0.163675
+          "share": 0.166625
         },
         {
           "left": 300.0,
           "right": 400.0,
-          "share": 0.0878
+          "share": 0.0894
         },
         {
           "left": 400.0,
           "right": 500.0,
-          "share": 0.0798
+          "share": 0.0776
         },
         {
           "left": 500.0,
           "right": 600.0,
-          "share": 0.053325
+          "share": 0.05305
         },
         {
           "left": 600.0,
           "right": 720.0,
-          "share": 0.02805
+          "share": 0.028475
         }
       ]
     },
@@ -774,42 +932,42 @@
         {
           "left": -180.0,
           "right": 0.0,
-          "share": 0.001375
+          "share": 0.00105
         },
         {
           "left": 0.0,
           "right": 100.0,
-          "share": 0.217125
+          "share": 0.218475
         },
         {
           "left": 100.0,
           "right": 200.0,
-          "share": 0.30615
+          "share": 0.30605
         },
         {
           "left": 200.0,
           "right": 300.0,
-          "share": 0.166275
+          "share": 0.16655
         },
         {
           "left": 300.0,
           "right": 400.0,
-          "share": 0.114875
+          "share": 0.116725
         },
         {
           "left": 400.0,
           "right": 500.0,
-          "share": 0.091475
+          "share": 0.08825
         },
         {
           "left": 500.0,
           "right": 600.0,
-          "share": 0.057425
+          "share": 0.05715
         },
         {
           "left": 600.0,
           "right": 720.0,
-          "share": 0.0453
+          "share": 0.04575
         }
       ]
     },
@@ -819,42 +977,42 @@
         {
           "left": -180.0,
           "right": 0.0,
-          "share": 0.000875
+          "share": 0.00105
         },
         {
           "left": 0.0,
           "right": 100.0,
-          "share": 0.216075
+          "share": 0.218475
         },
         {
           "left": 100.0,
           "right": 200.0,
-          "share": 0.3035
+          "share": 0.30605
         },
         {
           "left": 200.0,
           "right": 300.0,
-          "share": 0.1685
+          "share": 0.16655
         },
         {
           "left": 300.0,
           "right": 400.0,
-          "share": 0.115475
+          "share": 0.116725
         },
         {
           "left": 400.0,
           "right": 500.0,
-          "share": 0.08925
+          "share": 0.08825
         },
         {
           "left": 500.0,
           "right": 600.0,
-          "share": 0.057925
+          "share": 0.05715
         },
         {
           "left": 600.0,
           "right": 720.0,
-          "share": 0.0484
+          "share": 0.04575
         }
       ]
     },
@@ -864,42 +1022,42 @@
         {
           "left": -180.0,
           "right": 0.0,
-          "share": 0.00105
+          "share": 0.001
         },
         {
           "left": 0.0,
           "right": 100.0,
-          "share": 0.18035
+          "share": 0.185375
         },
         {
           "left": 100.0,
           "right": 200.0,
-          "share": 0.327575
+          "share": 0.32505
         },
         {
           "left": 200.0,
           "right": 300.0,
-          "share": 0.1668
+          "share": 0.1666
         },
         {
           "left": 300.0,
           "right": 400.0,
-          "share": 0.120775
+          "share": 0.124025
         },
         {
           "left": 400.0,
           "right": 500.0,
-          "share": 0.089725
+          "share": 0.0877
         },
         {
           "left": 500.0,
           "right": 600.0,
-          "share": 0.063025
+          "share": 0.0607
         },
         {
           "left": 600.0,
           "right": 720.0,
-          "share": 0.0507
+          "share": 0.04955
         }
       ]
     },
@@ -909,42 +1067,42 @@
         {
           "left": -180.0,
           "right": 0.0,
-          "share": 0.0005
+          "share": 0.00095
         },
         {
           "left": 0.0,
           "right": 100.0,
-          "share": 0.129
+          "share": 0.1239
         },
         {
           "left": 100.0,
           "right": 200.0,
-          "share": 0.352925
+          "share": 0.349325
         },
         {
           "left": 200.0,
           "right": 300.0,
-          "share": 0.1777
+          "share": 0.17935
         },
         {
           "left": 300.0,
           "right": 400.0,
-          "share": 0.132
+          "share": 0.134225
         },
         {
           "left": 400.0,
           "right": 500.0,
-          "share": 0.08665
+          "share": 0.08835
         },
         {
           "left": 500.0,
           "right": 600.0,
-          "share": 0.06465
+          "share": 0.06565
         },
         {
           "left": 600.0,
           "right": 720.0,
-          "share": 0.056575
+          "share": 0.05825
         }
       ]
     }
@@ -1189,6 +1347,33 @@
   ],
   "attempt_note": "National sitting histogram is unidentified. The TN first/repeater-anchored scenario pins only P(K=1) under labeled ρ=1.75; later continuation rates use assumed decay — mean sittings is scenario-driven, not a calibrated attempt distribution. Success exit = acceptable seat joined, not mere qualify. See docs/ATTEMPT_PRIORS.md.",
   "attempt_default_rho": 1.75,
+  "tn_repeater_time_series": [
+    {
+      "session": "2016-2017",
+      "repeater_share": 0.1247,
+      "current_students_share": 0.8753
+    },
+    {
+      "session": "2017-2018",
+      "repeater_share": 0.3836,
+      "current_students_share": 0.6164
+    },
+    {
+      "session": "2018-2019",
+      "repeater_share": 0.5041,
+      "current_students_share": 0.4959
+    },
+    {
+      "session": "2019-2020",
+      "repeater_share": 0.694,
+      "current_students_share": 0.306
+    },
+    {
+      "session": "2020-2021",
+      "repeater_share": 0.7142,
+      "current_students_share": 0.2858
+    }
+  ],
   "ticket_cost": {
     "public_story_trajectories_enabled": false,
     "trajectories": [],
@@ -1334,15 +1519,15 @@
       "note": "Affordability filter; qualify ≠ seat"
     },
     {
-      "beat": "Privilege channel waterfall",
+      "beat": "Ordered scenario pathway",
       "status": "SENS",
       "grain": "Synthetic strata + TN medium",
-      "note": "One channel at a time; evidence class labeled; extreme top/bottom is not a national estimate"
+      "note": "Order-dependent increments; not Shapley/Oaxaca; extreme top/bottom is not a national estimate"
     },
     {
       "beat": "Coaching arms race",
       "status": "SENS",
-      "grain": "Skeptical priors",
+      "grain": "Skeptical plug-in priors + assumed 45/40/15 prep mix",
       "note": "everyone_* = universal prep; rivals_escalate_* = focal keeps label; not NEET LATE"
     },
     {

@@ -167,16 +167,30 @@ def test_pipeline_writes_artifacts_and_waterfall(tmp_path: Path) -> None:
     assert paths["score_inequality_story"].exists()
     assert paths["score_access_by_stratum"].exists()
     story = __import__("json").loads(paths["score_inequality_story"].read_text(encoding="utf-8"))
-    assert story["model_family"] == "score_rank_seat"
+    assert story["model_family"] == "fixed_reference_threshold"
+    assert story["estimation"] == "plug_in_sensitivity"
+    assert story["common_random_numbers"] is True
     assert story["production_pathway"] is True
     assert "government_capacity_threshold_percentile" in story["capacity"]
+    assert "ordered_scenario_pathway_unilateral" in story
     assert "waterfall_unilateral" in story
-    assert len(story["waterfall_unilateral"]) == len(WATERFALL_STEPS)
-    assert story["waterfall_unilateral"][0]["step_id"] == "baseline"
-    assert story["waterfall_unilateral"][0]["evidence_class"] == "scenario"
+    assert len(story["ordered_scenario_pathway_unilateral"]) == len(WATERFALL_STEPS)
+    assert story["ordered_scenario_pathway_unilateral"][0]["step_id"] == "baseline"
+    assert story["population_coaching_mix_assumed"]["none"] == pytest.approx(0.45)
     # Universal intensive: relative coaching ≈ 0 on every stratum.
     for row in story["access_ladder_by_scenario"]["everyone_intensive"]:
         assert row["relative_coaching_shift_sd"] == pytest.approx(0.0, abs=1e-9)
+        assert row["effective_prep_intensity"] == "intensive"
+    # CRN: strata that become identical under force_all_prep must match exactly.
+    by_id = {r["stratum_id"]: r for r in story["access_ladder_by_scenario"]["everyone_intensive"]}
+    a = by_id["tamil_cant_afford_nonmetro_none"]
+    b = by_id["tamil_cant_afford_nonmetro_modest"]
+    assert a["p_accessible_seat"] == b["p_accessible_seat"]
+    assert a["mean_marks"] == b["mean_marks"]
+    c = by_id["english_can_afford_metro_modest"]
+    d = by_id["english_can_afford_metro_intensive"]
+    assert c["p_accessible_seat"] == d["p_accessible_seat"]
+    assert c["mean_marks"] == d["mean_marks"]
     # Rivals escalate: none-prep stratum is penalized.
     rivals = {
         r["stratum_id"]: r

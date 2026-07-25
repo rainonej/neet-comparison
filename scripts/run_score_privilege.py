@@ -57,9 +57,11 @@ def main() -> None:
     )
     print(f"govt capacity-equivalent threshold: {gov_thr:.4f}")
     print(f"any MBBS capacity-equivalent threshold: {any_thr:.4f}")
-    waterfall = story.get("waterfall_unilateral") or []
+    waterfall = story.get("ordered_scenario_pathway_unilateral") or story.get(
+        "waterfall_unilateral"
+    ) or []
     if waterfall:
-        print("unilateral waterfall (p_accessible):")
+        print("unilateral ordered scenario pathway (p_accessible):")
         for step in waterfall:
             delta = step.get("delta_p_accessible")
             delta_s = "baseline" if delta is None else f"{delta:+.4f}"

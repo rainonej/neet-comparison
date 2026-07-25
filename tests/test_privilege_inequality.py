@@ -117,7 +117,7 @@ def test_pipeline_writes_artifacts(tmp_path: Path) -> None:
     assert story["primary_metric"] == "annual_earnings"
     assert story["production_pathway"] is False
     assert story["status"] == "legacy_accounting_demo"
-    assert story["superseded_by"] == "score_rank_seat"
+    assert story["superseded_by"] == "fixed_reference_threshold"
     assert story["affordability_only_access_ratio"] > 1.7
     assert story["decomposition"]["full_ladder_ratio_top_over_low"] > 3.0
     assert "earnings_histograms" in paths

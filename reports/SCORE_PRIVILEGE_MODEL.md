@@ -88,7 +88,8 @@ Written under `data/processed/bayesian/`:
 ## Warnings
 
 - National seats/appeared capacity-equivalent thresholds ≠ state/category counselling cutoffs.
-- Prefer the labeled unilateral waterfall over quoting the extreme top/bottom ladder ratio as a national fact.
+- Prefer the ordered scenario pathway over quoting the extreme top/bottom ladder ratio as a national fact.
+- Model family is a fixed-reference threshold story (shared baseline CRN), not a joint counselling allocator.
 - Medium shifts are not national causal English effects.
 - Coaching SD shifts are skeptical priors, not NEET LATEs.
 - Causal language for scenario contrasts is prohibited.

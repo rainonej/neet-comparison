@@ -132,7 +132,7 @@
       "n_sittings_so_far": 3,
       "stratum_id": "tamil_cant_afford_nonmetro_modest",
       "stratum_label": "Tamil \u00b7 cannot afford private \u00b7 non-metro \u00b7 modest prep",
-      "p_accessible_seat": 0.019425,
+      "p_accessible_seat": 0.02,
       "p_accessible_is_single_application_stratum": true,
       "arms_race_scenario": "unilateral",
       "cash_coaching_inr": {
@@ -163,7 +163,7 @@
       "score_model_spend_anchor_inr": 9900.0,
       "psych_burden": "Two years of full-time prep identity: higher distress among repeat aspirants is documented in convenience samples. Not an individual clinical risk score.",
       "delayed_life_note": "Two years of delayed college/work entry; peers may already be earning or enrolled.",
-      "punch_line": "Research scaffold only: multi-year cost mid \u2248 \u20b911.7L; attached access 1.9% is the modest-stratum single-application rate \u2014 not P(seat | two failed attempts).",
+      "punch_line": "Research scaffold only: multi-year cost mid \u2248 \u20b911.7L; attached access 2.0% is the modest-stratum single-application rate \u2014 not P(seat | two failed attempts).",
       "sources": [
         "score_inequality_story.json unilateral tamil_cant_afford_nonmetro_modest",
         "Rajan Committee coaching fee bands / \u20b910L exclusive repeater coaching",
@@ -184,7 +184,7 @@
       "n_sittings_so_far": 3,
       "stratum_id": "english_can_afford_metro_intensive",
       "stratum_label": "English \u00b7 can afford private \u00b7 metro \u00b7 intensive prep",
-      "p_accessible_seat": 0.07945,
+      "p_accessible_seat": 0.081,
       "p_accessible_is_single_application_stratum": true,
       "arms_race_scenario": "unilateral",
       "cash_coaching_inr": {
@@ -215,7 +215,7 @@
       "score_model_spend_anchor_inr": 79200.0,
       "psych_burden": "Same calendar years and exam stress \u2014 with a family that can keep buying prep and cash a private offer if the rank allows.",
       "delayed_life_note": "Same two-year delay; different ability to monetize a private allotment.",
-      "punch_line": "Research scaffold only: multi-year cost mid \u2248 \u20b913.7L; attached access 7.9% is the top-stratum single-application rate \u2014 not a cumulative repeater trajectory.",
+      "punch_line": "Research scaffold only: multi-year cost mid \u2248 \u20b913.7L; attached access 8.1% is the top-stratum single-application rate \u2014 not a cumulative repeater trajectory.",
       "sources": [
         "score_inequality_story.json unilateral english_can_afford_metro_intensive",
         "Rajan Committee coaching fee bands",

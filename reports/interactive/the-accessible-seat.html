@@ -621,11 +621,12 @@
       </div>
       <div class="two-col" style="margin-top:1.5rem">
         <div class="callout">
-          <h3>Why this feels like a knife-edge</h3>
+          <h3>Why the margin is thin</h3>
           <p>
             When tens of thousands of students sit within a few questions of the capacity threshold,
-            tiny noise — one silly mistake, one lucky guess, one coaching drill — rearranges futures.
-            That is not “clear merit separation.” It is a knife-edge rank auction.
+            small score differences correspond to large rank differences.
+            This page does not yet model day-of-exam shocks or test–retest reliability — only the
+            thinness of the national capacity margin.
           </p>
         </div>
         <div class="callout" style="background:#1a3338">
@@ -687,8 +688,9 @@
         <div class="result" id="profile-result">
           <div>
             <p class="meta-line" id="profile-label">—</p>
+            <p class="meta-line" id="profile-prep-note" style="margin-top:0.35rem">—</p>
             <p class="big" id="profile-p">—</p>
-            <p class="meta-line">chance of cashing an accessible MBBS ticket</p>
+            <p class="meta-line">chance of cashing an accessible MBBS ticket (plug-in sensitivity)</p>
           </div>
           <div class="mini-grid">
             <div class="mini"><b id="profile-govt">—</b><span>Govt offer</span></div>
@@ -698,17 +700,18 @@
         </div>
       </div>
       <div class="chart-box" style="margin-top:1.5rem">
-        <p class="chart-title">Channel waterfall — one privilege step at a time</p>
+        <p class="chart-title">Ordered scenario pathway — one privilege step at a time</p>
         <p class="chart-cap">
-          Unilateral score→rank→seat scenario. Each bar adds one channel. Tags mark evidence class:
-          transported association, transported prior, or synthetic scenario — not a national inequality estimate.
+          Fixed-reference threshold model (not a joint ranked counselling allocator).
+          Each bar adds one channel in a chosen order — increments are order-dependent, not a Shapley/Oaxaca decomposition.
+          Tags mark evidence class. Access rates are plug-in sensitivities, shown to about one percentage point.
         </p>
         <div class="waterfall" id="waterfall-chart"></div>
         <p class="footnote" style="margin-top:1rem">
           Cumulative top/baseline scenario ratio: <strong id="ladder-ratio">~5.5×</strong>
           (extreme contrast if all channels stack; prefer the step deltas above).
           TN English/Tamil government allotment association ≈ <strong id="tn-ratio">2.3×</strong>
-          (state case, not a national causal English effect).
+          (state case; the English-medium pathway step is partly calibrated to that association).
         </p>
       </div>
       <div class="chart-box" style="margin-top:1.5rem">
@@ -798,66 +801,63 @@
   <section id="attempts">
     <div class="wrap fade">
       <p class="section-label">06 · Years as currency</p>
-      <h2>Attempt counts remain mostly unidentified.</h2>
+      <h2>Among TN admits, repeaters rose sharply after NEET.</h2>
       <p class="lede" id="attempt-note">
-        NTA does not publish attempt counts or birth years. What we have is TN admitted composition
-        and a first/repeater-anchored sitting scenario under labeled ρ — with assumed later decay.
-        Success exit = joined an acceptable seat — not “qualified.”
+        The strongest evidence here is observed admitted composition — not an invented national
+        attempt histogram. NTA still does not publish attempt counts or birth years.
       </p>
-      <div class="thesis-strip">
-        <article>
-          <h3>Observed</h3>
-          <p>TN admitted repeater share rose from ~12% (2016–17) to 71% (2020–21) <span class="cite">[Rajan21]</span>. Current-year winners fell to 28.6% — a birth-year / Class XII proxy for age at admission.</p>
-        </article>
-        <article>
-          <h3>Anchored (partial)</h3>
-          <p>Default scenario pins <em>only</em> P(sittings=1) via ρ=1.75 to the admitted first/repeater split. Later continuation rates use assumed decay — not calibrated from data.</p>
-        </article>
-        <article>
-          <h3 class="cruel">Missing</h3>
-          <p>National P(sittings=1,2,3…) and admitted DOBs. Best ask: prior appearances × Class XII year × score band from NTA.</p>
-        </article>
+      <div class="chart-box">
+        <p class="chart-title">Tamil Nadu MBBS admits — repeater share by year <span class="cite">[Rajan21]</span></p>
+        <p class="chart-cap">
+          Administrative proportions among admits (other-than-current-year as repeater proxy).
+          This is the main chart. Assumed continuation histograms stay in the methodology panel below.
+        </p>
+        <canvas id="tn-repeater-canvas" height="300"></canvas>
       </div>
-      <div class="panel" style="margin-top:1.5rem">
-        <div class="controls">
-          <h3>Persistence scenario</h3>
-          <div class="ctrl">
-            <label>Continuation rates (TN first/repeater-anchored default)</label>
-            <div class="seg" id="persist-seg">
-              <button type="button" data-sc="tn_post_neet_calibrated" class="on">TN-anchored</button>
-              <button type="button" data-sc="low_persistence">Low</button>
-              <button type="button" data-sc="central">Central</button>
-              <button type="button" data-sc="high_persistence">High</button>
+      <div class="stat-row" id="tn-repeater-stats" style="margin-top:1.25rem"></div>
+      <details style="margin-top:1.5rem">
+        <summary style="cursor:pointer;font-family:Syne,sans-serif;font-weight:700">
+          Methodology · assumed continuation scenarios (not calibrated attempt distributions)
+        </summary>
+        <div class="panel" style="margin-top:1rem">
+          <div class="controls">
+            <h3>Persistence scenario</h3>
+            <div class="ctrl">
+              <label>Continuation rates (TN first/repeater-anchored default)</label>
+              <div class="seg" id="persist-seg">
+                <button type="button" data-sc="tn_post_neet_calibrated" class="on">TN-anchored</button>
+                <button type="button" data-sc="low_persistence">Low</button>
+                <button type="button" data-sc="central">Central</button>
+                <button type="button" data-sc="high_persistence">High</button>
+              </div>
+            </div>
+            <p class="footnote" style="margin:0;border:0;padding:0;font-size:0.82rem" id="persist-rates">—</p>
+            <div class="ctrl" style="margin-top:1.2rem">
+              <label>ρ = P(admit|repeater) / P(admit|first)</label>
+              <input id="rho-slider" type="range" min="0" max="6" step="1" value="3" style="width:100%" />
+              <div class="seg" style="margin-top:0.6rem" id="rho-labels"></div>
+            </div>
+            <p class="footnote" style="margin:0.5rem 0 0;border:0;padding:0;font-size:0.82rem">
+              Only P(K=1) is pinned via ρ; later rates use assumed decay. Mean sittings is scenario-driven.
+            </p>
+          </div>
+          <div class="result">
+            <div>
+              <p class="meta-line">Scenario mean sittings (assumed decay)</p>
+              <p class="big" id="persist-mean">—</p>
+              <p class="meta-line" id="rho-out-line">—</p>
+            </div>
+            <div class="chart-box" style="background:transparent;border:0;padding:0;margin:0.75rem 0 0">
+              <canvas id="persist-canvas" height="240"></canvas>
             </div>
           </div>
-          <p class="footnote" style="margin:0;border:0;padding:0;font-size:0.82rem" id="persist-rates">
-            —
-          </p>
-          <div class="ctrl" style="margin-top:1.2rem">
-            <label>ρ = P(admit|repeater) / P(admit|first)</label>
-            <input id="rho-slider" type="range" min="0" max="6" step="1" value="3" style="width:100%" />
-            <div class="seg" style="margin-top:0.6rem" id="rho-labels"></div>
-          </div>
-          <p class="footnote" style="margin:0.5rem 0 0;border:0;padding:0;font-size:0.82rem">
-            Default ρ=1.75 matches the TN-anchored scenario. ρ only splits first vs ≥2 among applicants given TN admitted r=71.4%. Docs: <code>ATTEMPT_PRIORS.md</code>.
-          </p>
         </div>
-        <div class="result">
-          <div>
-            <p class="meta-line">Scenario mean sittings (assumed decay — not a calibrated national mean)</p>
-            <p class="big" id="persist-mean">—</p>
-            <p class="meta-line" id="rho-out-line">—</p>
-          </div>
-          <div class="chart-box" style="background:transparent;border:0;padding:0;margin:0.75rem 0 0">
-            <canvas id="persist-canvas" height="240"></canvas>
-          </div>
+        <div class="chart-box" style="margin-top:1.25rem">
+          <p class="chart-title">ρ sensitivity — P(repeater | applicants)</p>
+          <p class="chart-cap">Binary first vs ≥2 only. Does not identify the 1,2,3… histogram.</p>
+          <canvas id="rho-canvas" height="220"></canvas>
         </div>
-      </div>
-      <div class="chart-box" style="margin-top:1.25rem">
-        <p class="chart-title">ρ sensitivity — P(repeater | applicants)</p>
-        <p class="chart-cap">Binary first vs repeater only. Does not give the 1,2,3… histogram.</p>
-        <canvas id="rho-canvas" height="220"></canvas>
-      </div>
+      </details>
     </div>
   </section>
 
@@ -867,8 +867,9 @@
       <h2>What the numbers can defend.</h2>
       <p class="lede">
         The emotional claim is sharp; the measurement is not magic.
-        Scarcity and the prize are solid. Privilege-weighted odds are a calibrated synthetic waterfall with labeled evidence classes.
-        Coaching effects are skeptical priors. Causal “return to a seat” is not identified.
+        Scarcity and the prize are solid. Privilege-weighted odds are an ordered scenario pathway
+        on a fixed-reference threshold model with labeled evidence classes.
+        Coaching effects are plug-in skeptical priors. Causal “return to a seat” is not identified.
       </p>
       <div class="readiness" id="readiness"></div>
       <div class="chart-box" style="margin-top:1.5rem">
@@ -967,21 +968,21 @@
         <em>${fmt.n(n)}</em>
       </div>`).join("");
 
-    const waterfall = D.waterfall || [];
-    const topRatio = waterfall.length
-      ? waterfall[waterfall.length - 1].ratio_vs_baseline
+    const pathway = D.ordered_scenario_pathway || D.waterfall || [];
+    const topRatio = pathway.length
+      ? pathway[pathway.length - 1].ratio_vs_baseline
       : D.decomposition.full_ladder_ratio_top_over_low;
     document.getElementById("ladder-ratio").textContent = Number(topRatio).toFixed(1) + "×";
     document.getElementById("tn-ratio").textContent =
-      (S.tn_english_to_tamil_ratio || 2.35).toFixed(2) + "×";
+      (S.tn_english_to_tamil_ratio || 2.35).toFixed(1) + "×";
 
-    function renderWaterfall() {
+    function renderPathway() {
       const el = document.getElementById("waterfall-chart");
-      if (!el || !waterfall.length) return;
-      const maxP = Math.max(...waterfall.map((r) => r.p_accessible_seat), 0.01);
-      el.innerHTML = waterfall.map((r) => {
+      if (!el || !pathway.length) return;
+      const maxP = Math.max(...pathway.map((r) => r.p_accessible_seat), 0.01);
+      el.innerHTML = pathway.map((r) => {
         const delta = r.delta_p_accessible;
-        const deltaTxt = delta == null ? "—" : ((delta >= 0 ? "+" : "") + fmt.pct(delta, 2));
+        const deltaTxt = delta == null ? "—" : ((delta >= 0 ? "+" : "") + fmt.pct(delta, 1));
         const ev = (r.evidence_class || "scenario").replace(/\s+/g, "_");
         return `<div class="waterfall-row">
           <div class="name">${r.label}
@@ -989,11 +990,11 @@
           </div>
           <div class="ev ${ev}">${(r.evidence_class || "").replace(/_/g, " ")}</div>
           <div class="waterfall-track"><div class="waterfall-fill" style="width:${(100 * r.p_accessible_seat / maxP).toFixed(1)}%"></div></div>
-          <div class="delta">${fmt.pct(r.p_accessible_seat, 2)} <span style="opacity:.7">${deltaTxt}</span></div>
+          <div class="delta">~${fmt.pct(r.p_accessible_seat, 1)} <span style="opacity:.7">${deltaTxt}</span></div>
         </div>`;
       }).join("");
     }
-    renderWaterfall();
+    renderPathway();
 
     // —— Profile state: only the six modeled ladder strata (no fake factorial) ——
     const PRESETS = (D.ladders.unilateral || []).map((r) => ({
@@ -1023,9 +1024,16 @@
       if (!r) return;
       const cut = D.razor.any_mbbs_capacity_threshold_marks ?? D.razor.any_mbbs_cutoff_marks;
       const qGap = (cut - r.mean_marks) / D.razor.marks_per_correct;
-      document.getElementById("profile-label").textContent = r.label + " · " + state.scenario.replace(/_/g, " ");
-      document.getElementById("profile-p").textContent = fmt.pct(r.p_accessible, 2);
-      document.getElementById("profile-govt").textContent = fmt.pct(r.p_govt, 2);
+      const labeled = r.labeled_prep_intensity || "—";
+      const effective = r.effective_prep_intensity || labeled;
+      document.getElementById("profile-label").textContent =
+        r.label + " · " + state.scenario.replace(/_/g, " ");
+      document.getElementById("profile-prep-note").textContent =
+        labeled === effective
+          ? `Prep in this world: ${effective}`
+          : `Labeled prep: ${labeled} · scenario-effective prep: ${effective}`;
+      document.getElementById("profile-p").textContent = "~" + fmt.pct(r.p_accessible, 1);
+      document.getElementById("profile-govt").textContent = "~" + fmt.pct(r.p_govt, 1);
       document.getElementById("profile-marks").textContent = Math.round(r.mean_marks);
       document.getElementById("profile-qgap").textContent =
         (qGap >= 0 ? "−" : "+") + Math.abs(qGap).toFixed(0);
@@ -1037,14 +1045,18 @@
     function renderLadder() {
       const rows = D.ladders[state.scenario] || [];
       const maxP = Math.max(...rows.map((r) => r.p_accessible), 0.01);
-      document.getElementById("ladder-chart").innerHTML = rows.map((r) => `
-        <div class="ladder-row">
+      document.getElementById("ladder-chart").innerHTML = rows.map((r) => {
+        const eff = r.effective_prep_intensity;
+        const lab = r.labeled_prep_intensity;
+        const prepNote = (eff && lab && eff !== lab) ? ` · effective prep: ${eff}` : "";
+        return `<div class="ladder-row">
           <div class="name">${r.label.split(" · ").slice(0, 2).join(" · ")}
-            <small>${r.label.split(" · ").slice(2).join(" · ")}</small>
+            <small>${r.label.split(" · ").slice(2).join(" · ")}${prepNote}</small>
           </div>
           <div class="ladder-track"><div class="ladder-fill" style="width:${(100 * r.p_accessible / maxP).toFixed(1)}%"></div></div>
-          <div class="pct">${fmt.pct(r.p_accessible, 2)}</div>
-        </div>`).join("");
+          <div class="pct">~${fmt.pct(r.p_accessible, 1)}</div>
+        </div>`;
+      }).join("");
     }
 
     document.getElementById("preset-seg")?.addEventListener("click", (e) => {
@@ -1347,12 +1359,22 @@
 
     // Arms stats
     const ar = D.arms_race.signatures;
+    const mix = D.arms_race.population_coaching_mix_assumed || { none: 0.45, modest: 0.40, intensive: 0.15 };
+    const mixLabel = `${Math.round(100 * mix.none)}/${Math.round(100 * mix.modest)}/${Math.round(100 * mix.intensive)}`;
     document.getElementById("arms-stats").innerHTML = [
       ["+" + ar.beta1_private_return_sd.toFixed(2) + " SD", "Private return (intensive δ)", "amber"],
       [ar.beta2_positional_externality_sd.toFixed(2) + " SD", "Positional externality (−δ̄)", ""],
       [ar.population_mean_coaching_sd.toFixed(2) + " SD", "Pop. mean coaching shift", "teal"],
-      [fmt.pct(D.cmse_coaching.find(c => c.sector==="all" && c.band==="class_x_xii")?.coaching_rate || 0.4, 0), "CMSE X–XII coaching rate", ""],
+      [mixLabel, "Assumed prep mix none/modest/intensive", ""],
     ].map(([v,l,c]) => `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`).join("");
+    if (D.arms_race.population_coaching_mix_note) {
+      const armsCap = document.querySelector("#arms .chart-cap");
+      if (armsCap) {
+        armsCap.textContent +=
+          " Assumed population prep mix for unilateral δ̄: " + mixLabel +
+          " (not a measured NEET-applicant distribution).";
+      }
+    }
 
     const cmse = D.cmse_coaching.find((c) => c.sector === "all" && c.band === "class_x_xii");
     if (cmse) {
@@ -1396,7 +1418,36 @@
       }
     })();
 
-    // —— Attempts ——
+    // —— Observed TN repeater time series (main attempts visual) ——
+    (function drawTnRepeaterSeries() {
+      const series = D.tn_repeater_time_series || [];
+      const canvas = document.getElementById("tn-repeater-canvas");
+      if (!canvas || !series.length) return;
+      const labels = series.map((y) => String(y.session).replace("20", "").slice(0, 5));
+      const values = series.map((y) => y.repeater_share);
+      drawBars(canvas, labels, values, {
+        colors: values.map((_, i) => (i === values.length - 1 ? "#e2a12b" : "#2f8f86")),
+        yLabel: "Repeater share among admits",
+        valueLabels: values.map((v) => fmt.pct(v, 0)),
+        rotate: false,
+        pad: { t: 36, r: 16, b: 56, l: 52 },
+      });
+      const first = series[0];
+      const last = series[series.length - 1];
+      const stats = document.getElementById("tn-repeater-stats");
+      if (stats) {
+        stats.innerHTML = [
+          [fmt.pct(first.repeater_share, 1), `${first.session} repeater admits`, ""],
+          [fmt.pct(last.repeater_share, 1), `${last.session} repeater admits`, "amber"],
+          [fmt.pct(last.current_students_share, 1), `${last.session} current-year admits`, "teal"],
+          ["SHOW†", "TN admitted composition only", ""],
+        ].map(([v, l, c]) =>
+          `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
+        ).join("");
+      }
+    })();
+
+    // —— Attempts methodology panel ——
     const rhos = D.attempts.map((a) => a.rho);
     const defaultRho = D.attempt_default_rho ?? 1.75;
     let rhoIndex = Math.max(0, rhos.findIndex((r) => Math.abs(r - defaultRho) < 1e-9));

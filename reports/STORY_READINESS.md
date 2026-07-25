@@ -51,7 +51,7 @@
 | English vs Tamil govt allotment gap | Tamil Nadu, post-NEET years | **SHOW†** | Rajan panel; Bayesian ratio ~2.3×; holdout year higher absolute rates |
 | Affordability roughly doubles access when private is in play | Synthetic strata | **SENS** | Accounting knob (~1.9× in privilege model) |
 | Metro / intensive prep raise access further | Synthetic strata | **SENS** | Labeled knobs + coaching prior |
-| Channel waterfall (one privilege step at a time) | Synthetic national score model | **SENS** | Evidence-class labeled; extreme top/bottom ratio is not a national estimate |
+| Ordered scenario pathway (fixed-reference thresholds) | Synthetic strata + plug-in priors | **SENS** | Order-dependent; not Shapley; not joint ranking; ~1pp display precision |
 | National causal English / caste / income effects | National joints | **BLOCK** | No applicant-level SES×score×seat file |
 
 **Verdict:** Ready as a *calibrated synthetic ladder*, with TN medium as the only strongly observed access association. Do not sell strata as India-wide causal effects.

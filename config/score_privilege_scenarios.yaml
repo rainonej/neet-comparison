@@ -1,13 +1,17 @@
-model_version: 0.5.2
-purpose: score_rank_seat_privilege_inequality_story
+model_version: 0.5.3
+purpose: fixed_reference_threshold_privilege_story
 production_pathway: true
 causal_language: prohibited
 
+# This is NOT a joint ranked counselling allocator. Each synthetic stratum is shifted
+# against a fixed national marks CDF and capacity-equivalent threshold shares.
+model_family: fixed_reference_threshold
+
 narrative:
   short: >-
-    Privilege and coaching shift latent NEET scores; scarce seats are allocated by rank;
-    affordability turns private offers into accessible seats. A seat then widens earnings
-    versus same-background peers who miss. Mobility is real; meritocracy is not.
+    Privilege and coaching shift latent NEET scores against a fixed national reference
+    distribution; capacity-equivalent thresholds and affordability turn ranks into
+    accessible seats. Not a joint population ranking or state counselling simulator.
   arms_race: >-
     Holding others fixed, prep raises private admission odds (β1>0). When the whole pool
     escalates equally, relative ranks barely move while costs rise (β2<0 / positional externality).

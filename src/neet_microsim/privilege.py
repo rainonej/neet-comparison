@@ -934,7 +934,7 @@ def run_privilege_pipeline(
         "model_version": config.get("model_version"),
         "model_family": "legacy_independent_offers_accounting_demo",
         "production_pathway": False,
-        "superseded_by": "score_rank_seat",
+        "superseded_by": "fixed_reference_threshold",
         "status": "legacy_accounting_demo",
         "admission_profile": profile,
         "primary_metric": config["simulation"].get("primary_metric", "annual_earnings"),
