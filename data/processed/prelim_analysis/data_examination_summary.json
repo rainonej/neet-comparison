@@ -1,0 +1,261 @@
+{
+  "neet_recon": {
+    "retrieved_date": "2026-07-25",
+    "local_mark_rows": 2333162,
+    "local_unique_centres_in_marks": 4750,
+    "centre_list_rows": 4750,
+    "centre_list_unique_ids": 4750,
+    "centre_list_states": 38,
+    "centre_list_cities": 567,
+    "official_appeared_excluding_ufm": 2333162,
+    "official_appeared_including_ufm": 2333297,
+    "official_qualified": 1315853,
+    "official_centres": 4750,
+    "official_cities": 571,
+    "row_delta_vs_appeared_excluding_ufm": 0,
+    "row_delta_vs_appeared_including_ufm": -135,
+    "centre_count_match_official": true,
+    "mark_rows_exact_match_appeared_excluding_ufm": true,
+    "wayback_official_pdfs_hashed": 14,
+    "verdict": "PASS: reconstruction row count equals NTA re-revised appeared excluding UFM (2,333,162); centre count equals 4,750.",
+    "centres_in_marks_missing_from_list_n": 0,
+    "centres_in_list_missing_from_marks_n": 0,
+    "press_rerevised_sha256": "16f8551108358719ed77d4ccae5e22e4fd34195a55f34db17457931c9451fa05"
+  },
+  "neet_stats": {
+    "rows": 2333162,
+    "centres": 4750,
+    "min": -180,
+    "max": 720,
+    "mean": 217.1565862121876,
+    "std": 166.24000440757194,
+    "median": 163.0,
+    "p10": 50.0,
+    "p25": 87.0,
+    "p75": 313.0,
+    "p90": 484.0,
+    "p95": 570.0,
+    "p99": 657.0,
+    "neg": 9477,
+    "zero": 2259,
+    "ge_650": 30204,
+    "ge_600": 81550,
+    "ge_500": 210162,
+    "ge_400": 380760,
+    "ge_200": 981822,
+    "eq_720": 61
+  },
+  "nmc_ownership": [
+    {
+      "type": "government_like",
+      "colleges": 456,
+      "seats": 63859.0
+    },
+    {
+      "type": "private_like",
+      "colleges": 367,
+      "seats": 65743.0
+    }
+  ],
+  "nmc_by_mgmt": [
+    {
+      "management": "Private",
+      "colleges": 361,
+      "seats": 65093.0
+    },
+    {
+      "management": "Govt.",
+      "colleges": 456,
+      "seats": 63859.0
+    },
+    {
+      "management": "Trust",
+      "colleges": 5,
+      "seats": 600.0
+    },
+    {
+      "management": "Society",
+      "colleges": 1,
+      "seats": 50.0
+    }
+  ],
+  "nmc_by_state_top": [
+    {
+      "state": "Karnataka",
+      "colleges": 74,
+      "seats": 14094.0
+    },
+    {
+      "state": "Uttar Pradesh",
+      "colleges": 88,
+      "seats": 13425.0
+    },
+    {
+      "state": "Tamil Nadu",
+      "colleges": 78,
+      "seats": 13050.0
+    },
+    {
+      "state": "Maharashtra",
+      "colleges": 85,
+      "seats": 12824.0
+    },
+    {
+      "state": "Telangana",
+      "colleges": 66,
+      "seats": 9540.0
+    },
+    {
+      "state": "Gujarat",
+      "colleges": 43,
+      "seats": 7525.0
+    },
+    {
+      "state": "Rajasthan",
+      "colleges": 49,
+      "seats": 7330.0
+    },
+    {
+      "state": "Andhra Pradesh",
+      "colleges": 39,
+      "seats": 7215.0
+    },
+    {
+      "state": "West Bengal",
+      "colleges": 41,
+      "seats": 6474.0
+    },
+    {
+      "state": "Madhya Pradesh",
+      "colleges": 35,
+      "seats": 5725.0
+    },
+    {
+      "state": "Kerala",
+      "colleges": 37,
+      "seats": 5554.0
+    },
+    {
+      "state": "Bihar",
+      "colleges": 25,
+      "seats": 3545.0
+    },
+    {
+      "state": "Orissa",
+      "colleges": 21,
+      "seats": 3025.0
+    },
+    {
+      "state": "Haryana",
+      "colleges": 17,
+      "seats": 2710.0
+    },
+    {
+      "state": "Chattisgarh",
+      "colleges": 16,
+      "seats": 2455.0
+    }
+  ],
+  "scarcity": {
+    "nmc_ug_seats_sum": 129602.0,
+    "neet_2024_mark_rows": 2333162,
+    "candidates_per_nmc_seat": 18.00251539328097,
+    "share_ge_650": 0.012945521999758267,
+    "share_ge_600": 0.034952566517027106,
+    "share_ge_500": 0.09007604272656593
+  },
+  "mcc_seat_matrix_rows": 674,
+  "mcc_seat_matrix_total_seats": 26852.0,
+  "mcc_allotment_round_rows": {
+    "mcc_2024_allotment_round_1": 26109,
+    "mcc_2024_allotment_round_2": 23817,
+    "mcc_2024_allotment_round_3": 6582,
+    "mcc_2024_allotment_round_special_stray": 307,
+    "mcc_2024_allotment_round_stray": 1058
+  },
+  "mcc_round3_wide_rows": 36761,
+  "mcc_allotments_merged_rows": 57873,
+  "kerala_ranklist_rows": 46367,
+  "kerala_allotment_rows": 19290,
+  "kerala_allotment_by_phase": {
+    "1": 5946,
+    "2": 6364,
+    "3": 6725,
+    "4": 255
+  },
+  "kerala_last_rank_rows": 2288,
+  "gated_status": [
+    {
+      "date": "2026-07-25",
+      "provider": "OpenICPSR",
+      "dataset": "OpenICPSR_E112992",
+      "status": "blocked_login_required",
+      "catalog_http": 403.0,
+      "catalog_final_url": "https://www.openicpsr.org/openicpsr/project/112992/version/V1/view",
+      "download_http": 403.0,
+      "download_final_url": "https://www.openicpsr.org/openicpsr/project/112992/version/V1/download/data",
+      "local_dir": "data/external/openicpsr/E112992/raw",
+      "next_action": "create free account and download archives per docs/GATED_NEXT.md"
+    },
+    {
+      "date": "2026-07-25",
+      "provider": "MoSPI",
+      "dataset": "MoSPI_PLFS",
+      "status": "blocked_login_required",
+      "catalog_http": NaN,
+      "catalog_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/PLFS (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "download_http": NaN,
+      "download_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/213 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "local_dir": "data/external/mospi/plfs",
+      "next_action": "create free account and download archives per docs/GATED_NEXT.md"
+    },
+    {
+      "date": "2026-07-25",
+      "provider": "MoSPI",
+      "dataset": "MoSPI_HCES",
+      "status": "blocked_login_required",
+      "catalog_http": NaN,
+      "catalog_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/237 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "download_http": NaN,
+      "download_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/237/get-microdata (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "local_dir": "data/external/mospi/hces",
+      "next_action": "create free account and download archives per docs/GATED_NEXT.md"
+    },
+    {
+      "date": "2026-07-25",
+      "provider": "MoSPI",
+      "dataset": "MoSPI_CMSE",
+      "status": "blocked_login_required",
+      "catalog_http": NaN,
+      "catalog_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/255 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "download_http": NaN,
+      "download_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/255/get-microdata (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "local_dir": "data/external/mospi/cmse",
+      "next_action": "create free account and download archives per docs/GATED_NEXT.md"
+    },
+    {
+      "date": "2026-07-25",
+      "provider": "MoSPI",
+      "dataset": "MoSPI_AIDIS",
+      "status": "blocked_login_required",
+      "catalog_http": NaN,
+      "catalog_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/156 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "download_http": NaN,
+      "download_final_url": "HTTPSConnectionPool(host='microdata.gov.in', port=443): Max retries exceeded with url: /NADA/index.php/catalog/156/get-microdata (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1000)')))",
+      "local_dir": "data/external/mospi/aidis",
+      "next_action": "create free account and download archives per docs/GATED_NEXT.md"
+    },
+    {
+      "date": "2026-07-25",
+      "provider": "DHS",
+      "dataset": "DHS_NFHS5",
+      "status": "catalog_reachable_download_not_automated",
+      "catalog_http": 200.0,
+      "catalog_final_url": "https://dhsprogram.com/data/dataset/India_Standard-DHS_2020.cfm",
+      "download_http": 200.0,
+      "download_final_url": "https://dhsprogram.com/data/available-datasets.cfm",
+      "local_dir": "data/external/dhs/nfhs5",
+      "next_action": "create free account and download archives per docs/GATED_NEXT.md"
+    }
+  ]
+}

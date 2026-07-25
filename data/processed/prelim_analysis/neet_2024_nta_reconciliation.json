@@ -1,0 +1,52 @@
+{
+  "retrieved_date": "2026-07-25",
+  "local_mark_rows": 2333162,
+  "local_unique_centres_in_marks": 4750,
+  "centre_list_rows": 4750,
+  "centre_list_unique_ids": 4750,
+  "centre_list_states": 38,
+  "centre_list_cities": 567,
+  "official_appeared_excluding_ufm": 2333162,
+  "official_appeared_including_ufm": 2333297,
+  "official_qualified": 1315853,
+  "official_centres": 4750,
+  "official_cities": 571,
+  "row_delta_vs_appeared_excluding_ufm": 0,
+  "row_delta_vs_appeared_including_ufm": -135,
+  "centre_count_match_official": true,
+  "mark_rows_exact_match_appeared_excluding_ufm": true,
+  "centres_in_marks_missing_from_list": [],
+  "centres_in_list_missing_from_marks": [],
+  "wayback_official_pdfs_hashed": 14,
+  "press_pdfs": [
+    {
+      "file": "data/external/nta/raw/press/neet_2024_rerevised_result_20240726.pdf",
+      "label": "rerevised_2024-07-26",
+      "url": "https://nta.ac.in/Download/Notice/Notice_20240726213317.pdf",
+      "bytes": 939402,
+      "sha256": "16f8551108358719ed77d4ccae5e22e4fd34195a55f34db17457931c9451fa05",
+      "registered": 2406079,
+      "appeared_including_ufm": 2333297,
+      "appeared_excluding_ufm": 2333162,
+      "ufm_cases": 135,
+      "qualified": 1315853,
+      "official_centres": 4750,
+      "official_cities": 571
+    },
+    {
+      "file": "data/external/nta/raw/press/neet_2024_initial_result_20240604.pdf",
+      "label": "initial_2024-06-04",
+      "url": "https://www.nta.ac.in/Download/Notice/Notice_20240604195244.pdf",
+      "bytes": 994057,
+      "sha256": "f4c299e10da4df145c422b9a2b71b960ecd24af7356be21b4ec502e053337d09",
+      "registered": 2406079,
+      "appeared_including_ufm": 2333297,
+      "appeared_excluding_ufm": 2333297,
+      "ufm_cases": null,
+      "qualified": 1316268,
+      "official_centres": 4750,
+      "official_cities": 571
+    }
+  ],
+  "verdict": "PASS: reconstruction row count equals NTA re-revised appeared excluding UFM (2,333,162); centre count equals 4,750."
+}

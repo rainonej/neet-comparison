@@ -1,7 +1,10 @@
 estimate_id,value,unit,geography,reference_period,source,limitations
-neet_2024_candidate_rows,2333053,candidates,India,2024,NTA centre-wise release / Dataful,Anonymized marks rows; centre state is not domicile.
-neet_2024_exam_centres,4750,centres,India and overseas,2024,NTA reconstruction / Dataful,Centre IDs include multiple codes per venue in some cases.
-neet_2024_cities,566,cities,India and overseas,2024,Dataful,As labelled in centre release.
+neet_2024_candidate_rows,2333162,candidates,India,2024,NTA centre-wise reconstruction (hq969) reconciled to NTA re-revised press 2024-07-26,Anonymized marks rows; equals official appeared excluding 135 UFM; centre state is not domicile.
+neet_2024_appeared_including_ufm,2333297,candidates,India,2024,NTA re-revised result press release 2024-07-26,Includes 135 unfair-means cases excluded from most official tables and from the centre-marks reconstruction.
+neet_2024_qualified,1315853,candidates,India,2024,NTA re-revised result press release 2024-07-26,Re-revised after grace-mark/result litigation; initial 2024-06-04 press had 1316268 qualified.
+neet_2024_registered,2406079,candidates,India,2024,NTA re-revised result press release 2024-07-26,Registered count; not all appeared.
+neet_2024_exam_centres,4750,centres,India and overseas,2024,NTA press + reconstruction centre list,Centre IDs include multiple codes per venue in some cases; reconstruction unique centre_id count matches.
+neet_2024_cities,567,cities,India and overseas,2024,hq969 centres CSV,NTA press cites 571 cities; local centre list has 567 distinct city labels — small labeling difference.
 nmc_mbbs_colleges_current_page,823,colleges,India,2025-26 current page,NMC MBBS college list,Dynamic page; snapshot date required.
 nmc_mbbs_seats_current_page,129602,seats,India,2025-26 current page,NMC MBBS college list,Dynamic page; reconcile with INIs and final matrix.
 world_bank_physician_monthly_wage,57218,INR/month,India,PLFS 2022-23 in July 2024 INR,World Bank health labor report,Mean wage; physician distribution is wide.

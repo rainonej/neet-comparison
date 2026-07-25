@@ -26,6 +26,7 @@ data/processed/**/*
 *.sqlite
 *.db
 .DS_Store
+docs/draft_emails/
 !data/processed/coaching_outcome_evidence.csv
 !data/processed/coaching_outcome_rate_summary.csv
 !data/processed/employment_benchmarks.csv
@@ -36,3 +37,12 @@ data/processed/**/*
 !data/processed/public_rti_archive_leads.csv
 !data/processed/cbse_dummy_school_registry.csv
 !data/processed/coaching_gap_public_manifest.csv
+!data/processed/neet_2024_nta_reconciliation.csv
+!data/processed/neet_2024_wayback_centre_pdf_hashes.csv
+!data/processed/gated_download_status.csv
+!data/processed/prelim_analysis/
+!data/processed/prelim_analysis/**
+!data/processed/mcc_2024/
+!data/processed/mcc_2024/**
+!data/processed/kerala/
+!data/processed/kerala/**

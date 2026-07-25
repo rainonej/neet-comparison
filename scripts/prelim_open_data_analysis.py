@@ -83,6 +83,9 @@ def main() -> None:
     report["nmc_schema"] = {c: str(nmc[c].dtype) for c in nmc.columns}
     report["nmc_n"] = int(len(nmc))
     seats = pd.to_numeric(nmc["ugApproved"], errors="coerce")
+    # Scrape stores labels in stateName / managementupdate; numeric state/management are null.
+    mgmt_col = "managementupdate" if "managementupdate" in nmc.columns else "management"
+    state_col = "stateName" if "stateName" in nmc.columns else "state"
     report["nmc_seats"] = {
         "total": float(np.nansum(seats)),
         "mean": float(np.nanmean(seats)),
@@ -91,7 +94,11 @@ def main() -> None:
         "max": float(np.nanmax(seats)),
         "missing": int(seats.isna().sum()),
     }
-    nmc = nmc.assign(_seats=seats, _mgmt=nmc["management"].astype(str).str.strip(), _state=nmc["state"].astype(str).str.strip())
+    nmc = nmc.assign(
+        _seats=seats,
+        _mgmt=nmc[mgmt_col].astype(str).str.strip(),
+        _state=nmc[state_col].astype(str).str.strip(),
+    )
     by_mgmt = (
         nmc.groupby("_mgmt", dropna=False)
         .agg(colleges=("_mgmt", "size"), seats=("_seats", "sum"))

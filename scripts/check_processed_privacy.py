@@ -10,7 +10,7 @@ FORBIDDEN = {
     "name", "student_name", "candidate_name", "father_name", "mother_name",
     "date_of_birth", "dob", "phone", "mobile", "email", "address",
     "roll_number", "roll_no", "application_number", "application_no",
-    "aadhaar", "passport_number",
+    "appl_no", "applno", "aadhaar", "passport_number",
 }
 
 

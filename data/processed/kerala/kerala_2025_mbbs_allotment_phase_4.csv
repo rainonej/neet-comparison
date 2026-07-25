@@ -1,0 +1,256 @@
+year,phase,serial_no,state_rank,candidate_category,allotted_category,college_code,college_name,course,seat_type,option_no,source_file
+2025,4,1,1274,General,SM,KSM,"Govt. Medical College, Kasaragod",MBBS,SM,13,mbbs_p4_final.pdf
+2025,4,2,2477,General,SM,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",MBBS,SM,18,mbbs_p4_final.pdf
+2025,4,3,2484,MU,MM,EMC,"MES Medical College, Perinthalmanna, Malappuram",MBBS,MM,18,mbbs_p4_final.pdf
+2025,4,4,2491,EZ,EZ,KSM,"Govt. Medical College, Kasaragod",MBBS,EZ,1,mbbs_p4_final.pdf
+2025,4,5,2717,MU,MU,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",MBBS,MU,2,mbbs_p4_final.pdf
+2025,4,6,2937,MU,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,2,mbbs_p4_final.pdf
+2025,4,7,3093,General,AM,KDM,"P K Das Institute of Medical Sciences, Ottapalam",MBBS,AM,15,mbbs_p4_final.pdf
+2025,4,8,3213,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,12,mbbs_p4_final.pdf
+2025,4,9,3233,MU,SM,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",MBBS,SM,24,mbbs_p4_final.pdf
+2025,4,10,3302,General,AM,MZM,"Mount Zion Medical College, Pathanamthitta",MBBS,AM,15,mbbs_p4_final.pdf
+2025,4,11,3622,MU,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,15,mbbs_p4_final.pdf
+2025,4,12,4433,MU,SM,ALD,"Government Dental College, Alappuzha",BDS,SM,15,mbbs_p4_final.pdf
+2025,4,13,4492,MU,SM,ALD,"Government Dental College, Alappuzha",BDS,SM,6,mbbs_p4_final.pdf
+2025,4,14,4507,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,3,mbbs_p4_final.pdf
+2025,4,15,4528,MU,SM,KND,"Government Dental College, Kannur",BDS,SM,1,mbbs_p4_final.pdf
+2025,4,16,4618,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,1,mbbs_p4_final.pdf
+2025,4,17,4646,MU,SM,KND,"Government Dental College, Kannur",BDS,SM,4,mbbs_p4_final.pdf
+2025,4,18,4676,MU,SM,KND,"Government Dental College, Kannur",BDS,SM,1,mbbs_p4_final.pdf
+2025,4,19,4790,MU,SM,KND,"Government Dental College, Kannur",BDS,SM,16,mbbs_p4_final.pdf
+2025,4,20,4815,General,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,11,mbbs_p4_final.pdf
+2025,4,21,4969,General,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,2,mbbs_p4_final.pdf
+2025,4,22,4990,General,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,16,mbbs_p4_final.pdf
+2025,4,23,5124,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,4,mbbs_p4_final.pdf
+2025,4,24,5207,MU,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,2,mbbs_p4_final.pdf
+2025,4,25,5382,General,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,1,mbbs_p4_final.pdf
+2025,4,26,5425,MU,SM,MED,"MES Dental College, Perinthalmanna",BDS,SM,22,mbbs_p4_final.pdf
+2025,4,27,5831,General,AM,PIM,"Palakkad Institute of Medical Sciences, Walayar",MBBS,AM,2,mbbs_p4_final.pdf
+2025,4,28,5914,LA,SM,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",MBBS,SM,21,mbbs_p4_final.pdf
+2025,4,29,5919,General,AM,PIM,"Palakkad Institute of Medical Sciences, Walayar",MBBS,AM,2,mbbs_p4_final.pdf
+2025,4,30,6155,General,SD,KTD,"Govt. Dental College, Kottayam",BDS,SD,17,mbbs_p4_final.pdf
+2025,4,31,6157,BH,BH,BCM,"Believers Church Medical College Hospital, Thiruvalla",MBBS,BH,18,mbbs_p4_final.pdf
+2025,4,32,6420,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,15,mbbs_p4_final.pdf
+2025,4,33,6480,General,AM,MZM,"Mount Zion Medical College, Pathanamthitta",MBBS,AM,17,mbbs_p4_final.pdf
+2025,4,34,6510,EZ,EZ,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,EZ,8,mbbs_p4_final.pdf
+2025,4,35,6524,MU,MM,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",MBBS,MM,24,mbbs_p4_final.pdf
+2025,4,36,6574,General,AM,PIM,"Palakkad Institute of Medical Sciences, Walayar",MBBS,AM,13,mbbs_p4_final.pdf
+2025,4,37,6693,MU,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,7,mbbs_p4_final.pdf
+2025,4,38,6762,MU,SM,KDM,"P K Das Institute of Medical Sciences, Ottapalam",MBBS,SM,21,mbbs_p4_final.pdf
+2025,4,39,7063,EW,AM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,AM,29,mbbs_p4_final.pdf
+2025,4,40,7154,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,4,mbbs_p4_final.pdf
+2025,4,41,7177,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,20,mbbs_p4_final.pdf
+2025,4,42,7220,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,5,mbbs_p4_final.pdf
+2025,4,43,7232,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,5,mbbs_p4_final.pdf
+2025,4,44,7237,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,21,mbbs_p4_final.pdf
+2025,4,45,7271,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,9,mbbs_p4_final.pdf
+2025,4,46,7272,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,20,mbbs_p4_final.pdf
+2025,4,47,7331,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,3,mbbs_p4_final.pdf
+2025,4,48,7405,General,AM,KEM,"Kerala Medical College, Palakkad",MBBS,AM,19,mbbs_p4_final.pdf
+2025,4,49,7586,MU,MM,KMM,"Karuna Medical College, Vilayodi, Palakkad",MBBS,MM,16,mbbs_p4_final.pdf
+2025,4,50,7878,MU,SM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,SM,25,mbbs_p4_final.pdf
+2025,4,51,8079,EZ,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,26,mbbs_p4_final.pdf
+2025,4,52,8393,MU,SM,KDM,"P K Das Institute of Medical Sciences, Ottapalam",MBBS,SM,6,mbbs_p4_final.pdf
+2025,4,53,8524,General,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,21,mbbs_p4_final.pdf
+2025,4,54,9032,General,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,21,mbbs_p4_final.pdf
+2025,4,55,9033,General,AC,BCM,"Believers Church Medical College Hospital, Thiruvalla",MBBS,AC,2,mbbs_p4_final.pdf
+2025,4,56,9759,General,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,8,mbbs_p4_final.pdf
+2025,4,57,9851,MU,SM,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",BDS,SM,8,mbbs_p4_final.pdf
+2025,4,58,9855,General,AC,MZM,"Mount Zion Medical College, Pathanamthitta",MBBS,AC,26,mbbs_p4_final.pdf
+2025,4,59,10015,VK,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,11,mbbs_p4_final.pdf
+2025,4,60,10311,EZ,EZ,RDC,"Royal Dental College, Chalisery, Palakkad",BDS,EZ,23,mbbs_p4_final.pdf
+2025,4,61,10327,General,SM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,SM,4,mbbs_p4_final.pdf
+2025,4,62,10435,General,SM,PIM,"Palakkad Institute of Medical Sciences, Walayar",MBBS,SM,24,mbbs_p4_final.pdf
+2025,4,63,10911,General,SM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,SM,7,mbbs_p4_final.pdf
+2025,4,64,10958,General,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,25,mbbs_p4_final.pdf
+2025,4,65,10964,BH,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,30,mbbs_p4_final.pdf
+2025,4,66,11029,DV,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,28,mbbs_p4_final.pdf
+2025,4,67,11050,General,SM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,SM,29,mbbs_p4_final.pdf
+2025,4,68,11066,General,SM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,SM,1,mbbs_p4_final.pdf
+2025,4,69,11076,BH,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,3,mbbs_p4_final.pdf
+2025,4,70,11083,EZ,EZ,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",MBBS,EZ,28,mbbs_p4_final.pdf
+2025,4,71,11123,BH,SM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,SM,32,mbbs_p4_final.pdf
+2025,4,72,11202,General,SM,PIM,"Palakkad Institute of Medical Sciences, Walayar",MBBS,SM,34,mbbs_p4_final.pdf
+2025,4,73,11253,BH,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,18,mbbs_p4_final.pdf
+2025,4,74,11257,BH,SM,PIM,"Palakkad Institute of Medical Sciences, Walayar",MBBS,SM,33,mbbs_p4_final.pdf
+2025,4,75,11325,BH,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,27,mbbs_p4_final.pdf
+2025,4,76,11326,General,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,35,mbbs_p4_final.pdf
+2025,4,77,11434,EZ,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,25,mbbs_p4_final.pdf
+2025,4,78,11478,General,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,2,mbbs_p4_final.pdf
+2025,4,79,11480,DV,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,34,mbbs_p4_final.pdf
+2025,4,80,11508,DV,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,35,mbbs_p4_final.pdf
+2025,4,81,11540,DV,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,33,mbbs_p4_final.pdf
+2025,4,82,11541,VK,VK,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,VK,1,mbbs_p4_final.pdf
+2025,4,83,11567,EZ,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,7,mbbs_p4_final.pdf
+2025,4,84,11586,General,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,2,mbbs_p4_final.pdf
+2025,4,85,11619,EZ,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,19,mbbs_p4_final.pdf
+2025,4,86,11631,BH,SM,KEM,"Kerala Medical College, Palakkad",MBBS,SM,34,mbbs_p4_final.pdf
+2025,4,87,11668,EZ,EZ,KEM,"Kerala Medical College, Palakkad",MBBS,EZ,27,mbbs_p4_final.pdf
+2025,4,88,11689,BH,BH,KEM,"Kerala Medical College, Palakkad",MBBS,BH,22,mbbs_p4_final.pdf
+2025,4,89,12844,VK,VK,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",MBBS,VK,2,mbbs_p4_final.pdf
+2025,4,90,13145,BH,SM,AAD,"Al Azhar Dental College, Thodupuzha",BDS,SM,46,mbbs_p4_final.pdf
+2025,4,91,13317,MU,MU,KEM,"Kerala Medical College, Palakkad",MBBS,MU,25,mbbs_p4_final.pdf
+2025,4,92,13513,VK,VK,KEM,"Kerala Medical College, Palakkad",MBBS,VK,3,mbbs_p4_final.pdf
+2025,4,93,13697,LA,LA,KEM,"Kerala Medical College, Palakkad",MBBS,LA,30,mbbs_p4_final.pdf
+2025,4,94,13958,MU,MM,KMM,"Karuna Medical College, Vilayodi, Palakkad",MBBS,MM,20,mbbs_p4_final.pdf
+2025,4,95,13981,MU,MU,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,MU,4,mbbs_p4_final.pdf
+2025,4,96,14092,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,19,mbbs_p4_final.pdf
+2025,4,97,14102,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,35,mbbs_p4_final.pdf
+2025,4,98,14157,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,28,mbbs_p4_final.pdf
+2025,4,99,14164,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,4,mbbs_p4_final.pdf
+2025,4,100,14166,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,10,mbbs_p4_final.pdf
+2025,4,101,14201,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,9,mbbs_p4_final.pdf
+2025,4,102,14228,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,8,mbbs_p4_final.pdf
+2025,4,103,14233,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,39,mbbs_p4_final.pdf
+2025,4,104,14271,MU,MM,AAM,"Al Azhar Medical college, Thodupuzha",MBBS,MM,10,mbbs_p4_final.pdf
+2025,4,105,14278,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,15,mbbs_p4_final.pdf
+2025,4,106,14299,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,18,mbbs_p4_final.pdf
+2025,4,107,14303,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,22,mbbs_p4_final.pdf
+2025,4,108,14330,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,42,mbbs_p4_final.pdf
+2025,4,109,14332,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,39,mbbs_p4_final.pdf
+2025,4,110,14361,EZ,EZ,MLD,"Malabar Dental College, Edappal",BDS,EZ,19,mbbs_p4_final.pdf
+2025,4,111,14378,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,4,mbbs_p4_final.pdf
+2025,4,112,14449,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,2,mbbs_p4_final.pdf
+2025,4,113,14516,BH,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,42,mbbs_p4_final.pdf
+2025,4,114,14584,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,3,mbbs_p4_final.pdf
+2025,4,115,14596,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,4,mbbs_p4_final.pdf
+2025,4,116,14649,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,40,mbbs_p4_final.pdf
+2025,4,117,14752,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,2,mbbs_p4_final.pdf
+2025,4,118,14801,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,7,mbbs_p4_final.pdf
+2025,4,119,14873,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,33,mbbs_p4_final.pdf
+2025,4,120,14891,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,5,mbbs_p4_final.pdf
+2025,4,121,14898,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,2,mbbs_p4_final.pdf
+2025,4,122,15014,EZ,EZ,MLD,"Malabar Dental College, Edappal",BDS,EZ,3,mbbs_p4_final.pdf
+2025,4,123,15049,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,14,mbbs_p4_final.pdf
+2025,4,124,15066,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,6,mbbs_p4_final.pdf
+2025,4,125,15080,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,10,mbbs_p4_final.pdf
+2025,4,126,15104,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,33,mbbs_p4_final.pdf
+2025,4,127,15155,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,8,mbbs_p4_final.pdf
+2025,4,128,15160,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,26,mbbs_p4_final.pdf
+2025,4,129,15168,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,16,mbbs_p4_final.pdf
+2025,4,130,15219,BH,SM,AAD,"Al Azhar Dental College, Thodupuzha",BDS,SM,41,mbbs_p4_final.pdf
+2025,4,131,15231,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,16,mbbs_p4_final.pdf
+2025,4,132,15318,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,20,mbbs_p4_final.pdf
+2025,4,133,15322,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,32,mbbs_p4_final.pdf
+2025,4,134,15422,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,21,mbbs_p4_final.pdf
+2025,4,135,15429,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,2,mbbs_p4_final.pdf
+2025,4,136,15545,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,11,mbbs_p4_final.pdf
+2025,4,137,15573,BH,SM,AAD,"Al Azhar Dental College, Thodupuzha",BDS,SM,44,mbbs_p4_final.pdf
+2025,4,138,15619,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,16,mbbs_p4_final.pdf
+2025,4,139,15778,MU,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,20,mbbs_p4_final.pdf
+2025,4,140,15845,BH,SM,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,SM,48,mbbs_p4_final.pdf
+2025,4,141,15897,General,MM,KEM,"Kerala Medical College, Palakkad",MBBS,MM,7,mbbs_p4_final.pdf
+2025,4,142,16075,General,SM,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,SM,23,mbbs_p4_final.pdf
+2025,4,143,16901,SC,SC,KEM,"Kerala Medical College, Palakkad",MBBS,SC,24,mbbs_p4_final.pdf
+2025,4,144,17067,BH,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,44,mbbs_p4_final.pdf
+2025,4,145,17325,MU,MU,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,MU,52,mbbs_p4_final.pdf
+2025,4,146,17808,MU,SM,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,SM,15,mbbs_p4_final.pdf
+2025,4,147,17816,EZ,SM,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,SM,49,mbbs_p4_final.pdf
+2025,4,148,18051,General,AC,MBD,"Mar Baselious Dental College, Kothamangalam",BDS,AC,44,mbbs_p4_final.pdf
+2025,4,149,18793,General,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,52,mbbs_p4_final.pdf
+2025,4,150,19080,MU,SM,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,SM,62,mbbs_p4_final.pdf
+2025,4,151,19388,EW,EW,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",MBBS,EW,3,mbbs_p4_final.pdf
+2025,4,152,19429,General,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,38,mbbs_p4_final.pdf
+2025,4,153,19497,DV,DV,KND,"Government Dental College, Kannur",BDS,DV,38,mbbs_p4_final.pdf
+2025,4,154,20203,General,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,7,mbbs_p4_final.pdf
+2025,4,155,20515,SC,SC,KTD,"Govt. Dental College, Kottayam",BDS,SC,3,mbbs_p4_final.pdf
+2025,4,156,20578,SC,SC,TCD,"Govt. Dental College, Thrissur",BDS,SC,15,mbbs_p4_final.pdf
+2025,4,157,20592,EZ,EZ,AAD,"Al Azhar Dental College, Thodupuzha",BDS,EZ,42,mbbs_p4_final.pdf
+2025,4,158,21213,SC,SC,MBD,"Mar Baselious Dental College, Kothamangalam",BDS,SC,33,mbbs_p4_final.pdf
+2025,4,159,21220,MU,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,1,mbbs_p4_final.pdf
+2025,4,160,21590,MU,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,2,mbbs_p4_final.pdf
+2025,4,161,21880,EW,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,2,mbbs_p4_final.pdf
+2025,4,162,21949,General,NR,KEM,"Kerala Medical College, Palakkad",MBBS,NR,43,mbbs_p4_final.pdf
+2025,4,163,22042,General,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,9,mbbs_p4_final.pdf
+2025,4,164,22057,BX,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,63,mbbs_p4_final.pdf
+2025,4,165,22197,EZ,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,8,mbbs_p4_final.pdf
+2025,4,166,22497,MU,SM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,SM,18,mbbs_p4_final.pdf
+2025,4,167,22648,SC,SC,MLD,"Malabar Dental College, Edappal",BDS,SC,23,mbbs_p4_final.pdf
+2025,4,168,22697,EZ,EZ,MLD,"Malabar Dental College, Edappal",BDS,EZ,14,mbbs_p4_final.pdf
+2025,4,169,22950,MU,MU,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,MU,54,mbbs_p4_final.pdf
+2025,4,170,23080,EZ,EZ,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,EZ,45,mbbs_p4_final.pdf
+2025,4,171,23326,LA,LA,MED,"MES Dental College, Perinthalmanna",BDS,LA,52,mbbs_p4_final.pdf
+2025,4,172,23360,SC,SC,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",BDS,SC,42,mbbs_p4_final.pdf
+2025,4,173,24687,EZ,EZ,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,EZ,13,mbbs_p4_final.pdf
+2025,4,174,25345,SC,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,6,mbbs_p4_final.pdf
+2025,4,175,25734,SC,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,38,mbbs_p4_final.pdf
+2025,4,176,25777,General,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,48,mbbs_p4_final.pdf
+2025,4,177,25841,MU,NR,KEM,"Kerala Medical College, Palakkad",MBBS,NR,43,mbbs_p4_final.pdf
+2025,4,178,25927,SC,SC,MLD,"Malabar Dental College, Edappal",BDS,SC,42,mbbs_p4_final.pdf
+2025,4,179,26014,BH,BH,PSD,"PSM College of Dental Sciences, Thrissur",BDS,BH,12,mbbs_p4_final.pdf
+2025,4,180,26061,SC,SC,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",BDS,SC,43,mbbs_p4_final.pdf
+2025,4,181,26335,SC,SC,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,SC,44,mbbs_p4_final.pdf
+2025,4,182,26373,SC,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,38,mbbs_p4_final.pdf
+2025,4,183,26542,SC,SC,MLD,"Malabar Dental College, Edappal",BDS,SC,44,mbbs_p4_final.pdf
+2025,4,184,26551,DV,DV,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,DV,45,mbbs_p4_final.pdf
+2025,4,185,26858,SC,SC,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,SC,5,mbbs_p4_final.pdf
+2025,4,186,26932,EZ,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,4,mbbs_p4_final.pdf
+2025,4,187,27080,MU,MM,TRD,"Travancore DentalCollege, Kollam",BDS,MM,23,mbbs_p4_final.pdf
+2025,4,188,27185,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,42,mbbs_p4_final.pdf
+2025,4,189,27209,MU,MM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,MM,3,mbbs_p4_final.pdf
+2025,4,190,27918,SC,SC,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,SC,44,mbbs_p4_final.pdf
+2025,4,191,28901,MU,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,4,mbbs_p4_final.pdf
+2025,4,192,28935,SC,SC,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,SC,16,mbbs_p4_final.pdf
+2025,4,193,29132,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,15,mbbs_p4_final.pdf
+2025,4,194,29302,MU,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,21,mbbs_p4_final.pdf
+2025,4,195,29812,SC,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,30,mbbs_p4_final.pdf
+2025,4,196,30163,General,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,30,mbbs_p4_final.pdf
+2025,4,197,30471,BH,BH,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,BH,50,mbbs_p4_final.pdf
+2025,4,198,30774,BX,BX,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,BX,18,mbbs_p4_final.pdf
+2025,4,199,31192,SC,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,46,mbbs_p4_final.pdf
+2025,4,200,31383,MU,SM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SM,10,mbbs_p4_final.pdf
+2025,4,201,31421,MU,MM,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,MM,27,mbbs_p4_final.pdf
+2025,4,202,31486,SC,SC,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,SC,6,mbbs_p4_final.pdf
+2025,4,203,31643,LA,LA,MLD,"Malabar Dental College, Edappal",BDS,LA,30,mbbs_p4_final.pdf
+2025,4,204,31751,SC,SC,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SC,1,mbbs_p4_final.pdf
+2025,4,205,31756,BH,BH,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,BH,20,mbbs_p4_final.pdf
+2025,4,206,31996,SC,SC,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SC,48,mbbs_p4_final.pdf
+2025,4,207,32004,SC,SC,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,SC,54,mbbs_p4_final.pdf
+2025,4,208,32085,SC,SC,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,SC,45,mbbs_p4_final.pdf
+2025,4,209,32219,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,57,mbbs_p4_final.pdf
+2025,4,210,32231,SC,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,52,mbbs_p4_final.pdf
+2025,4,211,32645,MU,MM,TRD,"Travancore DentalCollege, Kollam",BDS,MM,25,mbbs_p4_final.pdf
+2025,4,212,32897,MU,MM,TRD,"Travancore DentalCollege, Kollam",BDS,MM,2,mbbs_p4_final.pdf
+2025,4,213,32900,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,8,mbbs_p4_final.pdf
+2025,4,214,32950,SC,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,57,mbbs_p4_final.pdf
+2025,4,215,33042,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,46,mbbs_p4_final.pdf
+2025,4,216,33052,BX,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,37,mbbs_p4_final.pdf
+2025,4,217,33101,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,59,mbbs_p4_final.pdf
+2025,4,218,33179,SC,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,42,mbbs_p4_final.pdf
+2025,4,219,33235,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,7,mbbs_p4_final.pdf
+2025,4,220,33274,General,SM,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SM,1,mbbs_p4_final.pdf
+2025,4,221,33624,MU,MM,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,MM,10,mbbs_p4_final.pdf
+2025,4,222,33797,SC,SC,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SC,60,mbbs_p4_final.pdf
+2025,4,223,33926,SC,SC,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SC,14,mbbs_p4_final.pdf
+2025,4,224,34023,MU,MM,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,MM,10,mbbs_p4_final.pdf
+2025,4,225,34360,MU,MM,TRD,"Travancore DentalCollege, Kollam",BDS,MM,24,mbbs_p4_final.pdf
+2025,4,226,34370,SC,SC,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SC,2,mbbs_p4_final.pdf
+2025,4,227,34540,SC,SC,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,SC,25,mbbs_p4_final.pdf
+2025,4,228,34564,DV,DV,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,DV,4,mbbs_p4_final.pdf
+2025,4,229,34626,MU,MM,TRD,"Travancore DentalCollege, Kollam",BDS,MM,2,mbbs_p4_final.pdf
+2025,4,230,34683,DV,DV,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,DV,19,mbbs_p4_final.pdf
+2025,4,231,35061,DV,DV,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,DV,2,mbbs_p4_final.pdf
+2025,4,232,35427,BH,BH,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,BH,3,mbbs_p4_final.pdf
+2025,4,233,35520,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,2,mbbs_p4_final.pdf
+2025,4,234,35643,DV,DV,TRD,"Travancore DentalCollege, Kollam",BDS,DV,3,mbbs_p4_final.pdf
+2025,4,235,35680,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,38,mbbs_p4_final.pdf
+2025,4,236,35923,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,5,mbbs_p4_final.pdf
+2025,4,237,35995,ST,ST,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",BDS,ST,44,mbbs_p4_final.pdf
+2025,4,238,36116,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,7,mbbs_p4_final.pdf
+2025,4,239,36206,BH,BH,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",BDS,BH,9,mbbs_p4_final.pdf
+2025,4,240,36225,MU,MM,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,MM,15,mbbs_p4_final.pdf
+2025,4,241,36397,BH,BH,AAD,"Al Azhar Dental College, Thodupuzha",BDS,BH,1,mbbs_p4_final.pdf
+2025,4,242,36699,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,2,mbbs_p4_final.pdf
+2025,4,243,36756,BH,BH,AAD,"Al Azhar Dental College, Thodupuzha",BDS,BH,46,mbbs_p4_final.pdf
+2025,4,244,37451,BH,BH,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,BH,60,mbbs_p4_final.pdf
+2025,4,245,37467,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,21,mbbs_p4_final.pdf
+2025,4,246,38021,MU,MM,KAD,"Kannur Dental College, Anjarakandy, Kannur",BDS,MM,17,mbbs_p4_final.pdf
+2025,4,247,38594,MU,MM,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,MM,19,mbbs_p4_final.pdf
+2025,4,248,39603,VK,VK,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,VK,3,mbbs_p4_final.pdf
+2025,4,249,40760,EZ,EZ,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,EZ,43,mbbs_p4_final.pdf
+2025,4,250,41374,General,NR,KEM,"Kerala Medical College, Palakkad",MBBS,NR,12,mbbs_p4_final.pdf
+2025,4,251,41904,EZ,NR,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",MBBS,NR,40,mbbs_p4_final.pdf
+2025,4,252,41929,EZ,EZ,EID,"Educare Institute of Dental Sciences, Malappuram",BDS,EZ,18,mbbs_p4_final.pdf
+2025,4,253,42897,VK,VK,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,VK,44,mbbs_p4_final.pdf
+2025,4,254,43595,EZ,EZ,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",BDS,EZ,5,mbbs_p4_final.pdf
+2025,4,255,44363,KU,KU,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",BDS,KU,44,mbbs_p4_final.pdf

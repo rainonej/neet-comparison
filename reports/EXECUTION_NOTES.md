@@ -34,10 +34,19 @@ Targeted pull for datasets that are available **without email**, plus an ask-for
 
 Scripts: `scripts/download_coaching_gap_public.py`, `scripts/build_cbse_dummy_school_registry.py`.
 
+## Analytic next-steps pass (same day, later)
+
+See [NEXT_STEPS_EXECUTION.md](NEXT_STEPS_EXECUTION.md).
+
+- **NEET reconciliation:** reconstruction **2,333,162** rows = NTA re-revised appeared excl. UFM; centres **4,750**. Official press PDFs hashed.
+- **MCC 2024:** seat-matrix CSV (674) + Round-1/stray allotment CSVs; Rounds 2–3 checkpointed.
+- **Kerala:** de-identified rank (46,367), allotment (19,290), last-rank (2,288) panels under `data/processed/kerala/`.
+- **NMC prelim script:** now uses `stateName` / `managementupdate`.
+
 ## Still blocked
 
-- **OpenICPSR E112992** — login wall.
-- **MoSPI / DHS / IHDS / PRICE / Young Lives** — deferred to gated pass (`docs/GATED_NEXT.md`).
+- **OpenICPSR E112992** — login wall (reconfirmed by probe).
+- **MoSPI / DHS / IHDS / PRICE / Young Lives** — free accounts still required (`docs/GATED_NEXT.md`; status in `data/processed/gated_download_status.csv`).
 - **Dakshana / Super 50 / SATHEE / CSRL / Careers360 / commercial coaching microdata** — require outreach (`docs/COACHING_GAP_ASK_LIST.md`).
 
 ## Validation

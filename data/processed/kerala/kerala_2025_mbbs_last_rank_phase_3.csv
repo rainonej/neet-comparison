@@ -1,0 +1,781 @@
+year,phase,course,college_code,college_name,college_type,category,last_rank,other_categories_raw,source_file
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,SM,857,"DA:13014, PD:39940, PI:2, SD:2458, XS:1894",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,EZ,1026,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,MU,1003,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,LA,1242,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,DV,2103,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,VK,5062,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,BH,1392,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,BX,1495,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,KN,7817,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,KU,8753,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,SC,10163,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,ST,20723,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALP,"T D Govt. Medical College, Alappuzha",G,EW,1753,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,SM,904,"DA:13937, HR:28775, PD:42969, PI:3",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,EZ,1161,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,MU,1101,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,LA,1364,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,DV,2189,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,VK,4817,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,BH,1439,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,BX,1602,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,KN,7990,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,KU,15753,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,SC,11164,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,ST,19298,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,CMC,"Govt. Medical College, Ernakulam",G,EW,1943,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,SM,,"CC:3, PD:44709, PT:6",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,EZ,2362,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,MU,2373,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,LA,2328,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,DV,3296,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,VK,6307,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,BH,2556,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,BX,2674,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,KN,9811,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,KU,20214,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,SC,15439,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,ST,20938,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IDM,Government Medical College Idukki,G,EW,2842,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,SM,234,"CC:1, DA:7273, PD:25251, PT:1, SD:438, XS:362",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,EZ,475,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,MU,280,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,LA,529,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,DV,1020,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,VK,3098,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,BH,583,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,BX,1149,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,KN,4225,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,KU,7188,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,SC,5623,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,ST,11656,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKM,"Govt. Medical College, Kozhikkode",G,EW,1104,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,SM,852,"PD:43947, PI:7",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,EZ,1307,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,MU,1302,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,LA,1341,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,DV,2496,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,VK,5454,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,BH,1819,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,BX,2039,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,KN,8828,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,SC,10661,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,ST,20179,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KLM,"Govt. Medical College, Parippally, Kollam",G,EW,2291,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,SM,902,"PD:41698, PI:5",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,EZ,1172,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,MU,1110,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,LA,1154,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,DV,2485,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,VK,5400,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,BH,1536,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,BX,1724,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,KN,8315,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,KU,16743,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,SC,10321,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,ST,22920,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KNM,Government Medical College Kannur,G,EW,2186,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,SM,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,EZ,2409,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,MU,2394,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,LA,2916,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,DV,3689,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,VK,7450,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,BH,3104,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,SC,15624,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,ST,24479,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KSM,"Govt. Medical College, Kasaragod",G,EW,3467,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,SM,594,"CC:2, DA:13430, DK:23204, PD:37194, PI:1, XS:604",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,EZ,815,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,MU,673,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,LA,799,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,DV,1200,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,VK,3887,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,BH,820,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,BX,1351,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,KN,6247,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,KU,14879,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,SC,9173,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,ST,17812,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTM,"Govt. Medical College, Kottayam",G,EW,1496,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,SM,842,"DA:13760, PD:43642, PI:4, SD:2599, XS:1273",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,EZ,1213,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,MU,907,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,LA,1359,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,DV,2420,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,VK,5541,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,BH,1908,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,BX,1794,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,KN,8088,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,KU,16959,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,SC,11404,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,ST,21411,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLP,"Govt. Medical College, Manjeri",G,EW,2118,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,SM,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,EZ,1686,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,MU,1580,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,LA,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,DV,2573,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,SC,15239,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,ST,22753,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PKM,"Government Medical College, Palakkad",G,EW,2709,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,SM,,"DM:22110, PD:43821, PT:5",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,EZ,1797,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,MU,2100,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,LA,1892,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,DV,2604,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,VK,6514,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,BH,2332,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,BX,2396,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,KN,8873,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,KU,19105,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,SC,12463,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,ST,24871,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PTM,"Government Medical College, Konni, Pathanamthitta",G,EW,2686,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,SM,553,"DA:10305, HR:11187, PD:36644, PT:3, XS:709",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,EZ,794,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,MU,603,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,LA,849,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,DV,1934,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,VK,4531,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,BH,1223,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,BX,1421,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,KN,6595,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,KU,10556,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,SC,8673,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,ST,18453,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCM,"Govt. Medical College, Thrissur",G,EW,1746,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,SM,370,"DA:13306, DK:2696, NQ:22223, PD:30485, PT:4, XS:441",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,EZ,611,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,MU,450,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,LA,690,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,DV,789,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,VK,3297,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,BH,760,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,BX,502,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,KN,4808,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,KU,14155,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,SC,8701,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,ST,17277,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVM,"Govt. Medical College, Thiruvananthapuram",G,EW,1328,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,SM,,PD:44137,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,EZ,2353,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,MU,2388,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,LA,2833,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,DV,3457,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,VK,8062,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,BH,3119,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,BX,2849,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,KU,24407,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,SC,15494,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,ST,25421,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,WYM,"Govt. Medical College, Wayanad",G,EW,3229,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,SM,10678,"AM:7150, MM:14048, NR:43873",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,EZ,11120,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,MU,11925,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,LA,10856,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,DV,13481,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,VK,10971,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,BH,12385,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,BX,12255,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,KN,13922,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,KU,25834,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,SC,18029,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,ST,27405,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAM,"Al Azhar Medical college, Thodupuzha",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,SM,2678,"AC:7059, AM:2504, NC:24800, NR:15190",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,EZ,2765,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,MU,2806,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,LA,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,DV,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,VK,6594,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,BH,4485,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,SC,12876,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AMC,"Amala Institute of Medical Sciences, Thrissur",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,SM,8561,"AM:6522, MM:12316, NM:44474, NR:32089",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,EZ,10041,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,MU,10462,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,LA,9991,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,DV,10190,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,SC,17935,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZC,"Azeezia Institute of Medi Science, Meyyannoor, Kollam",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,SM,3599,"AC:8885, AM:3118, NC:27585, NR:15657",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,EZ,4250,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,MU,4592,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,LA,3942,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,DV,4179,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,SC,15750,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,BCM,"Believers Church Medical College Hospital, Thiruvalla",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,SM,8599,"AM:6165, NR:42556",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,EZ,10229,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,MU,9553,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,LA,8796,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,DV,11372,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,VK,10394,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,BH,10487,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,BX,11707,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,KN,11425,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,KU,26025,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,SC,17696,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,ST,25110,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,DMM,"Dr. Moopens Medical College, Meppadi, Wayanad",S,EW,18864,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,SM,3721,"AM:3208, MM:5780, NR:30040",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,EZ,4042,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,MU,3772,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,LA,3822,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,DV,7496,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,VK,7307,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,BH,4731,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,SC,15760,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,ST,25601,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EMC,"MES Medical College, Perinthalmanna, Malappuram",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,SM,3930,"AM:3018, NR:27900",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,EZ,4440,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,MU,4424,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,LA,4312,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,DV,7086,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,VK,8687,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,BH,5483,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,BX,5489,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,KN,8955,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,KU,16768,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,SC,15708,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,ST,26042,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,GMC,"Sree Gokulam Medical College, Venjaramoodu, TVPM",S,EW,9234,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,SM,2594,"AC:6254, AM:2277, NC:24043, NR:14224",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,EZ,2738,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,MU,2640,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,LA,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,DV,2953,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,VK,6799,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,KN,10280,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,KU,20246,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,SC,12062,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,ST,23192,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,JMC,"Jubilee Mission Medical College, Thrisur",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,SM,6158,"AM:4426, MM:8153, NR:36914",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,EZ,7981,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,MU,6597,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,LA,6646,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,DV,9140,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,VK,8940,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,BH,7667,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,BX,11449,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,KN,10147,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,KU,22030,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,SC,16993,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,ST,26857,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KCM,"KMCT Medical College, Mukkom, Kozikkode",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,SM,9756,"AM:6367, NR:40333",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,EZ,10910,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,MU,11493,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,LA,10519,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,DV,13326,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,VK,10771,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,BH,11767,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,BX,10169,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,KN,11078,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,KU,24308,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,SC,17967,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,ST,29420,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KDM,"P K Das Institute of Medical Sciences, Ottapalam",S,EW,19325,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,SM,6214,"AM:4007, MM:14034, NR:43596",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,EZ,7043,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,MU,6354,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,LA,6699,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,DV,7623,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,BH,9533,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,SC,16633,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,ST,28819,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KEM,"Kerala Medical College, Palakkad",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,SM,9844,"AM:6778, MM:13569, NR:42368",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,EZ,10407,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,MU,10343,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,LA,10247,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,DV,13046,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,BX,10583,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,KN,11112,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,SC,18003,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMM,"Karuna Medical College, Vilayodi, Palakkad",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,SM,3198,"AC:8422, AM:2924, NC:25795, NR:17537",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,EZ,3417,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,MU,3541,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,LA,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,DV,5237,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,BH,4563,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,SC,15479,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMC,"Malankara Orthodox Syrian Church MediCollege, Kolenchery",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,SM,5979,"AM:4387, NR:39155",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,EZ,7824,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,MU,7500,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,LA,6343,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,DV,9810,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,VK,8552,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,BH,7259,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,BX,7104,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,KN,10759,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,KU,20903,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,SC,17020,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,ST,26274,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MMH,"Malabar Medical College Hospital, Kozhikkode",S,EW,17273,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,SM,9556,"AC:12686, AM:7002, NR:44673",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,EZ,10277,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,MU,12517,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,LA,9793,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,DV,11614,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,BX,10088,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,KN,11407,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,KU,25845,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,SC,17070,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MZM,"Mount Zion Medical College, Pathanamthitta",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,SM,10841,"AM:7078, NR:43963",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,EZ,11397,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,MU,12635,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,LA,10949,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,DV,11305,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,VK,10928,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,BH,12231,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,BX,12554,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,KN,14509,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,KU,22645,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,SC,18034,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,ST,29388,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PIM,"Palakkad Institute of Medical Sciences, Walayar",S,EW,18733,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,SM,3586,"AC:8708, AM:2831, NC:27136, NR:19586",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,EZ,3758,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,MU,3619,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,LA,3638,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,DV,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,BH,4208,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,SC,13397,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,ST,26187,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMC,"Pushpagiri Institute of Medical Science, Thiruvalla",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,SM,8186,"AM:5134, NR:33229",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,EZ,9743,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,MU,10565,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,LA,8378,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,DV,9503,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,VK,9137,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,BH,12276,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,BX,10113,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,KN,10957,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,KU,19018,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,SC,17221,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,ST,28517,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SIM,"Sree Narayana Institute of Medical Sciences, Chalakka, Ernakulam.",S,EW,17625,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,SM,6730,"AC:11338, AM:4860, NC:36297, NR:29146",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,EZ,7466,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,MU,8055,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,LA,6869,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,DV,8434,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,VK,7547,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,KU,22213,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,SC,17251,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,ST,26678,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SMC,"Dr. Somervell Memorial CSI Medical College, Karakonam",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,SM,7597,"AM:5181, NR:42617",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,EZ,9551,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,MU,10416,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,LA,8880,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,DV,10713,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,VK,10451,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,BH,11624,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,BX,10430,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,KN,11377,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,KU,20850,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,SC,17930,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,ST,29304,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SUC,"SUT Accademy of Medical Sciences, Thiruvananthapuram",S,EW,14063,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,SM,5837,"AM:4755, MM:10302, NM:32860, NR:28529",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,EZ,6495,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,MU,6104,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,LA,5980,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,DV,7308,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,VK,7465,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,BH,8000,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,BX,7247,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,SC,17743,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,ST,28460,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRM,"Travancore Medical College, Umayanalloor, Kollam",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,SM,3774,"CC:7, XS:8669",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,EZ,5030,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,MU,4303,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,LA,7799,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,DV,5869,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,VK,11387,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,BH,4823,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,BX,10501,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,KN,19685,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,SC,19172,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,ST,32482,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ALD,"Government Dental College, Alappuzha",G,EW,6230,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,SM,2771,"PI:10, SD:5244",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,EZ,4073,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,MU,2861,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,LA,9218,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,DV,5287,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,VK,11757,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,BH,3641,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,SC,18265,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,ST,31374,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KKD,"Govt. Dental College, Kozhikkode",G,EW,4486,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,SM,3801,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,EZ,5626,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,MU,4295,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,LA,10997,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,DV,9527,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,VK,11994,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,BH,3929,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,BX,6220,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,KN,15404,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,KU,25543,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,SC,19187,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,ST,31731,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KND,"Government Dental College, Kannur",G,EW,8451,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,SM,3605,SD:13186,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,EZ,3808,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,MU,3720,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,LA,8016,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,DV,5552,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,BX,6126,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,KN,14937,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,KU,26530,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,SC,19379,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KTD,"Govt. Dental College, Kottayam",G,EW,5410,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,SM,3464,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,EZ,4730,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,MU,3702,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,LA,8141,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,DV,9079,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,VK,11198,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,BH,3901,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,SC,18906,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,ST,32433,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TCD,"Govt. Dental College, Thrissur",G,EW,6304,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,SM,3242,PT:13,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,EZ,4280,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,MU,3606,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,LA,6949,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,DV,5662,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,VK,11139,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,BH,3863,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,SC,18347,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,ST,33820,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TVD,"Govt. Dental College, Thiruvananthapuram",G,EW,5451,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,SM,27230,NR:33955,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,EZ,36234,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,MU,31919,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,LA,31759,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,DV,29314,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,VK,29792,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,BH,32380,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,BX,30034,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,KN,39124,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,KU,33012,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,SC,29309,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,ST,32567,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AAD,"Al Azhar Dental College, Thodupuzha",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,SM,18415,"MM:21951, NR:44825",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,EZ,23749,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,MU,21808,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,LA,19415,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,DV,22493,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,VK,22351,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,BH,24712,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,KN,22638,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,SC,21273,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,ST,35448,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,ADC,"Annoor Dental College, Puthuppady, Muvattupuzha",S,EW,37442,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,SM,29512,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,EZ,43357,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,MU,34174,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,LA,32165,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,DV,35355,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,VK,30323,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,BH,32056,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,BX,30303,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,KN,34150,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,KU,42757,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,SC,31907,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,ST,41933,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AID,"Sree Anjaneya Institue of Dental Scinces, Atholi, Kozhikode",S,EW,32920,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,SM,29125,"MM:36039, NR:43987",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,EZ,39634,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,MU,32110,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,LA,29809,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,DV,34260,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,VK,31489,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,BH,31380,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,KN,44475,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,KU,41073,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,SC,30564,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,ST,44704,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,AZD,"Azeezia College of Dental Science, Meyyannoor, Kollam",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,SM,28073,MM:33397,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,EZ,43614,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,MU,30741,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,LA,31392,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,DV,36959,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,VK,31304,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,BH,36518,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,BX,30569,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,KN,41551,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,KU,44447,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,SC,31518,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,ST,40831,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,EID,"Educare Institute of Dental Sciences, Malappuram",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,SM,27371,NR:42359,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,EZ,37107,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,MU,33463,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,LA,33524,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,DV,33963,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,VK,32889,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,BH,36306,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,BX,29815,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,KN,38206,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,KU,37966,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,SC,29209,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,ST,43969,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,IGD,"Indira Gandhi Institute of Dental Sciences, Kothamangalam",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,SM,32702,MM:44659,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,EZ,43854,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,MU,36789,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,LA,35492,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,DV,38656,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,VK,33945,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,BH,37583,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,BX,33514,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,KN,37062,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,KU,44319,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,SC,33833,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,ST,42669,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KAD,"Kannur Dental College, Anjarakandy, Kannur",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,SM,16241,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,EZ,19261,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,MU,17717,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,LA,17366,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,DV,27260,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,VK,26586,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,BH,20868,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,BX,19288,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,KN,30156,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,KU,30503,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,SC,23455,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,ST,37397,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,KMD,"KMCT Dental College, Mambatta, Mukkam, Kozhikode",S,EW,29366,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,SM,13646,"AC:18851, NR:42164",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,EZ,16924,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,MU,14036,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,LA,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,DV,14734,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,VK,14027,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,BH,15154,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,BX,14512,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,SC,20834,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,ST,34011,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MBD,"Mar Baselious Dental College, Kothamangalam",S,EW,17399,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,SM,19856,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,EZ,35865,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,MU,21061,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,LA,20662,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,DV,35048,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,VK,25666,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,BH,24197,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,BX,20887,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,KN,22261,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,KU,30822,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,SC,27484,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,ST,39276,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MED,"MES Dental College, Perinthalmanna",S,EW,41385,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,SM,28433,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,EZ,41335,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,MU,32907,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,LA,34757,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,DV,38638,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,VK,33247,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,BH,33828,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,BX,30693,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,KN,32879,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,KU,37708,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,SC,31679,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,MLD,"Malabar Dental College, Edappal",S,EW,42370,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,SM,26493,NR:42163,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,EZ,34263,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,MU,33728,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,LA,27095,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,DV,27462,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,VK,33354,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,BH,39454,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,BX,27101,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,KU,40611,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,SC,30187,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,NID,"Noorul Islam College of Dental Science, Neyyattinkara",S,EW,39698,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,SM,10650,"AC:18928, NR:41418",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,EZ,11713,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,MU,15525,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,LA,13845,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,DV,18148,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,VK,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,SC,19249,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMD,"Pushpagiri College of Dental Science, Thiruvalla",S,EW,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,SM,17082,"MM:30106, NR:44350",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,EZ,18658,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,MU,20238,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,LA,17971,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,DV,23190,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,VK,18093,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,BH,19778,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,BX,19091,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,KN,17616,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,KU,27605,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,SC,21792,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PMS,"PMS College of Dental Sciences, Vattappara, TVPM",S,EW,21057,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,SM,25032,NR:41106,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,EZ,36496,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,MU,32664,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,LA,33788,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,DV,30486,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,VK,27740,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,BH,39271,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,BX,30369,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,KN,26397,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,KU,27237,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,SC,30706,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,ST,43449,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,PSD,"PSM College of Dental Sciences, Thrissur",S,EW,39220,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,SM,27282,"MM:32478, NR:42478",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,EZ,40743,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,MU,31577,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,LA,31469,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,DV,29539,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,VK,31963,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,BH,28956,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,SC,30167,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,RDC,"Royal Dental College, Chalisery, Palakkad",S,EW,36778,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,SM,19864,AC:24375,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,EZ,23372,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,MU,26912,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,LA,20604,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,DV,24102,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,VK,25990,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,BH,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,SC,25133,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,ST,38057,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SGD,"St. Gregorios Dental College, Chelad, Kothamangalam",S,EW,24895,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,SM,32494,NR:38103,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,EZ,44562,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,MU,38468,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,LA,35112,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,DV,42196,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,VK,33877,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,BH,41883,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,BX,32625,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,KU,43408,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,SC,33411,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,SVD,"Sri Sankara Dental College, Akathumuri, Varkala",S,EW,42273,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,SM,23195,"MM:38828, NR:43397",mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,EZ,31434,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,MU,34504,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,LA,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,DV,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,VK,29643,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,BH,26606,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,BX,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,KN,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,KU,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,SC,24147,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,ST,,,mbbs_lrank_p3_final2.pdf
+2025,3,MBBS,TRD,"Travancore DentalCollege, Kollam",S,EW,,,mbbs_lrank_p3_final2.pdf

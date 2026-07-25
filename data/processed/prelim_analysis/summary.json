@@ -1,0 +1,849 @@
+{
+  "neet": {
+    "rows": 2333162,
+    "centres": 4750,
+    "min": -180,
+    "max": 720,
+    "mean": 217.1565862121876,
+    "std": 166.24000440757194,
+    "median": 163.0,
+    "p10": 50.0,
+    "p25": 87.0,
+    "p75": 313.0,
+    "p90": 484.0,
+    "p95": 570.0,
+    "p99": 657.0,
+    "neg": 9477,
+    "zero": 2259,
+    "ge_650": 30204,
+    "ge_600": 81550,
+    "ge_500": 210162,
+    "ge_400": 380760,
+    "ge_200": 981822,
+    "eq_720": 61
+  },
+  "neet_hist": [
+    {
+      "band": "<0",
+      "n": 9477,
+      "share": 0.00406186968585979
+    },
+    {
+      "band": "0-99",
+      "n": 683980,
+      "share": 0.2931558117267468
+    },
+    {
+      "band": "100-199",
+      "n": 657883,
+      "share": 0.28197056183839786
+    },
+    {
+      "band": "200-299",
+      "n": 360642,
+      "share": 0.1545722071592114
+    },
+    {
+      "band": "300-399",
+      "n": 240420,
+      "share": 0.10304470928293878
+    },
+    {
+      "band": "400-499",
+      "n": 170598,
+      "share": 0.07311879758027946
+    },
+    {
+      "band": "500-599",
+      "n": 128612,
+      "share": 0.055123476209538814
+    },
+    {
+      "band": "600-649",
+      "n": 51346,
+      "share": 0.02200704451726884
+    },
+    {
+      "band": "650-699",
+      "n": 27883,
+      "share": 0.011950734668231353
+    },
+    {
+      "band": "700-720",
+      "n": 2321,
+      "share": 0.0009947873315269149
+    }
+  ],
+  "neet_centres": {
+    "mean_of_means": 212.37448340297578,
+    "median_of_medians": 163.75,
+    "centres_mean_ge_400": 1,
+    "centres_mean_ge_500": 0,
+    "smallest_lt_50": 4,
+    "largest_centre_n": 1968,
+    "median_centre_n": 467.0
+  },
+  "neet_top_centres": [
+    {
+      "centre_id": 231509,
+      "count": 264,
+      "mean": 406.3,
+      "median": 434.0,
+      "max": 715
+    },
+    {
+      "centre_id": 392338,
+      "count": 404,
+      "mean": 396.4,
+      "median": 419.5,
+      "max": 700
+    },
+    {
+      "centre_id": 392343,
+      "count": 351,
+      "mean": 390.3,
+      "median": 396.0,
+      "max": 702
+    },
+    {
+      "centre_id": 392341,
+      "count": 355,
+      "mean": 388.8,
+      "median": 379.0,
+      "max": 702
+    },
+    {
+      "centre_id": 392336,
+      "count": 429,
+      "mean": 388.5,
+      "median": 393.0,
+      "max": 705
+    },
+    {
+      "centre_id": 230507,
+      "count": 397,
+      "mean": 386.5,
+      "median": 403.0,
+      "max": 705
+    },
+    {
+      "centre_id": 392333,
+      "count": 447,
+      "mean": 386.2,
+      "median": 394.0,
+      "max": 705
+    },
+    {
+      "centre_id": 392325,
+      "count": 502,
+      "mean": 386.2,
+      "median": 387.5,
+      "max": 705
+    }
+  ],
+  "neet_bottom_centres": [
+    {
+      "centre_id": 312710,
+      "count": 258,
+      "mean": 68.6,
+      "median": 47.0,
+      "max": 390
+    },
+    {
+      "centre_id": 170702,
+      "count": 349,
+      "mean": 73.4,
+      "median": 57.0,
+      "max": 461
+    },
+    {
+      "centre_id": 171501,
+      "count": 186,
+      "mean": 76.9,
+      "median": 61.0,
+      "max": 393
+    },
+    {
+      "centre_id": 140810,
+      "count": 225,
+      "mean": 80.9,
+      "median": 66.0,
+      "max": 589
+    },
+    {
+      "centre_id": 140613,
+      "count": 310,
+      "mean": 81.0,
+      "median": 68.5,
+      "max": 525
+    },
+    {
+      "centre_id": 261003,
+      "count": 171,
+      "mean": 82.4,
+      "median": 74.0,
+      "max": 508
+    },
+    {
+      "centre_id": 301005,
+      "count": 340,
+      "mean": 83.0,
+      "median": 66.5,
+      "max": 568
+    },
+    {
+      "centre_id": 445405,
+      "count": 228,
+      "mean": 85.7,
+      "median": 65.0,
+      "max": 610
+    }
+  ],
+  "nmc_schema": {
+    "index": "int64",
+    "type": "str",
+    "state": "float64",
+    "collegeName": "str",
+    "address": "str",
+    "city": "str",
+    "universityName": "str",
+    "management": "float64",
+    "yearOfInc": "float64",
+    "ugApproved": "int64",
+    "status": "str",
+    "statusText": "str",
+    "approvalDate": "str",
+    "name": "str",
+    "desgination": "str",
+    "telephone": "str",
+    "fax": "str",
+    "email": "str",
+    "website": "str",
+    "stateName": "str",
+    "collegeId": "int64",
+    "managementupdate": "str",
+    "totalCount": "int64",
+    "dateOfPermission": "float64",
+    "epabx": "float64",
+    "contactOfficePh": "float64",
+    "contactResidencePh": "float64",
+    "contactMobileNo": "float64",
+    "contactFax": "float64",
+    "contactEmail": "float64",
+    "collegeContacts": "str"
+  },
+  "nmc_n": 823,
+  "nmc_seats": {
+    "total": 129602.0,
+    "mean": 157.47509113001215,
+    "median": 150.0,
+    "min": 0.0,
+    "max": 250.0,
+    "missing": 0
+  },
+  "nmc_by_mgmt": [
+    {
+      "management": "Private",
+      "colleges": 361,
+      "seats": 65093.0
+    },
+    {
+      "management": "Govt.",
+      "colleges": 456,
+      "seats": 63859.0
+    },
+    {
+      "management": "Trust",
+      "colleges": 5,
+      "seats": 600.0
+    },
+    {
+      "management": "Society",
+      "colleges": 1,
+      "seats": 50.0
+    }
+  ],
+  "nmc_by_state": [
+    {
+      "state": "Karnataka",
+      "colleges": 74,
+      "seats": 14094.0
+    },
+    {
+      "state": "Uttar Pradesh",
+      "colleges": 88,
+      "seats": 13425.0
+    },
+    {
+      "state": "Tamil Nadu",
+      "colleges": 78,
+      "seats": 13050.0
+    },
+    {
+      "state": "Maharashtra",
+      "colleges": 85,
+      "seats": 12824.0
+    },
+    {
+      "state": "Telangana",
+      "colleges": 66,
+      "seats": 9540.0
+    },
+    {
+      "state": "Gujarat",
+      "colleges": 43,
+      "seats": 7525.0
+    },
+    {
+      "state": "Rajasthan",
+      "colleges": 49,
+      "seats": 7330.0
+    },
+    {
+      "state": "Andhra Pradesh",
+      "colleges": 39,
+      "seats": 7215.0
+    },
+    {
+      "state": "West Bengal",
+      "colleges": 41,
+      "seats": 6474.0
+    },
+    {
+      "state": "Madhya Pradesh",
+      "colleges": 35,
+      "seats": 5725.0
+    },
+    {
+      "state": "Kerala",
+      "colleges": 37,
+      "seats": 5554.0
+    },
+    {
+      "state": "Bihar",
+      "colleges": 25,
+      "seats": 3545.0
+    },
+    {
+      "state": "Orissa",
+      "colleges": 21,
+      "seats": 3025.0
+    },
+    {
+      "state": "Haryana",
+      "colleges": 17,
+      "seats": 2710.0
+    },
+    {
+      "state": "Chattisgarh",
+      "colleges": 16,
+      "seats": 2455.0
+    }
+  ],
+  "nmc_states_n": 34,
+  "nmc_ownership": [
+    {
+      "type": "government_like",
+      "colleges": 456,
+      "seats": 63859.0
+    },
+    {
+      "type": "private_like",
+      "colleges": 367,
+      "seats": 65743.0
+    }
+  ],
+  "osf_schema": {
+    "Age": "int64",
+    "Gender": "int64",
+    "SES (5= highest and 1= Lowest)": "int64",
+    "ESS1": "int64",
+    "ESS2": "int64",
+    "ESS3": "int64",
+    "ESS4": "int64",
+    "ESS5": "int64",
+    "ESS6": "int64",
+    "ESS7": "int64",
+    "ESS9": "int64",
+    "ESS10": "int64",
+    "ESS11": "int64",
+    "ESS12": "int64",
+    "ESS13": "int64",
+    "ESS14": "int64",
+    "ESS15": "int64",
+    "ESS": "int64",
+    "PPE1": "int64",
+    "PPE2": "int64",
+    "PPE3": "int64",
+    "PPE4": "int64",
+    "PPE5": "int64",
+    "PPE6": "int64",
+    "PPE7": "int64",
+    "PPE8": "int64",
+    "PPE9": "int64",
+    "PPE": "int64",
+    "GMS1": "int64",
+    "GMS2": "int64",
+    "GMS3": "int64",
+    "GMS4": "int64",
+    "GMS5": "int64",
+    "GMS": "int64",
+    "DSHI1": "int64",
+    "DSHI2": "int64",
+    "DSHI3": "int64",
+    "DSHI4": "int64",
+    "DSHI5": "int64",
+    "DSHI6": "int64",
+    "DSHI7": "int64",
+    "DSHI8": "int64",
+    "DSHI9": "int64",
+    "DSHI10": "int64",
+    "DSHI11": "int64",
+    "DSHI12": "int64",
+    "DSHI13": "int64",
+    "DSHI14": "int64",
+    "DSHI15": "int64",
+    "DSHI16": "int64",
+    "DSHI": "int64"
+  },
+  "osf_n": 151,
+  "osf_demo": {
+    "age_mean": 18.456953642384107,
+    "age_sd": 1.9654858579589538,
+    "age_min": 13.0,
+    "age_max": 28.0,
+    "gender_counts": {
+      "0": 118,
+      "1": 33
+    },
+    "ses_counts": {
+      "1": 40,
+      "2": 31,
+      "3": 45,
+      "4": 22,
+      "5": 13
+    }
+  },
+  "osf_ESS": {
+    "mean": 48.37748344370861,
+    "sd": 10.806628658284572,
+    "min": 19.0,
+    "max": 71.0,
+    "missing": 0
+  },
+  "osf_PPE": {
+    "mean": 29.841059602649008,
+    "sd": 7.637707086320071,
+    "min": 9.0,
+    "max": 45.0,
+    "missing": 0
+  },
+  "osf_GMS": {
+    "mean": 11.907284768211921,
+    "sd": 3.5932362263517335,
+    "min": 5.0,
+    "max": 20.0,
+    "missing": 0
+  },
+  "osf_DSHI": {
+    "mean": 1.6158940397350994,
+    "sd": 2.6327702195021825,
+    "min": 0.0,
+    "max": 12.0,
+    "missing": 0
+  },
+  "osf_corr": {
+    "Age": {
+      "Age": 1.0,
+      "SES (5= highest and 1= Lowest)": -0.1860909624551825,
+      "ESS": -0.03987592842068408,
+      "PPE": 0.05816173120724919,
+      "GMS": 0.044741147452058636,
+      "DSHI": 0.005801734173432806
+    },
+    "SES (5= highest and 1= Lowest)": {
+      "Age": -0.1860909624551825,
+      "SES (5= highest and 1= Lowest)": 1.0,
+      "ESS": -0.010865248256546639,
+      "PPE": -0.13839170570962983,
+      "GMS": -0.017414824517321185,
+      "DSHI": -0.12083375843212356
+    },
+    "ESS": {
+      "Age": -0.03987592842068408,
+      "SES (5= highest and 1= Lowest)": -0.010865248256546639,
+      "ESS": 1.0,
+      "PPE": 0.44489153760100625,
+      "GMS": -0.2095786829193498,
+      "DSHI": 0.34371960163005216
+    },
+    "PPE": {
+      "Age": 0.05816173120724919,
+      "SES (5= highest and 1= Lowest)": -0.13839170570962983,
+      "ESS": 0.44489153760100625,
+      "PPE": 1.0,
+      "GMS": 0.04658558882539496,
+      "DSHI": 0.25521149448101604
+    },
+    "GMS": {
+      "Age": 0.044741147452058636,
+      "SES (5= highest and 1= Lowest)": -0.017414824517321185,
+      "ESS": -0.2095786829193498,
+      "PPE": 0.04658558882539496,
+      "GMS": 1.0,
+      "DSHI": -0.1271136935297007
+    },
+    "DSHI": {
+      "Age": 0.005801734173432806,
+      "SES (5= highest and 1= Lowest)": -0.12083375843212356,
+      "ESS": 0.34371960163005216,
+      "PPE": 0.25521149448101604,
+      "GMS": -0.1271136935297007,
+      "DSHI": 1.0
+    }
+  },
+  "osf_by_ses": [
+    {
+      "SES": 1,
+      "n": 40,
+      "dshi_mean": 2.33,
+      "ppe_mean": 30.52,
+      "ess_mean": 48.52
+    },
+    {
+      "SES": 2,
+      "n": 31,
+      "dshi_mean": 1.55,
+      "ppe_mean": 30.74,
+      "ess_mean": 47.42
+    },
+    {
+      "SES": 3,
+      "n": 45,
+      "dshi_mean": 1.04,
+      "ppe_mean": 29.73,
+      "ess_mean": 48.82
+    },
+    {
+      "SES": 4,
+      "n": 22,
+      "dshi_mean": 1.82,
+      "ppe_mean": 30.59,
+      "ess_mean": 50.55
+    },
+    {
+      "SES": 5,
+      "n": 13,
+      "dshi_mean": 1.23,
+      "ppe_mean": 24.69,
+      "ess_mean": 45.0
+    }
+  ],
+  "mcc_n": 37,
+  "mcc_titles": [
+    "FINAL SEAT MATRIX FOR ALL INDIA QUOTA EXCEPT CENTRAL UNIVERSITY ROUND 1 UG 2024 (MBBS)",
+    "FINAL SEAT MATRIX FOR ALL INDIA QUOTA EXCEPT CENTRAL UNIVERSITY ROUND 1 UG 2024 (BDS)",
+    "FINAL SEAT MATRIX FOR CENTRAL UNIVERSITY 1 UG 2024 (MBBS)",
+    "FINAL SEAT MATRIX FOR DEEMED ROUND 1 UG 2024 (BDS)",
+    "FINAL SEAT MATRIX FOR B.SC NURSING ROUND 1 UG 2024",
+    "FINAL SEAT MATRIX FOR ALL INDIA INSTITUTE OF MEDICAL SCIENCES (AIIMS) ROUND 1 UG 2024 (MBBS)",
+    "FINAL SEAT MATRIX FOR CENTRAL UNIVERSITY 1 UG 2024 (BDS)",
+    "FINAL SEAT MATRIX FOR EMPLOYEES STATE INSURANCE SCHEME ROUND 1 UG 2024 (MBBS& BDS)",
+    "FINAL SEAT MATRIX FOR JIPMER MBBS ROUND 1 UG 2024 (MBBS)",
+    "FINAL SEAT MATRIX FOR DEEMED ROUND 1 UG 2024 (MBBS)",
+    "Final Result of Round 1 NEET UG 2024",
+    "Clear Vacancy ROUND 2 UG Counselling 2024 MBBS BDS B.Sc. Nursing",
+    "Virtual Vacancy ROUND 2 UG Counselling 2024 MBBS BDS B.Sc. Nursing",
+    "Notice for Provisional Result for Round 2 of UG Counselling 2024",
+    "Provisional Allotment Result for UG Counselling Round 2",
+    "Final Allotment Result for Round 2 of UG Counselling 2024",
+    "Clear Vacancy ROUND 3 UG Counselling 2024",
+    "Virtual Vacancy ROUND 3 UG Counselling 2024",
+    "FINAL RESULT ROUND 3 UG COUNSELLING 2024",
+    "Revised Notice dated 22.10.2024 for Eligibility of Stray Vacancy Round",
+    "Clear Vacancy for Stray Round UG Counselling 2024",
+    "Notice For Extension of choice filling for Stray Vacancy Round of UG 2024",
+    "Notice for withdrawal of seats from seat matrix of Stray Vacancy Round of UG Counselling 2024",
+    "Final Allotment Result for Stray Vacancy Round UG Counselling 2024",
+    "AIQ Schedule for Special Stray Vacancy Round for UG Counselling 2024",
+    "Notice for eligibility for Special Stray vacancy Round for UG Counselling 2024",
+    "Notice for provisional Result for Special Stray vacancy Round of UG Counselling 2024",
+    "Provisional Allotment Result for Special Stray vacancy Round of UG Counselling 2024",
+    "Final Allotment Result for UG Special Stray Vacancy Round 2024",
+    "Notice for JIPMER SEAT ALLOTMENT UG 2024",
+    "All Admitted candidates list for UG 2024",
+    "SCHEDULE OF SPECIAL STRAY VACANCY ROUND II OF UG COUNSELLING FOR BDS B.SC NURSING SEATS 2024",
+    "SEAT MATRIX SPECIAL STRAY VACANCY ROUND II UG 2024",
+    "Final Result for Special Stray vacancy Round II of UG Counselling 2024",
+    "Special Stray Vacancy Round III For NEET UG MBBS",
+    "VACANT SEATS SPECIAL STRAY VACANCY ROUND III FOR UG COUNSELLING 2024 (MBBS)",
+    "Result for Special Stray Round III of NEET UG Counselling 2024"
+  ],
+  "kerala_links_n": 13,
+  "kerala_links": [
+    {
+      "source_page": "cee_home.html",
+      "title": "Fresh applications are invited for admission to Medical & Medical Allied Courses.....Existing KEAM applicants can add Medical & Medical Allied Courses and eligible reservation claims......|",
+      "url": "https://cee.kerala.gov.in/keamonline2026/"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "Engineering: The Second Phase Allotment has been published..............",
+      "url": "https://cee.kerala.gov.in/keam2026/notification"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "Architecture : The First Phase Allotment has been published......| :",
+      "url": "https://cee.kerala.gov.in/keam2026/notification"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "Kerala Medical Courses Candidates Can Rectify Defects In NRI Documents.....|",
+      "url": "https://cee.kerala.gov.in/keam2026/notification"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "PG Medical 2025 - Candidate portal",
+      "url": "https://cee.kerala.gov.in/pgm2025/"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "Government order regarding Fee Structure in Believers Church Medical College",
+      "url": "https://cee.kerala.gov.in/otherlinks/fee_structure.pdf"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "KEAM 2017-18 - MBBS - BPL Scholarship - Weightage Marks",
+      "url": "https://cee.kerala.gov.in/keam2017_noti/"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "KEAM 2018-19 - MBBS - BPL Scholarship - Weightage Marks",
+      "url": "https://cee.kerala.gov.in/keam2018_noti/"
+    },
+    {
+      "source_page": "cee_home.html",
+      "title": "KEAM 2019-20 - MBBS - BPL Scholarship",
+      "url": "https://cee.kerala.gov.in/keam2019_noti/"
+    },
+    {
+      "source_page": "keam2025_home.html",
+      "title": "Category List",
+      "url": "https://cee.kerala.gov.in/keam2025/catlist"
+    },
+    {
+      "source_page": "keam2025_home.html",
+      "title": "Rank List",
+      "url": "https://cee.kerala.gov.in/keam2025/ranklist"
+    },
+    {
+      "source_page": "keam2025_home.html",
+      "title": "Allotment List",
+      "url": "https://cee.kerala.gov.in/keam2025/allotlist"
+    },
+    {
+      "source_page": "keam2025_home.html",
+      "title": "Last Rank",
+      "url": "https://cee.kerala.gov.in/keam2025/last_rank"
+    }
+  ],
+  "published": [
+    {
+      "estimate_id": "neet_2024_candidate_rows",
+      "value": 2333162.0,
+      "unit": "candidates",
+      "geography": "India",
+      "reference_period": "2024",
+      "source": "NTA centre-wise reconstruction (hq969) reconciled to NTA re-revised press 2024-07-26",
+      "limitations": "Anonymized marks rows; equals official appeared excluding 135 UFM; centre state is not domicile."
+    },
+    {
+      "estimate_id": "neet_2024_appeared_including_ufm",
+      "value": 2333297.0,
+      "unit": "candidates",
+      "geography": "India",
+      "reference_period": "2024",
+      "source": "NTA re-revised result press release 2024-07-26",
+      "limitations": "Includes 135 unfair-means cases excluded from most official tables and from the centre-marks reconstruction."
+    },
+    {
+      "estimate_id": "neet_2024_qualified",
+      "value": 1315853.0,
+      "unit": "candidates",
+      "geography": "India",
+      "reference_period": "2024",
+      "source": "NTA re-revised result press release 2024-07-26",
+      "limitations": "Re-revised after grace-mark/result litigation; initial 2024-06-04 press had 1316268 qualified."
+    },
+    {
+      "estimate_id": "neet_2024_registered",
+      "value": 2406079.0,
+      "unit": "candidates",
+      "geography": "India",
+      "reference_period": "2024",
+      "source": "NTA re-revised result press release 2024-07-26",
+      "limitations": "Registered count; not all appeared."
+    },
+    {
+      "estimate_id": "neet_2024_exam_centres",
+      "value": 4750.0,
+      "unit": "centres",
+      "geography": "India and overseas",
+      "reference_period": "2024",
+      "source": "NTA press + reconstruction centre list",
+      "limitations": "Centre IDs include multiple codes per venue in some cases; reconstruction unique centre_id count matches."
+    },
+    {
+      "estimate_id": "neet_2024_cities",
+      "value": 567.0,
+      "unit": "cities",
+      "geography": "India and overseas",
+      "reference_period": "2024",
+      "source": "hq969 centres CSV",
+      "limitations": "NTA press cites 571 cities; local centre list has 567 distinct city labels \u2014 small labeling difference."
+    },
+    {
+      "estimate_id": "nmc_mbbs_colleges_current_page",
+      "value": 823.0,
+      "unit": "colleges",
+      "geography": "India",
+      "reference_period": "2025-26 current page",
+      "source": "NMC MBBS college list",
+      "limitations": "Dynamic page; snapshot date required."
+    },
+    {
+      "estimate_id": "nmc_mbbs_seats_current_page",
+      "value": 129602.0,
+      "unit": "seats",
+      "geography": "India",
+      "reference_period": "2025-26 current page",
+      "source": "NMC MBBS college list",
+      "limitations": "Dynamic page; reconcile with INIs and final matrix."
+    },
+    {
+      "estimate_id": "world_bank_physician_monthly_wage",
+      "value": 57218.0,
+      "unit": "INR/month",
+      "geography": "India",
+      "reference_period": "PLFS 2022-23 in July 2024 INR",
+      "source": "World Bank health labor report",
+      "limitations": "Mean wage; physician distribution is wide."
+    },
+    {
+      "estimate_id": "world_bank_public_physician_monthly_wage",
+      "value": 74965.0,
+      "unit": "INR/month",
+      "geography": "India",
+      "reference_period": "PLFS 2022-23 in July 2024 INR",
+      "source": "World Bank health labor report",
+      "limitations": "Mean public-sector physician wage."
+    },
+    {
+      "estimate_id": "world_bank_private_physician_monthly_wage",
+      "value": 45948.0,
+      "unit": "INR/month",
+      "geography": "India",
+      "reference_period": "PLFS 2022-23 in July 2024 INR",
+      "source": "World Bank health labor report",
+      "limitations": "Mean private-sector physician wage."
+    },
+    {
+      "estimate_id": "world_bank_engineer_monthly_wage",
+      "value": 46942.0,
+      "unit": "INR/month",
+      "geography": "India",
+      "reference_period": "PLFS 2022-23 in July 2024 INR",
+      "source": "World Bank health labor report",
+      "limitations": "Comparator occupation mean."
+    },
+    {
+      "estimate_id": "world_bank_professional_nurse_monthly_wage",
+      "value": 20632.0,
+      "unit": "INR/month",
+      "geography": "India",
+      "reference_period": "PLFS 2022-23 in July 2024 INR",
+      "source": "World Bank health labor report",
+      "limitations": "Comparator occupation mean."
+    },
+    {
+      "estimate_id": "wid_top_1_income_share",
+      "value": 22.6,
+      "unit": "percent",
+      "geography": "India",
+      "reference_period": "2022-23",
+      "source": "World Inequality Lab",
+      "limitations": "Pre-tax national income share."
+    },
+    {
+      "estimate_id": "wid_top_1_wealth_share",
+      "value": 40.1,
+      "unit": "percent",
+      "geography": "India",
+      "reference_period": "2022-23",
+      "source": "World Inequality Lab",
+      "limitations": "Net personal wealth share."
+    },
+    {
+      "estimate_id": "rajan_admitted_coached_2019_20",
+      "value": 98.5,
+      "unit": "percent of admitted students",
+      "geography": "Tamil Nadu",
+      "reference_period": "2019-20",
+      "source": "Justice A.K. Rajan Committee",
+      "limitations": "Approximate reported figure; admitted denominator only."
+    },
+    {
+      "estimate_id": "rajan_repeaters_admitted_2020_21",
+      "value": 71.42,
+      "unit": "percent of admitted students",
+      "geography": "Tamil Nadu",
+      "reference_period": "2020-21",
+      "source": "Justice A.K. Rajan Committee",
+      "limitations": "Does not give national applicant success probability."
+    },
+    {
+      "estimate_id": "neet_anxiety_stressed_sample",
+      "value": 75.5,
+      "unit": "percent of sample",
+      "geography": "one private junior college",
+      "reference_period": "2020",
+      "source": "Thiriveedhi et al.",
+      "limitations": "n=200 convenience sample; not national prevalence."
+    },
+    {
+      "estimate_id": "cmse_metadata_private_coaching_mean",
+      "value": 15312.45,
+      "unit": "INR/current academic year",
+      "geography": "CMSE metadata subset",
+      "reference_period": "2025",
+      "source": "MoSPI CMSE 80th metadata",
+      "limitations": "Metadata page showed 319 valid values; investigate file/skip pattern before use."
+    },
+    {
+      "estimate_id": "cmse_metadata_private_coaching_sd",
+      "value": 19242.44,
+      "unit": "INR/current academic year",
+      "geography": "CMSE metadata subset",
+      "reference_period": "2025",
+      "source": "MoSPI CMSE 80th metadata",
+      "limitations": "Unweighted catalog summary; not population estimate."
+    },
+    {
+      "estimate_id": "cmse_metadata_private_coaching_max",
+      "value": 120000.0,
+      "unit": "INR/current academic year",
+      "geography": "CMSE metadata subset",
+      "reference_period": "2025",
+      "source": "MoSPI CMSE 80th metadata",
+      "limitations": "Unweighted catalog maximum in displayed subset."
+    }
+  ],
+  "scarcity": {
+    "nmc_ug_seats_sum": 129602.0,
+    "neet_2024_mark_rows": 2333162,
+    "candidates_per_nmc_seat": 18.00251539328097,
+    "share_ge_650": 0.012945521999758267,
+    "share_ge_600": 0.034952566517027106,
+    "share_ge_500": 0.09007604272656593
+  }
+}

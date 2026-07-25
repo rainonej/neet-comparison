@@ -11,11 +11,11 @@ Register every successful file with `scripts/register_download.py`. Raw files st
 | # | Source | Local path | Status |
 |---|---|---|---|
 | 1 | OSF `tnh4x` aspirant microdata | `data/external/osf/tnh4x/raw/` | Downloaded (CSV, methods, scales) |
-| 2 | OpenICPSR E112992 | `data/external/openicpsr/E112992/raw/` | Blocked: free ICPSR login required |
-| 3 | NEET-2024 centre marks (reconstruction) | `data/external/neet-2024-center-marks.csv` | Downloaded; summaries refreshed |
+| 2 | OpenICPSR E112992 | `data/external/openicpsr/E112992/raw/` | Still blocked: free ICPSR login (probe 2026-07-25) |
+| 3 | NEET-2024 centre marks (reconstruction) | `data/external/neet-2024-center-marks.csv` | Downloaded; **reconciled** to NTA re-revised appeared 2,333,162 |
 | 4 | NMC MBBS colleges | `data/raw/nmc_colleges.csv` (+ JSON) | Downloaded via NMC JSON API (823 rows) |
 | 5 | MCC UG 2024 archive | `data/raw/mcc_2024/2024/` | Downloaded (37 PDFs + index) |
-| 6 | Kerala CEE/KEAM public lists | `data/external/kerala_cee/raw/` | Landing pages + link index archived |
+| 6 | Kerala CEE/KEAM public lists | `data/external/kerala_cee/raw/` + `data/processed/kerala/` | PDFs archived; **tidy panels** parsed (no appl. nos. in processed) |
 | 7 | Official NTA centre PDFs | `data/raw/neet_2024/` | Best-effort only; not completed |
 | 8 | **Dakshana annual reports + JDST 2024 notification** | `data/external/dakshana/raw/` | Downloaded (~520 MB; AR07–AR24 + JDST rules) |
 | 9 | **CBSE dummy-school enforcement** | `data/external/cbse/raw/` + `data/processed/cbse_dummy_school_registry.csv` | Downloaded press PDFs + HTML lists; school registry built |

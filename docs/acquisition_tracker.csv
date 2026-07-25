@@ -1,10 +1,10 @@
 priority,provider,dataset,years,access_type,known_cost,status,date_requested,date_received,local_path,license_checked,notes
-A1,MoSPI Microdata Portal,Periodic Labour Force Survey (annual/calendar public-use files),2017-18 through 2023-24; calendar 2024; calendar 2025,Free account/login,₹0,not_requested,,,,no,
-A2,MoSPI Microdata Portal,Household Consumption Expenditure Survey (HCES),2022-23 and 2023-24,Free account/login,₹0,not_requested,,,,no,
-A3,MoSPI Microdata Portal,"Comprehensive Modular Survey on Education (CMSE), NSS 80th Round",2025,Free account/login,₹0,not_requested,,,,no,
+A1,MoSPI Microdata Portal,Periodic Labour Force Survey (annual/calendar public-use files),2017-18 through 2023-24; calendar 2024; calendar 2025,Free account/login,₹0,login_required_probe_2026-07-25,,,data/external/mospi/plfs,no,Catalog reachable; microdata download blocked without MoSPI account. See data/processed/gated_download_status.csv
+A2,MoSPI Microdata Portal,Household Consumption Expenditure Survey (HCES),2022-23 and 2023-24,Free account/login,₹0,login_required_probe_2026-07-25,,,data/external/mospi/hces,no,Same MoSPI login wall as PLFS
+A3,MoSPI Microdata Portal,"Comprehensive Modular Survey on Education (CMSE), NSS 80th Round",2025,Free account/login,₹0,login_required_probe_2026-07-25,,,data/external/mospi/cmse,no,Same MoSPI login wall
 A4,MoSPI Microdata Portal,"Household Social Consumption: Education, NSS 75th Round",2017-18,Free account/login,₹0,not_requested,,,,no,
-A5,MoSPI Microdata Portal,"Debt and Investment Survey (AIDIS), NSS 77th Round",2019,Free account/login,₹0,not_requested,,,,no,
-A6,The DHS Program,National Family Health Survey NFHS-5,2019-21,Free request/login; approval required,₹0,not_requested,,,,no,
+A5,MoSPI Microdata Portal,"Debt and Investment Survey (AIDIS), NSS 77th Round",2019,Free account/login,₹0,login_required_probe_2026-07-25,,,data/external/mospi/aidis,no,Same MoSPI login wall
+A6,The DHS Program,National Family Health Survey NFHS-5,2019-21,Free request/login; approval required,₹0,login_required_probe_2026-07-25,,,data/external/dhs/nfhs5,no,Dataset page reachable; download requires DHS account + project approval
 A7,The DHS Program,National Family Health Survey NFHS-4,2015-16,Free request/login; approval required,₹0,not_requested,,,,no,
 A8,ICPSR / DSDR,India Human Development Survey I and II,2004-05 and 2011-12,Free account/terms,₹0,not_requested,,,,no,
 A9,PRICE,ICE 360 Household Surveys,"2014, 2016, 2021, 2023",Login/register; terms/approval or quote unclear,Unknown; ask PRICE,not_requested,,,,no,

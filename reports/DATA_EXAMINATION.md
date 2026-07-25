@@ -242,22 +242,24 @@ Small, selected, cross-sectional — prior fodder only.
 
 ## 5. Recommended next analytic steps
 
-1. **Reconcile** NEET row counts and centre lists against official NTA 2024 appeared/qualified figures; hash official PDFs where re-downloadable.
-2. **Extract MCC 2024** seat-matrix and final-allotment tables into tidy CSVs (rank, category, institute, round).
-3. **Parse Kerala** rank/allotment/last-rank pages into structured panels for the first state adapter.
-4. **Fix NMC scrape consumers** to use `stateName` / `managementupdate` (older prelim script grouped null `state`/`management`).
-5. **Register and download** HCES, CMSE, PLFS, NFHS, AIDIS per `docs/GATED_NEXT.md`.
-6. **Complete OpenICPSR E112992** download after login (engineering-admissions replication as structural analogue).
+Execution status: [NEXT_STEPS_EXECUTION.md](NEXT_STEPS_EXECUTION.md).
+
+1. **Reconcile** NEET row counts and centre lists against official NTA 2024 appeared/qualified figures; hash official PDFs where re-downloadable. → **PASS** (exact row/centre match to re-revised press).
+2. **Extract MCC 2024** seat-matrix and final-allotment tables into tidy CSVs (rank, category, institute, round). → **Done** (57,873 merged allotment rows + Round-3 wide status).
+3. **Parse Kerala** rank/allotment/last-rank pages into structured panels for the first state adapter. → **Done** (`data/processed/kerala/`).
+4. **Fix NMC scrape consumers** to use `stateName` / `managementupdate`. → **Done**.
+5. **Register and download** HCES, CMSE, PLFS, NFHS, AIDIS per `docs/GATED_NEXT.md`. → **Blocked on free-account login**.
+6. **Complete OpenICPSR E112992** download after login. → **Blocked on free-account login**.
 
 ---
 
 ## 6. Machine-readable companion
 
-Regenerated summary JSON:
+Regenerated summary JSON (allowlisted for git):
 
 `data/processed/prelim_analysis/data_examination_summary.json`
 
-Related existing artifacts: `neet_2024_marks_*.csv`, `published_estimates.csv`, `reports/INITIAL_FINDINGS.md`.
+Also: `summary.json`, `neet_2024_nta_reconciliation.csv`, `neet_2024_marks_*.csv`, `published_estimates.csv`, `reports/INITIAL_FINDINGS.md`.
 
 ---
 
