@@ -6,8 +6,10 @@ __pycache__/
 _incoming/
 data/raw/**/*
 !data/raw/**/.gitkeep
+!data/raw/restricted/README.md
 data/external/**/*
 !data/external/**/.gitkeep
+!data/external/**/README.md
 data/processed/**/*
 !data/processed/**/.gitkeep
 !data/processed/README.md
