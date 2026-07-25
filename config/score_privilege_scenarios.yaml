@@ -1,5 +1,6 @@
-model_version: 0.5.1
+model_version: 0.5.2
 purpose: score_rank_seat_privilege_inequality_story
+production_pathway: true
 causal_language: prohibited
 
 narrative:
@@ -195,16 +196,26 @@ access_ladder:
     label: English · can afford private · metro · intensive prep
 
 # Arms-race scenarios for figures.
+# everyone_*: true universal coaching — focal + population both get that prep (δ_rel ≈ 0).
+# rivals_escalate_*: focal keeps labeled prep; only the comparison population is forced.
 arms_race_scenarios:
   - id: unilateral
     description: Stratum coaches as labeled; population mean coaching shift subtracted so ranks are relative
     subtract_population_mean_shift: true
   - id: everyone_modest
-    description: Entire population gets modest coaching (relative advantage collapses)
-    force_population_prep: modest
+    description: Entire applicant pool and focal stratum get modest coaching (relative coaching advantage collapses)
+    force_all_prep: modest
     subtract_population_mean_shift: true
   - id: everyone_intensive
-    description: Entire population gets intensive coaching (pure cost arms race)
+    description: Entire applicant pool and focal stratum get intensive coaching (pure cost arms race; relative δ ≈ 0)
+    force_all_prep: intensive
+    subtract_population_mean_shift: true
+  - id: rivals_escalate_modest
+    description: Focal keeps labeled prep; rivals forced to modest (positional penalty if under-prepped)
+    force_population_prep: modest
+    subtract_population_mean_shift: true
+  - id: rivals_escalate_intensive
+    description: Focal keeps labeled prep; rivals forced to intensive (positional penalty if under-prepped)
     force_population_prep: intensive
     subtract_population_mean_shift: true
 

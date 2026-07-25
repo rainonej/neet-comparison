@@ -48,10 +48,30 @@ def main() -> None:
         print(f"  {key}: {path}")
     print(f"model_version: {config.get('model_version')}")
     print(f"coaching_profile: {story.get('coaching_profile')}")
-    print(f"govt cutoff share: {story['capacity']['government_cutoff_percentile']:.4f}")
-    print(f"any MBBS cutoff share: {story['capacity']['any_mbbs_cutoff_percentile']:.4f}")
+    cap = story["capacity"]
+    gov_thr = cap.get(
+        "government_capacity_threshold_percentile", cap.get("government_cutoff_percentile")
+    )
+    any_thr = cap.get(
+        "any_mbbs_capacity_threshold_percentile", cap.get("any_mbbs_cutoff_percentile")
+    )
+    print(f"govt capacity-equivalent threshold: {gov_thr:.4f}")
+    print(f"any MBBS capacity-equivalent threshold: {any_thr:.4f}")
+    waterfall = story.get("waterfall_unilateral") or []
+    if waterfall:
+        print("unilateral waterfall (p_accessible):")
+        for step in waterfall:
+            delta = step.get("delta_p_accessible")
+            delta_s = "baseline" if delta is None else f"{delta:+.4f}"
+            print(
+                f"  {step['step_id']:16s}  {step['p_accessible_seat']:.4f}  "
+                f"({delta_s})  [{step['evidence_class']}]"
+            )
     if decomp.get("full_ladder_ratio_top_over_low") is not None:
-        print(f"unilateral access ladder ratio: {decomp['full_ladder_ratio_top_over_low']:.3f}")
+        print(
+            f"extreme top/bottom scenario ratio (not a national estimate): "
+            f"{decomp['full_ladder_ratio_top_over_low']:.3f}"
+        )
         print(
             f"mean marks low->top: {decomp['mean_marks_low']:.1f} -> {decomp['mean_marks_top']:.1f}"
         )

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Accessible Seat — a taxing lottery sold as merit</title>
+  <title>The Accessible Seat — scarce ranks, unequal tickets</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -402,6 +402,29 @@
     .ladder-row .pct {
       font-family: Syne, sans-serif; font-weight: 700; text-align: right; font-size: 0.9rem;
     }
+    .waterfall { display: grid; gap: 0.55rem; margin-top: 0.75rem; }
+    .waterfall-row {
+      display: grid;
+      grid-template-columns: minmax(10rem, 1.5fr) 5.2rem minmax(7rem, 1fr) 4.2rem;
+      gap: 0.65rem; align-items: center; font-size: 0.88rem;
+    }
+    .waterfall-row .name { line-height: 1.25; font-family: Syne, sans-serif; font-weight: 600; font-size: 0.8rem; }
+    .waterfall-row .name small { display: block; color: var(--ink-soft); font-size: 0.68rem; font-weight: 500; }
+    .waterfall-row .ev {
+      font-size: 0.62rem; letter-spacing: 0.04em; text-transform: uppercase;
+      font-weight: 700; padding: 0.2rem 0.45rem; border-radius: 999px; width: fit-content;
+      background: rgba(47,143,134,0.15); color: var(--teal);
+    }
+    .waterfall-row .ev.transported_prior { background: rgba(226,161,43,0.18); color: #8a6200; }
+    .waterfall-row .ev.transported_association { background: rgba(201,162,39,0.22); color: #6a5410; }
+    .waterfall-row .ev.scenario { background: rgba(184,92,56,0.15); color: var(--copper); }
+    .waterfall-track { height: 0.55rem; background: rgba(18,26,28,0.08); border-radius: 999px; overflow: hidden; }
+    .waterfall-fill { height: 100%; background: linear-gradient(90deg, var(--teal), var(--seat)); border-radius: inherit; }
+    .waterfall-row .delta { font-variant-numeric: tabular-nums; text-align: right; color: var(--ink-soft); font-size: 0.8rem; }
+    @media (max-width: 720px) {
+      .waterfall-row { grid-template-columns: 1fr 4rem; }
+      .waterfall-row .ev, .waterfall-row .delta { display: none; }
+    }
 
     .two-col {
       display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;
@@ -462,7 +485,7 @@
       <a class="brand" href="#top">The <span>Accessible</span> Seat</a>
       <div class="toc">
         <a href="#prize">The prize</a>
-        <a href="#lottery">Lottery</a>
+        <a href="#lottery">Scarcity</a>
         <a href="#razor">One question</a>
         <a href="#odds">Buying odds</a>
         <a href="#arms">The tax</a>
@@ -484,11 +507,12 @@
       </svg>
     </div>
     <div class="wrap hero-inner">
-      <p class="hero-kicker">NEET-UG · India · a cruelty story with numbers</p>
-      <h1>Merit on<br/>the <em>label</em>.<br/>Lottery in<br/>the machine.</h1>
+      <p class="hero-kicker">NEET-UG · India · scarcity, access, and preparation</p>
+      <h1>Qualify is<br/>not a <em>seat</em>.<br/>Rank is not<br/>pure merit.</h1>
       <p class="hero-lead" id="hero-lead">
         Medicine really does buy mobility, respect, security, and income.
-        The system that rations it is cruel: a heavily taxing lottery that sells better odds to families who can afford the ticket.
+        Seats are scarce, preparation is costly, and private capacity is unequally affordable —
+        so an offered seat a family cannot cash is not access.
       </p>
       <a class="hero-cta" href="#prize">See the prize — then the trap</a>
     </div>
@@ -540,10 +564,10 @@
 
   <section id="lottery" class="alt">
     <div class="wrap fade">
-      <p class="section-label">02 · The lottery</p>
+      <p class="section-label">02 · The funnel</p>
       <h2>Too few seats for a fair race.</h2>
       <p class="lede">
-        Call it an exam if you want. Mechanically it is a mass lottery with a rank ticket.
+        Call it an exam if you want. Mechanically it is a mass rank tournament over scarce seats.
         In 2024, more than two million appeared for roughly one hundred thirty thousand MBBS seats.
         Most diligent students will lose — not because they are worthless, but because the funnel is that thin.
       </p>
@@ -566,7 +590,7 @@
       </div>
       <p class="footnote">
         Source: reconciled NTA appeared/qualified counts and NMC seat capacity.
-        Cutoffs shown as national accounting shares (seats ÷ appeared), not state or category counselling pools.
+        Seat lines shown as capacity-equivalent national rank thresholds (seats ÷ appeared), not state or category counselling cutoffs.
       </p>
     </div>
   </section>
@@ -577,7 +601,7 @@
       <h2>One question can be a life.</h2>
       <p class="lede">
         NEET marks are mostly high-school Biology, Chemistry, and Physics — +4 for a correct answer.
-        Under national capacity accounting, the any-MBBS seat line sits near
+        Under national capacity accounting, the any-MBBS capacity-equivalent threshold sits near
         <strong id="razor-cutoff">~560</strong> marks. The median appeared candidate is about
         <strong id="razor-median-gap">~99</strong> correct-answers-equivalent below that line.
         Near the line itself, the gap between a seat and another year (or giving up) is absurdly small.
@@ -585,18 +609,18 @@
       <div class="stat-row" id="razor-stats"></div>
       <div class="razor-scale" id="razor-bands"></div>
       <div class="chart-box">
-        <p class="chart-title">Candidates within ±N correct answers of the any-MBBS line</p>
+        <p class="chart-title">Candidates within ±N correct answers of the any-MBBS capacity threshold</p>
         <p class="chart-cap">
           Interpolated from national marks quantiles. “Questions” = marks ÷ 4 (one extra correct, holding others fixed).
-          Not the same as counselling cutoffs by state/category.
+          Not a counselling cutoff by state/category.
         </p>
         <canvas id="razor-canvas" height="300"></canvas>
       </div>
       <div class="two-col" style="margin-top:1.5rem">
         <div class="callout">
-          <h3>Why this feels like a lottery</h3>
+          <h3>Why this feels like a knife-edge</h3>
           <p>
-            When tens of thousands of students sit within a few questions of the seat line,
+            When tens of thousands of students sit within a few questions of the capacity threshold,
             tiny noise — one silly mistake, one lucky guess, one coaching drill — rearranges futures.
             That is not “clear merit separation.” It is a knife-edge rank auction.
           </p>
@@ -617,11 +641,12 @@
   <section id="odds">
     <div class="wrap fade">
       <p class="section-label">03 · Buying better odds</p>
-      <h2>Privilege does not invent the prize. It loads the dice.</h2>
+      <h2>Privilege does not invent the prize. It shifts competitive position.</h2>
       <p class="lede">
         A private offer a family cannot pay is a ticket they cannot cash.
         English-medium schooling, metro prep markets, and the ability to buy coaching or private seats
-        do not replace “merit” — they purchase better chances inside a scarce lottery, then the winners look like they earned it alone.
+        can purchase better chances inside a scarce rank tournament — without turning rank into a pure
+        measure of individual merit. The channels below are labeled scenarios and transported associations, not a national causal estimate.
       </p>
       <div class="thesis-strip">
         <article>
@@ -630,11 +655,11 @@
         </article>
         <article>
           <h3>Actual machine</h3>
-          <p>Scarce seats + years of prep cost + private fees. A lottery you can afford to bias.</p>
+          <p>Scarce seats + prep cost + private fees. A tournament you can afford to bias.</p>
         </article>
         <article>
-          <h3 class="cruel">The laundering</h3>
-          <p>Winners are praised as meritorious. The unequal ticket price disappears from the story.</p>
+          <h3 class="cruel">What disappears</h3>
+          <p>Unequal ticket prices and fragmented seat rules vanish when the story starts at the rank list.</p>
         </article>
       </div>
       <div class="panel">
@@ -673,8 +698,8 @@
             <label>Arms-race world</label>
             <div class="seg" data-key="scenario">
               <button type="button" data-v="unilateral" class="on">Unilateral</button>
-              <button type="button" data-v="everyone_modest">Everyone modest</button>
               <button type="button" data-v="everyone_intensive">Everyone intensive</button>
+              <button type="button" data-v="rivals_escalate_intensive">Rivals escalate</button>
             </div>
           </div>
         </div>
@@ -692,14 +717,23 @@
         </div>
       </div>
       <div class="chart-box" style="margin-top:1.5rem">
-        <p class="chart-title">How much better odds money and medium buy</p>
-        <p class="chart-cap">Accessible-seat chance by synthetic stratum. Same national seat scarcity — different starting tickets.</p>
-        <div class="ladder" id="ladder-chart"></div>
-        <p class="footnote" style="margin-top:1rem">
-          Full ladder ratio (unilateral): <strong id="ladder-ratio">~5.5×</strong>.
-          TN English/Tamil government allotment association ≈ <strong id="tn-ratio">2.3×</strong> (state case, not a national causal English effect).
-          Affordability is an accounting filter: private offers you cannot pay do not count as access.
+        <p class="chart-title">Channel waterfall — one privilege step at a time</p>
+        <p class="chart-cap">
+          Unilateral score→rank→seat scenario. Each bar adds one channel. Tags mark evidence class:
+          transported association, transported prior, or synthetic scenario — not a national inequality estimate.
         </p>
+        <div class="waterfall" id="waterfall-chart"></div>
+        <p class="footnote" style="margin-top:1rem">
+          Cumulative top/baseline scenario ratio: <strong id="ladder-ratio">~5.5×</strong>
+          (extreme contrast if all channels stack; prefer the step deltas above).
+          TN English/Tamil government allotment association ≈ <strong id="tn-ratio">2.3×</strong>
+          (state case, not a national causal English effect).
+        </p>
+      </div>
+      <div class="chart-box" style="margin-top:1.5rem">
+        <p class="chart-title">Same strata as absolute access rates</p>
+        <p class="chart-cap">Accessible-seat chance by synthetic stratum under the selected arms-race world.</p>
+        <div class="ladder" id="ladder-chart"></div>
       </div>
       <div class="two-col" style="margin-top:1.5rem">
         <div class="chart-box">
@@ -721,13 +755,14 @@
       <p class="section-label">04 · The tax</p>
       <h2>Everyone pays. Rank barely moves.</h2>
       <p class="lede" id="arms-blurb">
-        Coaching is the entry fee of the lottery. Holding others fixed, more prep can raise your absolute score.
-        When the whole pool escalates, relative ranks barely move — while money and years are still extracted from families who mostly will not get a seat.
+        Coaching can be the entry fee of a rank tournament. Holding others fixed, more prep can raise your absolute score.
+        When the whole pool escalates equally (<em>everyone intensive</em>), relative ranks barely move —
+        while money and years are still extracted. <em>Rivals escalate</em> keeps your labeled prep while others arm up.
       </p>
       <div class="stat-row" id="arms-stats"></div>
       <div class="chart-box">
         <p class="chart-title">Accessible-seat odds when the pool arms up</p>
-        <p class="chart-cap">Unilateral advantage vs everyone-escalates worlds. The tax keeps rising even when the positional gain collapses.</p>
+        <p class="chart-cap">Unilateral vs universal intensive vs rivals-escalate. Universal prep collapses relative coaching advantage; rivals-escalate penalizes the under-prepped.</p>
         <canvas id="arms-canvas" height="380"></canvas>
       </div>
       <div class="two-col" style="margin-top:1.5rem">
@@ -843,7 +878,7 @@
       <h2>What the numbers can defend.</h2>
       <p class="lede">
         The emotional claim is sharp; the measurement is not magic.
-        Scarcity and the prize are solid. Privilege-weighted odds are a calibrated synthetic ladder.
+        Scarcity and the prize are solid. Privilege-weighted odds are a calibrated synthetic waterfall with labeled evidence classes.
         Coaching effects are skeptical priors. Causal “return to a seat” is not identified.
       </p>
       <div class="readiness" id="readiness"></div>
@@ -872,9 +907,9 @@
       <h2>The cruelty is the laundering.</h2>
       <p class="lede">
         Medicine is worth wanting. Seats are scarce. Prep and private capacity extract years and money from millions who will lose.
-        Families with resources can buy better odds — then the system points at the rank list and calls the outcome merit.
+        Families with resources can buy better odds — then a rank list that ignores unequal tickets looks like pure merit.
       </p>
-      <p class="punch">A taxing lottery<br/>sold as a fair race.</p>
+      <p class="punch">A scarce tournament<br/>with unequal tickets.</p>
     </div>
   </section>
 
@@ -943,10 +978,33 @@
         <em>${fmt.n(n)}</em>
       </div>`).join("");
 
-    document.getElementById("ladder-ratio").textContent =
-      D.decomposition.full_ladder_ratio_top_over_low.toFixed(1) + "×";
+    const waterfall = D.waterfall || [];
+    const topRatio = waterfall.length
+      ? waterfall[waterfall.length - 1].ratio_vs_baseline
+      : D.decomposition.full_ladder_ratio_top_over_low;
+    document.getElementById("ladder-ratio").textContent = Number(topRatio).toFixed(1) + "×";
     document.getElementById("tn-ratio").textContent =
       (S.tn_english_to_tamil_ratio || 2.35).toFixed(2) + "×";
+
+    function renderWaterfall() {
+      const el = document.getElementById("waterfall-chart");
+      if (!el || !waterfall.length) return;
+      const maxP = Math.max(...waterfall.map((r) => r.p_accessible_seat), 0.01);
+      el.innerHTML = waterfall.map((r) => {
+        const delta = r.delta_p_accessible;
+        const deltaTxt = delta == null ? "—" : ((delta >= 0 ? "+" : "") + fmt.pct(delta, 2));
+        const ev = (r.evidence_class || "scenario").replace(/\s+/g, "_");
+        return `<div class="waterfall-row">
+          <div class="name">${r.label}
+            <small>${r.stratum_label || ""}</small>
+          </div>
+          <div class="ev ${ev}">${(r.evidence_class || "").replace(/_/g, " ")}</div>
+          <div class="waterfall-track"><div class="waterfall-fill" style="width:${(100 * r.p_accessible_seat / maxP).toFixed(1)}%"></div></div>
+          <div class="delta">${fmt.pct(r.p_accessible_seat, 2)} <span style="opacity:.7">${deltaTxt}</span></div>
+        </div>`;
+      }).join("");
+    }
+    renderWaterfall();
 
     // —— Profile state ——
     const state = { medium: "english", afford: "cant", metro: "nonmetro", prep: "modest", scenario: "unilateral" };
@@ -976,7 +1034,7 @@
 
     function renderProfile() {
       const r = nearestStratum();
-      const cut = D.razor.any_mbbs_cutoff_marks;
+      const cut = D.razor.any_mbbs_capacity_threshold_marks ?? D.razor.any_mbbs_cutoff_marks;
       const qGap = (cut - r.mean_marks) / D.razor.marks_per_correct;
       document.getElementById("profile-label").textContent = r.label + " · " + state.scenario.replace(/_/g, " ");
       document.getElementById("profile-p").textContent = fmt.pct(r.p_accessible, 2);
@@ -1176,8 +1234,8 @@
     function drawMarksNational() {
       const labels = D.marks_national.map((r) => r.band);
       const values = D.marks_national.map((r) => r.share);
-      const anyM = D.razor.any_mbbs_cutoff_marks;
-      const govM = D.razor.government_cutoff_marks;
+      const anyM = D.razor.any_mbbs_capacity_threshold_marks ?? D.razor.any_mbbs_cutoff_marks;
+      const govM = D.razor.government_capacity_threshold_marks ?? D.razor.government_cutoff_marks;
       // Map marks onto band centers for line placement
       const centers = D.marks_national.map((r) => {
         if (r.band.startsWith("<")) return -90;
@@ -1191,8 +1249,8 @@
         yLabel: "Share of appeared",
         colors: values.map((_, i) => (i >= labels.length - 3 ? "#e2a12b" : "#2f8f86")),
         lines: [
-          { xFrac: xFrac(govM), label: `govt ~${Math.round(govM)}`, color: "#b85c38" },
-          { xFrac: xFrac(anyM), label: `any MBBS ~${Math.round(anyM)}`, color: "#e2a12b" },
+          { xFrac: xFrac(govM), label: `govt thr ~${Math.round(govM)}`, color: "#b85c38" },
+          { xFrac: xFrac(anyM), label: `any thr ~${Math.round(anyM)}`, color: "#e2a12b" },
         ],
       });
     }
@@ -1212,11 +1270,11 @@
     }
 
     function drawArms() {
-      const scenarios = ["unilateral", "everyone_modest", "everyone_intensive"];
+      const scenarios = ["unilateral", "everyone_intensive", "rivals_escalate_intensive"];
       const names = {
         unilateral: "Unilateral",
-        everyone_modest: "Everyone modest",
         everyone_intensive: "Everyone intensive",
+        rivals_escalate_intensive: "Rivals escalate",
       };
       const base = D.ladders.unilateral;
       const cats = base.map((r) => r.label);
@@ -1270,19 +1328,23 @@
 
     function drawRazor() {
       const R = D.razor;
-      document.getElementById("razor-cutoff").textContent = `~${Math.round(R.any_mbbs_cutoff_marks)}`;
+      const anyM = R.any_mbbs_capacity_threshold_marks ?? R.any_mbbs_cutoff_marks;
+      const govM = R.government_capacity_threshold_marks ?? R.government_cutoff_marks;
+      const qGap = R.questions_median_below_any_threshold ?? R.questions_median_below_any_cutoff;
+      const bands = R.near_threshold_bands || R.near_cutoff_bands;
+      document.getElementById("razor-cutoff").textContent = `~${Math.round(anyM)}`;
       document.getElementById("razor-median-gap").textContent =
-        `~${Math.round(R.questions_median_below_any_cutoff)}`;
+        `~${Math.round(qGap)}`;
       document.getElementById("razor-stats").innerHTML = [
-        [`${Math.round(R.any_mbbs_cutoff_marks)}`, "Any-MBBS line (marks)", "amber"],
-        [`${Math.round(R.government_cutoff_marks)}`, "Govt-like line (marks)", ""],
+        [`${Math.round(anyM)}`, "Any-MBBS capacity threshold (marks)", "amber"],
+        [`${Math.round(govM)}`, "Govt-like capacity threshold (marks)", ""],
         [`${R.national_median_marks}`, "National median marks", "teal"],
         [`+${R.marks_per_correct}`, "Marks per correct answer", ""],
       ].map(([v, l, c]) =>
         `<div class="stat"><b class="${c}">${v}</b><span>${l}</span></div>`
       ).join("");
 
-      document.getElementById("razor-bands").innerHTML = R.near_cutoff_bands.map((b) => `
+      document.getElementById("razor-bands").innerHTML = bands.map((b) => `
         <div class="razor-card">
           <b>${fmt.n(b.n_candidates)}</b>
           <span>within ±${b.questions} question${b.questions > 1 ? "s" : ""} · ${fmt.pct(b.share, 2)}</span>
@@ -1290,12 +1352,12 @@
 
       drawBars(
         document.getElementById("razor-canvas"),
-        R.near_cutoff_bands.map((b) => `±${b.questions} Q`),
-        R.near_cutoff_bands.map((b) => b.n_candidates),
+        bands.map((b) => `±${b.questions} Q`),
+        bands.map((b) => b.n_candidates),
         {
           colors: ["#e2a12b", "#d4892a", "#2f8f86", "#1f6b65"],
-          yLabel: "Candidates near line",
-          valueLabels: R.near_cutoff_bands.map((b) => fmt.n(b.n_candidates)),
+          yLabel: "Candidates near threshold",
+          valueLabels: bands.map((b) => fmt.n(b.n_candidates)),
           rotate: false,
           pad: { t: 36, r: 16, b: 56, l: 52 },
         }

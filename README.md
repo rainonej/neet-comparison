@@ -23,8 +23,8 @@ make audit
 make status
 make test
 make bayes
-make privilege
-make score-privilege
+make score-privilege   # production pathway (score → rank → seat)
+make privilege         # LEGACY independent-offers accounting demo only
 make story
 make attempt-priors
 ```
@@ -32,6 +32,8 @@ make attempt-priors
 Open the interactive story after `make story`:
 
 `reports/interactive/the-accessible-seat.html`
+
+Production access figures come from `make score-privilege`. `make privilege` remains a legacy Bernoulli accounting demo (affordability ~2× teaching toy), not the public pathway.
 
 See [docs/SETUP.md](docs/SETUP.md) for directory layout and gitignore rules.
 
@@ -69,10 +71,10 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/INITIAL_FINDINGS.md](reports/INITIAL_FINDINGS.md) | Audit bottom line |
 | [docs/BAYESIAN_MODEL.md](docs/BAYESIAN_MODEL.md) | Bayesian evidence design |
 | [reports/BAYESIAN_MODEL_REPORT.md](reports/BAYESIAN_MODEL_REPORT.md) | Fitted posteriors + profile sensitivity (current data freeze) |
-| [reports/PRIVILEGE_INEQUALITY_STORY.md](reports/PRIVILEGE_INEQUALITY_STORY.md) | Privilege access ladder + seat vs no-seat lifetime earnings distributions |
-| [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Score → rank → seat model with coaching arms-race scenarios |
+| [reports/PRIVILEGE_INEQUALITY_STORY.md](reports/PRIVILEGE_INEQUALITY_STORY.md) | LEGACY independent-offers demo + career earnings artifacts |
+| [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Production score → rank → seat model with coaching arms-race scenarios |
 | [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
-| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (prize → lottery → razor margin → privilege tax) |
+| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (prize → funnel → capacity threshold → privilege waterfall) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
 | [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
 

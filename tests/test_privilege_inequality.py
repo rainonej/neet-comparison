@@ -1,4 +1,7 @@
-"""Tests for privilege-compounding access and annual earnings story."""
+"""Tests for LEGACY independent-offers privilege accounting demo.
+
+Production pathway tests live in test_score_privilege.py.
+"""
 
 from __future__ import annotations
 
@@ -112,6 +115,9 @@ def test_pipeline_writes_artifacts(tmp_path: Path) -> None:
 
     story = json.loads(paths["inequality_story"].read_text(encoding="utf-8"))
     assert story["primary_metric"] == "annual_earnings"
+    assert story["production_pathway"] is False
+    assert story["status"] == "legacy_accounting_demo"
+    assert story["superseded_by"] == "score_rank_seat"
     assert story["affordability_only_access_ratio"] > 1.7
     assert story["decomposition"]["full_ladder_ratio_top_over_low"] > 3.0
     assert "earnings_histograms" in paths
@@ -121,6 +127,7 @@ def test_pipeline_writes_artifacts(tmp_path: Path) -> None:
     # College types should not invent a large wage gap.
     assert 0.85 < story["decomposition"]["govt_vs_private_college_median_ratio_mid"] < 1.15
     assert story["decomposition"]["med_vs_nocollege_median_ratio_mid"] > 1.5
+    assert any("LEGACY" in w for w in story["warnings"])
 
 
 def test_govt_and_private_college_share_wage_prior() -> None:

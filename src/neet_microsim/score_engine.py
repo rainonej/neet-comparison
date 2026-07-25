@@ -210,15 +210,29 @@ def apply_score_shifts(
     coaching_profile: str | None = None,
     subtract_population_mean: bool = True,
     force_population_prep: str | None = None,
+    force_all_prep: str | None = None,
 ) -> tuple[np.ndarray, dict[str, float]]:
-    """Return shifted marks and the SD components used."""
+    """Return shifted marks and the SD components used.
 
+    ``force_all_prep``: both the focal candidate and the comparison population use that
+    prep intensity (true universal-coaching world; relative coaching shift ≈ 0).
+
+    ``force_population_prep`` alone: rivals escalate to that level while the focal
+    candidate keeps ``prep_intensity`` (positional penalty / advantage).
+    """
+
+    if force_all_prep is not None and force_population_prep is not None:
+        raise ValueError("set force_all_prep or force_population_prep, not both")
+
+    effective_prep = force_all_prep if force_all_prep is not None else prep_intensity
     tau_m = medium_shift_sd(school_medium, config)
     tau_u = metro_shift_sd(metro_proximity, config)
-    parts = coaching_components_sd(prep_intensity, config, profile=coaching_profile)
+    parts = coaching_components_sd(effective_prep, config, profile=coaching_profile)
     delta_i = float(parts["coaching_shift_sd"])
-    if force_population_prep is not None:
-        # Individual still labeled by prep_intensity for cost accounting; relative shift uses forced pop.
+    if force_all_prep is not None:
+        delta_pop = coaching_shift_sd(force_all_prep, config, profile=coaching_profile)
+        delta_rel = delta_i - delta_pop
+    elif force_population_prep is not None:
         delta_pop = coaching_shift_sd(force_population_prep, config, profile=coaching_profile)
         delta_rel = delta_i - delta_pop
     elif subtract_population_mean:
@@ -242,6 +256,9 @@ def apply_score_shifts(
         "population_coaching_shift_sd": delta_pop,
         "relative_coaching_shift_sd": delta_rel,
         "total_location_shift_sd": total_sd,
+        "effective_prep_intensity": effective_prep,
+        "force_all_prep": force_all_prep,
+        "force_population_prep": force_population_prep,
         "beta1_private_return_sd": signatures["beta1_private_return_sd"],
         "beta2_positional_externality_sd": signatures["beta2_positional_externality_sd"],
     }

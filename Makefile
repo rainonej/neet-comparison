@@ -21,7 +21,9 @@ mospi-extended:
 bayes:
 	python scripts/run_bayesian_model.py
 
+# LEGACY accounting demo (independent offers). Production pathway: score-privilege.
 privilege:
+	@echo "NOTE: privilege is a legacy accounting demo; production path is 'make score-privilege'"
 	python scripts/run_privilege_inequality.py
 
 score-privilege:

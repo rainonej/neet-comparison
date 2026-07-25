@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Run the privilege-compounding inequality story and write artifacts."""
+"""Run the LEGACY independent-offers accounting demo and write artifacts.
+
+Production pathway: scripts/run_score_privilege.py (score → rank → seat).
+"""
 
 from __future__ import annotations
 
@@ -34,10 +37,12 @@ def main() -> None:
     story = json.loads(paths["inequality_story"].read_text(encoding="utf-8"))
     decomp = story["decomposition"]
 
-    print("Privilege inequality artifacts:")
+    print("LEGACY privilege accounting demo artifacts (not production pathway):")
     for key, path in paths.items():
         print(f"  {key}: {path}")
     print()
+    print(f"status: {story.get('status', 'legacy_accounting_demo')}")
+    print(f"superseded_by: {story.get('superseded_by', 'score_rank_seat')}")
     print(f"admission_profile: {story['admission_profile']}")
     print(f"primary_metric: {story.get('primary_metric')}")
     print(f"affordability-only access ratio (can/cannot): {affordability_only_ratio(config):.3f}")

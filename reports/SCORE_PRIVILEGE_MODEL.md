@@ -60,7 +60,8 @@ There is **no established logarithmic spending law**; log₂ is a convenient dim
 | **Positional externality** \(\beta_2<0\) | Relative shift = δᵢ − δ̄_pop (or forced equal prep), so universal escalation cancels rank gains |
 
 Scenario `unilateral` subtracts the population-mean coaching shift.  
-Scenarios `everyone_modest` / `everyone_intensive` force the whole population to the same prep intensity so relative coaching advantage collapses.
+Scenarios `everyone_modest` / `everyone_intensive` force **both** the focal stratum and the comparison population to the same prep intensity so relative coaching advantage collapses (`δ_rel ≈ 0`).  
+`rivals_escalate_*` keeps the focal candidate’s labeled prep while forcing rivals — the positional-penalty contrast.
 
 Story JSON fields: `arms_race_signatures` (`beta1_private_return_sd`, `beta2_positional_externality_sd`) and `coaching_plug_in_deltas_sd`.
 
@@ -86,7 +87,8 @@ Written under `data/processed/bayesian/`:
 
 ## Warnings
 
-- National seats/appeared cutoffs ≠ state/category counselling pools.
+- National seats/appeared capacity-equivalent thresholds ≠ state/category counselling cutoffs.
+- Prefer the labeled unilateral waterfall over quoting the extreme top/bottom ladder ratio as a national fact.
 - Medium shifts are not national causal English effects.
 - Coaching SD shifts are skeptical priors, not NEET LATEs.
 - Causal language for scenario contrasts is prohibited.

@@ -16,7 +16,11 @@ from neet_microsim.score_engine import (
     load_score_distribution,
     population_mean_coaching_shift,
 )
-from neet_microsim.score_privilege import run_score_privilege_pipeline, simulate_score_stratum
+from neet_microsim.score_privilege import (
+    WATERFALL_STEPS,
+    run_score_privilege_pipeline,
+    simulate_score_stratum,
+)
 from neet_microsim.seat_allocation import allocate_offers, capacity_from_config
 from neet_microsim.privilege import PrivilegeStratum, build_career_paths_for_privilege
 
@@ -32,8 +36,7 @@ def test_arms_race_equal_coaching_preserves_relative_shift() -> None:
     dist = load_score_distribution(config=config, repo_root=REPO)
     rng = np.random.default_rng(0)
     baseline = dist.sample(5000, rng=rng)
-    # Everyone intensive: relative coaching shift should be ~0 after subtracting pop mean
-    # when force_population_prep matches individual prep.
+    # Universal intensive: relative coaching shift should be ~0 for any labeled stratum.
     shifted, meta = apply_score_shifts(
         baseline,
         dist=dist,
@@ -43,21 +46,72 @@ def test_arms_race_equal_coaching_preserves_relative_shift() -> None:
         config=config,
         coaching_profile="conservative",
         subtract_population_mean=True,
-        force_population_prep="intensive",
+        force_all_prep="intensive",
     )
     assert meta["relative_coaching_shift_sd"] == pytest.approx(0.0)
-    # Medium/metro still apply
     assert meta["total_location_shift_sd"] == pytest.approx(
         meta["medium_shift_sd"] + meta["metro_shift_sd"]
     )
     assert shifted.mean() != pytest.approx(baseline.mean())
 
 
+@pytest.mark.skipif(not CONFIG.exists() or not QUANTILES.exists(), reason="score config/data missing")
+@pytest.mark.parametrize("labeled_prep", ["none", "modest", "intensive"])
+def test_everyone_intensive_zeros_relative_coaching_for_all_strata(labeled_prep: str) -> None:
+    """Universal coaching must override focal prep, not only the population comparison."""
+
+    config = load_score_config(CONFIG)
+    dist = load_score_distribution(config=config, repo_root=REPO)
+    baseline = dist.sample(2000, rng=np.random.default_rng(1))
+    _, meta = apply_score_shifts(
+        baseline,
+        dist=dist,
+        school_medium="tamil",
+        metro_proximity="non_metro",
+        prep_intensity=labeled_prep,
+        config=config,
+        coaching_profile="conservative",
+        force_all_prep="intensive",
+    )
+    assert meta["effective_prep_intensity"] == "intensive"
+    assert meta["relative_coaching_shift_sd"] == pytest.approx(0.0)
+    assert meta["coaching_shift_sd"] == pytest.approx(
+        coaching_shift_sd("intensive", config, profile="conservative")
+    )
+
+
+@pytest.mark.skipif(not CONFIG.exists() or not QUANTILES.exists(), reason="score config/data missing")
+def test_rivals_escalate_keeps_focal_prep_and_penalizes_none() -> None:
+    config = load_score_config(CONFIG)
+    dist = load_score_distribution(config=config, repo_root=REPO)
+    baseline = dist.sample(2000, rng=np.random.default_rng(2))
+    _, meta = apply_score_shifts(
+        baseline,
+        dist=dist,
+        school_medium="tamil",
+        metro_proximity="non_metro",
+        prep_intensity="none",
+        config=config,
+        coaching_profile="conservative",
+        force_population_prep="intensive",
+    )
+    intensive = coaching_shift_sd("intensive", config, profile="conservative")
+    assert meta["effective_prep_intensity"] == "none"
+    assert meta["relative_coaching_shift_sd"] == pytest.approx(-intensive)
+
+
 @pytest.mark.skipif(not CONFIG.exists(), reason="score config missing")
-def test_capacity_cutoffs_are_seats_over_appeared() -> None:
+def test_capacity_thresholds_are_seats_over_appeared() -> None:
     config = load_score_config(CONFIG)
     cap = capacity_from_config(config)
-    assert 0 < cap.government_cutoff_percentile < cap.private_or_better_cutoff_percentile < 0.2
+    assert (
+        0
+        < cap.government_capacity_threshold_percentile
+        < cap.any_mbbs_capacity_threshold_percentile
+        < 0.2
+    )
+    # Legacy aliases still resolve.
+    assert cap.government_cutoff_percentile == cap.government_capacity_threshold_percentile
     rp = np.array([0.0, 0.01, 0.05, 0.5])
     offers = allocate_offers(rp, capacity=cap, can_afford_private=True)
     assert offers.accessible_seat[0]
@@ -102,19 +156,38 @@ def test_higher_privilege_stratum_gets_more_access_unilateral() -> None:
     not CONFIG.exists() or not (PROCESSED / "published_estimates.csv").exists(),
     reason="processed evidence missing",
 )
-def test_pipeline_writes_artifacts(tmp_path: Path) -> None:
+def test_pipeline_writes_artifacts_and_waterfall(tmp_path: Path) -> None:
     paths = run_score_privilege_pipeline(
         config_path=CONFIG,
         processed=PROCESSED,
         output_dir=tmp_path,
         draws=3000,
-        arms_race_ids=["unilateral", "everyone_intensive"],
+        arms_race_ids=["unilateral", "everyone_intensive", "rivals_escalate_intensive"],
     )
     assert paths["score_inequality_story"].exists()
     assert paths["score_access_by_stratum"].exists()
-    story = paths["score_inequality_story"].read_text(encoding="utf-8")
-    assert "score_rank_seat" in story
-    assert "unilateral" in story
+    story = __import__("json").loads(paths["score_inequality_story"].read_text(encoding="utf-8"))
+    assert story["model_family"] == "score_rank_seat"
+    assert story["production_pathway"] is True
+    assert "government_capacity_threshold_percentile" in story["capacity"]
+    assert "waterfall_unilateral" in story
+    assert len(story["waterfall_unilateral"]) == len(WATERFALL_STEPS)
+    assert story["waterfall_unilateral"][0]["step_id"] == "baseline"
+    assert story["waterfall_unilateral"][0]["evidence_class"] == "scenario"
+    # Universal intensive: relative coaching ≈ 0 on every stratum.
+    for row in story["access_ladder_by_scenario"]["everyone_intensive"]:
+        assert row["relative_coaching_shift_sd"] == pytest.approx(0.0, abs=1e-9)
+    # Rivals escalate: none-prep stratum is penalized.
+    rivals = {
+        r["stratum_id"]: r
+        for r in story["access_ladder_by_scenario"]["rivals_escalate_intensive"]
+    }
+    assert rivals["tamil_cant_afford_nonmetro_none"]["relative_coaching_shift_sd"] < 0
+    assert rivals["english_can_afford_metro_intensive"]["relative_coaching_shift_sd"] == pytest.approx(
+        0.0, abs=1e-9
+    )
+    note = story["decomposition_unilateral"].get("full_ladder_note", "")
+    assert "scenario contrast" in note.lower() or "not a national" in note.lower()
 
 
 def test_population_mean_coaching_shift_between_profiles() -> None:
@@ -152,3 +225,22 @@ def test_arms_race_signature_signs() -> None:
     sig = arms_race_signatures(config, profile="conservative")
     assert sig["beta1_private_return_sd"] > 0.0
     assert sig["beta2_positional_externality_sd"] < 0.0
+
+
+def test_force_all_and_force_population_mutually_exclusive() -> None:
+    if not CONFIG.exists() or not QUANTILES.exists():
+        pytest.skip("missing config/data")
+    config = load_score_config(CONFIG)
+    dist = load_score_distribution(config=config, repo_root=REPO)
+    baseline = dist.sample(10, rng=np.random.default_rng(0))
+    with pytest.raises(ValueError, match="not both"):
+        apply_score_shifts(
+            baseline,
+            dist=dist,
+            school_medium="english",
+            metro_proximity="non_metro",
+            prep_intensity="modest",
+            config=config,
+            force_all_prep="intensive",
+            force_population_prep="intensive",
+        )

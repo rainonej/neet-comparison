@@ -24,13 +24,27 @@ class SeatCapacity:
         return self.government_like_seats + self.private_like_seats
 
     @property
-    def government_cutoff_percentile(self) -> float:
-        """Share of appeared who would receive a govt-like offer if ranked nationally."""
+    def government_capacity_threshold_percentile(self) -> float:
+        """Capacity-equivalent national rank threshold for government-like seats.
+
+        Accounting share seats/appeared if the national pool were ranked once.
+        Not a state/category counselling cutoff.
+        """
         return min(self.government_like_seats / max(self.n_appeared, 1), 1.0)
 
     @property
-    def private_or_better_cutoff_percentile(self) -> float:
+    def any_mbbs_capacity_threshold_percentile(self) -> float:
+        """Capacity-equivalent national rank threshold for any MBBS-like seat."""
         return min(self.total_mbbs_seats / max(self.n_appeared, 1), 1.0)
+
+    # Backward-compatible aliases (prefer capacity_threshold names in new code).
+    @property
+    def government_cutoff_percentile(self) -> float:
+        return self.government_capacity_threshold_percentile
+
+    @property
+    def private_or_better_cutoff_percentile(self) -> float:
+        return self.any_mbbs_capacity_threshold_percentile
 
 
 @dataclass(frozen=True)
@@ -65,8 +79,8 @@ def allocate_offers(
     """
 
     rp = np.asarray(rank_percentile, dtype=float)
-    gov_cut = capacity.government_cutoff_percentile
-    any_cut = capacity.private_or_better_cutoff_percentile
+    gov_cut = capacity.government_capacity_threshold_percentile
+    any_cut = capacity.any_mbbs_capacity_threshold_percentile
     government = rp < gov_cut
     private = (rp < any_cut) & ~government
     any_mbbs = government | private

@@ -1,8 +1,9 @@
-"""Score → rank → seat privilege inequality story.
+"""Score → rank → seat privilege inequality story (production pathway).
 
 Replaces direct P(accessible seat) with latent NEET marks shifted by medium / metro /
-coaching, national capacity cutoffs, and an affordability filter. Arms-race scenarios
-subtract population-mean coaching shifts so equal escalation leaves ranks unchanged.
+coaching, national capacity-equivalent rank thresholds, and an affordability filter.
+Arms-race scenarios subtract population-mean coaching shifts so equal escalation
+leaves ranks unchanged.
 """
 
 from __future__ import annotations
@@ -34,6 +35,53 @@ from .seat_allocation import (
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG = REPO_ROOT / "config" / "score_privilege_scenarios.yaml"
+
+# Ordered one-channel-at-a-time contrast for story waterfall (unilateral scenario).
+# Each step changes one privilege channel relative to the previous stratum.
+WATERFALL_STEPS: list[dict[str, str]] = [
+    {
+        "stratum_id": "tamil_cant_afford_nonmetro_none",
+        "step_id": "baseline",
+        "channel": "baseline",
+        "evidence_class": "scenario",
+        "label": "Baseline · Tamil · cannot afford · non-metro · no prep",
+    },
+    {
+        "stratum_id": "tamil_cant_afford_nonmetro_modest",
+        "step_id": "modest_prep",
+        "channel": "prep",
+        "evidence_class": "transported_prior",
+        "label": "+ Modest prep prior",
+    },
+    {
+        "stratum_id": "english_cant_afford_nonmetro_modest",
+        "step_id": "english_medium",
+        "channel": "medium",
+        "evidence_class": "transported_association",
+        "label": "+ English-medium association (TN-calibrated)",
+    },
+    {
+        "stratum_id": "english_can_afford_nonmetro_modest",
+        "step_id": "afford_private",
+        "channel": "affordability",
+        "evidence_class": "scenario",
+        "label": "+ Private-seat affordability",
+    },
+    {
+        "stratum_id": "english_can_afford_metro_modest",
+        "step_id": "metro",
+        "channel": "metro",
+        "evidence_class": "scenario",
+        "label": "+ Metro sensitivity",
+    },
+    {
+        "stratum_id": "english_can_afford_metro_intensive",
+        "step_id": "intensive_prep",
+        "channel": "prep",
+        "evidence_class": "transported_prior",
+        "label": "+ Intensive prep prior",
+    },
+]
 
 
 @dataclass(frozen=True)
@@ -108,6 +156,7 @@ def simulate_score_stratum(
         coaching_profile=profile,
         subtract_population_mean=bool(arms_race.get("subtract_population_mean_shift", True)),
         force_population_prep=arms_race.get("force_population_prep"),
+        force_all_prep=arms_race.get("force_all_prep"),
     )
     rank_pct = marks_to_percentile_rank(shifted, dist)
     afford = can_afford_private_fee(stratum.can_afford_private, config)
@@ -282,16 +331,13 @@ def run_score_privilege_pipeline(
 
     capacity = capacity_from_config(config)
     unilateral = ladder_by_scenario.get("unilateral", [])
-    low = next((s for s in unilateral if s["stratum_id"] == "tamil_cant_afford_nonmetro_none"), None)
-    high = unilateral[-1] if unilateral else None
-    eng_cant = next(
-        (s for s in unilateral if s["stratum_id"] == "english_cant_afford_nonmetro_modest"),
-        None,
-    )
-    eng_can = next(
-        (s for s in unilateral if s["stratum_id"] == "english_can_afford_nonmetro_modest"),
-        None,
-    )
+    by_id = {s["stratum_id"]: s for s in unilateral}
+    low = by_id.get("tamil_cant_afford_nonmetro_none")
+    high = by_id.get("english_can_afford_metro_intensive") or (unilateral[-1] if unilateral else None)
+    eng_cant = by_id.get("english_cant_afford_nonmetro_modest")
+    eng_can = by_id.get("english_can_afford_nonmetro_modest")
+
+    waterfall = _build_waterfall(by_id)
 
     coach_cfg = config["coaching"]
     plug_in_deltas = {
@@ -300,9 +346,12 @@ def run_score_privilege_pipeline(
     }
     signatures = arms_race_signatures(config, profile=profile)
 
+    gov_thr = capacity.government_capacity_threshold_percentile
+    any_thr = capacity.any_mbbs_capacity_threshold_percentile
     story = {
         "model_version": config.get("model_version"),
         "model_family": "score_rank_seat",
+        "production_pathway": True,
         "coaching_profile": profile,
         "coaching_functional_form": coach_cfg.get("functional_form"),
         "coaching_plug_in_deltas_sd": plug_in_deltas,
@@ -312,10 +361,14 @@ def run_score_privilege_pipeline(
             "government_like_seats": capacity.government_like_seats,
             "private_like_seats": capacity.private_like_seats,
             "n_appeared": capacity.n_appeared,
-            "government_cutoff_percentile": capacity.government_cutoff_percentile,
-            "any_mbbs_cutoff_percentile": capacity.private_or_better_cutoff_percentile,
+            "government_capacity_threshold_percentile": gov_thr,
+            "any_mbbs_capacity_threshold_percentile": any_thr,
+            # Backward-compatible aliases
+            "government_cutoff_percentile": gov_thr,
+            "any_mbbs_cutoff_percentile": any_thr,
         },
         "access_ladder_by_scenario": ladder_by_scenario,
+        "waterfall_unilateral": waterfall,
         "decomposition_unilateral": {
             "p_accessible_low": None if low is None else low["p_accessible_seat"],
             "p_accessible_english_cant_afford": None
@@ -328,22 +381,28 @@ def run_score_privilege_pipeline(
                 if low is None or high is None or low["p_accessible_seat"] <= 0
                 else high["p_accessible_seat"] / low["p_accessible_seat"]
             ),
+            "full_ladder_note": (
+                "Extreme all-channels-at-once scenario contrast, not a national inequality estimate, "
+                "causal effect, or posterior result. Prefer waterfall_unilateral for provenance."
+            ),
             "mean_marks_low": None if low is None else low["mean_marks"],
             "mean_marks_top": None if high is None else high["mean_marks"],
         },
         "arms_race_note": (
             "Private return (β1>0): unilateral prep raises absolute scores. "
             "Positional externality (β2<0): relative coaching shifts subtract the population-mean "
-            "coaching SD so universal escalation does not improve ranks while costs still rise. "
+            "coaching SD so universal escalation (everyone_*) does not improve ranks while costs rise. "
+            "rivals_escalate_* keeps the focal candidate's labeled prep while forcing rivals. "
             "Strategic response (families buy more prep when exams matter more) is documented "
             "externally (e.g. US mandatory-testing → +16% tutoring), not estimated here."
         ),
         "warnings": [
-            "National capacity cutoffs are accounting shares (seats/appeared), not state/category counselling pools.",
+            "National capacity-equivalent thresholds are accounting shares (seats/appeared), not state/category counselling cutoffs.",
             "Medium score shifts are calibrated toward TN associations; not national causal English effects.",
             "Coaching uses a two-part skeptical prior (θ any-prep + β doubling spend); not a NEET LATE.",
             "TN Rajan 99% coached admits / 71% repeaters are prevalence constraints, not score effects.",
             "Centre-marks file has no SES/coaching/domicile; privilege enters via synthetic shifts.",
+            "Full ladder top/bottom ratio is an extreme scenario contrast; use the labeled waterfall for channel provenance.",
             "Causal language for scenario contrasts is prohibited.",
         ],
     }
@@ -365,8 +424,38 @@ def run_score_privilege_pipeline(
     }
 
 
+def _build_waterfall(by_id: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
+    """One-channel-at-a-time access contrast with evidence-class labels."""
+
+    rows: list[dict[str, Any]] = []
+    baseline_p: float | None = None
+    prev_p: float | None = None
+    for step in WATERFALL_STEPS:
+        stratum = by_id.get(step["stratum_id"])
+        if stratum is None:
+            continue
+        p = float(stratum["p_accessible_seat"])
+        if baseline_p is None:
+            baseline_p = p
+        delta = None if prev_p is None else p - prev_p
+        ratio_vs_baseline = None if baseline_p is None or baseline_p <= 0 else p / baseline_p
+        rows.append(
+            {
+                **step,
+                "stratum_label": stratum["label"],
+                "p_accessible_seat": p,
+                "delta_p_accessible": delta,
+                "ratio_vs_baseline": ratio_vs_baseline,
+                "mean_marks": stratum["mean_marks"],
+            }
+        )
+        prev_p = p
+    return rows
+
+
 __all__ = [
     "ScoreStratumResult",
+    "WATERFALL_STEPS",
     "run_score_privilege_pipeline",
     "simulate_score_stratum",
 ]

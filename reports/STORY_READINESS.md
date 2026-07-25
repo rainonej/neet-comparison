@@ -1,7 +1,7 @@
 # Story readiness — what we can show, at what grain
 
 **Date:** 2026-07-25  
-**Thesis we are trying to show:** Medicine’s rewards are real (mobility, respect, security, income). Because seats are scarce, prep is expensive, and private capacity is unequally affordable, NEET functions as a **heavily taxing lottery that privilege can bias** — then launders the outcome as merit. The emotional story is cruelty, not “school is useless.”
+**Thesis we are trying to show:** Medicine’s rewards are real (mobility, respect, security, income). Seats are scarce, prep is expensive, and private capacity is unequally affordable — so **qualification is not access**, and exam rank should not be read as a pure measure of individual merit. Privilege channels enter as labeled scenarios / transported associations, not as a national causal inequality estimate.
 
 **Primary interactive product:** [reports/interactive/the-accessible-seat.html](interactive/the-accessible-seat.html)  
 **Reproduce numbers:** `make bayes && make privilege && make score-privilege && make story`
@@ -30,7 +30,7 @@
 | ~130k NMC MBBS seats; ~18 appeared / seat | National capacity accounting | **SHOW** | NMC snapshot + appeared; seat CI intentionally wide |
 | Qualify rate ≈ 56% | National | **SHOW** | Complete counts; *not* the privilege outcome |
 | Qualify ≠ seat | Conceptual | **SHOW** | ~10 qualified per seat |
-| Cutoff as seats/appeared percentile | National accounting | **SHOW†** | Not state/category counselling pools |
+| Capacity-equivalent threshold as seats/appeared percentile | National accounting | **SHOW†** | Not state/category counselling cutoffs |
 
 **Verdict:** Ready to lead the story. Grain = national exam ecology for 2024.
 
@@ -51,7 +51,7 @@
 | English vs Tamil govt allotment gap | Tamil Nadu, post-NEET years | **SHOW†** | Rajan panel; Bayesian ratio ~2.3×; holdout year higher absolute rates |
 | Affordability roughly doubles access when private is in play | Synthetic strata | **SENS** | Accounting knob (~1.9× in privilege model) |
 | Metro / intensive prep raise access further | Synthetic strata | **SENS** | Labeled knobs + coaching prior |
-| Full ladder ~5× (top/bottom accessible) | Synthetic national score model | **SHOW†** | Score→rank→seat unilateral decomp ~5.5× |
+| Channel waterfall (one privilege step at a time) | Synthetic national score model | **SENS** | Evidence-class labeled; extreme top/bottom ratio is not a national estimate |
 | National causal English / caste / income effects | National joints | **BLOCK** | No applicant-level SES×score×seat file |
 
 **Verdict:** Ready as a *calibrated synthetic ladder*, with TN medium as the only strongly observed access association. Do not sell strata as India-wide causal effects.
@@ -65,7 +65,7 @@
 | Centre geography ≠ domicile / SES | Guardrail | **SHOW** | Explicit prohibition |
 | State quota / category cutoffs | State adapters | **LATER** | Kerala/MCC extracts exist; not yet in story UI |
 
-**Verdict:** Ready for national accounting cutoffs. State counselling grain is the next upgrade.
+**Verdict:** Ready for national capacity-equivalent thresholds. State counselling grain is the next upgrade.
 
 ### 5. Coaching arms race
 

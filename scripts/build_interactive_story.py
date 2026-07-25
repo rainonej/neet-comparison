@@ -63,7 +63,7 @@ def _cdf_at_marks(table: list[tuple[float, float]], m: float) -> float:
 
 
 def build_razor_margin(n_appeared: int, govt_seats: int, private_seats: int) -> dict:
-    """Translate seat cutoffs into marks and 'questions correct' equivalents."""
+    """Translate capacity-equivalent rank thresholds into marks / question equivalents."""
     table = _quantile_table()
     total_seats = govt_seats + private_seats
     gov_cdf = 1.0 - govt_seats / n_appeared
@@ -88,6 +88,8 @@ def build_razor_margin(n_appeared: int, govt_seats: int, private_seats: int) -> 
             }
         )
 
+    gov_thr_marks = round(gov_marks, 1)
+    any_thr_marks = round(any_marks, 1)
     return {
         "marks_per_correct": MARKS_PER_CORRECT,
         "n_questions": 180,
@@ -96,15 +98,29 @@ def build_razor_margin(n_appeared: int, govt_seats: int, private_seats: int) -> 
             "NTA NEET-UG: 180 questions, +4 correct / -1 wrong / 0 blank. "
             "One extra correct answer (holding others fixed) is +4 marks."
         ),
-        "government_cutoff_marks": round(gov_marks, 1),
-        "any_mbbs_cutoff_marks": round(any_marks, 1),
+        "threshold_note": (
+            "Capacity-equivalent national rank thresholds (seats÷appeared mapped through "
+            "national marks quantiles). Not state/category counselling cutoffs."
+        ),
+        "government_capacity_threshold_marks": gov_thr_marks,
+        "any_mbbs_capacity_threshold_marks": any_thr_marks,
+        # Backward-compatible aliases for older story JS
+        "government_cutoff_marks": gov_thr_marks,
+        "any_mbbs_cutoff_marks": any_thr_marks,
         "national_median_marks": round(median_marks, 1),
+        "questions_median_below_any_threshold": round(
+            (any_marks - median_marks) / MARKS_PER_CORRECT, 1
+        ),
+        "questions_median_below_govt_threshold": round(
+            (gov_marks - median_marks) / MARKS_PER_CORRECT, 1
+        ),
         "questions_median_below_any_cutoff": round(
             (any_marks - median_marks) / MARKS_PER_CORRECT, 1
         ),
         "questions_median_below_govt_cutoff": round(
             (gov_marks - median_marks) / MARKS_PER_CORRECT, 1
         ),
+        "near_threshold_bands": bands,
         "near_cutoff_bands": bands,
         "interpolation": "Linear between published national marks quantiles",
     }
@@ -316,16 +332,16 @@ def build_payload() -> dict:
             "note": "Affordability filter; qualify ≠ seat",
         },
         {
-            "beat": "Privilege access ladder",
-            "status": "SHOW†",
+            "beat": "Privilege channel waterfall",
+            "status": "SENS",
             "grain": "Synthetic strata + TN medium",
-            "note": "~5× ladder; knobs labeled",
+            "note": "One channel at a time; evidence class labeled; extreme top/bottom is not a national estimate",
         },
         {
             "beat": "Coaching arms race",
             "status": "SENS",
             "grain": "Skeptical priors",
-            "note": "β₁ / β₂ encoded; not NEET LATE",
+            "note": "everyone_* = universal prep; rivals_escalate_* = focal keeps label; not NEET LATE",
         },
         {
             "beat": "Profession earnings",
@@ -387,15 +403,18 @@ def build_payload() -> dict:
                 "docs/STORY_BIBLIOGRAPHY.md",
             ],
             "thesis": (
-                "Medicine’s rewards are real. The rationing machine is cruel: "
-                "a heavily taxing lottery that sells better odds to families who can afford the ticket, "
-                "then launders the outcome as merit."
+                "Medicine’s rewards are real. Seats are scarce, preparation is costly, and private "
+                "capacity is unequally affordable — so qualification is not access, and exam rank "
+                "should not be read as a pure measure of individual merit."
             ),
             "arms_race_blurb": (
-                "Coaching is the entry fee of the lottery. Holding others fixed, prep can raise absolute scores. "
-                "When the whole pool escalates, relative ranks barely move while money and years are still extracted."
+                "Coaching can be the entry fee of a rank tournament. Holding others fixed, prep can "
+                "raise absolute scores. When the whole pool escalates equally, relative ranks barely "
+                "move while money and years are still extracted."
             ),
             "warnings": score.get("warnings", []),
+            "production_pathway": "score_rank_seat",
+            "legacy_privilege_demo": privilege.get("status") == "legacy_accounting_demo",
         },
         "scarcity": {
             "n_appeared": score["capacity"]["n_appeared"],
@@ -411,8 +430,22 @@ def build_payload() -> dict:
                 ),
                 1,
             ),
-            "govt_cutoff_percentile": score["capacity"]["government_cutoff_percentile"],
-            "any_cutoff_percentile": score["capacity"]["any_mbbs_cutoff_percentile"],
+            "govt_capacity_threshold_percentile": score["capacity"].get(
+                "government_capacity_threshold_percentile",
+                score["capacity"].get("government_cutoff_percentile"),
+            ),
+            "any_capacity_threshold_percentile": score["capacity"].get(
+                "any_mbbs_capacity_threshold_percentile",
+                score["capacity"].get("any_mbbs_cutoff_percentile"),
+            ),
+            "govt_cutoff_percentile": score["capacity"].get(
+                "government_capacity_threshold_percentile",
+                score["capacity"].get("government_cutoff_percentile"),
+            ),
+            "any_cutoff_percentile": score["capacity"].get(
+                "any_mbbs_capacity_threshold_percentile",
+                score["capacity"].get("any_mbbs_cutoff_percentile"),
+            ),
             "qualify_rate": next(
                 (
                     row["qualify_rate_mean"]
@@ -437,6 +470,7 @@ def build_payload() -> dict:
             .get("qualified_per_mbbs_seat"),
         },
         "decomposition": score["decomposition_unilateral"],
+        "waterfall": score.get("waterfall_unilateral", []),
         "arms_race": {
             "signatures": score["arms_race_signatures"],
             "plug_in_deltas_sd": score["coaching_plug_in_deltas_sd"],

@@ -1,15 +1,16 @@
-"""Privilege-stratified access and annual earnings and access scenarios.
+"""LEGACY accounting demo: privilege-stratified access via independent offer rates.
 
-This module tells a descriptive inequality story under explicit assumptions:
+**Not the production pathway.** Prefer ``score_privilege`` (score → rank → seat).
 
-1. Starting privilege (school medium, private-seat affordability, metro proximity, prep spend)
-   changes the probability of an *accessible* MBBS seat.
-2. Conditional on stratum, people who get a seat have much higher annual earnings (especially among the employed) than peers
-   who miss and enter engineering / law / other-graduate paths.
+This module remains for:
+- teaching the affordability ~2× accounting identity under match_government_rate;
+- career / earnings artifact generation shared with the score model;
+- regression tests of the old Bernoulli combination.
 
-Causal language is prohibited. Tamil Nadu medium rates are observed associations. The
-affordability ~2x channel is a mechanical accounting identity when private offers match the
-government rate and private seats are dropped for households that cannot pay.
+Structural caveat: government and private offers are treated as independent channels
+``P(access) = 1-(1-P_G)(1-P_P·1{afford})``, which is not how ranked counselling works.
+
+Causal language is prohibited. Tamil Nadu medium rates are observed associations.
 """
 
 from __future__ import annotations
@@ -818,7 +819,10 @@ def run_privilege_pipeline(
     draws: int | None = None,
     admission_profile: str | None = None,
 ) -> dict[str, Path]:
-    """Fit the privilege story and write machine-readable artifacts."""
+    """Fit the LEGACY independent-offers demo and write artifacts.
+
+    Production pathway: ``run_score_privilege_pipeline``.
+    """
 
     config = load_privilege_config(config_path)
     processed_root = PROCESSED if processed is None else processed
@@ -928,6 +932,10 @@ def run_privilege_pipeline(
 
     story = {
         "model_version": config.get("model_version"),
+        "model_family": "legacy_independent_offers_accounting_demo",
+        "production_pathway": False,
+        "superseded_by": "score_rank_seat",
+        "status": "legacy_accounting_demo",
         "admission_profile": profile,
         "primary_metric": config["simulation"].get("primary_metric", "annual_earnings"),
         "narrative": config.get("narrative", {}),
@@ -1008,6 +1016,8 @@ def run_privilege_pipeline(
             ),
         },
         "warnings": [
+            "LEGACY accounting demo — not the production pathway. Prefer score→rank→seat (score_privilege).",
+            "Independent government/private Bernoulli offers are not a ranked counselling allocator.",
             "TN medium rates are observed associations among counselling applicants, not national causal English effects.",
             "Affordability ~2x is a mechanical accounting identity under match_government_rate private offers.",
             "Metro and prep admission multipliers are labeled sensitivity knobs unless prep_sensitivity profile is selected.",

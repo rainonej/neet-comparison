@@ -1,11 +1,19 @@
-model_version: 0.4.0
-purpose: privilege_compounding_inequality_story
+model_version: 0.4.1
+purpose: legacy_accounting_demo
+production_pathway: false
+superseded_by: config/score_privilege_scenarios.yaml
+status: legacy_accounting_demo
 causal_language: prohibited
+
+# LEGACY: independent government/private Bernoulli offers.
+# Production pathway is score → rank → seat (score_privilege_scenarios.yaml).
+# Keep for teaching the affordability accounting identity (~2×) and career artifacts.
 
 narrative:
   short: >-
-    Starting privilege loads medical-seat access; a seat then widens lifetime earnings
-    versus same-background peers who miss. Mobility is real; meritocracy is not.
+    LEGACY accounting demo. Starting privilege loads medical-seat access under
+    independent-offer assumptions; a seat then widens earnings versus peers who miss.
+    Prefer the score→rank→seat model for public figures.
 
 # Default profile: coaching does NOT change admission odds (cost only).
 # Sensitivity profiles may turn on prep_admission multipliers.
