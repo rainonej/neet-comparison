@@ -248,6 +248,37 @@ def build_career_paths_for_privilege(
     employment = fit.career_medicine.employment_given_labor_force
     formal = fit.career_medicine.formal_job_given_employed
 
+    # Prefer PLFS 2025 field-specific LFP / employment gates when aggregates exist.
+    field_emp_path = processed_root / "mospi" / "plfs_field_employment.csv"
+    med_lfp, med_emp = 0.85, None
+    eng_lfp, eng_emp = 0.85, None
+    if field_emp_path.exists():
+        fe = pd.read_csv(field_emp_path)
+        med_row = fe.query(
+            "field == 'medicine_technical_education' and sex == 'all' and sector == 'all'"
+        )
+        eng_row = fe.query(
+            "field == 'engineering_technical_education' and sex == 'all' and sector == 'all'"
+        )
+        if not med_row.empty:
+            med_lfp = float(med_row["lfp_weighted"].iloc[0])
+            med_emp = beta_from_mean_ess(
+                float(med_row["employment_given_lf_weighted"].iloc[0]),
+                min(float(med_row["n_unweighted"].iloc[0]), 40.0),
+                label="medicine_employment_given_lfp",
+                source="PLFS 2025 technical-education field aggregate",
+                evidence_class="survey_estimate_with_design_effect",
+            )
+        if not eng_row.empty:
+            eng_lfp = float(eng_row["lfp_weighted"].iloc[0])
+            eng_emp = beta_from_mean_ess(
+                float(eng_row["employment_given_lf_weighted"].iloc[0]),
+                min(float(eng_row["n_unweighted"].iloc[0]), 40.0),
+                label="engineering_employment_given_lfp",
+                source="PLFS 2025 technical-education field aggregate",
+                evidence_class="survey_estimate_with_design_effect",
+            )
+
     def _path(
         name: str,
         *,
@@ -259,6 +290,8 @@ def build_career_paths_for_privilege(
         geometric_sd: float = 1.75,
         lfp: float = 0.85,
         employment_override=None,
+        lfp_source: str = "weak LFP prior",
+        lfp_ess: float = 8,
     ) -> CareerPathModel:
         geom = geometric_sd if geometric_sd > 1.0 else 1.75
         return CareerPathModel(
@@ -272,10 +305,10 @@ def build_career_paths_for_privilege(
             ),
             labor_force_participation=beta_from_mean_ess(
                 lfp,
-                8,
+                lfp_ess,
                 label=f"{name}_lfp",
-                source="weak LFP prior",
-                evidence_class="prior",
+                source=lfp_source,
+                evidence_class="prior" if lfp_ess <= 8 else "survey_estimate_with_design_effect",
             ),
             employment_given_labor_force=employment_override or employment,
             matched_job_given_employed=beta_from_mean_ess(
@@ -349,6 +382,12 @@ def build_career_paths_for_privilege(
             annual_unmatched=nurse.annual_median_inr(),
             source=physician_source,
             geometric_sd=phys.geometric_sd,
+            lfp=med_lfp,
+            employment_override=med_emp,
+            lfp_source="PLFS 2025 medicine technical-education LFP"
+            if field_emp_path.exists()
+            else "weak LFP prior",
+            lfp_ess=20 if med_emp is not None else 8,
         ),
         "private_mbbs": _path(
             "private_mbbs",
@@ -358,6 +397,12 @@ def build_career_paths_for_privilege(
             annual_unmatched=nurse.annual_median_inr(),
             source=physician_source,
             geometric_sd=phys.geometric_sd,
+            lfp=med_lfp,
+            employment_override=med_emp,
+            lfp_source="PLFS 2025 medicine technical-education LFP"
+            if field_emp_path.exists()
+            else "weak LFP prior",
+            lfp_ess=20 if med_emp is not None else 8,
         ),
         "physician_public_sector": _path(
             "physician_public_sector",
@@ -367,6 +412,12 @@ def build_career_paths_for_privilege(
             annual_unmatched=nurse.annual_median_inr(),
             source="World Bank public-sector physician wage (employment sector, not college)",
             geometric_sd=phys.geometric_sd,
+            lfp=med_lfp,
+            employment_override=med_emp,
+            lfp_source="PLFS 2025 medicine technical-education LFP"
+            if field_emp_path.exists()
+            else "weak LFP prior",
+            lfp_ess=20 if med_emp is not None else 8,
         ),
         "physician_private_sector": _path(
             "physician_private_sector",
@@ -376,6 +427,12 @@ def build_career_paths_for_privilege(
             annual_unmatched=nurse.annual_median_inr(),
             source="World Bank private-sector physician wage (employment sector, not college)",
             geometric_sd=phys.geometric_sd,
+            lfp=med_lfp,
+            employment_override=med_emp,
+            lfp_source="PLFS 2025 medicine technical-education LFP"
+            if field_emp_path.exists()
+            else "weak LFP prior",
+            lfp_ess=20 if med_emp is not None else 8,
         ),
         "engineering": _path(
             "engineering",
@@ -385,6 +442,12 @@ def build_career_paths_for_privilege(
             annual_unmatched=nurse.annual_median_inr(),
             source=eng.source,
             geometric_sd=eng.geometric_sd,
+            lfp=eng_lfp,
+            employment_override=eng_emp,
+            lfp_source="PLFS 2025 engineering technical-education LFP"
+            if field_emp_path.exists()
+            else "weak LFP prior",
+            lfp_ess=20 if eng_emp is not None else 8,
         ),
         "law": _path(
             "law",

@@ -1,0 +1,196 @@
+model_version: 0.5.0
+purpose: score_rank_seat_privilege_inequality_story
+causal_language: prohibited
+
+narrative:
+  short: >-
+    Privilege and coaching shift latent NEET scores; scarce seats are allocated by rank;
+    affordability turns private offers into accessible seats. A seat then widens earnings
+    versus same-background peers who miss. Mobility is real; meritocracy is not.
+
+# Empirical NEET marks (processed quantiles; optional full centre-marks CSV).
+score_distribution:
+  quantiles_csv: data/processed/neet_2024_marks_quantiles.csv
+  summary_csv: data/processed/neet_2024_marks_summary.csv
+  marks_csv_optional: data/external/neet-2024-center-marks.csv
+  n_appeared: 2333162
+  evidence_class: same_population_complete_counts
+
+# National capacity accounting (NMC snapshot). Not P(offer|applicant,state,category).
+nmc_capacity:
+  government_like_seats: 63859
+  private_like_seats: 65743
+  total_mbbs_seats: 129602
+  source: NMC MBBS college list scrape
+  evidence_class: capacity_accounting
+
+# Coaching score shifts in SD units of the national marks distribution.
+# Default profile applies private returns; arms-race scenarios subtract the population mean shift.
+coaching:
+  default_profile: conservative
+  profiles:
+    "null":
+      none: 0.0
+      modest: 0.0
+      intensive: 0.0
+    conservative:
+      none: 0.0
+      modest: 0.08
+      intensive: 0.20
+    reasonable:
+      none: 0.0
+      modest: 0.14
+      intensive: 0.30
+  population_mix_for_arms_race:
+    none: 0.45
+    modest: 0.40
+    intensive: 0.15
+  notes: >-
+    Central modest shift borrows Dongre-Tewary ~0.14 SD Indian tutoring proxy (elementary).
+    Not a NEET LATE. Intensive is a labeled residential/Kota-like dose.
+
+# Medium baseline location shifts (SD), calibrated so English/Tamil govt-offer odds
+# roughly match Rajan post-NEET aggregates when coaching is held at modest.
+medium_score_shift_sd:
+  tamil: -0.12
+  english: 0.10
+  calibration_target:
+    source: Justice A.K. Rajan Committee Table 7.18 post-NEET aggregate
+    english_government_rate: 0.09502670581160907
+    tamil_government_rate: 0.043419496536577125
+  evidence_class: calibrated_to_state_association
+  warning: TN counselling-applicant association, not national causal English effect.
+
+# Metro remains a weak labeled knob on scores.
+metro_score_shift_sd:
+  non_metro: 0.0
+  metro: 0.05
+  evidence_class: labeled_sensitivity
+
+fees_inr_per_year:
+  government_mbbs: 25000
+  private_mbbs: 800000
+  source: stylized until state fee schedules collected
+
+household_resource_tiers_inr_per_year:
+  cannot_afford_private: 300000
+  can_afford_private: 2000000
+  affordability_rule: private_annual_fee_leq_half_annual_household_resources
+
+# Coaching participation priors by privilege (from NSS Education / CMSE aggregates).
+coaching_participation:
+  source: nss_education_coaching_joints + cmse_coaching_priors
+  # If stratum prep_intensity is fixed in the ladder, these are documentation only.
+  # Generator mode can draw C ~ Categorical(weights).
+  default_weights_by_privilege:
+    low:
+      none: 0.70
+      modest: 0.25
+      intensive: 0.05
+    mid:
+      none: 0.45
+      modest: 0.45
+      intensive: 0.10
+    high:
+      none: 0.25
+      modest: 0.50
+      intensive: 0.25
+
+no_seat_mixture_weights:
+  default:
+    engineering: 0.45
+    law: 0.15
+    other_graduate: 0.40
+  high_privilege:
+    engineering: 0.50
+    law: 0.20
+    other_graduate: 0.30
+  low_privilege:
+    engineering: 0.35
+    law: 0.10
+    other_graduate: 0.55
+
+# Ordered ladder for story figures (same spirit as privilege_scenarios).
+access_ladder:
+  - id: tamil_cant_afford_nonmetro_none
+    school_medium: tamil
+    can_afford_private: false
+    metro_proximity: non_metro
+    prep_intensity: none
+    privilege_tier: low
+    label: Tamil · cannot afford private · non-metro · no prep
+  - id: tamil_cant_afford_nonmetro_modest
+    school_medium: tamil
+    can_afford_private: false
+    metro_proximity: non_metro
+    prep_intensity: modest
+    privilege_tier: low
+    label: Tamil · cannot afford private · non-metro · modest prep
+  - id: english_cant_afford_nonmetro_modest
+    school_medium: english
+    can_afford_private: false
+    metro_proximity: non_metro
+    prep_intensity: modest
+    privilege_tier: mid
+    label: English · cannot afford private · non-metro · modest prep
+  - id: english_can_afford_nonmetro_modest
+    school_medium: english
+    can_afford_private: true
+    metro_proximity: non_metro
+    prep_intensity: modest
+    privilege_tier: mid
+    label: English · can afford private · non-metro · modest prep
+  - id: english_can_afford_metro_modest
+    school_medium: english
+    can_afford_private: true
+    metro_proximity: metro
+    prep_intensity: modest
+    privilege_tier: high
+    label: English · can afford private · metro · modest prep
+  - id: english_can_afford_metro_intensive
+    school_medium: english
+    can_afford_private: true
+    metro_proximity: metro
+    prep_intensity: intensive
+    privilege_tier: high
+    label: English · can afford private · metro · intensive prep
+
+# Arms-race scenarios for figures.
+arms_race_scenarios:
+  - id: unilateral
+    description: Stratum coaches as labeled; population mean coaching shift subtracted so ranks are relative
+    subtract_population_mean_shift: true
+  - id: everyone_modest
+    description: Entire population gets modest coaching (relative advantage collapses)
+    force_population_prep: modest
+    subtract_population_mean_shift: true
+  - id: everyone_intensive
+    description: Entire population gets intensive coaching (pure cost arms race)
+    force_population_prep: intensive
+    subtract_population_mean_shift: true
+
+simulation:
+  draws: 40000
+  seed: 42
+  reference_pool_size: 200000
+  primary_metric: annual_earnings
+  cdf_grid_size: 41
+  score_histogram_edges:
+    - -180
+    - 0
+    - 100
+    - 200
+    - 300
+    - 400
+    - 500
+    - 600
+    - 720
+  annual_histogram_edges_inr:
+    - 0
+    - 1
+    - 100000
+    - 250000
+    - 500000
+    - 1000000
+    - 2000000
+    - 5000000

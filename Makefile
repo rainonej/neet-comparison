@@ -1,4 +1,4 @@
-.PHONY: audit status test summarize bayes privilege mospi mospi-extended
+.PHONY: audit status test summarize bayes privilege score-privilege mospi mospi-extended
 
 audit:
 	python scripts/audit_catalog.py
@@ -23,3 +23,6 @@ bayes:
 
 privilege:
 	python scripts/run_privilege_inequality.py
+
+score-privilege:
+	python scripts/run_score_privilege.py
