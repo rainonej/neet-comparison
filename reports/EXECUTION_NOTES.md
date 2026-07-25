@@ -1,31 +1,30 @@
-# Execution notes — 2026-07-25 (neet-comparison bootstrap)
+# Execution notes — 2026-07-25 (full public pull)
 
-## Repository seed
+## Scale
 
-- Preserved the six-commit history from `neet-life-course-data-audit.bundle`.
-- Overlayed the fuller `neet-life-course-data-audit(5).zip` snapshot (access kit, microsim scaffolding, coaching/TN evidence).
-- Added setup docs (`SETUP.md`, `OPEN_DATA_DOWNLOADS.md`, `GATED_NEXT.md`) and `scripts/register_download.py`.
+After the expanded public crawl, local archives are about **1.06 GB / ~699 files** (see `data/processed/local_data_inventory.csv`).
 
-## Successfully acquired (local, gitignored)
+## Major acquisitions
 
-| Source | Local path | Notes |
-|---|---|---|
-| OSF `tnh4x` | `data/external/osf/tnh4x/raw/` | CSV + methods DOCX + NSSI scales PDF |
-| NEET-2024 centre marks reconstruction | `data/external/neet-2024-center-marks.csv` | 33,800,799 bytes; SHA-256 `35b67efe…114c`; 2,333,162 rows |
-| NMC UG colleges | `data/raw/nmc_ug_colleges.json`, `data/raw/nmc_colleges.csv` | JSON API `getAllUgColleges`; 823 college rows |
-| MCC UG 2024 archive | `data/raw/mcc_2024/2024/` | 37 indexed PDFs (seat matrices, allotments, vacancies, notices) |
-| Kerala CEE / KEAM | `data/external/kerala_cee/raw/` | Home/notification HTML, 2025 rank/allot/last-rank/catlist landing pages, discovered link index |
+1. **Kerala CEE:** all linked medical/allied/engineering rank, allotment, last-rank, and category PDFs from KEAM 2025 pages, plus historical BPL scholarship notification PDFs.
+2. **MCC:** UG archive PDFs for 2023, 2024, and available 2025 items.
+3. **NIRF Medical:** ranking pages 2023–2025 and 150 institution report PDFs from `nirfpdfcdn`.
+4. **NTA:** information bulletins and public-notice PDFs from `neet.nta.nic.in` (live centre-score PDF host is down).
+5. **GitHub reconstruction:** centres CSV, longnames CSV, and `neet-2024-center-marks-data.db` in addition to the marks CSV.
+6. **Background PDFs:** World Bank health labor, WID India inequality, Rajan Committee, NCRB ADSI-linked reports, Dakshana annual reports, CBSE dummy-school press releases, Tamil Nadu counselling archive PDFs.
 
-Hashes and provenance are in `data/processed/download_manifest.csv`.
+## Official NTA centre PDFs
 
-## Blocked or deferred
+- Live URL pattern `https://neetfs.ntaonline.in/NEET_2024_Result/{id}.pdf` returns **404 / site not configured**.
+- Wayback CDX finds only **14** archived centre PDFs; those are stored under `data/raw/neet_2024/pdfs_wayback/`.
+- Working national score distribution remains the third-party reconstruction CSV/DB (hash-checked).
 
-- **OpenICPSR E112992:** project page is public; download requires a free ICPSR login. Stub README left under `data/external/openicpsr/E112992/raw/`.
-- **Official NTA centre PDFs:** `neetfs.ntaonline.in` root returns 404; `neet.nta.nic.in` responds; full centre-PDF crawl not completed in this pass. Reconstruction CSV remains the working score distribution.
-- **Gated surveys (MoSPI / DHS / IHDS / PRICE / Young Lives):** intentionally deferred. Follow `docs/GATED_NEXT.md`.
+## Still blocked
+
+- **OpenICPSR E112992** — login wall.
+- **MoSPI / DHS / IHDS / PRICE / Young Lives** — deferred to gated pass (`docs/GATED_NEXT.md`).
 
 ## Validation
 
-- Source catalog audit: 43 sources, 15 critical.
-- Privacy header audit on `data/processed/` passed.
-- Repository tests: `pytest` (see `pytest.ini`; `_incoming/` excluded).
+- Privacy header audit on processed CSVs still required before committing new processed extracts from named allotment lists.
+- Kerala/TN allotment PDFs may contain candidate identifiers; keep raw only under gitignored paths and aggregate before `data/processed/`.

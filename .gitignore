@@ -17,6 +17,8 @@ data/processed/**/*
 !data/processed/published_estimates.csv
 !data/processed/neet_2024_dataful_preview.csv
 !data/processed/download_manifest.csv
+!data/processed/local_data_inventory.csv
+!data/processed/public_bulk_download_manifest.csv
 !data/processed/neet_2024_marks_distribution.csv
 !data/processed/neet_2024_marks_histogram.csv
 !data/processed/neet_2024_marks_quantiles.csv
