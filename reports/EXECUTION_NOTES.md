@@ -19,10 +19,26 @@ After the expanded public crawl, local archives are about **1.06 GB / ~699 files
 - Wayback CDX finds only **14** archived centre PDFs; those are stored under `data/raw/neet_2024/pdfs_wayback/`.
 - Working national score distribution remains the third-party reconstruction CSV/DB (hash-checked).
 
+## Coaching-gap public download pass (same day)
+
+Targeted pull for datasets that are available **without email**, plus an ask-for queue for the rest (`docs/COACHING_GAP_ASK_LIST.md`).
+
+| Source | Result |
+|---|---|
+| OSF `tnh4x` | Confirmed local CSV (151 rows); Age/Gender/SES + stress scales only — **no** coaching fees/hours/NEET score/seat |
+| Dakshana | AR07–AR24 + JDST 2024 notification (~520 MB under `data/external/dakshana/raw/`) |
+| CBSE dummy schools | Mar 2024 + later inspection press PDFs; `disaffiliated.html` / `downgraded.html`; derived `data/processed/cbse_dummy_school_registry.csv` (25 school rows after cleanup) |
+| Tamil Nadu counselling | ~61 MBBS/BDS-related PDFs from home crawl + known 2023 rank/allotment lists |
+| Bihar Super 50 | `coaching.biharboardonline.com` **404**; Careers360 news mirror archived |
+| SATHEE / CSRL | Landing pages only |
+
+Scripts: `scripts/download_coaching_gap_public.py`, `scripts/build_cbse_dummy_school_registry.py`.
+
 ## Still blocked
 
 - **OpenICPSR E112992** — login wall.
 - **MoSPI / DHS / IHDS / PRICE / Young Lives** — deferred to gated pass (`docs/GATED_NEXT.md`).
+- **Dakshana / Super 50 / SATHEE / CSRL / Careers360 / commercial coaching microdata** — require outreach (`docs/COACHING_GAP_ASK_LIST.md`).
 
 ## Validation
 

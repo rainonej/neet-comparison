@@ -34,3 +34,5 @@ data/processed/**/*
 !data/processed/tamil_nadu_medium_aggregate_rates.csv
 !data/processed/data_holder_and_researcher_leads.csv
 !data/processed/public_rti_archive_leads.csv
+!data/processed/cbse_dummy_school_registry.csv
+!data/processed/coaching_gap_public_manifest.csv

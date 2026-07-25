@@ -106,14 +106,46 @@ The public archive indexes historical NEET requests concerning candidate score b
 - Public college-predictor repositories can reveal parsing code and cleaned cutoff tables. Every record must be traced to an official PDF before use.
 - Synthetic Kaggle “college admission” datasets must not be mistaken for observed NEET data.
 
+## Coaching-gap program holders (added 2026-07-25)
+
+These are now the highest-value requests for the preparation → score → seat link. Full variable lists and send order: [COACHING_GAP_ASK_LIST.md](COACHING_GAP_ASK_LIST.md).
+
+### Dakshana Foundation — scored JDST selection
+
+Public annual reports and the JDST 2024 notification are already archived under `data/external/dakshana/raw/`. What is still missing is the **all-applicant** file (selected and rejected) with JDST scores, cutoffs, and final NEET/seat outcomes for a fuzzy cutoff design.
+
+- Site: `https://www.dakshana.org/`
+- Contact route: `scholarship@dakshana.org` / institutional research channel
+- Request: deidentified applicants near JDST cutoffs, not scholar success stories
+
+### BSEB Super 50
+
+Free residential/non-residential JEE–NEET coaching with an entrance test. The coaching portal returned **404** on 2026-07-25; news mirrors are archived under `data/external/bihar_super50/raw/`. Prefer a university evaluation partnership before the next cohort finishes NEET.
+
+### SATHEE (IIT Kanpur)
+
+Public platform pages archived; student-level usage logs are not public. Best continuous dose-response target (watch time, practice, mocks, school rollouts). Contact the SATHEE project team / Prof. Amey Karkare.
+
+### CSRL Super 30
+
+Public program pages only. Request applicant test/interview scores, centre thresholds, and outcomes across centres.
+
+### Careers360 2022 preparation survey
+
+Published charts exist; raw N≈717 file and branching logic still need a vendor request. Severe selection: many non-admits skipped preparation questions.
+
 ## Outreach order
 
-1. Download the OSF project immediately.
-2. Contact the four direct study teams with concrete, minimal data requests.
-3. Contact Tamil Nadu committee members and administrative data holders for the analytical extract or tabulation workbook used in the report.
-4. Build Kerala CEE, NMC aggregate, and NIRF panels from public records.
-5. Contact commercial database builders for licensed exports and provenance documentation.
-6. Use forums only to locate documents, original RTI applicants, or researchers—not as statistical evidence.
+1. OSF project — **done** (downloaded; mental-health fields only).
+2. **Dakshana JDST applicant extract** (coaching-gap #1).
+3. **BSEB Super 50** partnership / extract.
+4. **SATHEE** schema + rollout feasibility.
+5. CSRL; Careers360 raw survey.
+6. Contact the four direct study teams (Alagappa, Puducherry, Guntur, Kerala social-origin) with concrete, minimal data requests.
+7. Contact Tamil Nadu committee members and administrative data holders for the analytical extract or tabulation workbook used in the report; public rank/allotment PDFs already archived.
+8. Build Kerala CEE, NMC aggregate, and NIRF panels from public records.
+9. Contact commercial coaching platforms and database builders last.
+10. Use forums only to locate documents, original RTI applicants, or researchers—not as statistical evidence.
 
 ## What not to request
 
