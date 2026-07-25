@@ -1,0 +1,25 @@
+scenario_id,label,total_sittings,probability,is_national_estimate
+low_persistence,Low persistence,1,0.7000000000000001,False
+low_persistence,Low persistence,2,0.24000000000000002,False
+low_persistence,Low persistence,3,0.051000000000000004,False
+low_persistence,Low persistence,4,0.008100000000000001,False
+low_persistence,Low persistence,5,0.0008100000000000001,False
+low_persistence,Low persistence,6,8.100000000000002e-05,False
+low_persistence,Low persistence,7,8.100000000000002e-06,False
+low_persistence,Low persistence,8,9.000000000000002e-07,False
+central,Central (default simulation start),1,0.5,False
+central,Central (default simulation start),2,0.33499999999999996,False
+central,Central (default simulation start),3,0.12375,False
+central,Central (default simulation start),4,0.0342375,False
+central,Central (default simulation start),5,0.005820375,False
+central,Central (default simulation start),6,0.0009894637500000001,False
+central,Central (default simulation start),7,0.00016820883750000005,False
+central,Central (default simulation start),8,3.4452412500000013e-05,False
+high_persistence,High persistence,1,0.30000000000000004,False
+high_persistence,High persistence,2,0.35,False
+high_persistence,High persistence,3,0.22749999999999998,False
+high_persistence,High persistence,4,0.09187499999999998,False
+high_persistence,High persistence,5,0.022968749999999996,False
+high_persistence,High persistence,6,0.005742187499999999,False
+high_persistence,High persistence,7,0.0014355468749999998,False
+high_persistence,High persistence,8,0.00047851562499999994,False

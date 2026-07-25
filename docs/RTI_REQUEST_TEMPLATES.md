@@ -22,6 +22,30 @@ Under the Right to Information Act, please provide the following records in elec
 
 I do not seek names, application numbers, addresses, telephone numbers, email addresses, Aadhaar/PAN/passport information, photographs, biometrics, school roll numbers, or any other direct identifier. Please provide records in their existing electronic format. If any portion is exempt, please sever the exempt portion and provide the remainder, stating the specific exemption applied.
 
+## Template 1b — NTA attempt / Class XII year aggregates (highest value)
+
+**Public authority:** National Testing Agency
+
+**Subject:** NEET-UG aggregate tables by prior appearances, Class XII year, age band and score band, 2019–
+
+Under the Right to Information Act, for each NEET-UG year from 2019 onward, please provide **existing** electronic counts of candidates who **appeared**, cross-tabulated by:
+
+1. Completed age band: ≤17, 18, 19, 20, 21, 22, 23+ (or the nearest banding NTA already uses);
+2. Year of first Class XII / equivalent completion (or years since first Class XII completion: 0, 1, 2, 3, 4+);
+3. Number of previous NEET-UG appearances recorded by NTA: 0, 1, 2, 3, 4+ (if held);
+4. State of eligibility / permanent state (as held);
+5. Sex;
+6. Reservation category (as held);
+7. Marks or percentile band (25- or 50-mark bands, or existing internal bands);
+8. Qualification status (qualified / not qualified).
+
+Also please state:
+
+- Whether NTA maintains a persistent candidate identifier, or otherwise has the technical capacity to identify the same candidate across examination years; and from which year consistent linkage is available.
+- The data dictionary field names for date of birth, Class XII passing year, and any prior-attempt / previous-appearance flags.
+
+No names, dates of birth at day resolution, Aadhaar numbers, roll numbers, or other personal identifiers are requested. Small cells may be suppressed or combined. If row-level data cannot be disclosed, aggregate tables alone are requested. If producing a new cross-tabulation is refused because the record is not held in that form, please say so explicitly and provide any **existing** tabulations that include age, Class XII year, or previous appearance.
+
 ## Template 2 — MCC / DGHS
 
 **Subject:** Machine-readable NEET-UG counselling, allotment, joining and vacancy records, 2019-2026

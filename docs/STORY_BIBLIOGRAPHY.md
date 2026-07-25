@@ -40,6 +40,14 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 | Skeptical prep → score priors | docs/COACHING_EFFECT_EVIDENCE.md | Not a NEET LATE |
 | Strategic tutoring response | Cross-exam literature cited there | External; not estimated from NEET microdata |
 
+## Attempts / retakes
+
+| Claim | Source | Caveat |
+|---|---|---|
+| Sitting histograms (low/central/high) | `config/attempt_priors.yaml` | **Sensitivity only** — see docs/ATTEMPT_PRIORS.md |
+| Resource runway formula | CMSE + HCES + AIDIS + PLFS (+ TUS) | Synthetic household; not NEET-linked |
+| NTA prior appearances / Class XII year | Not public | RTI template 1b |
+
 ## Citation keys used in the HTML
 
 - `[PLFS25]` — MoSPI PLFS 2025 processed wage anchors  

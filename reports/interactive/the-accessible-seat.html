@@ -719,35 +719,64 @@
   <section id="attempts">
     <div class="wrap fade">
       <p class="section-label">05 · Years as currency</p>
-      <h2>The lottery charges time, not only money.</h2>
-      <p class="lede">
-        Repeat years are part of the tax. We can see that most <em>admitted</em> students were repeaters —
-        but converting that into how many <em>applicants</em> are trapped in the loop needs an assumption (ρ).
-        Either way, the machine burns calendar years while promising a fair race.
+      <h2>We do not know how many times people sit.</h2>
+      <p class="lede" id="attempt-note">
+        NTA does not publish attempt counts or age. What we have is admitted composition
+        (TN: ~71% repeaters among winners) and labeled continuation scenarios.
+        Success exit = joined an acceptable seat — not “qualified.”
       </p>
-      <div class="panel">
+      <div class="thesis-strip">
+        <article>
+          <h3>Observed</h3>
+          <p>TN admitted repeater share 71% <span class="cite">[Rajan21]</span>. Elite-admit samples can look closer to ~1/3 repeaters. Heterogeneity is huge.</p>
+        </article>
+        <article>
+          <h3>Missing</h3>
+          <p>National P(sittings=1,2,3…). Best ask: prior appearances × Class XII year × score band from NTA.</p>
+        </article>
+        <article>
+          <h3 class="cruel">Wrong model</h3>
+          <p>Constant geometric retake probability. Continuation should fall with attempt, cost runway, and burnout.</p>
+        </article>
+      </div>
+      <div class="panel" style="margin-top:1.5rem">
         <div class="controls">
-          <h3>Sensitivity</h3>
+          <h3>Persistence scenario</h3>
           <div class="ctrl">
+            <label>Continuation rates (labeled prior)</label>
+            <div class="seg" id="persist-seg">
+              <button type="button" data-sc="low_persistence">Low</button>
+              <button type="button" data-sc="central" class="on">Central</button>
+              <button type="button" data-sc="high_persistence">High</button>
+            </div>
+          </div>
+          <p class="footnote" style="margin:0;border:0;padding:0;font-size:0.82rem" id="persist-rates">
+            —
+          </p>
+          <div class="ctrl" style="margin-top:1.2rem">
             <label>ρ = P(admit|repeater) / P(admit|first)</label>
             <input id="rho-slider" type="range" min="0" max="5" step="1" value="2" style="width:100%" />
             <div class="seg" style="margin-top:0.6rem" id="rho-labels"></div>
           </div>
-          <p class="footnote" style="margin:0;border:0;padding:0;font-size:0.82rem">
-            Formula: a = r / (r + ρ(1−r)), with r = 71.4% among admitted (TN 2020–21).
-            This does <strong>not</strong> identify mean attempts or the full 1,2,3… histogram.
+          <p class="footnote" style="margin:0.5rem 0 0;border:0;padding:0;font-size:0.82rem">
+            ρ only splits first vs ≥2 among applicants given TN admitted r=71.4%. Docs: <code>ATTEMPT_PRIORS.md</code>.
           </p>
         </div>
         <div class="result">
           <div>
-            <p class="meta-line">Implied P(repeater | applicants)</p>
-            <p class="big" id="rho-out">—</p>
-            <p class="meta-line" id="rho-first">—</p>
+            <p class="meta-line">Implied mean sittings (scenario — not a national estimate)</p>
+            <p class="big" id="persist-mean">—</p>
+            <p class="meta-line" id="rho-out-line">—</p>
           </div>
-          <div class="chart-box" style="background:transparent;border:0;padding:0;margin:0">
-            <canvas id="rho-canvas" height="220"></canvas>
+          <div class="chart-box" style="background:transparent;border:0;padding:0;margin:0.75rem 0 0">
+            <canvas id="persist-canvas" height="240"></canvas>
           </div>
         </div>
+      </div>
+      <div class="chart-box" style="margin-top:1.25rem">
+        <p class="chart-title">ρ sensitivity — P(repeater | applicants)</p>
+        <p class="chart-cap">Binary first vs repeater only. Does not give the 1,2,3… histogram.</p>
+        <canvas id="rho-canvas" height="220"></canvas>
       </div>
     </div>
   </section>
@@ -1240,11 +1269,43 @@
       `<button type="button" data-i="${i}" class="${i === 2 ? "on" : ""}">${r}×</button>`
     ).join("");
 
+    let persistId = "central";
+    let rhoIndex = 2;
+
+    function syncRhoLine() {
+      const a = D.attempts[rhoIndex];
+      document.getElementById("rho-out-line").textContent =
+        `Under ρ=${a.rho}×: P(repeater|applicants)=${fmt.pct(a.p_repeater_applicants, 1)} (TN admitted r fixed at ${fmt.pct(a.r_admitted, 1)})`;
+    }
+
+    function renderPersist() {
+      const sc = (D.attempt_scenarios || []).find((s) => s.id === persistId)
+        || (D.attempt_scenarios || [])[0];
+      if (!sc) return;
+      document.getElementById("persist-mean").textContent = sc.mean_sittings.toFixed(2);
+      document.getElementById("persist-rates").textContent =
+        `r₁=${sc.r1} · r₂=${sc.r2} · r₃=${sc.r3} · r₄+=${sc.r4p} · success exit = acceptable seat joined`;
+      document.querySelectorAll("#persist-seg button").forEach((b) => {
+        b.classList.toggle("on", b.dataset.sc === persistId);
+      });
+      drawBars(
+        document.getElementById("persist-canvas"),
+        ["1", "2", "3", "4", "5+"],
+        [sc.p1, sc.p2, sc.p3, sc.p4, sc.p5p],
+        {
+          colors: ["#2f8f86", "#3a8f7a", "#e2a12b", "#d4892a", "#b85c38"],
+          yLabel: "P(total sittings)",
+          valueLabels: [sc.p1, sc.p2, sc.p3, sc.p4, sc.p5p].map((p) => fmt.pct(p, 0)),
+          rotate: false,
+          pad: { t: 36, r: 16, b: 56, l: 48 },
+        }
+      );
+      syncRhoLine();
+    }
+
     function renderRho(i) {
+      rhoIndex = i;
       const a = D.attempts[i];
-      document.getElementById("rho-out").textContent = fmt.pct(a.p_repeater_applicants, 1);
-      document.getElementById("rho-first").textContent =
-        `First-attempt among applicants: ${fmt.pct(a.p_first_applicants, 1)} · admitted repeater share fixed at ${fmt.pct(a.r_admitted, 1)}`;
       document.getElementById("rho-slider").value = String(i);
       document.querySelectorAll("#rho-labels button").forEach((b) => {
         b.classList.toggle("on", Number(b.dataset.i) === i);
@@ -1256,9 +1317,21 @@
         {
           colors: D.attempts.map((_, j) => (j === i ? "#e2a12b" : "#2f8f86")),
           gap: 0.3,
+          yLabel: "P(repeater|applicants)",
+          rotate: false,
         }
       );
+      syncRhoLine();
     }
+
+    if (D.attempt_note) document.getElementById("attempt-note").textContent = D.attempt_note;
+
+    document.getElementById("persist-seg").addEventListener("click", (e) => {
+      const b = e.target.closest("button");
+      if (!b) return;
+      persistId = b.dataset.sc;
+      renderPersist();
+    });
     document.getElementById("rho-slider").addEventListener("input", (e) => renderRho(Number(e.target.value)));
     document.getElementById("rho-labels").addEventListener("click", (e) => {
       const b = e.target.closest("button");
@@ -1288,6 +1361,7 @@
     drawStratumMarks("marks-top", "english_can_afford_metro_intensive", "marks-top-cap");
     drawEarnings();
     drawRazor();
+    renderPersist();
     renderRho(2);
 
     // reveal / fade
@@ -1321,6 +1395,7 @@
         drawArms();
         drawEarnings();
         drawRazor();
+        renderPersist();
         renderRho(Number(document.getElementById("rho-slider").value));
       }, 120);
     });

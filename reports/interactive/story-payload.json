@@ -813,6 +813,51 @@
       "r_admitted": 0.7142
     }
   ],
+  "attempt_scenarios": [
+    {
+      "id": "low_persistence",
+      "label": "Low persistence",
+      "r1": 0.3,
+      "r2": 0.2,
+      "r3": 0.15,
+      "r4p": 0.1,
+      "mean_sittings": 1.3699999,
+      "p1": 0.7000000000000001,
+      "p2": 0.24000000000000002,
+      "p3": 0.051000000000000004,
+      "p4": 0.008100000000000001,
+      "p5p": 0.0009000000000000001
+    },
+    {
+      "id": "central",
+      "label": "Central (default simulation start)",
+      "r1": 0.5,
+      "r2": 0.33,
+      "r3": 0.25,
+      "r4p": 0.17,
+      "mean_sittings": 1.7146917386624998,
+      "p1": 0.5,
+      "p2": 0.33499999999999996,
+      "p3": 0.12375,
+      "p4": 0.0342375,
+      "p5p": 0.0070125000000000005
+    },
+    {
+      "id": "high_persistence",
+      "label": "High persistence",
+      "r1": 0.7,
+      "r2": 0.5,
+      "r3": 0.35,
+      "r4p": 0.25,
+      "mean_sittings": 2.213173828125,
+      "p1": 0.30000000000000004,
+      "p2": 0.35,
+      "p3": 0.22749999999999998,
+      "p4": 0.09187499999999998,
+      "p5p": 0.030624999999999996
+    }
+  ],
+  "attempt_note": "National sitting histogram is unidentified. Low/central/high are continuation-rate sensitivities (success exit = acceptable seat joined, not mere qualify). See docs/ATTEMPT_PRIORS.md.",
   "cmse_coaching": [
     {
       "sector": "rural",
@@ -890,10 +935,16 @@
       "note": "Projection; zeros retained"
     },
     {
-      "beat": "Attempt mean / histogram",
+      "beat": "National sitting histogram",
       "status": "BLOCK",
-      "grain": "National",
-      "note": "Only admitted repeater share + ρ sensitivity"
+      "grain": "Need NTA tables",
+      "note": "Show labeled low/central/high continuation scenarios instead"
+    },
+    {
+      "beat": "Admitted repeater composition + ρ",
+      "status": "SENS",
+      "grain": "TN Rajan + algebra",
+      "note": "Binary first vs ≥2 only"
     },
     {
       "beat": "Wage gaps by identity",

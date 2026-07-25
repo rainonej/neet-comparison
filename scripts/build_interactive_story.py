@@ -179,6 +179,28 @@ def build_payload() -> dict:
         for r in _read_csv(BAYES / "attempt_repeater_sensitivity.csv")
     ]
 
+    # Ensure continuation prior artifacts exist, then load
+    from neet_microsim.attempt_priors import write_attempt_prior_artifacts
+
+    write_attempt_prior_artifacts(out_dir=BAYES)
+    attempt_scenarios = [
+        {
+            "id": r["scenario_id"],
+            "label": r["label"],
+            "r1": float(r["r_after_1"]),
+            "r2": float(r["r_after_2"]),
+            "r3": float(r["r_after_3"]),
+            "r4p": float(r["r_after_4_plus"]),
+            "mean_sittings": float(r["mean_sittings"]),
+            "p1": float(r["p_sit_1"]),
+            "p2": float(r["p_sit_2"]),
+            "p3": float(r["p_sit_3"]),
+            "p4": float(r["p_sit_4"]),
+            "p5p": float(r["p_sit_5_plus"]),
+        }
+        for r in _read_csv(BAYES / "attempt_continuation_scenarios.csv")
+    ]
+
     # Profession medians from privilege Monte Carlo (employed), first stratum as shared priors
     eq = _read_csv(BAYES / "earnings_quantiles_by_outcome.csv")
     profession_order = [
@@ -298,10 +320,16 @@ def build_payload() -> dict:
             "note": "Projection; zeros retained",
         },
         {
-            "beat": "Attempt mean / histogram",
+            "beat": "National sitting histogram",
             "status": "BLOCK",
-            "grain": "National",
-            "note": "Only admitted repeater share + ρ sensitivity",
+            "grain": "Need NTA tables",
+            "note": "Show labeled low/central/high continuation scenarios instead",
+        },
+        {
+            "beat": "Admitted repeater composition + ρ",
+            "status": "SENS",
+            "grain": "TN Rajan + algebra",
+            "note": "Binary first vs ≥2 only",
         },
         {
             "beat": "Wage gaps by identity",
@@ -395,6 +423,13 @@ def build_payload() -> dict:
         ),
         "professions": professions,
         "attempts": attempts,
+        "attempt_scenarios": attempt_scenarios,
+        "attempt_note": (
+            "National sitting histogram is unidentified. "
+            "Low/central/high are continuation-rate sensitivities "
+            "(success exit = acceptable seat joined, not mere qualify). "
+            "See docs/ATTEMPT_PRIORS.md."
+        ),
         "cmse_coaching": cmse,
         "privilege_affordability_ratio": privilege.get("affordability_only_access_ratio"),
         "readiness": readiness,

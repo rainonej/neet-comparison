@@ -1,0 +1,67 @@
+{
+  "model_version": "0.1.0",
+  "success_exit": "accepted_or_joined_acceptable_seat",
+  "beta_prior_means": {
+    "after_sitting_1": 0.5,
+    "after_sitting_2": 0.3333333333333333,
+    "after_sitting_3": 0.25,
+    "after_sitting_4_plus": 0.16666666666666666
+  },
+  "scenarios": [
+    {
+      "scenario_id": "low_persistence",
+      "label": "Low persistence",
+      "r_after_1": 0.3,
+      "r_after_2": 0.2,
+      "r_after_3": 0.15,
+      "r_after_4_plus": 0.1,
+      "mean_sittings": 1.3699999,
+      "p_sit_1": 0.7000000000000001,
+      "p_sit_2": 0.24000000000000002,
+      "p_sit_3": 0.051000000000000004,
+      "p_sit_4": 0.008100000000000001,
+      "p_sit_5_plus": 0.0009000000000000001,
+      "is_national_estimate": false,
+      "success_exit": "accepted_or_joined_acceptable_seat"
+    },
+    {
+      "scenario_id": "central",
+      "label": "Central (default simulation start)",
+      "r_after_1": 0.5,
+      "r_after_2": 0.33,
+      "r_after_3": 0.25,
+      "r_after_4_plus": 0.17,
+      "mean_sittings": 1.7146917386624998,
+      "p_sit_1": 0.5,
+      "p_sit_2": 0.33499999999999996,
+      "p_sit_3": 0.12375,
+      "p_sit_4": 0.0342375,
+      "p_sit_5_plus": 0.0070125000000000005,
+      "is_national_estimate": false,
+      "success_exit": "accepted_or_joined_acceptable_seat"
+    },
+    {
+      "scenario_id": "high_persistence",
+      "label": "High persistence",
+      "r_after_1": 0.7,
+      "r_after_2": 0.5,
+      "r_after_3": 0.35,
+      "r_after_4_plus": 0.25,
+      "mean_sittings": 2.213173828125,
+      "p_sit_1": 0.30000000000000004,
+      "p_sit_2": 0.35,
+      "p_sit_3": 0.22749999999999998,
+      "p_sit_4": 0.09187499999999998,
+      "p_sit_5_plus": 0.030624999999999996,
+      "is_national_estimate": false,
+      "success_exit": "accepted_or_joined_acceptable_seat"
+    }
+  ],
+  "warnings": [
+    "Continuation rates are labeled sensitivity, not NEET national estimates.",
+    "Do not use a constant geometric q (continuation should decay with attempt/age/cost).",
+    "Rajan / AIIMS-Bhopal figures are admitted composition, not applicant attempt histograms.",
+    "Class XII completion year gap D is a better administrative proxy than age alone."
+  ],
+  "note": "Labeled continuation sensitivity for simulation. Not a measured national NEET attempt distribution."
+}

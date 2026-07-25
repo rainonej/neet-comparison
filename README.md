@@ -26,6 +26,7 @@ make bayes
 make privilege
 make score-privilege
 make story
+make attempt-priors
 ```
 
 Open the interactive story after `make story`:
@@ -73,6 +74,7 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
 | [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (prize → lottery → razor margin → privilege tax) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
+| [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
 
 ## Ethical and statistical guardrails
 

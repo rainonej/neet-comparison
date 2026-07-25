@@ -1,0 +1,97 @@
+# Continuation priors for NEET sittings — NOT measured national facts.
+# See docs/ATTEMPT_PRIORS.md.
+#
+# Model: after sitting t (1-indexed), P(sit again | still in pool) = r_t.
+# Exit from the pool = acceptable seat joined OR resource/psych/alt-path exit.
+# "Qualify" alone is NOT an exit (counselling / affordability may still fail).
+
+model_version: "0.1.0"
+success_exit: "accepted_or_joined_acceptable_seat"
+not_success_exit: "neet_qualify_percentile_alone"
+
+# Heterogeneity anchors (composition among ADMITTED, wrong denominator for applicants)
+anchors:
+  rajan_tn_repeater_share_admitted_2020_21:
+    value: 0.7142
+    grain: admitted_tamil_nadu
+    source: Justice A.K. Rajan Committee 2021
+  aiims_bhopal_first_attempt_among_admitted:
+    value: 0.66
+    grain: admitted_aiims_bhopal_selected_sample
+    note: >
+      Prose-reported ~66% first-attempt among a small MBBS admission sample;
+      verify primary paper before treating as a hard calibration target.
+      Highly selected institute; not NEET applicant population.
+  korea_csat_2024_non_current_hs_share:
+    value: 0.354
+    grain: external_analog
+    note: Share of CSAT takers who were not current high-school students (not exact retaker rate).
+  mcat_share_tested_3_plus:
+    value: 0.05
+    grain: external_analog_weak
+    note: AAMC order-of-magnitude; MCAT allows multiple sittings per year — weak analog.
+
+# Beta priors on continuation probabilities r_t = P(sit again | reached sitting t)
+# Used for Monte Carlo / Bayesian sensitivity; scenarios below use the prior means.
+beta_priors:
+  after_sitting_1: { alpha: 6, beta: 6 }   # mean 0.50
+  after_sitting_2: { alpha: 4, beta: 8 }   # mean 0.33
+  after_sitting_3: { alpha: 3, beta: 9 }   # mean 0.25
+  after_sitting_4_plus: { alpha: 2, beta: 10 }  # mean ~0.167
+
+scenarios:
+  low_persistence:
+    label: Low persistence
+    continuation:
+      after_1: 0.30
+      after_2: 0.20
+      after_3: 0.15
+      after_4_plus: 0.10
+  central:
+    label: Central (default simulation start)
+    continuation:
+      after_1: 0.50
+      after_2: 0.33
+      after_3: 0.25
+      after_4_plus: 0.17
+  high_persistence:
+    label: High persistence
+    continuation:
+      after_1: 0.70
+      after_2: 0.50
+      after_3: 0.35
+      after_4_plus: 0.25
+
+# Resource runway (synthetic household; surveys not person-linked)
+runway:
+  illiquid_pledgeable_shares: [0.0, 0.10, 0.20]
+  burden_components:
+    - coaching
+    - exam_materials
+    - travel
+    - hostel_relocation
+    - incremental_living
+    - opportunity_cost
+  formula: >
+    R = log( (liquid + expected_disposable_1y + borrowing_capacity)
+             / repeat_year_burden )
+  sources:
+    burden: CMSE 2025 coaching/boarding (school frame; weak for full-time droppers)
+    consumption_floor: HCES 2023-24
+    assets_debt: AIDIS 2019
+    opportunity_cost: PLFS
+    time_competing: TUS 2024 (gendered persistence; no NEET ID)
+
+competing_risks_after_each_sitting:
+  - acceptable_seat_joined
+  - repeat_next_year
+  - alternative_education
+  - employment
+  - resource_constrained_exit
+  - psychological_or_voluntary_exit
+
+warnings:
+  - Continuation rates are labeled sensitivity, not NEET national estimates.
+  - Do not use a constant geometric q (continuation should decay with attempt/age/cost).
+  - Rajan / AIIMS-Bhopal figures are admitted composition, not applicant attempt histograms.
+  - Class XII completion year gap D is a better administrative proxy than age alone.

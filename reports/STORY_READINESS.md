@@ -85,10 +85,12 @@
 |---|---|---|---|
 | 71% of *admitted* were repeaters (TN 2020–21) | Admitted | **SHOW** | Rajan |
 | Applicant repeater share under ρ sensitivity | Algebraic | **SENS** | `attempt_repeater_sensitivity.csv` |
-| Mean attempts / full histogram 1,2,3,… | National | **BLOCK** | Not identified from r alone |
+| Continuation-rate sitting histograms (low/central/high) | Labeled prior | **SENS** | `config/attempt_priors.yaml` · docs/ATTEMPT_PRIORS.md |
+| Mean attempts / full histogram as national fact | National | **BLOCK** | Need NTA prior-appearances × Class XII year tables |
+| Resource runway (CMSE/HCES/AIDIS/PLFS) | Synthetic household | **LATER** | Formula in code; not yet linked into microsim loop |
 | Attempt costs (money + years) in NPV | Life-course | **LATER** | Prep-cost knobs exist; not locked into story |
 
-**Verdict:** Ready to teach the denominator trap. Not ready to quote “average attempts.”
+**Verdict:** Ready to teach the denominator trap and show **labeled** persistence scenarios. Not ready to quote a national “average attempts.”
 
 ### 7. Earnings / life after the seat
 
