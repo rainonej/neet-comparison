@@ -21,11 +21,20 @@ def test_neet_histogram_matches_summary():
 
 
 def test_raw_external_marks_are_manifested_but_not_required():
-    # The 32 MB third-party reconstruction is intentionally excluded from the
-    # distributable repository. Its provenance and checksum must remain.
-    assert not Path("data/external/neet-2024-center-marks.csv").exists()
+    # The 32 MB third-party reconstruction is intentionally excluded from git.
+    # Local downloads are fine; provenance and checksum must remain in the manifest.
     manifest = pd.read_csv("data/processed/download_manifest.csv")
     row = manifest.loc[manifest["local_file"] == "data/external/neet-2024-center-marks.csv"]
     assert len(row) == 1
     assert int(row.iloc[0]["rows"]) > 2_000_000
     assert "data/external/**/*" in Path(".gitignore").read_text()
+    path = Path("data/external/neet-2024-center-marks.csv")
+    if path.exists():
+        import hashlib
+
+        digest = hashlib.sha256()
+        with path.open("rb") as handle:
+            for block in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(block)
+        assert digest.hexdigest() == row.iloc[0]["sha256"]
+        assert path.stat().st_size == int(row.iloc[0]["bytes"])

@@ -1,30 +1,31 @@
-# Execution notes — 2026-07-24
+# Execution notes — 2026-07-25 (neet-comparison bootstrap)
 
-## Successfully acquired and processed
+## Repository seed
 
-A complete public third-party reconstruction of the anonymized NEET-UG 2024 centre-wise marks was downloaded from `hq969/neet-2024-center-marks`.
+- Preserved the six-commit history from `neet-life-course-data-audit.bundle`.
+- Overlayed the fuller `neet-life-course-data-audit(5).zip` snapshot (access kit, microsim scaffolding, coaching/TN evidence).
+- Added setup docs (`SETUP.md`, `OPEN_DATA_DOWNLOADS.md`, `GATED_NEXT.md`) and `scripts/register_download.py`.
 
-- Raw size: 33,800,799 bytes
-- SHA-256: `35b67efe2fed174b49ff023e807b4f51cdb8f3c3a0396739b01f88cfb6bb114c`
-- Parsed rows: 2,333,162
-- Unique centre IDs: 4,750
-- Score range: -180 to 720
-- Median: 163
-- 90th percentile: 484
-- 99th percentile: 657
+## Successfully acquired (local, gitignored)
 
-The raw file is preserved locally under `data/external/` but is not tracked or packaged because the reconstruction repository does not expose an explicit redistribution licence. Reproducible summaries and a download manifest are tracked.
+| Source | Local path | Notes |
+|---|---|---|
+| OSF `tnh4x` | `data/external/osf/tnh4x/raw/` | CSV + methods DOCX + NSSI scales PDF |
+| NEET-2024 centre marks reconstruction | `data/external/neet-2024-center-marks.csv` | 33,800,799 bytes; SHA-256 `35b67efe…114c`; 2,333,162 rows |
+| NMC UG colleges | `data/raw/nmc_ug_colleges.json`, `data/raw/nmc_colleges.csv` | JSON API `getAllUgColleges`; 823 college rows |
+| MCC UG 2024 archive | `data/raw/mcc_2024/2024/` | 37 indexed PDFs (seat matrices, allotments, vacancies, notices) |
+| Kerala CEE / KEAM | `data/external/kerala_cee/raw/` | Home/notification HTML, 2025 rank/allot/last-rank/catlist landing pages, discovered link index |
 
-## Direct official acquisition
+Hashes and provenance are in `data/processed/download_manifest.csv`.
 
-The official NTA index and PDF endpoints were identified and implemented in `scripts/fetch_neet_2024_centres.py`. DNS access to the NTA host was unavailable from the execution container during the audit, so the official downloader could not be live-validated here. The independent reconstruction documents the same endpoints and extraction process. A future run should download the official PDFs, retain hashes, compare row counts, and treat discrepancies as data-quality findings rather than silently choosing one reconstruction.
+## Blocked or deferred
 
-## Registration-gated files
-
-HCES, CMSE, PLFS, NFHS, AIDIS, and related microdata were not redistributed. Their catalogs, required variables, and intended joins are recorded. A human account/licence acceptance step is required before placing the files under `data/raw/restricted/`.
+- **OpenICPSR E112992:** project page is public; download requires a free ICPSR login. Stub README left under `data/external/openicpsr/E112992/raw/`.
+- **Official NTA centre PDFs:** `neetfs.ntaonline.in` root returns 404; `neet.nta.nic.in` responds; full centre-PDF crawl not completed in this pass. Reconstruction CSV remains the working score distribution.
+- **Gated surveys (MoSPI / DHS / IHDS / PRICE / Young Lives):** intentionally deferred. Follow `docs/GATED_NEXT.md`.
 
 ## Validation
 
-- Source catalog audit passed.
-- Five repository tests passed.
-- Processed score-band counts sum exactly to the acquired raw row count.
+- Source catalog audit: 43 sources, 15 critical.
+- Privacy header audit on `data/processed/` passed.
+- Repository tests: `pytest` (see `pytest.ini`; `_incoming/` excluded).

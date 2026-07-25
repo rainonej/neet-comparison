@@ -42,6 +42,7 @@ Register once at the MoSPI microdata portal, then download **archives + document
 
 | Archive | What to request | Paste text |
 |---|---|---|
+| OpenICPSR E112992 | Bagde–Epple–Taylor engineering admissions replication zip | free ICPSR account (download gated even though project page is public) |
 | DHS Program | NFHS-4 and NFHS-5 household, member, women, men; GPS separately | [DATA_REQUEST_TEXT.md](DATA_REQUEST_TEXT.md) |
 | ICPSR | IHDS-I **22626**, IHDS-II **36151** (all related files) | free account |
 | PRICE ICE 360 | 2014, 2016, 2021, 2023 — confirm terms before paying | [DATA_REQUEST_TEXT.md](DATA_REQUEST_TEXT.md) |

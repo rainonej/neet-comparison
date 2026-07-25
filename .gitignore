@@ -4,6 +4,7 @@ __pycache__/
 .env
 .ipynb_checkpoints/
 _incoming/
+*.egg-info/
 data/raw/**/*
 !data/raw/**/.gitkeep
 !data/raw/restricted/README.md
