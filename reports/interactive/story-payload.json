@@ -19,8 +19,8 @@
       "cmse_coaching_priors.csv",
       "docs/STORY_BIBLIOGRAPHY.md"
     ],
-    "thesis": "Medicine’s rewards are real. Seats are scarce, preparation is costly, and private capacity is unequally affordable — so qualification is not access, and exam rank should not be read as a pure measure of individual merit.",
-    "arms_race_blurb": "Coaching can be the entry fee of a rank tournament. Holding others fixed, prep can raise absolute scores. When the whole pool escalates equally, relative ranks barely move while money and years are still extracted.",
+    "thesis": "Medicine’s rewards are real. Seats are scarce, preparation is costly, and private capacity is unequally affordable — so qualification is not access. The rank is real, but the system erases unequal tickets and launders the outcome as individual merit: a taxing lottery sold as a fair race.",
+    "arms_race_blurb": "Coaching can help one student; once rivals escalate, families pay more merely to stand still. Absolute scores may rise while seats stay fixed and relative ranks barely move — unequal endurance decides who can keep purchasing preparation.",
     "warnings": [
       "Fixed-reference threshold model — not a joint ranked counselling simulation.",
       "National capacity-equivalent thresholds are accounting shares (seats/appeared), not state/category counselling cutoffs.",

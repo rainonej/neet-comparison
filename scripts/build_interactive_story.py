@@ -406,13 +406,14 @@ def build_payload() -> dict:
             ],
             "thesis": (
                 "Medicine’s rewards are real. Seats are scarce, preparation is costly, and private "
-                "capacity is unequally affordable — so qualification is not access, and exam rank "
-                "should not be read as a pure measure of individual merit."
+                "capacity is unequally affordable — so qualification is not access. The rank is real, "
+                "but the system erases unequal tickets and launders the outcome as individual merit: "
+                "a taxing lottery sold as a fair race."
             ),
             "arms_race_blurb": (
-                "Coaching can be the entry fee of a rank tournament. Holding others fixed, prep can "
-                "raise absolute scores. When the whole pool escalates equally, relative ranks barely "
-                "move while money and years are still extracted."
+                "Coaching can help one student; once rivals escalate, families pay more merely to "
+                "stand still. Absolute scores may rise while seats stay fixed and relative ranks "
+                "barely move — unequal endurance decides who can keep purchasing preparation."
             ),
             "warnings": score.get("warnings", []),
             "production_pathway": score.get("model_family", "fixed_reference_threshold"),
@@ -552,8 +553,12 @@ def main() -> None:
     )
     print(f"Wrote {OUT_JSON}")
     print(f"Wrote {OUT_JS}")
-    if HTML_PATH.exists():
-        print(f"Open {HTML_PATH}")
+    essay = OUT_DIR / "the-accessible-seat.html"
+    lab = OUT_DIR / "evidence-lab.html"
+    if essay.exists():
+        print(f"Open essay: {essay}")
+    if lab.exists():
+        print(f"Open evidence lab: {lab}")
 
 
 if __name__ == "__main__":

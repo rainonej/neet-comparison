@@ -29,9 +29,13 @@ make story
 make attempt-priors
 ```
 
-Open the interactive story after `make story`:
+Open the public visual essay after `make story`:
 
 `reports/interactive/the-accessible-seat.html`
+
+Model explorer / readiness controls (not the public essay):
+
+`reports/interactive/evidence-lab.html`
 
 Production access figures come from `make score-privilege`. `make privilege` remains a legacy Bernoulli accounting demo (affordability ~2× teaching toy), not the public pathway.
 
@@ -74,7 +78,8 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/PRIVILEGE_INEQUALITY_STORY.md](reports/PRIVILEGE_INEQUALITY_STORY.md) | LEGACY independent-offers demo + career earnings artifacts |
 | [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Production score → rank → seat model with coaching arms-race scenarios |
 | [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
-| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Interactive India story (prize → funnel → capacity threshold → privilege waterfall) |
+| [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Public visual essay (fair paper ≠ fair race; scarcity → knife edge → laundering → treadmill) |
+| [reports/interactive/evidence-lab.html](reports/interactive/evidence-lab.html) | Evidence lab (profiles, arms-race worlds, readiness matrix, methodology) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
 | [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
 
