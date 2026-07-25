@@ -1,986 +1,258 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>A Fair Paper Is Not a Fair Race — NEET and the laundering of privilege</title>
-  <meta name="description" content="Even without a leak, NEET turns unequal money, language, geography, and years into a rank called merit." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@500;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink: #101214;
-      --ink-soft: #3d4549;
-      --paper: #f3f5f4;
-      --paper-2: #e6eae8;
-      --void: #0b1214;
-      --void-2: #152024;
-      --seat: #d4a017;
-      --heat: #d4523a;
-      --cool: #2a7a72;
-      --line: rgba(16, 18, 20, 0.12);
-      --line-light: rgba(243, 245, 244, 0.14);
-      --max: 720px;
-      --wide: 1080px;
-      --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: "Instrument Serif", Georgia, serif;
-      font-size: 1.125rem;
-      line-height: 1.55;
-    }
-    a { color: var(--cool); }
-    .wrap { width: min(var(--max), calc(100% - 2rem)); margin: 0 auto; }
-    .wrap-wide { width: min(var(--wide), calc(100% - 2rem)); margin: 0 auto; }
-
-    .topnav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(243, 245, 244, 0.88);
-      border-bottom: 1px solid var(--line);
-    }
-    .topnav .inner {
-      width: min(var(--wide), calc(100% - 2rem));
-      margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; padding: 0.7rem 0;
-    }
-    .brand {
-      font-family: Syne, sans-serif; font-weight: 800; letter-spacing: -0.03em;
-      font-size: 0.92rem; text-decoration: none; color: var(--ink);
-    }
-    .brand span { color: var(--heat); }
-    .nav-links {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      font-family: Syne, sans-serif; font-size: 0.7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-    .nav-links a { color: var(--ink-soft); text-decoration: none; }
-    .nav-links a:hover { color: var(--ink); }
-
-    /* —— Scenes —— */
-    .scene {
-      padding: 5.5rem 0 5rem;
-      position: relative;
-    }
-    .scene.alt {
-      background:
-        radial-gradient(900px 420px at 10% 0%, rgba(42, 122, 114, 0.08), transparent 55%),
-        var(--paper-2);
-    }
-    .scene.dark {
-      background:
-        radial-gradient(800px 500px at 80% 10%, rgba(212, 160, 23, 0.12), transparent 50%),
-        linear-gradient(180deg, var(--void) 0%, var(--void-2) 100%);
-      color: var(--paper);
-    }
-    .scene.dark .lede,
-    .scene.dark .footnote { color: rgba(243, 245, 244, 0.72); }
-    .scene.dark .footnote { border-color: var(--line-light); }
-
-    .kicker {
-      font-family: Syne, sans-serif; font-weight: 700;
-      font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--heat); margin: 0 0 0.85rem;
-    }
-    .scene.dark .kicker { color: var(--seat); }
-    h1, h2 {
-      font-family: Syne, sans-serif; font-weight: 800;
-      letter-spacing: -0.035em; line-height: 1.05; margin: 0 0 1.1rem;
-    }
-    h1 { font-size: clamp(2.6rem, 8vw, 4.6rem); }
-    h2 { font-size: clamp(1.85rem, 5vw, 2.85rem); }
-    h2 em, h1 em { font-style: normal; color: var(--heat); }
-    .scene.dark h2 em, .scene.dark h1 em { color: var(--seat); }
-    .lede {
-      font-size: 1.2rem; color: var(--ink-soft);
-      margin: 0 0 1.75rem; max-width: 38rem;
-    }
-    .punch {
-      font-family: Syne, sans-serif; font-weight: 800;
-      font-size: clamp(1.35rem, 3.5vw, 1.85rem);
-      letter-spacing: -0.03em; line-height: 1.2;
-      margin: 2rem 0 0;
-    }
-    .footnote {
-      font-family: Syne, sans-serif; font-size: 0.72rem; font-weight: 500;
-      letter-spacing: 0.02em; color: var(--ink-soft);
-      border-top: 1px solid var(--line); padding-top: 0.85rem; margin-top: 2rem;
-      max-width: 40rem; line-height: 1.45;
-    }
-
-    /* —— Hero / clean paper —— */
-    .hero {
-      min-height: 100vh; min-height: 100dvh;
-      display: grid; align-items: end;
-      background:
-        linear-gradient(180deg, rgba(11, 18, 20, 0.2) 0%, rgba(11, 18, 20, 0.94) 68%, var(--void) 100%),
-        radial-gradient(ellipse 70% 45% at 50% 18%, #243840 0%, transparent 70%),
-        var(--void);
-      color: var(--paper);
-      overflow: hidden;
-      position: relative;
-    }
-    .exam-sheet {
-      position: absolute;
-      top: 8%; left: 50%;
-      width: min(280px, 55vw);
-      aspect-ratio: 210 / 297;
-      transform: translateX(-50%) rotate(-2deg);
-      background:
-        linear-gradient(180deg, #fafaf8 0%, #f0eee6 100%);
-      border-radius: 2px;
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.45),
-        0 0 0 1px rgba(255,255,255,0.08);
-      animation: paperFloat 8s var(--ease) infinite alternate;
-      pointer-events: none;
-    }
-    .exam-sheet::before {
-      content: "NEET · COMMON PAPER";
-      position: absolute; top: 12%; left: 10%; right: 10%;
-      font-family: Syne, sans-serif; font-size: 0.55rem; font-weight: 800;
-      letter-spacing: 0.18em; color: #1a1a1a; opacity: 0.55;
-    }
-    .exam-sheet::after {
-      content: "";
-      position: absolute; left: 10%; right: 10%; top: 22%; bottom: 12%;
-      background:
-        repeating-linear-gradient(
-          180deg,
-          transparent 0 14px,
-          rgba(16,18,20,0.12) 14px 15px
-        );
-    }
-    @keyframes paperFloat {
-      from { transform: translateX(-50%) rotate(-2deg) translateY(0); }
-      to { transform: translateX(-50%) rotate(-1deg) translateY(12px); }
-    }
-    .hero-inner {
-      position: relative; z-index: 1;
-      padding: 0 0 3.5rem;
-      width: min(var(--max), calc(100% - 2rem));
-      margin: 0 auto;
-    }
-    .hero .kicker { color: var(--seat); }
-    .hero-lead {
-      font-size: 1.2rem; color: rgba(243,245,244,0.78);
-      max-width: 34rem; margin: 0 0 1.5rem;
-    }
-    .hero-cta {
-      display: inline-block;
-      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.8rem;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--void); background: var(--seat);
-      padding: 0.85rem 1.2rem; text-decoration: none;
-      transition: transform 0.25s var(--ease);
-    }
-    .hero-cta:hover { transform: translateY(-2px); }
-
-    /* —— Reveal —— */
-    .reveal {
-      opacity: 0; transform: translateY(18px);
-      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-    }
-    .reveal.in { opacity: 1; transform: none; }
-
-    /* —— Promise list —— */
-    .promise {
-      list-style: none; padding: 0; margin: 0 0 2rem;
-      display: grid; gap: 0.65rem;
-    }
-    .promise li {
-      font-family: Syne, sans-serif; font-weight: 700; font-size: 1.05rem;
-      padding: 0.85rem 1rem;
-      background: rgba(42, 122, 114, 0.08);
-      border-left: 3px solid var(--cool);
-    }
-
-    /* —— You Draw It —— */
-    .guess-box {
-      background: #fff;
-      border: 1px solid var(--line);
-      padding: 1.25rem 1.35rem 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .guess-box label {
-      display: block;
-      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.85rem;
-      margin-bottom: 0.85rem;
-    }
-    .guess-row {
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-    }
-    .guess-row input[type="range"] {
-      flex: 1; min-width: 180px; accent-color: var(--heat);
-    }
-    .guess-val {
-      font-family: Syne, sans-serif; font-weight: 800; font-size: 1.6rem;
-      min-width: 3.5rem;
-    }
-    .guess-reveal {
-      margin-top: 1.1rem; padding-top: 1rem;
-      border-top: 1px dashed var(--line);
-      display: none;
-    }
-    .guess-reveal.show { display: block; }
-    .guess-reveal strong {
-      font-family: Syne, sans-serif; font-size: 1.35rem; color: var(--heat);
-    }
-    .btn {
-      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.78rem;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      border: 0; cursor: pointer;
-      background: var(--ink); color: var(--paper);
-      padding: 0.75rem 1.1rem;
-    }
-    .btn:disabled { opacity: 0.45; cursor: default; }
-    .btn.secondary {
-      background: transparent; color: var(--ink);
-      border: 1px solid var(--line);
-    }
-
-    /* —— Chair crowd —— */
-    .crowd-stage {
-      margin: 2rem 0 1rem;
-      padding: 1.5rem 1rem 1.25rem;
-      background: var(--void);
-      color: var(--paper);
-      min-height: 220px;
-    }
-    .crowd-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 0.55rem;
-      max-width: 420px;
-      margin: 0 auto 1rem;
-    }
-    .person {
-      aspect-ratio: 1;
-      border-radius: 50%;
-      background: rgba(243,245,244,0.28);
-      transition: background 0.5s var(--ease), transform 0.5s var(--ease), opacity 0.5s var(--ease);
-    }
-    .person.qualified { background: rgba(42, 122, 114, 0.85); }
-    .person.seated {
-      background: var(--seat);
-      transform: scale(1.15);
-      box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.35);
-    }
-    .person.gone { opacity: 0.18; }
-    .crowd-caption {
-      text-align: center;
-      font-family: Syne, sans-serif; font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.04em; color: rgba(243,245,244,0.7);
-    }
-
-    /* —— Prize —— */
-    .prize-door {
-      margin: 1.5rem 0 0;
-      padding: 2rem 1.5rem;
-      background:
-        linear-gradient(135deg, rgba(212,160,23,0.18), transparent 55%),
-        var(--void);
-      color: var(--paper);
-      border-left: 4px solid var(--seat);
-    }
-    .prize-door ul {
-      margin: 1rem 0 0; padding: 0 0 0 1.1rem;
-      color: rgba(243,245,244,0.82);
-    }
-    .prize-door li { margin: 0.35rem 0; }
-
-    /* —— Razor / flip —— */
-    .flip-stage {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 1.5rem;
-      align-items: center;
-      margin: 1.75rem 0;
-    }
-    @media (max-width: 640px) {
-      .flip-stage { grid-template-columns: 1fr; }
-    }
-    .bubble {
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      border: 3px solid var(--ink);
-      display: grid; place-items: center;
-      font-family: Syne, sans-serif; font-weight: 800; font-size: 2rem;
-      background: #fff;
-      cursor: pointer;
-      transition: background 0.35s var(--ease), color 0.35s var(--ease), border-color 0.35s var(--ease);
-      user-select: none;
-    }
-    .bubble.correct {
-      background: var(--cool); color: #fff; border-color: var(--cool);
-    }
-    .bubble:focus-visible { outline: 3px solid var(--seat); outline-offset: 3px; }
-    .razor-stats {
-      display: grid; gap: 0.65rem;
-    }
-    .razor-stat {
-      display: flex; justify-content: space-between; gap: 1rem;
-      font-family: Syne, sans-serif; font-weight: 700;
-      padding: 0.65rem 0.85rem;
-      background: rgba(16,18,20,0.04);
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.4s var(--ease), background 0.4s var(--ease);
-    }
-    .razor-stat.on {
-      border-color: var(--heat);
-      background: rgba(212, 82, 58, 0.08);
-    }
-    .razor-stat b { font-variant-numeric: tabular-nums; }
-
-    /* —— Runways —— */
-    .runways {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin: 1.75rem 0;
-    }
-    @media (max-width: 700px) {
-      .runways { grid-template-columns: 1fr; }
-    }
-    .runway {
-      padding: 1.25rem 1.15rem;
-      background: #fff;
-      border: 1px solid var(--line);
-    }
-    .runway h3 {
-      font-family: Syne, sans-serif; font-size: 0.95rem; font-weight: 800;
-      margin: 0 0 0.85rem; letter-spacing: -0.02em;
-    }
-    .runway.short h3 { color: var(--heat); }
-    .runway.long h3 { color: var(--cool); }
-    .runway ul {
-      list-style: none; margin: 0; padding: 0;
-      font-size: 0.98rem;
-    }
-    .runway li {
-      padding: 0.45rem 0;
-      border-top: 1px solid var(--line);
-    }
-    .runway li:first-child { border-top: 0; }
-    .same-paper {
-      font-family: Syne, sans-serif; font-weight: 800;
-      text-align: center; margin: 0.5rem 0 0;
-      font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    /* —— Merit laundry —— */
-    .laundry {
-      margin: 2rem 0 1rem;
-      padding: 1.5rem;
-      background: var(--void);
-      color: var(--paper);
-    }
-    .laundry-inputs {
-      display: flex; flex-wrap: wrap; gap: 0.45rem;
-      margin-bottom: 1.25rem;
-    }
-    .chip {
-      font-family: Syne, sans-serif; font-size: 0.7rem; font-weight: 700;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      padding: 0.4rem 0.65rem;
-      background: rgba(243,245,244,0.1);
-      border: 1px solid var(--line-light);
-      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
-    }
-    .laundry.washed .chip {
-      opacity: 0; transform: translateY(8px) scale(0.9);
-    }
-    .machine {
-      border: 1px dashed rgba(243,245,244,0.25);
-      padding: 1.25rem;
-      text-align: center;
-      font-family: Syne, sans-serif;
-    }
-    .machine .rank {
-      font-size: clamp(2rem, 6vw, 3rem); font-weight: 800;
-      letter-spacing: -0.03em; color: var(--seat);
-      margin: 0.35rem 0;
-    }
-    .machine .merit-stamp {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.35rem 0.75rem;
-      border: 2px solid var(--heat);
-      color: var(--heat);
-      font-weight: 800; letter-spacing: 0.12em;
-      transform: rotate(-4deg);
-    }
-
-    /* —— Treadmill —— */
-    .treadmill {
-      margin: 2rem 0;
-      display: grid; gap: 1rem;
-    }
-    .beat {
-      padding: 1.15rem 1.2rem;
-      background: #fff;
-      border-left: 3px solid var(--line);
-      opacity: 0.45;
-      transform: translateX(-6px);
-      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), border-color 0.5s var(--ease);
-    }
-    .beat.on {
-      opacity: 1; transform: none;
-      border-color: var(--heat);
-    }
-    .beat h3 {
-      font-family: Syne, sans-serif; font-size: 0.95rem; font-weight: 800;
-      margin: 0 0 0.4rem;
-    }
-    .beat p { margin: 0; color: var(--ink-soft); font-size: 1.05rem; }
-    .seat-fixed {
-      margin-top: 1rem;
-      font-family: Syne, sans-serif; font-weight: 800;
-      font-size: 1.15rem;
-    }
-
-    /* —— Years / TN —— */
-    .years {
-      display: grid; gap: 0.55rem;
-      margin: 1.75rem 0;
-    }
-    .year-row {
-      display: grid;
-      grid-template-columns: 5.5rem 1fr auto;
-      gap: 0.75rem; align-items: center;
-      font-family: Syne, sans-serif; font-weight: 700; font-size: 0.85rem;
-    }
-    .year-bar {
-      height: 1.35rem;
-      background: rgba(16,18,20,0.06);
-      position: relative; overflow: hidden;
-    }
-    .year-bar > i {
-      display: block; height: 100%;
-      width: 0;
-      background: linear-gradient(90deg, var(--cool), var(--heat));
-      transition: width 1s var(--ease);
-    }
-    .year-row.in .year-bar > i { width: var(--w); }
-    .year-pct { min-width: 3.5rem; text-align: right; font-variant-numeric: tabular-nums; }
-
-    /* —— Closing —— */
-    .closing {
-      padding: 6rem 0 5rem;
-      background:
-        radial-gradient(700px 400px at 50% 0%, rgba(212,82,58,0.15), transparent 60%),
-        var(--void);
-      color: var(--paper);
-      text-align: left;
-    }
-    .closing .lede { color: rgba(243,245,244,0.75); margin-left: auto; margin-right: auto; }
-    .closing .punch { color: var(--seat); max-width: 28rem; }
-    .closing .wrap { max-width: 38rem; }
-
-    footer {
-      padding: 2rem 0 3rem;
-      font-family: Syne, sans-serif; font-size: 0.75rem;
-      color: var(--ink-soft); background: var(--paper-2);
-      border-top: 1px solid var(--line);
-    }
-    footer a { font-weight: 700; }
-
-    .stake-one {
-      font-size: 1.15rem;
-      padding: 1rem 0;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      margin: 1.5rem 0;
-      max-width: 36rem;
-    }
-    .stake-one strong {
-      font-family: Syne, sans-serif; font-weight: 800;
-    }
-
-    .human-slot {
-      border: 1px dashed var(--line);
-      padding: 1.25rem;
-      margin-top: 2rem;
-      font-family: Syne, sans-serif; font-size: 0.8rem;
-      color: var(--ink-soft);
-      background: rgba(16,18,20,0.02);
-    }
-  </style>
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0a1114" name="theme-color"/>
+<meta content="Even without a leak, NEET turns unequal money, language, geography, and years into a rank called merit." name="description"/>
+<title>A Fair Paper Is Not a Fair Race — NEET and the laundering of privilege</title>
+<script>document.documentElement.classList.add('js');</script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="visual-essay.css" rel="stylesheet"/></head>
 <body>
-  <nav class="topnav">
-    <div class="inner">
-      <a class="brand" href="#top">Same paper. <span>Unequal chance.</span></a>
-      <div class="nav-links">
-        <a href="#promise">Promise</a>
-        <a href="#scarcity">Scarcity</a>
-        <a href="#laundry">Laundering</a>
-        <a href="evidence-lab.html">Evidence lab</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 0 · Protest counterfactual -->
-  <header class="hero" id="top">
-    <div class="exam-sheet" aria-hidden="true"></div>
-    <div class="hero-inner">
-      <p class="kicker">NEET-UG · India · 2026 protests</p>
-      <h1>A fair paper<br/>is not a<br/><em>fair race.</em></h1>
-      <p class="hero-lead">
-        The leaked paper exposed an obvious injustice. This page asks a harder question:
-        what if nothing had leaked? What if every student received exactly the same paper
-        under honest supervision?
-      </p>
-      <p class="hero-lead" style="margin-top:-0.5rem">
-        Would NEET then be fair?
-      </p>
-      <a class="hero-cta" href="#promise">No. Scroll to see why.</a>
-    </div>
-  </header>
-
-  <!-- 1 · The promise -->
-  <section class="scene" id="promise">
-    <div class="wrap reveal">
-      <p class="kicker">01 · The promise</p>
-      <h2>One paper. One rank.<br/>Everyone gets a <em>fair shot.</em></h2>
-      <p class="lede">
-        That is the seduction. No interviews. No family connections on the form.
-        The same questions for every candidate. A single list that looks like pure measurement.
-      </p>
-      <ul class="promise">
-        <li>One national exam</li>
-        <li>Identical questions</li>
-        <li>One rank list</li>
-        <li>Merit decides</li>
-      </ul>
-      <p class="lede" style="margin-bottom:0">
-        We use the reconstructed <strong>2024</strong> national marks distribution because it lets us
-        study NEET’s ordinary structure — independently of the 2026 leak.
-        This is not an analysis of a corrupted year.
-      </p>
-    </div>
-  </section>
-
-  <!-- 2 · The prize -->
-  <section class="scene alt" id="prize">
-    <div class="wrap reveal">
-      <p class="kicker">02 · The prize</p>
-      <h2>Medicine is worth wanting.</h2>
-      <p class="lede">
-        Families are not irrational. An MBBS seat still offers income, professional security,
-        social respect, and a path into a more stable future than many alternatives.
-      </p>
-      <div class="prize-door">
-        <p style="margin:0;font-family:Syne,sans-serif;font-weight:800;color:var(--seat);letter-spacing:0.06em;text-transform:uppercase;font-size:0.75rem">Why people keep returning</p>
-        <ul>
-          <li>Security and structured careers in health labor markets</li>
-          <li>Status families treat as destiny, not a hobby</li>
-          <li>Earnings that still outrun most non-professional paths</li>
-        </ul>
-      </div>
-      <p class="stake-one">
-        Modeled profession medians put medicine near <strong>₹4.5–4.8L</strong> against
-        roughly <strong>₹3.3L</strong> for engineering and under <strong>₹1L</strong> for no college —
-        before counting security and prestige. The prize is real. That is why the rationing hurts.
-      </p>
-      <p class="footnote">
-        Profession earnings are illustrative employed-path medians from the project wage model, not a promise of any individual’s outcome.
-        See <a href="evidence-lab.html#prize">evidence lab</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- 3 · Required losers + You Draw It -->
-  <section class="scene" id="scarcity">
-    <div class="wrap reveal">
-      <p class="kicker">03 · Guaranteed disappointment</p>
-      <h2>The system requires<br/>most people to <em>lose.</em></h2>
-      <p class="lede">
-        In 2024, about <strong id="n-appeared">2.33 million</strong> candidates appeared
-        for roughly <strong id="n-seats">129,600</strong> MBBS seats —
-        about <strong id="per-seat">18</strong> candidates for every seat.
-      </p>
-
-      <div class="guess-box" id="guess-box">
-        <label for="guess-slider">Out of every 100 candidates who “qualify,” how many get an MBBS seat?</label>
-        <div class="guess-row">
-          <input id="guess-slider" type="range" min="1" max="80" value="40" />
-          <span class="guess-val"><span id="guess-num">40</span></span>
-          <button type="button" class="btn" id="guess-btn">Reveal</button>
-        </div>
-        <div class="guess-reveal" id="guess-reveal">
-          <p style="margin:0 0 0.5rem">Your guess: <span id="guess-yours">40</span> out of 100.</p>
-          <p style="margin:0">The data: roughly <strong id="qual-per-seat">10</strong> out of every 100 who qualify receive a seat.</p>
-          <p style="margin:0.75rem 0 0;color:var(--ink-soft)">
-            “Qualified” is not access. The word promises far more than the seats can deliver.
-          </p>
-        </div>
-      </div>
-
-      <div class="crowd-stage" id="crowd-stage" aria-live="polite">
-        <div class="crowd-grid" id="crowd-grid"></div>
-        <p class="crowd-caption" id="crowd-caption">18 candidates. 1 chair.</p>
-      </div>
-      <p class="punch">The system does not discover that seventeen students are unworthy.<br/>It begins with only one place for them.</p>
-      <p class="footnote">
-        National capacity accounting from appeared candidates and MBBS seat lists; qualify rate from the project’s Bayesian summary.
-        Capacity-equivalent thresholds are not state/category counselling cutoffs.
-      </p>
-    </div>
-  </section>
-
-  <!-- 4 · Knife edge -->
-  <section class="scene alt" id="razor">
-    <div class="wrap reveal">
-      <p class="kicker">04 · The knife edge</p>
-      <h2>A four-mark answer can rearrange a life<br/>without measuring an enormous difference.</h2>
-      <p class="lede">
-        Near the capacity line, thousands of candidates sit within a few correct answers of each other.
-        Preparation matters. Knowledge matters. But among people packed this tightly,
-        a guess, a fever, a familiar drill question, or one blank can still decide who gets a future.
-      </p>
-
-      <div class="flip-stage">
-        <button type="button" class="bubble" id="flip-bubble" aria-pressed="false" title="Flip one answer">✗</button>
-        <div>
-          <p style="margin:0 0 0.75rem;font-family:Syne,sans-serif;font-weight:700;font-size:0.85rem">
-            Tap the bubble. One wrong answer becomes correct (+4 marks).
-          </p>
-          <div class="razor-stats">
-            <div class="razor-stat" data-q="1"><span>Within 1 correct answer</span><b id="band-1">10,852</b></div>
-            <div class="razor-stat" data-q="5"><span>Within 5 answers</span><b id="band-5">51,292</b></div>
-            <div class="razor-stat" data-q="10"><span>Within 10 answers</span><b id="band-10">99,876</b></div>
-          </div>
-        </div>
-      </div>
-      <p class="punch" id="flip-punch" style="opacity:0.4;transition:opacity 0.4s var(--ease)">
-        Rank is real. The fantasy is that the margin means the people are vastly different.
-      </p>
-      <p class="footnote">
-        Near-threshold counts from the reconstructed 2024 national marks distribution around the any-MBBS capacity-equivalent threshold (~560 marks).
-        Not counselling cutoffs. Details in the <a href="evidence-lab.html#razor">evidence lab</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- 5 · Unequal runways -->
-  <section class="scene" id="runways">
-    <div class="wrap reveal">
-      <p class="kicker">05 · Unequal tickets</p>
-      <h2>Before the exam measures the student,<br/>the system has already measured the <em>family.</em></h2>
-      <p class="lede">
-        Two candidates can receive the identical paper. Their runways into that paper are not identical.
-        Language of schooling, coaching markets, the ability to relocate, the ability to repeat a year,
-        and whether a private seat offer can be cashed — all of that is already in play.
-      </p>
-      <div class="runways">
-        <article class="runway short">
-          <h3>Shorter runway</h3>
-          <ul>
-            <li>Less advantaged school medium</li>
-            <li>Limited or no paid preparation</li>
-            <li>Harder to move for coaching</li>
-            <li>Cannot afford to repeat years</li>
-            <li>Private offer is unusable without money</li>
-          </ul>
-        </article>
-        <article class="runway long">
-          <h3>Longer runway</h3>
-          <ul>
-            <li>Advantaged medium &amp; exam vernacular</li>
-            <li>Intensive paid preparation</li>
-            <li>Metro coaching markets within reach</li>
-            <li>Family can fund drop years</li>
-            <li>Can cash a private seat if ranked into one</li>
-          </ul>
-        </article>
-      </div>
-      <p class="same-paper">Same paper on exam day · Different ticket to get there</p>
-      <!-- HUMAN STORIES: real aspirant / family voices will be inserted here when supplied. -->
-      <div class="human-slot" data-human-stories="pending">
-        Human anchors reserved — a repeater, a family paying for preparation, someone who qualified but could not cash a private offer. Real accounts forthcoming.
-      </div>
-      <p class="footnote">
-        Modeled pathway steps (language, affordability, metro access, prep intensity) live in the
-        <a href="evidence-lab.html#odds">evidence lab</a> as labeled scenarios and transported associations — not as a national causal estimate.
-        The essay shows the inputs the rank omits; it does not ask you to operate the model.
-      </p>
-    </div>
-  </section>
-
-  <!-- 6 · Merit laundry -->
-  <section class="scene dark" id="laundry">
-    <div class="wrap reveal">
-      <p class="kicker">06 · The laundering</p>
-      <h2>Unequal lives go in.<br/><em>Merit</em> comes out.</h2>
-      <p class="lede">
-        The rank is a real measurement of where someone finished after unequal preparation, time, language access, geography, and fallback options.
-        The lie is what society does next: erase those inputs and attribute the number to the child alone.
-      </p>
-      <div class="laundry" id="laundry-machine">
-        <div class="laundry-inputs" aria-hidden="true">
-          <span class="chip">School medium</span>
-          <span class="chip">Postal code</span>
-          <span class="chip">Coaching money</span>
-          <span class="chip">Family income</span>
-          <span class="chip">Drop years</span>
-          <span class="chip">Private fallback</span>
-          <span class="chip">Ability to stay dependent</span>
-        </div>
-        <div class="machine">
-          <div style="font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;opacity:0.6">Printed result</div>
-          <p class="rank">RANK: 18,432</p>
-          <span class="merit-stamp">MERIT</span>
-        </div>
-      </div>
-      <p class="punch">The rank is real.<br/>The claim that the rank belongs to the student alone is the lie.</p>
-    </div>
-  </section>
-
-  <!-- 7 · Pay to stand still -->
-  <section class="scene" id="arms">
-    <div class="wrap reveal">
-      <p class="kicker">07 · Pay to stand still</p>
-      <h2>Everyone runs harder.<br/>The seats do not <em>move.</em></h2>
-      <p class="lede">
-        Coaching can help one student. That is why families buy it.
-        Once nearly everyone who can pay also buys it, opting out becomes dangerous —
-        but the number of seats has not increased. Families pay more merely to avoid falling behind.
-      </p>
-      <div class="treadmill" id="treadmill">
-        <article class="beat" data-beat="1">
-          <h3>Beat 1 — One family buys coaching</h3>
-          <p>One student rises slightly in the crowd. The purchase looks rational. It may be.</p>
-        </article>
-        <article class="beat" data-beat="2">
-          <h3>Beat 2 — Everyone who can afford it responds</h3>
-          <p>More platforms appear. Absolute scores may rise. Relative ranks barely change. The seat count stays fixed.</p>
-        </article>
-        <article class="beat" data-beat="3">
-          <h3>Beat 3 — Unequal endurance</h3>
-          <p>Some families buy another year, a residential program, a taller platform. Others step off when money or time runs out.</p>
-        </article>
-      </div>
-      <p class="seat-fixed">Coaching does not need to be useless for the system to be wasteful.<br/>It only needs to become necessary for standing still.</p>
-      <p class="footnote">
-        This is the arms-race mechanism in plain language. The project encodes it as a sensitivity explainer with skeptical priors — not a national causal coaching ROI.
-        Parameter sweeps live in the <a href="evidence-lab.html#arms">evidence lab</a>.
-      </p>
-    </div>
-  </section>
-
-  <!-- 8 · Years / TN repeaters -->
-  <section class="scene alt" id="years">
-    <div class="wrap reveal">
-      <p class="kicker">08 · Years as currency</p>
-      <h2>The system rewards those who can survive<br/>another year inside it.</h2>
-      <p class="lede">
-        In Tamil Nadu’s MBBS admitted cohorts, repeaters rose from about
-        <strong>12.5%</strong> in 2016–17 to <strong>71.4%</strong> in 2020–21.
-        Within four years, the typical admitted cohort flipped from mostly current-year students
-        to overwhelmingly students who had already left school and returned to try again.
-      </p>
-      <div class="years" id="years-chart"></div>
-      <p class="punch">What percentage of 2020–21 TN admits were current-year students?<br/>About <em>28.6%</em>. The rest had already paid in years.</p>
-      <p class="footnote">
-        Justice A.K. Rajan Committee Table 7.38 — shares among Tamil Nadu MBBS admits; “other than current year” as repeater proxy.
-        State-specific; not a national attempt distribution.
-      </p>
-    </div>
-  </section>
-
-  <!-- Close -->
-  <section class="closing" id="close">
-    <div class="wrap reveal">
-      <p class="kicker">Close</p>
-      <h2>The leaked paper broke the rules.<br/>The ordinary system reveals what the rules are for.</h2>
-      <p class="lede">
-        Millions pay in money, years, and fear for a scarce prize.
-        Privilege buys better odds. The rank list hides the price of the ticket.
-        Then inequality returns wearing the language of merit.
-      </p>
-      <p class="punch">
-        A taxing lottery sold as a fair race.<br/>
-        Scarce seats. Unequal tickets. A rank that launders the difference.
-      </p>
-      <p class="footnote" style="border-color:var(--line-light);color:rgba(243,245,244,0.55)">
-        Model caveats, profile presets, and readiness tags:
-        <a href="evidence-lab.html" style="color:var(--seat)">open the evidence lab</a>.
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <div class="wrap-wide">
-      <p>
-        Visual essay for <strong>neet-comparison</strong>. Numbers frozen via
-        <code>python scripts/build_interactive_story.py</code> into <code>story-data.js</code>.
-        2024 marks distribution used to study the ordinary system, not the leak year.
-      </p>
-      <p style="margin-top:0.6rem">
-        <a href="evidence-lab.html">Evidence lab</a> ·
-        <a href="https://github.com/rainonej/neet-comparison/blob/main/reports/STORY_READINESS.md">Readiness matrix</a> ·
-        <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">Bibliography</a>
-      </p>
-    </div>
-  </footer>
-
-  <script src="story-data.js"></script>
-  <script>
-  (() => {
-    const D = window.STORY_DATA || {};
-    const scarcity = D.scarcity || {};
-    const razor = D.razor || {};
-    const tn = D.tn_repeater_time_series || [];
-
-    const fmt = (n) => Number(n).toLocaleString("en-IN");
-    const pct = (x) => (100 * Number(x)).toFixed(1);
-
-    // —— Bind frozen numbers ——
-    if (scarcity.n_appeared) {
-      document.getElementById("n-appeared").textContent =
-        (scarcity.n_appeared / 1e6).toFixed(2) + " million";
-    }
-    if (scarcity.total_mbbs_seats) {
-      document.getElementById("n-seats").textContent = fmt(scarcity.total_mbbs_seats);
-    }
-    if (scarcity.appeared_per_seat != null) {
-      document.getElementById("per-seat").textContent = Math.round(scarcity.appeared_per_seat);
-    }
-    const qps = scarcity.qualified_per_seat;
-    if (qps != null) {
-      // "out of 100 who qualify, how many get a seat" ≈ 100 / qualified_per_seat
-      const per100 = Math.round(100 / qps);
-      document.getElementById("qual-per-seat").textContent = String(per100);
-    }
-
-    const bands = razor.near_threshold_bands || [];
-    const byQ = Object.fromEntries(bands.map((b) => [b.questions, b.n_candidates]));
-    if (byQ[1]) document.getElementById("band-1").textContent = fmt(byQ[1]);
-    if (byQ[5]) document.getElementById("band-5").textContent = fmt(byQ[5]);
-    if (byQ[10]) document.getElementById("band-10").textContent = fmt(byQ[10]);
-
-    // —— Scroll reveals ——
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("in");
-      }
-    }, { threshold: 0.18 });
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-
-    // —— Crowd: 18 people, then qualify highlight, then one seat ——
-    const grid = document.getElementById("crowd-grid");
-    const caption = document.getElementById("crowd-caption");
-    const N = Math.round(scarcity.appeared_per_seat || 18);
-    const people = [];
-    for (let i = 0; i < N; i++) {
-      const d = document.createElement("div");
-      d.className = "person";
-      d.setAttribute("aria-hidden", "true");
-      grid.appendChild(d);
-      people.push(d);
-    }
-    let crowdPhase = 0;
-    const crowdIo = new IntersectionObserver((entries) => {
-      if (!entries.some((e) => e.isIntersecting)) return;
-      if (crowdPhase > 0) return;
-      crowdPhase = 1;
-      // ~10 of 18 "qualify" ≈ qualify_rate among the mini-crowd metaphor: show 10 qualified
-      const nQual = Math.min(N, Math.round(N * (10 / 18)));
-      setTimeout(() => {
-        people.forEach((p, i) => {
-          if (i < nQual) p.classList.add("qualified");
-          else p.classList.add("gone");
-        });
-        caption.textContent = `${nQual} of these 18 may “qualify”. Still one chair.`;
-      }, 700);
-      setTimeout(() => {
-        people.forEach((p) => p.classList.remove("seated"));
-        if (people[0]) people[0].classList.add("seated");
-        caption.textContent = "1 seat. The rest remain standing — by design.";
-      }, 1800);
-    }, { threshold: 0.4 });
-    crowdIo.observe(document.getElementById("crowd-stage"));
-
-    // —— You Draw It ——
-    const slider = document.getElementById("guess-slider");
-    const guessNum = document.getElementById("guess-num");
-    const guessBtn = document.getElementById("guess-btn");
-    const guessReveal = document.getElementById("guess-reveal");
-    const guessYours = document.getElementById("guess-yours");
-    slider.addEventListener("input", () => {
-      guessNum.textContent = slider.value;
-    });
-    guessBtn.addEventListener("click", () => {
-      guessYours.textContent = slider.value;
-      guessReveal.classList.add("show");
-      guessBtn.disabled = true;
-      slider.disabled = true;
-    });
-
-    // —— Flip one answer ——
-    const bubble = document.getElementById("flip-bubble");
-    const flipPunch = document.getElementById("flip-punch");
-    bubble.addEventListener("click", () => {
-      const on = bubble.classList.toggle("correct");
-      bubble.textContent = on ? "✓" : "✗";
-      bubble.setAttribute("aria-pressed", on ? "true" : "false");
-      document.querySelectorAll(".razor-stat").forEach((el) => {
-        el.classList.toggle("on", on);
-      });
-      flipPunch.style.opacity = on ? "1" : "0.4";
-    });
-
-    // —— Laundry wash on view ——
-    const laundry = document.getElementById("laundry-machine");
-    const laundryIo = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) {
-          setTimeout(() => laundry.classList.add("washed"), 600);
-        }
-      }
-    }, { threshold: 0.45 });
-    laundryIo.observe(laundry);
-
-    // —— Treadmill beats ——
-    const beats = [...document.querySelectorAll("#treadmill .beat")];
-    const beatIo = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("on");
-      }
-    }, { threshold: 0.55 });
-    beats.forEach((b) => beatIo.observe(b));
-
-    // —— TN years ——
-    const yearsEl = document.getElementById("years-chart");
-    const series = tn.length ? tn : [
-      { session: "2016-2017", repeater_share: 0.1247 },
-      { session: "2017-2018", repeater_share: 0.3836 },
-      { session: "2018-2019", repeater_share: 0.5041 },
-      { session: "2019-2020", repeater_share: 0.694 },
-      { session: "2020-2021", repeater_share: 0.7142 },
-    ];
-    series.forEach((row) => {
-      const div = document.createElement("div");
-      div.className = "year-row reveal";
-      const short = String(row.session).replace("20", "").replace("-20", "–");
-      div.innerHTML =
-        `<span>${short}</span>` +
-        `<div class="year-bar" style="--w:${pct(row.repeater_share)}%"><i></i></div>` +
-        `<span class="year-pct">${pct(row.repeater_share)}%</span>`;
-      yearsEl.appendChild(div);
-      io.observe(div);
-    });
-  })();
-  </script>
-</body>
+<nav aria-label="Primary" class="topnav">
+<div class="wide topnav-inner">
+<a class="brand" href="#top">Same paper. <span>Unequal chance.</span></a>
+<div class="nav-links">
+<a href="#scarcity">Scarcity</a>
+<a href="#laundry">Laundering</a>
+<a href="#arms">The treadmill</a>
+<a href="evidence-lab.html">Evidence lab</a>
+</div>
+</div>
+</nav>
+<header class="hero" id="top">
+<div aria-hidden="true" class="paper">
+<div class="paper-head">NEET · Common paper</div>
+<div class="paper-line"></div><div class="paper-line"></div><div class="paper-line"></div>
+<div class="paper-options"><i></i><i></i><i></i><i></i></div>
+</div>
+<div class="wrap hero-inner">
+<p class="eyebrow">NEET-UG · India · amid the 2026 protests</p>
+<h1>A fair paper is not a <em>fair race.</em></h1>
+<p class="hero-lead">The leaked paper exposed an obvious injustice. This essay asks the harder question: what if nothing had leaked, every candidate received the same paper, and every answer was marked correctly?</p>
+<p class="hero-question">Would NEET then be fair?</p>
+<a class="scroll-cue" href="#promise">No. Scroll to see why ↓</a>
+</div>
+</header>
+<main>
+<section class="scene" id="promise">
+<div class="wrap reveal">
+<p class="section-label">01 · The promise</p>
+<h2>One paper. One rank. Everyone gets a <em>fair shot.</em></h2>
+<p class="lede">That is the seduction: no interview, no family name on the form, the same questions for every candidate, and a single list that looks like pure measurement.</p>
+<div aria-label="The meritocratic promise" class="promise-grid">
+<div>One national exam</div><div>Identical questions</div><div>One rank list</div><div>Merit decides</div>
+</div>
+<p class="note">The analysis uses the reconstructed 2024 national marks distribution so the ordinary system can be examined independently of the 2026 leak. This is not an analysis of a corrupted exam year.</p>
+</div>
+</section>
+<section class="scene dark" id="prize">
+<div class="wrap reveal">
+<p class="section-label">02 · The prize</p>
+<h2>Medicine is worth wanting. That is what makes the trap work.</h2>
+<p class="lede">An MBBS seat can mean a structured profession, social respect, financial security, and upward mobility for an entire family. People return because the prize is real—not because they are foolish.</p>
+<div class="prize-band">
+<div><b>The promise to the student</b>A respected profession and a stable future.</div>
+<div><b>The promise to the family</b>A generation-changing return on sacrifice.</div>
+</div>
+<article class="story-card primary" style="color:var(--ink)">
+<div class="story-top">
+<div aria-hidden="true" class="monogram">KV</div>
+<div>
+<div class="story-kicker">One family’s NEET project</div>
+<h3>Kanakpriya and Virender Verma</h3>
+<p>ThePrint reported that Virender, a construction worker, financed coaching through EMIs, loans and family sacrifice after deciding his daughter would become the doctor their community did not have. Kanakpriya prepared for four years and scored 631 out of 720—then still faced uncertainty over an affordable seat.</p>
+</div>
+</div>
+<div class="story-facts">
+<div><b>4 years</b><span>Preparing for the exam</span></div>
+<div><b>631 / 720</b><span>A strong score, not a secure seat</span></div>
+<div><b>½ income</b><span>Reportedly spent on coaching EMIs for two years</span></div>
+</div>
+<a class="source-link" href="https://theprint.in/the-fineprint/neet-fiasco-isnt-just-about-broken-dreams-its-pushing-lakhs-of-families-into-poverty/2160783/" rel="noopener noreferrer" target="_blank">Read the reported story ↗</a>
+</article>
+<p class="note">A reported family story is not a national estimate. It shows what the aggregate categories—coaching, years and affordability—look like inside one life.</p>
+</div>
+</section>
+<section class="scene" id="scarcity">
+<div class="wrap reveal">
+<p class="section-label">03 · Guaranteed disappointment</p>
+<h2>The system requires most candidates to <em>lose.</em></h2>
+<p class="lede">In 2024, about <strong id="n-appeared">2.33 million</strong> candidates appeared for roughly <strong id="n-seats">129,602</strong> MBBS seats—about <strong id="per-seat">18</strong> candidates for every seat.</p>
+<div class="guess-box">
+<label for="guess-slider">Out of every 100 candidates who “qualify,” how many receive an MBBS seat?</label>
+<div class="guess-row">
+<input id="guess-slider" max="80" min="1" type="range" value="40"/>
+<span class="guess-val" id="guess-num">40</span>
+<button class="btn" id="guess-btn" type="button">Reveal</button>
+</div>
+<div class="guess-answer" id="guess-answer">
+<p>Your guess: <span id="guess-yours">40</span> out of 100.</p>
+<p>The data: roughly <strong id="qual-per-100">10</strong> out of 100.</p>
+<p>“Qualified” is not access. The word promises far more than the seats can deliver.</p>
+</div>
+</div>
+<div class="crowd-stage" id="crowd-stage">
+<div aria-hidden="true" class="crowd-grid" id="crowd-grid"></div>
+<p class="crowd-caption" id="crowd-caption">18 candidates. One chair.</p>
+</div>
+<p class="punch">The exam does not discover that seventeen students are unworthy. It begins with only one place for them.</p>
+<p class="note">National capacity accounting from appeared candidates and MBBS seat lists. “Qualified” uses the published qualifying count; capacity-equivalent thresholds are not state or category counselling cutoffs.</p>
+</div>
+</section>
+<section class="scene alt" id="question">
+<div class="wrap reveal">
+<p class="section-label">04 · The knife edge</p>
+<h2>One blind guess can create a five-mark gap.</h2>
+<p class="lede">A NEET item has four options. A correct answer earns +4, a wrong answer loses 1, and a blank earns 0. When a candidate has no idea, luck is not the whole exam—but it is undeniably present inside the score.</p>
+<div class="guess-question">
+<h3>You have no idea. Pick one.</h3>
+<p>You do not know the answer. There are four options. Guess, or leave it blank.</p>
+<!-- Replace this abstract A–D shell with one sourced question from the project question bank. -->
+<div class="option-grid" id="option-grid">
+<button class="option" data-option="A" type="button">A</button>
+<button class="option" data-option="B" type="button">B</button>
+<button class="option" data-option="C" type="button">C</button>
+<button class="option" data-option="D" type="button">D</button>
+</div>
+<div class="guess-result" id="guess-result">One option is correct. A blind guess has a 25% chance of +4 and a 75% chance of −1—an expected value of +0.25 marks.</div>
+<div class="margin-grid">
+<div class="margin-card"><b id="band-1">10,852</b><span>Candidates within ±1 correct-answer equivalent</span></div>
+<div class="margin-card"><b id="band-5">51,292</b><span>Within ±5 answers</span></div>
+<div class="margin-card"><b id="band-10">99,876</b><span>Within ±10 answers</span></div>
+</div>
+</div>
+<p class="punch">A question may measure whether a fact was recalled that afternoon. It does not measure the full difference between two future doctors.</p>
+<p class="note">The near-threshold counts come from the reconstructed 2024 marks distribution around the any-MBBS capacity-equivalent threshold. The bands use four marks as one correct-answer equivalent; wrong-to-correct is a five-mark swing.</p>
+</div>
+</section>
+<section class="scene" id="runways">
+<div class="wrap reveal">
+<p class="section-label">05 · Unequal tickets</p>
+<h2>Before the exam measures the student, the system has already measured the <em>family.</em></h2>
+<p class="lede">Two candidates can receive the same paper. Their runways into that paper are not the same.</p>
+<div class="runways">
+<article class="runway">
+<h3>Shorter runway</h3>
+<ul>
+<li>School language less aligned with exam resources</li>
+<li>Limited paid test-specific preparation</li>
+<li>Harder to relocate to a coaching market</li>
+<li>Cannot finance repeated drop years</li>
+<li>A private offer is unusable without money</li>
+</ul>
+</article>
+<article class="runway">
+<h3>Longer runway</h3>
+<ul>
+<li>School language aligned with exam vernacular</li>
+<li>Intensive paid preparation</li>
+<li>Coaching hubs and residential programs within reach</li>
+<li>Family can finance another attempt</li>
+<li>Private college remains a purchasable fallback</li>
+</ul>
+</article>
+</div>
+<p class="same-paper">Same paper on exam day · Different ticket to reach it</p>
+<article class="story-card">
+<div class="story-top">
+<div aria-hidden="true" class="monogram">JK</div>
+<div>
+<div class="story-kicker">What specialized preparation can change</div>
+<h3>Jeevith Kumar</h3>
+<p>Jeevith, the son of a shepherd and a tailor, scored 548/600 in Class XII but 193 on his first NEET attempt without private tuition. After outside help financed a year-long residential coaching program, he scored 664 on his second attempt.</p>
+</div>
+</div>
+<div aria-label="Jeevith Kumar score change" class="comparison">
+<div class="score-box"><b>193</b><span>First NEET attempt</span></div>
+<div class="comparison-arrow">→</div>
+<div class="score-box"><b>664</b><span>After residential coaching</span></div>
+</div>
+<p>This does not estimate coaching’s average causal effect. It shows why families can rationally believe that the “same paper” requires an expensive, specialized route into it.</p>
+<a class="source-link" href="https://www.ndtv.com/india-news/neet-2020-tamil-nadu-shepherds-son-who-cracked-medical-entrance-exam-neet-needs-help-to-study-medicine-2312276" rel="noopener noreferrer" target="_blank">Read the reported story ↗</a>
+</article>
+<p class="note">The modeled language, affordability, geography and preparation pathways remain in the evidence lab as explicitly labeled scenarios—not national causal estimates.</p>
+</div>
+</section>
+<section class="scene dark" id="laundry">
+<div class="wrap reveal">
+<p class="section-label">06 · The laundering</p>
+<h2>Unequal lives go in. <em>Merit</em> comes out.</h2>
+<p class="lede">The rank is real: it records where someone finished after unequal preparation, time, language access, geography and fallback options. The lie begins when those inputs are erased and the number is attributed to the child alone.</p>
+<div class="laundry" id="laundry-machine">
+<div aria-label="Inputs hidden by the rank list" class="chips">
+<span class="chip">School language</span><span class="chip">Postal code</span><span class="chip">Coaching money</span><span class="chip">Family income</span><span class="chip">Drop years</span><span class="chip">Private fallback</span><span class="chip">Ability to stay dependent</span>
+</div>
+<div class="machine">
+<small>Printed result</small>
+<div class="rank">RANK: 18,432</div>
+<span class="stamp">MERIT</span>
+</div>
+</div>
+<p class="punch">The rank belongs to the student. The conditions that produced it did not.</p>
+</div>
+</section>
+<section class="scene" id="arms">
+<div class="wrap reveal">
+<p class="section-label">07 · Pay to stand still</p>
+<h2>Everyone runs harder. The seats do not <em>move.</em></h2>
+<p class="lede">Coaching can help one student. That is why families buy it. When everyone who can pay responds, preparation becomes the entry fee rather than a lasting advantage. Opting out becomes dangerous, while capacity stays fixed.</p>
+<div aria-label="Coaching arms-race mechanism" class="race-stage">
+<div class="race-row one"><div class="race-label">One family buys</div><div class="track"></div><div class="seat-icon">1 seat</div></div>
+<div class="race-row all"><div class="race-label">Everyone responds</div><div class="track"></div><div class="seat-icon">1 seat</div></div>
+<div class="race-row drop"><div class="race-label">Money runs out</div><div class="track"></div><div class="seat-icon">1 seat</div></div>
+</div>
+<p class="punch">Coaching does not need to be useless for the system to be wasteful. It only needs to become necessary for standing still.</p>
+<article class="story-card">
+<div class="story-top">
+<div aria-hidden="true" class="monogram">7×</div>
+<div>
+<div class="story-kicker">What the treadmill looks like among winners</div>
+<h3>Seven government-school students in Madurai</h3>
+<p>In a 2025 report, all seven students who secured MBBS seats through Tamil Nadu’s 7.5% government-school quota were repeat candidates who had used private coaching. Six of the seven had parents working as daily-wage earners.</p>
+</div>
+</div>
+<div class="receipt-list">
+<div class="receipt"><span><b>C. Snega</b> · third attempt</span><strong>₹5.5 lakh borrowed</strong></div>
+<div class="receipt"><span><b>R. Kaviya</b> · tailor’s daughter</span><strong>₹1.5 lakh borrowed</strong></div>
+<div class="receipt"><span><b>P. Udhaya Mareeswaran</b></span><strong>Family sold cattle</strong></div>
+</div>
+<p>The quota changed who could receive the seat. It did not remove the privately financed preparation race required to reach it.</p>
+<a class="source-link" href="https://timesofindia.indiatimes.com/city/madurai/7-from-madurai-land-mbbs-seats-under-7-5-quota/articleshow/123029677.cms" rel="noopener noreferrer" target="_blank">Read the reported cohort story ↗</a>
+</article>
+<p class="note">These are reported cases, not an estimate of all candidates. The evidence lab contains the formal arms-race sensitivity model and its limitations.</p>
+</div>
+</section>
+<section class="scene alt" id="years">
+<div class="wrap reveal">
+<p class="section-label">08 · Years as currency</p>
+<h2>The system rewards those who can survive another year inside it.</h2>
+<p class="lede">Among Tamil Nadu’s admitted MBBS cohorts, the repeater share rose from about 12.5% in 2016–17 to 71.4% in 2020–21. Within four years, the admitted cohort flipped from mostly current-year students to overwhelmingly people who had already left school and returned to try again.</p>
+<div class="years" id="years-chart"></div>
+<p class="punch">Only 28.6% of the 2020–21 admitted cohort were current-year students. The rest had already paid in time.</p>
+<p class="note">Justice A.K. Rajan Committee Table 7.38. Tamil Nadu admitted composition only; “other than current year” is used as a repeater proxy. This is not a national attempt distribution.</p>
+</div>
+</section>
+<section class="closing" id="close">
+<div class="wrap reveal">
+<p class="section-label" style="color:var(--gold)">Close</p>
+<h2>The leak broke the rules. The ordinary system shows why clean rules are not enough.</h2>
+<p class="lede">Millions pay in money, years and fear for a deliberately scarce prize. Privilege buys a longer runway and more chances to remain in the race. The rank list hides the price of the ticket. Then inequality returns wearing the language of merit.</p>
+<p class="punch">A fair paper cannot make an unfair race fair.</p>
+<p class="note">Inspect the model assumptions, profile scenarios, data gaps and bibliography in the <a href="evidence-lab.html" style="color:var(--gold)">evidence lab</a>.</p>
+</div>
+</section>
+</main>
+<footer>
+<div class="wide">
+<p>Visual essay for <strong>neet-comparison</strong>. Frozen project data are loaded from <code>story-data.js</code>; fallback values preserve the essay if that file is unavailable.</p>
+<p><a href="evidence-lab.html">Evidence lab</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/reports/STORY_READINESS.md">Readiness matrix</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">Bibliography</a></p>
+</div>
+</footer>
+<script src="story-data.js"></script>
+<script src="visual-essay.js"></script></body>
 </html>
