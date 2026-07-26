@@ -39,6 +39,10 @@ Model explorer / readiness controls (not the public essay):
 
 `reports/interactive/evidence-lab.html`
 
+The knife-edge scene loads a browser-ready bank of 24 official past questions from:
+
+`reports/interactive/question-bank.json`
+
 Production access figures come from `make score-privilege`. `make privilege` remains a legacy Bernoulli accounting demo (affordability ~2× teaching toy), not the public pathway.
 
 See [docs/SETUP.md](docs/SETUP.md) for directory layout and gitignore rules.
@@ -81,6 +85,7 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Production score → rank → seat model with coaching arms-race scenarios |
 | [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
 | [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Public visual essay (fair paper ≠ fair race; scarcity → knife edge → laundering → treadmill) |
+| [reports/interactive/question-bank.json](reports/interactive/question-bank.json) | Curated official 2020 E1 questions and matched final-key answers used by the knife-edge interaction |
 | [reports/interactive/evidence-lab.html](reports/interactive/evidence-lab.html) | Evidence lab (profiles, arms-race worlds, readiness matrix, methodology) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
 | [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
