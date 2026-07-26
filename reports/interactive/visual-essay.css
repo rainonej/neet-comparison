@@ -173,14 +173,34 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
       margin: 2rem 0; background: var(--line); border: 1px solid var(--line);
     }
-    .fact-grid div { padding: 1.05rem 1.1rem; background: #fff; }
-    .fact-grid span {
-      display: block; margin-bottom: .35rem; color: var(--heat);
+    .fact {
+      margin: 0; padding: 0; background: #fff;
+    }
+    .fact summary {
+      list-style: none; cursor: pointer; padding: 1.05rem 1.1rem;
+      position: relative;
+    }
+    .fact summary::-webkit-details-marker { display: none; }
+    .fact summary::after {
+      content: "+"; position: absolute; top: 1.05rem; right: 1rem;
+      color: var(--heat); font: 800 .9rem/1 Syne, sans-serif;
+    }
+    .fact[open] summary::after { content: "–"; }
+    .fact summary span {
+      display: block; margin-bottom: .35rem; color: var(--heat); padding-right: 1.2rem;
       font: 700 .72rem/1.3 Syne, sans-serif; letter-spacing: .08em; text-transform: uppercase;
     }
-    .fact-grid strong {
-      display: block; font: 650 1rem/1.4 "Instrument Serif", Georgia, serif; color: var(--ink);
+    .fact summary strong {
+      display: block; padding-right: 1.2rem;
+      font: 650 1rem/1.4 "Instrument Serif", Georgia, serif; color: var(--ink);
     }
+    .fact > p {
+      margin: 0; padding: 0 1.1rem 1.05rem;
+      color: var(--soft); border-top: 1px dashed var(--line);
+      padding-top: .85rem; font-size: 1rem;
+    }
+    .fact > p em { color: var(--heat); font-style: normal; font-weight: 700; }
+    .fact:last-child { grid-column: 1 / -1; }
     .orient-note {
       max-width: 42rem; margin: 1.25rem 0 0; color: var(--soft); font-size: 1.08rem;
     }
@@ -300,18 +320,44 @@
     .option:disabled { cursor: default; }
     .guess-result { min-height: 3.5rem; margin: .75rem 0 0; color: var(--gold); font: 700 .92rem/1.45 Syne, sans-serif; }
     .margin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .75rem; margin-top: 1.25rem; }
-    .margin-card { padding: 1rem; color: var(--ink); background: var(--paper); }
+    .margin-card { margin: 0; padding: 0; color: var(--ink); background: var(--paper); }
+    .margin-card summary {
+      list-style: none; cursor: pointer; padding: 1rem; position: relative;
+    }
+    .margin-card summary::-webkit-details-marker { display: none; }
+    .margin-card summary::after {
+      content: "+"; position: absolute; top: .85rem; right: .85rem;
+      color: var(--heat); font: 800 .85rem/1 Syne, sans-serif;
+    }
+    .margin-card[open] summary::after { content: "–"; }
     .margin-card b { display: block; color: var(--heat); font: 800 clamp(1.4rem, 3vw, 2rem)/1 Syne, sans-serif; }
-    .margin-card span { display: block; margin-top: .4rem; color: var(--soft); font: 600 .78rem/1.35 Syne, sans-serif; letter-spacing: .01em; }
+    .margin-card span { display: block; margin-top: .4rem; padding-right: 1.2rem; color: var(--soft); font: 600 .78rem/1.35 Syne, sans-serif; letter-spacing: .01em; }
+    .margin-card > p {
+      margin: 0; padding: 0 1rem 1rem; color: var(--soft);
+      border-top: 1px dashed var(--line); padding-top: .75rem; font-size: .92rem;
+    }
 
     .runways { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
     .runway { padding: 1.25rem; background: #fff; border: 1px solid var(--line); }
     .runway:first-child { border-top: 4px solid var(--heat); }
     .runway:last-child { border-top: 4px solid var(--cool); }
     .runway h3 { margin: 0 0 .8rem; font-size: 1rem; }
-    .runway ul { list-style: none; margin: 0; padding: 0; }
-    .runway li { padding: .5rem 0; border-top: 1px solid var(--line); }
-    .runway li:first-child { border: 0; }
+    .runway-item { border-top: 1px solid var(--line); }
+    .runway-item:first-of-type { border-top: 0; }
+    .runway-item summary {
+      list-style: none; cursor: pointer; padding: .65rem 1.4rem .65rem 0;
+      position: relative; font: 650 1rem/1.4 "Instrument Serif", Georgia, serif;
+    }
+    .runway-item summary::-webkit-details-marker { display: none; }
+    .runway-item summary::after {
+      content: "+"; position: absolute; right: 0; top: .65rem;
+      color: var(--heat); font: 800 .85rem/1 Syne, sans-serif;
+    }
+    .runway:last-child .runway-item summary::after { color: var(--cool); }
+    .runway-item[open] summary::after { content: "–"; }
+    .runway-item p {
+      margin: 0 0 .85rem; color: var(--soft); font-size: .98rem;
+    }
     .same-paper { text-align: center; color: var(--soft); font: 800 .78rem/1.3 Syne, sans-serif; text-transform: uppercase; letter-spacing: .08em; }
 
     .score-split {
