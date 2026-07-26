@@ -1,0 +1,4 @@
+academic_year,medium,enrolment,share_of_reported_enrolment,source_url,source_status,notes
+2019-20,English,2475660,0.5924,https://indianexpress.com/article/cities/delhi/more-girls-than-boys-in-hindi-and-urdu-medium-schools-in-delhi-7387859/,secondary_transcription_of_udise_plus,"Historical Delhi school-enrolment margin; verify against the archived UDISE+ table before model calibration"
+2019-20,Hindi,1677233,0.4013,https://indianexpress.com/article/cities/delhi/more-girls-than-boys-in-hindi-and-urdu-medium-schools-in-delhi-7387859/,secondary_transcription_of_udise_plus,"School medium is not NEET question-paper language or coaching language"
+2019-20,Urdu,26785,0.0064,https://indianexpress.com/article/cities/delhi/more-girls-than-boys-in-hindi-and-urdu-medium-schools-in-delhi-7387859/,secondary_transcription_of_udise_plus,"Shares use the three reported media as denominator and may not exhaust every recorded medium"

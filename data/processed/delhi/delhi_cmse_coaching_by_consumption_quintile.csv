@@ -1,0 +1,5 @@
+geography,enrolment_band,consumption_quintile_within_delhi,n_unweighted,n_coached_unweighted,coaching_rate_weighted,usual_monthly_household_consumption_p50,coaching_exp_p50_among_coached,coaching_exp_mean_among_coached,coaching_burden_p50_among_coached,source_wave,notes
+NCT Delhi,class_x_xii,1,41,14,0.39569457273506914,12417.0,7500.0,18109.96152208267,0.046296296296296294,cmse_2025,Delhi-specific quintiles; burden=annual coaching/(12x monthly household consumption)
+NCT Delhi,class_x_xii,2,36,18,0.6128105452431387,18250.0,15500.0,20157.487044750804,0.06452945124154665,cmse_2025,Delhi-specific quintiles; burden=annual coaching/(12x monthly household consumption)
+NCT Delhi,class_x_xii,4,34,20,0.5624635276742463,24917.0,24000.0,22479.189507070045,0.07907638779060573,cmse_2025,Delhi-specific quintiles; burden=annual coaching/(12x monthly household consumption)
+NCT Delhi,class_x_xii,5,58,31,0.6938374603120175,36167.0,31000.0,30262.925416370406,0.07142791310679164,cmse_2025,Delhi-specific quintiles; burden=annual coaching/(12x monthly household consumption)

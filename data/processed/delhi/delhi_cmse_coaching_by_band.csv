@@ -1,0 +1,4 @@
+geography,enrolment_band,n_unweighted,n_coached_unweighted,coaching_rate_weighted,coaching_exp_p25_among_coached,coaching_exp_p50_among_coached,coaching_exp_p75_among_coached,coaching_exp_p90_among_coached,coaching_exp_mean_among_coached,usual_monthly_household_consumption_p50,source_wave,notes
+NCT Delhi,all_enrolled,811,290,0.39122145699909916,5400.0,8900.0,24000.0,30000.0,14423.559747414529,20167.0,cmse_2025,Weighted with mult; coaching is not NEET-specific; expenditure is per academic year
+NCT Delhi,class_x_xii,198,94,0.5805865822485818,13000.0,24000.0,28500.0,38500.0,22704.43658566688,21267.0,cmse_2025,Weighted with mult; coaching is not NEET-specific; expenditure is per academic year
+NCT Delhi,class_xii,66,31,0.660281548438277,14000.0,25100.0,27200.0,45000.0,24238.275057258063,21750.0,cmse_2025,Weighted with mult; coaching is not NEET-specific; expenditure is per academic year

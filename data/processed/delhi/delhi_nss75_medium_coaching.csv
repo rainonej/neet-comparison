@@ -1,0 +1,3 @@
+geography,population,medium_code,medium_label,n_unweighted,n_coached_unweighted,weighted_population_mass,coaching_rate_weighted,source_wave,notes,student_share_weighted
+NCT Delhi,secondary_higher_secondary_attending,1,hindi,177,53,413057.67000000004,0.3685116172761059,nss_education_2017_18,Historical school medium/coaching joint; not NEET language or coaching,0.4355955216824151
+NCT Delhi,secondary_higher_secondary_attending,2,english,243,144,535202.01,0.5683226881005174,nss_education_2017_18,Historical school medium/coaching joint; not NEET language or coaching,0.5644044783175849
