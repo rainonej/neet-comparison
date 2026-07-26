@@ -24,6 +24,14 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 | Marks distribution / quantiles | Anonymized 2024 centre marks | `neet_2024_marks_*.csv` |
 | +4 / −1 / 180 Q → max 720 | NTA NEET-UG scheme of examination | Used for “marks ÷ 4 ≈ questions” translation; wrong→correct is a 5-mark swing |
 
+## Featured examination item
+
+| Item | Official source | Answer / use | Caveat |
+|---|---|---|---|
+| NEET-UG 2020, English booklet E1, Q101: sulphur oxoacid with an –O–O– linkage | [Official NTA source page](https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/) and [English E1 PDF](https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf), page 13 | Option 3 / C: H₂S₂O₈, peroxodisulphuric acid. Used to demonstrate +4/−1/0 scoring and a five-mark correct-vs-wrong gap. | A valid chemistry-recall item. It does not by itself measure the full qualities of a future doctor. Limited excerpt for criticism and research; do not infer permission to republish full papers. |
+
+Structured sample bank and provenance notes: [`docs/QUESTION_BANK.md`](QUESTION_BANK.md), `data/question_bank/neet_2020_e1_sample_questions.{json,csv}`.
+
 ## Privilege-weighted odds
 
 | Claim | Source | Caveat |
