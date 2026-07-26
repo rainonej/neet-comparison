@@ -1,4 +1,5 @@
 (() => {
+  // If anything below throws, keep content visible (CSS only hides after .reveals-on).
   const D = window.STORY_DATA || {};
   const scarcity = D.scarcity || {};
   const razor = D.razor || {};
