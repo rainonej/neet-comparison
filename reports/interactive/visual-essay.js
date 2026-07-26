@@ -53,6 +53,17 @@
     }, {threshold:.4});
     crowdObserver.observe(document.getElementById('crowd-stage'));
 
+    const localQuestionFallback = {
+      source: {
+        question_paper_url: 'https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf'
+      },
+      questions: [
+        {subject:'Chemistry', year:2020, booklet:'E1', question_number:91, source_page:11, featured:true, prompt:'Identify a molecule which does not exist.', options:['He₂','Li₂','C₂','O₂'], correct_index:0},
+        {subject:'Biology', year:2020, booklet:'E1', question_number:1, source_page:2, prompt:'Which of the following is not an attribute of a population?', options:['Sex ratio','Natality','Mortality','Species interaction'], correct_index:3},
+        {subject:'Physics', year:2020, booklet:'E1', question_number:145, source_page:18, prompt:'The phase difference between displacement and acceleration of a particle in simple harmonic motion is:', options:['π rad','3π/2 rad','π/2 rad','Zero'], correct_index:0}
+      ]
+    };
+
     const setupFallbackQuestion = () => {
       const options = [...document.querySelectorAll('.option')];
       const correct = options[Math.floor(Math.random() * options.length)]?.dataset.option || 'C';
@@ -202,8 +213,13 @@
       })
       .then(setupQuestionBank)
       .catch(error => {
-        console.warn('Using abstract question fallback.', error);
-        setupFallbackQuestion();
+        console.warn('Question-bank JSON unavailable; using embedded official samples.', error);
+        try {
+          setupQuestionBank(localQuestionFallback);
+        } catch (fallbackError) {
+          console.warn('Using abstract question fallback.', fallbackError);
+          setupFallbackQuestion();
+        }
       });
 
     const laundry = document.getElementById('laundry-machine');
