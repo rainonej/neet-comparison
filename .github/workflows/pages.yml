@@ -31,6 +31,7 @@ jobs:
           mkdir -p _site
           cp reports/interactive/the-accessible-seat.html _site/
           cp reports/interactive/evidence-lab.html _site/
+          cp reports/interactive/protest-handout.html _site/
           cp reports/interactive/story-data.js _site/
           cp reports/interactive/visual-essay.css _site/
           cp reports/interactive/visual-essay.js _site/

@@ -7,12 +7,36 @@
 
   const nAppeared = scarcity.n_appeared || 2333162;
   const seats = scarcity.total_mbbs_seats || 129602;
+  const govtSeats = scarcity.govt_seats || 63859;
+  const privateSeats = scarcity.private_seats || 65743;
   const perSeat = scarcity.appeared_per_seat || nAppeared / seats;
   const qualifiedPerSeat = scarcity.qualified_per_seat || 10.153;
   document.getElementById('n-appeared').textContent = `${(nAppeared / 1e6).toFixed(2)} million`;
   document.getElementById('n-seats').textContent = fmt(seats);
   document.getElementById('per-seat').textContent = Math.round(perSeat);
   document.getElementById('qual-per-100').textContent = Math.round(100 / qualifiedPerSeat);
+  const govtEl = document.getElementById('n-govt');
+  const privateEl = document.getElementById('n-private');
+  if (govtEl) govtEl.textContent = fmt(govtSeats);
+  if (privateEl) privateEl.textContent = fmt(privateSeats);
+
+  const readBar = document.getElementById('read-bar');
+  const updateReadProgress = () => {
+    if (!readBar) return;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+    readBar.style.width = `${pct}%`;
+  };
+  updateReadProgress();
+  window.addEventListener('scroll', updateReadProgress, {passive: true});
+  window.addEventListener('resize', updateReadProgress);
+
+  const navContents = document.querySelector('.nav-contents');
+  if (navContents) {
+    navContents.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => { navContents.open = false; });
+    });
+  }
 
   const bandFallback = {1:10852, 5:51292, 10:99876};
   const bands = razor.near_threshold_bands || razor.near_cutoff_bands || [];
@@ -213,7 +237,7 @@
       const result = document.createElement('div');
       result.className = 'guess-result qb-result';
       result.setAttribute('aria-live', 'polite');
-      result.textContent = 'Correct: +4. Wrong: −1. Blank: 0. A blind four-option guess has an expected value of +0.25 marks.';
+      result.textContent = 'One candidate guesses correctly: +4. Another guesses incorrectly: −1. Same uncertainty. Five marks apart.';
 
       const answerLabel = `${letters[q.correct_index]} — ${q.options[q.correct_index].replace(/\n/g, ' / ')}`;
       let buttons = [];
@@ -306,6 +330,14 @@
       pathActions.append(blindGuess, leaveBlank);
       actions.append(pathActions, next, counter);
 
+      const ev = document.createElement('details');
+      ev.className = 'guess-ev';
+      const evSummary = document.createElement('summary');
+      evSummary.textContent = 'Why guessing can pay';
+      const evBody = document.createElement('p');
+      evBody.textContent = 'A blind four-option guess has an expected value of +0.25 marks: one-in-four chance of +4, three-in-four chance of −1. Leaving blank scores 0 for sure.';
+      ev.append(evSummary, evBody);
+
       const source = document.createElement('div');
       source.className = 'qb-source';
       const sourceText = document.createElement('span');
@@ -317,7 +349,7 @@
       sourceLink.textContent = 'View original paper ↗';
       source.append(sourceText, sourceLink);
 
-      stage.append(meta, prompt, instruction, optionGrid, result, actions, source);
+      stage.append(meta, prompt, instruction, optionGrid, result, ev, actions, source);
     };
 
     renderQuestion();
@@ -340,9 +372,11 @@
     });
 
   const laundry = document.getElementById('laundry-machine');
-  new IntersectionObserver(entries => {
-    if (entries.some(e => e.isIntersecting)) setTimeout(() => laundry.classList.add('washed'), 650);
-  }, {threshold:.45}).observe(laundry);
+  if (laundry) {
+    new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) setTimeout(() => laundry.classList.add('washed'), 650);
+    }, {threshold:.45}).observe(laundry);
+  }
 
   document.querySelectorAll('.track').forEach(track => {
     for (let i=0; i<18; i++) {
@@ -351,6 +385,28 @@
       track.appendChild(runner);
     }
   });
+
+  const raceStage = document.getElementById('race-stage');
+  if (raceStage) {
+    const rows = [...raceStage.querySelectorAll('.race-row')];
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const playRace = () => {
+      if (raceStage.dataset.played) return;
+      raceStage.dataset.played = '1';
+      if (reduceMotion) {
+        raceStage.classList.add('played');
+        return;
+      }
+      raceStage.classList.add('sequencing');
+      rows.forEach((row, index) => {
+        setTimeout(() => row.classList.add('is-on'), index * 900);
+      });
+      setTimeout(() => raceStage.classList.add('played'), rows.length * 900 + 200);
+    };
+    new IntersectionObserver(entries => {
+      if (entries.some(e => e.isIntersecting)) playRace();
+    }, {threshold: .4}).observe(raceStage);
+  }
 
   const defaultSeries = [
     {session:'2016–17', repeater_share:.1247},
