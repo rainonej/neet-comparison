@@ -70,13 +70,20 @@
   color: var(--paper);
   background: rgba(255,255,255,.045);
   border: 1px solid var(--light-line);
-  font: 650 .78rem/1.38 Syne, sans-serif;
+  font: 650 .95rem/1.38 Syne, sans-serif;
 }
 
 .guess-question .qb-option .qb-seq {
   white-space: pre-line;
-  font: 650 .78rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font: 650 1rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: .045em;
+}
+
+.guess-question .ecori-brief {
+  margin: 0 0 .85rem;
+  max-width: 42rem;
+  color: rgba(246,245,240,.82);
+  font: 500 1.05rem/1.45 "Instrument Serif", Georgia, serif;
 }
 
 .guess-question .qb-option:has(.qb-seq) {
