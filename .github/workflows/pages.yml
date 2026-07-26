@@ -34,6 +34,8 @@ jobs:
           cp reports/interactive/story-data.js _site/
           cp reports/interactive/visual-essay.css _site/
           cp reports/interactive/visual-essay.js _site/
+          cp reports/interactive/question-bank.json _site/
+          cp reports/interactive/question-bank.css _site/
           # Root URL serves the essay
           cp reports/interactive/the-accessible-seat.html _site/index.html
 

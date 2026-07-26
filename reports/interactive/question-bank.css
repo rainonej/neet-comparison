@@ -1,0 +1,173 @@
+/* Interactive official-question bank layered on top of visual-essay.css. */
+.guess-question.qb-loaded {
+  position: relative;
+  overflow: hidden;
+}
+
+.guess-question.qb-loaded::before {
+  content: "OFFICIAL PAST QUESTION";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .5rem .7rem;
+  color: var(--void);
+  background: var(--gold);
+  font: 800 .58rem/1 Syne, sans-serif;
+  letter-spacing: .1em;
+}
+
+.qb-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: 0 0 1rem;
+  padding-right: 9rem;
+}
+
+.qb-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.8rem;
+  padding: .36rem .55rem;
+  border: 1px solid var(--light-line);
+  color: rgba(246,245,240,.72);
+  background: rgba(255,255,255,.04);
+  font: 700 .61rem/1 Syne, sans-serif;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.qb-prompt {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--paper);
+  font: 800 clamp(1.2rem, 3vw, 1.65rem)/1.22 Syne, sans-serif;
+  letter-spacing: -.025em;
+}
+
+.qb-instruction {
+  margin: .75rem 0 0 !important;
+  color: rgba(246,245,240,.66) !important;
+  font: 600 .72rem/1.45 Syne, sans-serif;
+  letter-spacing: .03em;
+}
+
+.guess-question .qb-option-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .7rem;
+  margin: 1.3rem 0 1rem;
+}
+
+.guess-question .qb-option {
+  min-height: 4.4rem;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: .65rem;
+  align-items: center;
+  padding: .8rem;
+  text-align: left;
+  color: var(--paper);
+  background: rgba(255,255,255,.045);
+  border: 1px solid var(--light-line);
+  font: 650 .78rem/1.38 Syne, sans-serif;
+}
+
+.guess-question .qb-option:hover,
+.guess-question .qb-option:focus-visible {
+  border-color: var(--gold);
+  background: rgba(227,173,37,.08);
+}
+
+.qb-letter {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--void);
+  background: var(--paper);
+  font: 800 .75rem/1 Syne, sans-serif;
+}
+
+.qb-option.correct .qb-letter,
+.qb-option.wrong .qb-letter {
+  color: var(--paper);
+  background: rgba(10,17,20,.45);
+}
+
+.qb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .8rem;
+  margin-top: .85rem;
+}
+
+.qb-next {
+  padding: .68rem .85rem;
+  border: 1px solid var(--light-line);
+  color: var(--paper);
+  background: transparent;
+  cursor: pointer;
+  font: 700 .65rem/1 Syne, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.qb-next:hover,
+.qb-next:focus-visible {
+  color: var(--void);
+  background: var(--gold);
+  border-color: var(--gold);
+}
+
+.qb-counter {
+  color: rgba(246,245,240,.52);
+  font: 600 .63rem/1.35 Syne, sans-serif;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.qb-result {
+  min-height: 4.4rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--light-line);
+  color: var(--gold);
+  font: 700 .86rem/1.5 Syne, sans-serif;
+}
+
+.qb-result strong {
+  color: var(--paper);
+}
+
+.qb-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1rem;
+  margin-top: .8rem;
+  color: rgba(246,245,240,.48);
+  font: 600 .6rem/1.45 Syne, sans-serif;
+}
+
+.qb-source a {
+  color: var(--gold);
+}
+
+@media (max-width: 660px) {
+  .guess-question.qb-loaded::before {
+    position: static;
+    display: inline-flex;
+    margin: -.15rem 0 .9rem;
+  }
+
+  .qb-meta {
+    padding-right: 0;
+  }
+
+  .guess-question .qb-option-grid {
+    grid-template-columns: 1fr;
+  }
+}
