@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#0a1114" name="theme-color"/>
+<meta content="Sources, calculations, and limitations behind the NEET visual essay." name="description"/>
+<title>Sources and methods — A fair paper is not a fair race</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink: #101416;
+    --soft: #465054;
+    --paper: #f6f5f0;
+    --void: #0a1114;
+    --gold: #e3ad25;
+    --heat: #d64d38;
+    --line: rgba(16,20,22,.13);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font: 500 1.08rem/1.55 "Instrument Serif", Georgia, serif;
+  }
+  header, main, footer { width: min(42rem, calc(100% - 2rem)); margin: 0 auto; }
+  header { padding: 3rem 0 1.5rem; }
+  .kicker {
+    margin: 0 0 .75rem;
+    color: var(--heat);
+    font: 700 .72rem/1 Syne, sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 0 0 1rem;
+    font: 800 clamp(2rem, 5vw, 2.8rem)/1.05 Syne, sans-serif;
+    letter-spacing: -.04em;
+  }
+  p { color: var(--soft); }
+  a { color: #247f75; text-underline-offset: .18em; }
+  h2 {
+    margin: 2.25rem 0 .75rem;
+    font: 800 1.15rem/1.25 Syne, sans-serif;
+    letter-spacing: -.02em;
+  }
+  ul { padding-left: 1.2rem; color: var(--soft); }
+  li { margin: .45rem 0; }
+  .note {
+    margin: 1.5rem 0;
+    padding: 1rem 1.1rem;
+    border-left: 4px solid var(--gold);
+    background: rgba(227,173,37,.08);
+  }
+  footer {
+    padding: 2rem 0 3rem;
+    border-top: 1px solid var(--line);
+    font: 500 .9rem/1.5 Syne, sans-serif;
+    color: var(--soft);
+  }
+</style>
+</head>
+<body>
+<header>
+<p class="kicker">Behind the visual essay</p>
+<h1>Sources and methods</h1>
+<p>This page collects the public sources, calculations, and limits behind <a href="the-accessible-seat.html">A fair paper is not a fair race</a>. It is documentation for readers who want to check the numbers—not part of the narrative.</p>
+</header>
+<main>
+<section>
+<h2>Core public counts</h2>
+<ul>
+<li><strong>NEET-UG 2024 appeared / qualified counts</strong> — NTA result materials and the reconciled national marks reconstruction used in this project.</li>
+<li><strong>MBBS seat capacity</strong> — National Medical Commission college/seat list snapshot used for order-of-magnitude scarcity accounting (~129,600 total places).</li>
+<li><strong>Scoring rules</strong> — NTA scheme of examination: 180 questions; +4 / −1 / 0; maximum 720.</li>
+</ul>
+</section>
+<section>
+<h2>Featured examination item</h2>
+<ul>
+<li><strong>NEET-UG 2020, English booklet E1, Question 21</strong> — EcoRI recognition sequence.</li>
+<li><a href="https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/" rel="noopener noreferrer" target="_blank">Official NTA source page</a></li>
+</ul>
+<p>The question demonstrates how a single biotechnology recall item can create a four- or five-mark gap under NEET scoring. It is not offered as a complete measure of the qualities of a future doctor.</p>
+</section>
+<section>
+<h2>Near-threshold crowd estimate</h2>
+<p>The “about 11,000 candidates within one question of the seats-run-out line” figure comes from mapping national capacity against the reconstructed 2024 marks distribution and counting candidates inside a ±4-mark window around that line. It is an interpolation from published quantiles, not an official cutoff table. The essay rounds to about 11,000 because the method does not support false precision.</p>
+</section>
+<section>
+<h2>Reported human stories</h2>
+<ul>
+<li>Kanakpriya / Virender Verma — ThePrint family report on coaching debt and affordability pressure.</li>
+<li>Jeevith Kumar — NDTV report on a second attempt after residential coaching.</li>
+<li>Madurai government-school quota cohort — Times of India report on seven 2025 admits.</li>
+</ul>
+<p>These stories illustrate mechanisms. They are not national causal estimates of coaching effects.</p>
+</section>
+<section>
+<h2>Tamil Nadu repeater composition</h2>
+<p>Justice A.K. Rajan Committee Table 7.38 supplies the admitted-cohort shift from mostly current-year students to mostly repeaters after NEET. That is a state administrative window, not a national attempt histogram.</p>
+</section>
+<section>
+<div class="note">
+<strong>What this essay does not claim:</strong> It does not simulate state/category counselling seat-by-seat. Reservations and domicile determine which pool a candidate may enter; within each pool, NEET score remains the individualized academic measuring stick. National capacity accounting is used to show scarcity, not to predict any one counselling offer.
+</div>
+</section>
+<section>
+<h2>Full bibliography</h2>
+<p>Pinned citations and caveats live in the repository bibliography:</p>
+<p><a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">docs/STORY_BIBLIOGRAPHY.md</a></p>
+</section>
+</main>
+<footer>
+<p><a href="the-accessible-seat.html">← Back to the visual essay</a> · <a href="shareable-flyer.html">Shareable flyer</a></p>
+</footer>
+</body>
+</html>

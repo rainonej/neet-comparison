@@ -1,6 +1,6 @@
 # Story bibliography — claims behind the interactive
 
-Citations for user-facing claims in `reports/interactive/the-accessible-seat.html` (visual essay) and `reports/interactive/evidence-lab.html` (model explorer).
+Citations for user-facing claims in `reports/interactive/the-accessible-seat.html` (visual essay) and `reports/interactive/sources-and-methods.html`.
 Prefer administrative counts and nationally representative microdata over convenience surveys.
 Full literature map: [RESEARCH_LITERATURE.md](RESEARCH_LITERATURE.md).
 Pinned numeric rows: `data/processed/published_estimates.csv`.

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
@@ -15,9 +15,10 @@
   .question-meta { display:flex; justify-content:space-between; gap:.75rem; flex-wrap:wrap; margin-bottom:1rem; color:var(--gold); font:700 .68rem/1.35 Syne,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
   .question-stem { max-width:36ch; margin:.2rem 0 1rem; font-size:clamp(1.25rem,3.1vw,1.7rem)!important; line-height:1.18; }
   .question-prompt { margin:.2rem 0 0; }
+  .ecori-brief { margin:0 0 1.1rem; max-width:42rem; color:rgba(246,245,240,.82); font-size:1.05rem; }
   #question .option-grid { grid-template-columns:1fr; gap:.55rem; }
   #question .option { min-height:0; padding:.85rem .95rem; display:grid; grid-template-columns:2.2rem 1fr auto; gap:.8rem; align-items:center; text-align:left; font:600 .92rem/1.4 Syne,sans-serif; }
-  .option-seq { white-space:pre-line; font:650 .82rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing:.04em; }
+  .option-seq { white-space:pre-line; font:650 1rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing:.04em; }
   .option-key { width:2rem; height:2rem; display:grid; place-items:center; border-radius:50%; color:var(--gold); border:1px solid var(--light-line); font-weight:800; }
   .option.correct::after { content:"Correct"; color:#fff; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; }
   .option.wrong::after { content:"Selected"; color:#fff; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; }
@@ -40,6 +41,10 @@
 <a class="brand" href="#top">Same paper. <span>Unequal chance.</span></a>
 <div class="nav-links">
 <a class="nav-core" href="#orient">How the race works</a>
+<div class="locale-switch" role="group" aria-label="English dialect">
+<button type="button" class="locale-btn is-active" data-locale="en-IN" aria-pressed="true">India</button>
+<button type="button" class="locale-btn" data-locale="en-US" aria-pressed="false">US</button>
+</div>
 <details class="nav-contents">
 <summary>Contents</summary>
 <a href="#orient">NEET in 20 seconds</a>
@@ -52,23 +57,25 @@
 <a href="#years">Years as currency</a>
 <a href="#laundry">Merit laundry</a>
 <a href="#close">Close</a>
-<a href="evidence-lab.html">Evidence lab</a>
+<a href="sources-and-methods.html">Sources and methods</a>
 </details>
 </div>
 </div>
 </nav>
 <header class="hero" id="top">
+<div class="wide hero-grid">
+<div class="hero-copy">
+<p class="eyebrow">A visual essay · NEET-UG · India · amid the 2026 protests</p>
+<h1>A fair paper is not a <em>fair race.</em></h1>
+<p class="hero-lead">NEET is India’s once-a-year entrance exam for undergraduate medicine. In 2024, 2.33 million candidates competed for roughly 130,000 MBBS places through a three-hour multiple-choice test.</p>
+<p class="hero-lead hero-lead-2">A leaked paper triggered the current protests. But suppose the exam had been perfectly clean. Would the ordinary race be fair?</p>
+<a class="scroll-cue" href="#orient">No. Scroll to see why ↓</a>
+</div>
 <div aria-hidden="true" class="paper">
 <div class="paper-head">NEET · Common paper</div>
 <div class="paper-line"></div><div class="paper-line"></div><div class="paper-line"></div>
 <div class="paper-options"><i></i><i></i><i></i><i></i></div>
 </div>
-<div class="wrap hero-inner">
-<p class="eyebrow">A visual essay · NEET-UG · India · amid the 2026 protests</p>
-<h1>A fair paper is not a <em>fair race.</em></h1>
-<p class="hero-lead">NEET is India’s once-a-year national entrance exam for undergraduate medical college. More than two million students sit a three-hour multiple-choice test for roughly 130,000 MBBS seats.</p>
-<p class="hero-lead hero-lead-2">A paper leak triggered the current protests. But suppose the paper had never leaked. Would the ordinary system be fair?</p>
-<a class="scroll-cue" href="#orient">No. Scroll to see why ↓</a>
 </div>
 </header>
 <main>
@@ -76,53 +83,38 @@
 <div class="wrap reveal">
 <p class="section-label">01 · Orientation</p>
 <h2>NEET in <em>20 seconds</em></h2>
-<p class="lede">Tap any cell for more. A compact map of the exam before the critique begins.</p>
+<p class="lede">A compact map of the exam before the critique begins.</p>
 <div class="fact-grid" aria-label="NEET in 20 seconds">
-<details class="fact">
-<summary><span>What is it?</span><strong>Entrance exam for undergraduate medical college.</strong></summary>
-<p>Your rank on this exam is the <em>only</em> thing used to decide whether you get a medical seat. No interview. No personal statement. No extracurriculars. No letters of recommendation.</p>
-</details>
-<details class="fact">
-<summary><span>Who takes it?</span><strong>Mostly 18-year-olds — recent high-school graduates.</strong></summary>
-<p>Many also return after one or more years spent preparing full-time to retake it. In India, medical school starts right after Grade 12—not after a separate four-year college degree, as in the United States.</p>
-</details>
-<details class="fact">
-<summary><span>What happens?</span><strong>180 multiple-choice questions in 180 minutes.</strong></summary>
-<p>Three hours. One sitting. Fill in bubbles on a paper answer sheet. The clock is the same for everyone; the preparation behind it is not.</p>
-</details>
-<details class="fact">
-<summary><span>What subjects?</span><strong>90 Biology · 45 Chemistry · 45 Physics.</strong></summary>
-<p>Maximum score: 720. Biology carries half the paper—because the path is medicine, but the filter is still a high-school science contest.</p>
-</details>
-<details class="fact">
-<summary><span>How is it marked?</span><strong>Correct +4 · Wrong −1 · Blank 0.</strong></summary>
-<p>A wrong guess costs you. A blank costs nothing. One lucky or unlucky question can move thousands of people in the rank list.</p>
-</details>
-<details class="fact">
-<summary><span>How often?</span><strong>Once a year. One national date.</strong></summary>
-<p>Miss it, bomb it, or fall sick that day, and the next official chance is usually a full year later—unless your family can finance another year of waiting and preparing.</p>
-</details>
-<details class="fact">
-<summary><span>How is it taken?</span><strong>In person only. Pen and paper. Assigned testing centers.</strong></summary>
-<p>Not online. Not at home. You go to a designated center, sit under invigilation, and mark answers on a bubble sheet.</p>
-</details>
-<details class="fact">
-<summary><span>What language?</span><strong>Offered in 13 languages—not English alone.</strong></summary>
-<p>English, Hindi, and 11 regional languages. Still, the thickest coaching markets, mock tests, and strategy material run in English. If a translation is disputed, the English version is treated as final.</p>
-</details>
-<details class="fact">
-<summary><span>What is it for?</span><strong>Ranking students for scarce medical seats.</strong></summary>
-<p>The rank list is then used in a seat-allotment process—matching rank, state, category, and college preferences to the places that still exist. Society then calls that rank “merit.”</p>
-</details>
+<div class="fact">
+<span>What is NEET?</span>
+<strong>India’s national entrance exam for undergraduate medicine.</strong>
+<p>Your NEET score is the only measure of your individual academic merit used in admission. No interview. No essay. No recommendations. No extracurricular review.</p>
 </div>
-<p class="orient-note">This visual essay focuses on <strong>MBBS</strong>, India’s primary medical degree—the undergraduate path into becoming a doctor.</p>
+<div class="fact">
+<span>When do students take it?</span>
+<strong>After <span data-i18n="grade12">Class XII</span>, though many return for additional attempts.</strong>
+<p>In India, medical school starts right after high school—not after a separate four-year college degree, as in the United States.</p>
+</div>
+<div class="fact">
+<span>What is the exam?</span>
+<strong>180 multiple-choice questions in 180 minutes.</strong>
+</div>
+<div class="fact">
+<span>What subjects?</span>
+<strong>90 Biology · 45 Chemistry · 45 Physics.</strong>
+</div>
+<div class="fact">
+<span>How is it scored?</span>
+<strong>Correct +4 · Wrong −1 · Blank 0.</strong>
+</div>
+<div class="fact">
+<span>How often and where?</span>
+<strong>Normally once a year, in person, on paper, at assigned <span data-i18n="centres">exam centres</span>.</strong>
+<p>If illness or one bad day derails the attempt, the next standard opportunity is normally a year later.</p>
+</div>
+</div>
+<p class="orient-note">Offered in 13 languages. Reservations and domicile rules determine which seats you can compete for. Within each eligible pool, candidates are ordered by NEET rank. The seat pools differ. The measuring stick does not: one exam score.</p>
 <p class="orient-note seats-note"><strong>Not every seat is equally usable.</strong> Government medical colleges are subsidized. A private-college offer can cost far more than a family can pay. The real outcomes are: an affordable government seat, an unaffordable private offer, or no seat.</p>
-<p class="glossary" aria-label="Key terms">
-<span><b>Class XII</b> Grade 12 / final year of high school</span>
-<span><b>Drop year</b> A year after school spent mainly preparing to retake the exam</span>
-<span><b>Repeater</b> Someone returning to take NEET again</span>
-<span><b>Seat allotment</b> The admissions matching process that turns ranks into college places</span>
-</p>
 </div>
 </section>
 
@@ -130,7 +122,7 @@
 <div class="wrap reveal">
 <p class="section-label">02 · The promise</p>
 <h2>One paper. One rank. Everyone gets a <em>fair shot.</em></h2>
-<p class="lede">That is the seduction: no interview, no family name on the form, the same questions for every candidate, and a single list that looks like pure measurement.</p>
+<p class="lede">That is the promise—and why the system looks fair: no interview, no family name on the form, the same questions for every candidate, and a single list that looks like pure measurement.</p>
 <div class="contrast-grid" aria-label="What the exam shows and hides">
 <div class="contrast seen">
 <h3>What everyone sees</h3>
@@ -149,19 +141,15 @@
 <div class="wrap reveal">
 <p class="section-label">03 · The prize</p>
 <h2>Medicine is worth wanting. That is why families keep paying to remain in the race.</h2>
-<p class="lede">An MBBS seat can mean a structured profession, social respect, financial security, and upward mobility for an entire family. People return because the prize is real—not because they are foolish.</p>
-<div class="prize-band">
-<div><b>The promise to the student</b>A respected profession and a stable future.</div>
-<div><b>The promise to the family</b>A generation-changing return on sacrifice.</div>
-</div>
+<p class="lede">An MBBS seat can mean a stable professional career, social respect, a chance at financial security, and upward mobility for an entire family. Families return because the prize is real.</p>
 <article class="story-profile">
 <div class="story-kicker">Reported family story · ThePrint</div>
 <h3>Kanakpriya and Virender Verma</h3>
-<p>Virender, a construction worker, financed coaching through EMIs, loans and family sacrifice after deciding his daughter would become the doctor their community did not have. Kanakpriya prepared for four years and scored 631 out of 720—then still faced uncertainty over an affordable seat.</p>
+<p>Virender, a construction worker, financed coaching through <span data-i18n="emi">monthly installments (EMIs)</span>, loans and family sacrifice after deciding his daughter would become the doctor their community did not have. Kanakpriya prepared for four years and scored 631 out of 720—then still faced uncertainty over an affordable seat.</p>
 <div class="story-facts">
 <div><b>4 years</b><span>Preparing for the exam</span></div>
 <div><b>631 / 720</b><span>A strong score, not a secure seat</span></div>
-<div><b>½ income</b><span>Reportedly spent on coaching EMIs for two years</span></div>
+<div><b>½ income</b><span>Reportedly spent on coaching installments for two years</span></div>
 </div>
 <a class="source-link" href="https://theprint.in/the-fineprint/neet-fiasco-isnt-just-about-broken-dreams-its-pushing-lakhs-of-families-into-poverty/2160783/" rel="noopener noreferrer" target="_blank">Read the reported story ↗</a>
 </article>
@@ -173,32 +161,25 @@
 <div class="wrap reveal">
 <p class="section-label">04 · Guaranteed disappointment</p>
 <h2>The system requires most candidates to <em>lose.</em></h2>
-<p class="lede">In 2024, about <strong id="n-appeared">2.33 million</strong> candidates appeared for roughly <strong id="n-seats">129,602</strong> MBBS seats—about <strong id="per-seat">18</strong> candidates for every seat. Of those seats, about <strong id="n-govt">63,859</strong> were in government colleges and <strong id="n-private">65,743</strong> in private ones. The tighter bottleneck is often the affordable government place.</p>
-<p class="qualify-def">NTA calls candidates who clear a minimum score “qualified.” That does not mean a seat exists for them.</p>
-<div class="guess-box">
-<label for="guess-slider">Out of every 100 candidates who “qualify,” how many receive an MBBS seat?</label>
-<div class="guess-row">
-<input id="guess-slider" max="80" min="1" type="range" value="40"/>
-<span class="guess-val" id="guess-num">40</span>
-<button class="btn" id="guess-btn" type="button">Reveal</button>
+<p class="lede">In 2024, about <strong id="n-appeared">2.33 million</strong> candidates appeared. Against the listed MBBS capacity of roughly <strong id="n-seats">130,000</strong> places, that is about <strong id="per-seat">18</strong> candidates for every seat. The tighter bottleneck is often the affordable government place.</p>
+<div class="stat-display" aria-label="Scarcity at a glance">
+<div><b id="stat-appeared">2.33 million</b><span>Candidates (2024)</span></div>
+<div><b id="stat-seats">≈130,000</b><span>Total MBBS places</span></div>
+<div><b id="stat-govt">≈64,000</b><span>Government-college places</span></div>
 </div>
-<div class="guess-answer" id="guess-answer">
-<p>Your guess: <span id="guess-yours">40</span> out of 100.</p>
-<p>The data: roughly <strong id="qual-per-100">10</strong> out of 100.</p>
-<p>“Qualified” is not access. The word promises far more than the seats can deliver.</p>
-</div>
-</div>
+<p class="punch scarcity-punch">About <span id="per-seat-copy">18</span> candidates for every MBBS place—and roughly twice that many for each government-college place.</p>
+<p class="qualify-def">NTA calls candidates who clear a minimum score “qualified.” That does not mean a seat exists for them. Only about <strong id="qual-per-100">10</strong> out of every 100 candidates labeled “qualified” can receive any MBBS place.</p>
 <div class="crowd-stage" id="crowd-stage">
 <div aria-hidden="true" class="crowd-grid" id="crowd-grid"></div>
 <p class="crowd-caption" id="crowd-caption">18 candidates. One chair.</p>
 </div>
 <p class="punch">The exam does not discover that seventeen students are unworthy. It begins with only one place for them.</p>
-<p class="triad" aria-label="Three possible outcomes">
+<div class="triad" aria-label="Three possible outcomes">
 <div><b>Affordable government seat</b><span>Subsidized. The prize most families can actually use.</span></div>
 <div><b>Private-college offer</b><span>Real on paper—often unusable without money.</span></div>
 <div><b>No seat</b><span>The most common outcome for those who appear.</span></div>
-</p>
-<p class="note">Seat counts from appeared candidates and MBBS seat lists. “Qualified” uses the published minimum-score count. More method detail lives in the <a href="evidence-lab.html">evidence lab</a>.</p>
+</div>
+<p class="note">Appeared counts are from NEET-UG 2024. Seat totals use the listed national MBBS capacity snapshot (~129,600), of which about <span id="n-govt">63,859</span> are government-college places and <span id="n-private">65,743</span> private. Exact year alignment of seat snapshots should be checked before formal citation; the public point is the order of magnitude.</p>
 </div>
 </section>
 
@@ -206,9 +187,10 @@
 <div class="wrap reveal">
 <p class="section-label">05 · The knife edge</p>
 <h2>This was a real NEET question. A guess can create a five-mark gap.</h2>
-<p class="lede">This is a normal syllabus question, not a defective one. It tests whether a student knew one biotechnology fact that afternoon. The admission system attaches life-changing consequences to that small distinction.</p>
+<p class="lede">This is a normal syllabus question, not a defective one. It tests a real biology fact. It does not test clinical judgment, communication, or care. The admission system still attaches life-changing consequences to that small distinction.</p>
 <div class="guess-question exam-paper" data-question-id="neet-2020-e1-q21-ecori-palindrome">
 <div class="question-meta"><span>Official NEET-UG 2020</span><span>English booklet E1 · Q21 · Biology</span></div>
+<p class="ecori-brief">EcoRI is a laboratory enzyme that cuts DNA at one particular six-letter sequence. Do you remember which one?</p>
 <h3 class="question-stem">The specific palindromic sequence which is recognized by EcoRI is:</h3>
 <p class="question-prompt">Choose an answer. Or ask the page to make a blind guess.</p>
 <div class="option-grid" id="option-grid">
@@ -231,26 +213,18 @@
 <p>A blind four-option guess has an expected value of +0.25 marks: one-in-four chance of +4, three-in-four chance of −1. Leaving blank scores 0 for sure.</p>
 </details>
 <div class="question-explanation" id="question-explanation" hidden>
-<p><strong>Correct answer: A.</strong> EcoRI recognizes 5′–GAATTC–3′ / 3′–CTTAAG–5′. Option C swaps the strands; D is the BamHI site.</p>
+<p><strong>Correct answer: A.</strong> EcoRI recognizes GAATTC when read in the 5′→3′ direction. Option C presents a different 5′→3′ sequence; option D is the recognition site for another enzyme, BamHI.</p>
 <p class="diagnostic">It tests a real biology fact. It does not test clinical judgment, communication, or care.</p>
 </div>
 <div class="margin-grid">
-<details class="margin-card">
-<summary><b id="band-1">10,852</b><span>Students packed within one question of the score where MBBS seats run out</span></summary>
-<p>Imagine lining everyone up by score. When you reach the point where there are just enough seats left for the people ahead of you, that is the “seats run out” line. About 10,852 candidates sat within one correct answer of that line.</p>
-</details>
-<details class="margin-card">
-<summary><b id="band-5">51,292</b><span>Within five questions of that same line</span></summary>
-<p>Five questions is a tiny swing in a 180-question paper—and it still covers tens of thousands of people fighting for the last seats.</p>
-</details>
-<details class="margin-card">
-<summary><b id="band-10">99,876</b><span>Within ten questions of that same line</span></summary>
-<p>Method detail for how this line is measured lives in the evidence lab. The public point is simpler: near the cutoff, the crowd is dense.</p>
-</details>
+<div class="margin-card static">
+<b id="band-1">≈11,000</b>
+<span>Around the point where available MBBS places ran out, about 11,000 candidates were packed within one question’s worth of marks.</span>
 </div>
 </div>
-<p class="punch">Knowing this fact can change rank. By itself, it cannot tell us who will become the better doctor.</p>
-<p class="note">Official NTA English E1 booklet, question 21. Correct versus wrong creates a five-mark gap; correct versus blank creates a four-mark gap. How the “seats run out” line is calculated is defined in the <a href="evidence-lab.html">evidence lab</a>. <a href="https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/" rel="noopener noreferrer" target="_blank">View the official source</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/QUESTION_BANK.md">Question-bank documentation</a>.</p>
+</div>
+<p class="punch">Knowing this sequence can change rank. By itself, it cannot tell us who will become the better doctor.</p>
+<p class="note">Official NTA English E1 booklet, question 21. Correct versus wrong creates a five-mark gap; correct versus blank creates a four-mark gap. <a href="https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/" rel="noopener noreferrer" target="_blank">View the official source</a>.</p>
 </div>
 </section>
 
@@ -259,70 +233,47 @@
 <p class="section-label">06 · Unequal tickets</p>
 <h2>Before the exam measures the student, the system has already measured the <em>family.</em></h2>
 <p class="lede">Two candidates can receive the same paper. Their runways into that paper are not the same.</p>
-<div class="runways">
-<article class="runway">
-<h3>Shorter runway</h3>
-<details class="runway-item">
-<summary>Fewer good practice tests in the student’s school language</summary>
-<p>The exam may be offered in 13 languages, but the densest libraries of mocks, error logs, and coaching tricks still cluster in English—and in a few big-city markets.</p>
-</details>
-<details class="runway-item">
-<summary>Cannot move to Kota or another coaching city</summary>
-<p>Kota, in Rajasthan, is India’s best-known residential coaching hub for entrance exams. Relocating means rent, living costs, and a family that can spare the student from earning.</p>
-</details>
-<details class="runway-item">
-<summary>Cannot pay for full-time preparation</summary>
-<p>Serious prep often means quitting other work and buying a year of classes, books, and test series. That is a household budget decision, not just a student choice.</p>
-</details>
-<details class="runway-item">
-<summary>Needs to start earning instead of taking another year off</summary>
-<p>A “drop year” is a year after high school spent mainly retaking NEET. Families under money pressure often cannot buy that second or third attempt.</p>
-</details>
-<details class="runway-item">
-<summary>Cannot afford private-college tuition</summary>
-<p>Even a private-college offer is useless if the fees are impossible. For many families, the only real prize is a subsidized government seat.</p>
-</details>
-</article>
-<article class="runway">
-<h3>Longer runway</h3>
-<details class="runway-item">
-<summary>Rich exam material in the student’s school language</summary>
-<p>More mocks, more teachers who know the paper, more peers already inside the coaching economy. The same syllabus becomes easier to rehearse.</p>
-</details>
-<details class="runway-item">
-<summary>Can relocate for residential coaching</summary>
-<p>A family that can fund a move to a coaching hub buys daily structure, peer pressure, and exam-specific drilling that a home town may not offer.</p>
-</details>
-<details class="runway-item">
-<summary>Can study full-time</summary>
-<p>No need to earn. No need to share one textbook. Time itself becomes a purchasable input.</p>
-</details>
-<details class="runway-item">
-<summary>Family can finance another attempt</summary>
-<p>If this year’s rank misses, next year is still on the table. Persistence becomes a privilege, not only a virtue.</p>
-</details>
-<details class="runway-item">
-<summary>Private medical college remains a usable backup</summary>
-<p>If the government seat is out of reach, paying for a private seat can still keep the medical dream alive—for families who can cash that offer.</p>
-</details>
-</article>
+<div class="runway-table" role="table" aria-label="Unequal runways">
+<div class="runway-head" role="row">
+<div role="columnheader">Shorter runway</div>
+<div role="columnheader">Longer runway</div>
+</div>
+<div class="runway-row" role="row">
+<div role="cell">Fewer exam-specific materials in the student’s school language</div>
+<div role="cell">Abundant exam-specific materials</div>
+</div>
+<div class="runway-row" role="row">
+<div role="cell">Cannot relocate for residential coaching</div>
+<div role="cell">Can move to a coaching hub</div>
+</div>
+<div class="runway-row" role="row">
+<div role="cell">Must combine study with paid or household work</div>
+<div role="cell">Can prepare full-time</div>
+</div>
+<div class="runway-row" role="row">
+<div role="cell">Cannot finance another attempt</div>
+<div role="cell">Can spend another year preparing</div>
+</div>
+<div class="runway-row" role="row">
+<div role="cell">Cannot afford private-college fees</div>
+<div role="cell">Private college remains a usable backup</div>
+</div>
 </div>
 <p class="same-paper">Same paper on exam day · Different ticket to reach it</p>
 <div class="score-split" aria-label="Jeevith Kumar score change">
 <div class="score-split-copy">
 <div class="story-kicker">What specialized preparation can change</div>
 <h3>Jeevith Kumar</h3>
-<p>Jeevith, the son of a shepherd and a tailor, scored 548/600 in Class XII (Grade 12) but 193 on his first NEET attempt without private tuition. After outside help financed a year-long residential coaching program, he scored 664 on his second attempt.</p>
-<p class="caveat-inline">One story does not estimate the average coaching effect. It shows why families can rationally believe that the “same paper” requires an expensive, specialized route into it.</p>
+<p class="caveat-inline">Reported case, not an estimate of the average coaching effect.</p>
+<p>Jeevith, the son of a shepherd and a tailor, scored 548/600 in <span data-i18n="grade12">Class XII</span> but 193 on his first NEET attempt without private tuition. After outside help financed a year-long residential coaching program, he scored 664 on his second attempt.</p>
 <a class="source-link" href="https://www.ndtv.com/india-news/neet-2020-tamil-nadu-shepherds-son-who-cracked-medical-entrance-exam-neet-needs-help-to-study-medicine-2312276" rel="noopener noreferrer" target="_blank">Read the reported story ↗</a>
 </div>
 <div class="score-split-viz">
 <div class="score-box before"><b>193</b><span>First NEET attempt</span></div>
 <div class="comparison-arrow" aria-hidden="true">→</div>
-<div class="score-box after"><b>664</b><span>After residential coaching</span></div>
+<div class="score-box after"><b>664</b><span>Second attempt, after a year that included residential coaching</span></div>
 </div>
 </div>
-<p class="note">The modeled language, affordability, geography and preparation pathways remain in the evidence lab as explicitly labeled scenarios—not national causal estimates.</p>
 </div>
 </section>
 
@@ -330,7 +281,7 @@
 <div class="wrap reveal">
 <p class="section-label">07 · Pay to stand still</p>
 <h2>Everyone runs harder. The seats do not <em>move.</em></h2>
-<p class="lede">Coaching can help one student. That is why families buy it. When everyone who can pay responds, preparation becomes the entry fee rather than a lasting advantage. Learning can rise in absolute terms while the admissions contest stays zero-sum in relative terms.</p>
+<p class="lede">Coaching can help one student. That is why families buy it. When everyone who can pay responds, preparation becomes the entry fee rather than a lasting advantage. Students may learn more and scores may rise. But when the number of places stays fixed, everyone cannot gain rank.</p>
 <div aria-label="Coaching arms-race mechanism" class="race-stage" id="race-stage">
 <div class="race-row one" data-step="0"><div class="race-label">One candidate rises after buying preparation</div><div class="track"></div><div class="seat-icon">1 seat</div></div>
 <div class="race-row all" data-step="1"><div class="race-label">Others who can afford it respond</div><div class="track"></div><div class="seat-icon">1 seat</div></div>
@@ -340,17 +291,17 @@
 <p class="punch">Coaching does not need to be useless for the system to be wasteful. It only needs to become necessary for standing still.</p>
 <article class="story-receipts">
 <div class="story-kicker">What the treadmill looks like among winners</div>
-<h3>Seven government-school students in Madurai</h3>
-<p>In a 2025 report, all seven students who secured MBBS seats through Tamil Nadu’s 7.5% government-school quota were repeat candidates who had used private coaching. Six of the seven had parents working as daily-wage earners.</p>
+<h3>Seven students from <span data-i18n="govt-school">government schools</span> in Madurai</h3>
+<p>Tamil Nadu reserves 7.5% of state medical places for students educated in government schools. In one 2025 report, all seven Madurai students who obtained places through that route were repeat test-takers who had also used private coaching. Six of the seven had parents working as <span data-i18n="daily-wage">daily-wage earners</span>.</p>
 <div class="receipt-list">
-<div class="receipt"><span><b>C. Snega</b> · third attempt</span><strong>₹5.5 lakh borrowed</strong></div>
-<div class="receipt"><span><b>R. Kaviya</b> · tailor’s daughter</span><strong>₹1.5 lakh borrowed</strong></div>
+<div class="receipt"><span><b>C. Snega</b> · third attempt</span><strong data-i18n-money="550000">₹5.5 lakh borrowed</strong></div>
+<div class="receipt"><span><b>R. Kaviya</b> · tailor’s daughter</span><strong data-i18n-money="150000">₹1.5 lakh borrowed</strong></div>
 <div class="receipt"><span><b>P. Udhaya Mareeswaran</b></span><strong>Family sold cattle</strong></div>
 </div>
 <p>The quota changed who could claim the seat. It did not eliminate the private coaching race required to reach the front of the queue.</p>
 <a class="source-link" href="https://timesofindia.indiatimes.com/city/madurai/7-from-madurai-land-mbbs-seats-under-7-5-quota/articleshow/123029677.cms" rel="noopener noreferrer" target="_blank">Read the reported cohort story ↗</a>
 </article>
-<p class="note">These are reported cases, not an estimate of all candidates. The evidence lab contains the formal arms-race sensitivity model and its limitations.</p>
+<p class="note">These are reported cases, not an estimate of all candidates.</p>
 </div>
 </section>
 
@@ -358,9 +309,9 @@
 <div class="wrap reveal">
 <p class="section-label">08 · Years as currency</p>
 <h2>The system rewards those who can survive another year inside it.</h2>
-<p class="lede">National attempt histories are not publicly available. Tamil Nadu provides one unusually detailed window into who obtained medical seats. Among its admitted MBBS cohorts, the <strong>repeater</strong> share—people returning after leaving school to try again—rose from about 12.5% in 2016–17 to 71.4% in 2020–21.</p>
+<p class="lede">National attempt histories are not publicly available. Tamil Nadu provides one unusually detailed window into who obtained medical seats. Among students who actually entered MBBS programs in Tamil Nadu, the <strong>repeater</strong> share—people returning after leaving school to try again—rose from about 12.5% in 2016–17 to 71.4% in 2020–21.</p>
 <div class="years" id="years-chart"></div>
-<p class="punch">Only 28.6% of the 2020–21 admitted cohort were current-year students. The rest had already paid in time.</p>
+<p class="punch">Only 28.6% of the 2020–21 admitted cohort were students taking NEET in the same year they completed <span data-i18n="grade12">Class XII</span>. The rest had already paid in time.</p>
 <p class="note">Justice A.K. Rajan Committee Table 7.38. Tamil Nadu admitted composition only; “other than current year” is used as a repeater proxy. This is not a national attempt distribution.</p>
 </div>
 </section>
@@ -369,10 +320,10 @@
 <div class="wrap reveal">
 <p class="section-label">09 · The laundering</p>
 <h2>Unequal lives go in. <em>Merit</em> comes out.</h2>
-<p class="lede">The rank is real. But it records the finish, not the starting line.</p>
+<p class="lede">The rank is real. But it records the finishing order while erasing who got a head start, who could buy more training, and who had obstacles placed in their lane.</p>
 <div class="laundry" id="laundry-machine">
 <div aria-label="Inputs hidden by the rank list" class="chips">
-<span class="chip">School language</span><span class="chip">Postal code</span><span class="chip">Coaching money</span><span class="chip">Family income</span><span class="chip">Drop years</span><span class="chip">Private affordability</span><span class="chip">Ability to stay dependent</span>
+<span class="chip">Where the student lives</span><span class="chip">School language</span><span class="chip">Coaching money</span><span class="chip">Family income</span><span class="chip">Years available to retake</span><span class="chip">Ability to pay private-college fees</span><span class="chip">Ability to study without earning</span>
 </div>
 <div class="machine">
 <small>Printed result · illustrative</small>
@@ -391,14 +342,13 @@
 <p class="lede">Millions pay in money, years, and fear for a structurally scarce prize. Privilege buys a longer runway and more chances to remain in the race. The rank list hides the price of the ticket. Then inequality returns wearing the language of merit.</p>
 <p class="punch">A fair paper cannot make an unfair race fair.</p>
 <p class="close-protest">A clean examination is necessary. It is not sufficient. Fixing the leak does not fix the race.</p>
-<p class="note">Inspect the model assumptions, profile scenarios, data gaps and bibliography in the <a href="evidence-lab.html" style="color:var(--gold)">evidence lab</a>. For a one-page protest flyer with a QR code, see the <a href="shareable-flyer.html" style="color:var(--gold)">flyer</a>.</p>
 </div>
 </section>
 </main>
 <footer>
 <div class="wide">
-<p>A visual essay for <strong>neet-comparison</strong>. Frozen project data are loaded from <code>story-data.js</code>; fallback values preserve the page if that file is unavailable.</p>
-<p><a href="evidence-lab.html">Evidence lab</a> · <a href="shareable-flyer.html">Shareable flyer</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/reports/STORY_READINESS.md">Readiness matrix</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">Bibliography</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/QUESTION_BANK.md">Question bank</a></p>
+<p>A visual essay on NEET, scarcity, and unequal starting points.</p>
+<p><a href="sources-and-methods.html">Sources and methods</a> · <a href="shareable-flyer.html">Share this essay</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">Reported stories &amp; bibliography</a> · <a href="https://github.com/rainonej/neet-comparison">About the project</a></p>
 </div>
 </footer>
 <script src="story-data.js"></script>

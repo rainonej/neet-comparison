@@ -30,7 +30,7 @@ jobs:
         run: |
           mkdir -p _site
           cp reports/interactive/the-accessible-seat.html _site/
-          cp reports/interactive/evidence-lab.html _site/
+          cp reports/interactive/sources-and-methods.html _site/
           cp reports/interactive/shareable-flyer.html _site/
           cp reports/interactive/flyer-qr.png _site/
           cp reports/interactive/story-data.js _site/

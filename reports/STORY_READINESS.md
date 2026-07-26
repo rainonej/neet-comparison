@@ -4,7 +4,8 @@
 **Thesis we are trying to show:** Medicine’s rewards are real (mobility, respect, security, income). Seats are scarce, prep is expensive, and private capacity is unequally affordable — so **qualification is not access**. The rank is real, but the system erases unequal tickets and **launders the outcome as individual merit** — a taxing lottery sold as a fair race. Privilege channels enter the evidence lab as labeled scenarios / transported associations, not as a national causal inequality estimate.
 
 **Primary public product:** [reports/interactive/the-accessible-seat.html](interactive/the-accessible-seat.html) — linear visual essay  
-**Evidence lab (controls / readiness):** [reports/interactive/evidence-lab.html](interactive/evidence-lab.html)  
+**Public sources page:** [reports/interactive/sources-and-methods.html](interactive/sources-and-methods.html)  
+**Internal model explorer (not shipped to Pages):** [reports/interactive/evidence-lab.html](interactive/evidence-lab.html)  
 **Reproduce numbers:** `make bayes && make privilege && make score-privilege && make story`
 
 ---

@@ -554,11 +554,11 @@ def main() -> None:
     print(f"Wrote {OUT_JSON}")
     print(f"Wrote {OUT_JS}")
     essay = OUT_DIR / "the-accessible-seat.html"
-    lab = OUT_DIR / "evidence-lab.html"
+    sources = OUT_DIR / "sources-and-methods.html"
     if essay.exists():
         print(f"Open essay: {essay}")
-    if lab.exists():
-        print(f"Open evidence lab: {lab}")
+    if sources.exists():
+        print(f"Open sources: {sources}")
 
 
 if __name__ == "__main__":

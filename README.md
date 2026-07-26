@@ -35,11 +35,11 @@ Open the public visual essay locally after `make story`:
 
 `reports/interactive/the-accessible-seat.html`
 
-Model explorer / readiness controls (not the public essay):
+Public documentation for numbers and limits:
 
-`reports/interactive/evidence-lab.html`
+`reports/interactive/sources-and-methods.html`
 
-The knife-edge scene loads a browser-ready bank of 24 official past questions from:
+The knife-edge scene features official NEET-UG 2020 EcoRI Q21 (with a local question-bank fallback) from:
 
 `reports/interactive/question-bank.json`
 
@@ -85,8 +85,9 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/SCORE_PRIVILEGE_MODEL.md](reports/SCORE_PRIVILEGE_MODEL.md) | Production score → rank → seat model with coaching arms-race scenarios |
 | [reports/STORY_READINESS.md](reports/STORY_READINESS.md) | What we can show at what grain (SHOW / SENS / BLOCK) |
 | [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Public visual essay (fair paper ≠ fair race; scarcity → knife edge → laundering → treadmill) |
+| [reports/interactive/sources-and-methods.html](reports/interactive/sources-and-methods.html) | Public sources, calculations, and limitations |
+| [reports/interactive/shareable-flyer.html](reports/interactive/shareable-flyer.html) | One-page protest flyer with QR link to the essay |
 | [reports/interactive/question-bank.json](reports/interactive/question-bank.json) | Curated official 2020 E1 questions and matched final-key answers used by the knife-edge interaction |
-| [reports/interactive/evidence-lab.html](reports/interactive/evidence-lab.html) | Evidence lab (profiles, arms-race worlds, readiness matrix, methodology) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
 | [docs/QUESTION_BANK.md](docs/QUESTION_BANK.md) | Provenance, scoring and editorial rules for the sample NEET question bank |
 | [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
