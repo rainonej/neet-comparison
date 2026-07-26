@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="#0a1114" name="theme-color"/>
 <meta content="Sources, calculations, and limitations behind the NEET visual essay." name="description"/>
-<title>Sources and methods — A fair paper is not a fair race</title>
+<title>Sources and calculations — A fair paper is not a fair race</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
@@ -14,19 +14,19 @@
     --ink: #101416;
     --soft: #465054;
     --paper: #f6f5f0;
-    --void: #0a1114;
     --gold: #e3ad25;
     --heat: #d64d38;
     --line: rgba(16,20,22,.13);
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     color: var(--ink);
     background: var(--paper);
     font: 500 1.08rem/1.55 "Instrument Serif", Georgia, serif;
   }
-  header, main, footer { width: min(42rem, calc(100% - 2rem)); margin: 0 auto; }
+  header, main, footer { width: min(44rem, calc(100% - 2rem)); margin: 0 auto; }
   header { padding: 3rem 0 1.5rem; }
   .kicker {
     margin: 0 0 .75rem;
@@ -40,17 +40,38 @@
     font: 800 clamp(2rem, 5vw, 2.8rem)/1.05 Syne, sans-serif;
     letter-spacing: -.04em;
   }
-  p { color: var(--soft); }
+  p, li { color: var(--soft); }
   a { color: #247f75; text-underline-offset: .18em; }
-  h2 {
-    margin: 2.25rem 0 .75rem;
-    font: 800 1.15rem/1.25 Syne, sans-serif;
-    letter-spacing: -.02em;
+  .toc { margin: 1.25rem 0 0; padding: 0; list-style: none; display: grid; gap: .35rem; }
+  .toc a { font: 700 .82rem/1.35 Syne, sans-serif; text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  section {
+    margin: 2.4rem 0;
+    padding-top: .5rem;
+    border-top: 1px solid var(--line);
   }
-  ul { padding-left: 1.2rem; color: var(--soft); }
+  h2 {
+    margin: 0 0 .75rem;
+    font: 800 1.2rem/1.25 Syne, sans-serif;
+    letter-spacing: -.02em;
+    scroll-margin-top: 4.5rem;
+  }
+  h3 {
+    margin: 1.25rem 0 .45rem;
+    font: 800 .95rem/1.3 Syne, sans-serif;
+  }
+  ul { padding-left: 1.2rem; }
   li { margin: .45rem 0; }
+  .calc {
+    margin: 1rem 0;
+    padding: 1rem 1.1rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    font: 500 .92rem/1.5 Syne, sans-serif;
+  }
+  .calc ol { margin: .4rem 0 0; padding-left: 1.2rem; }
   .note {
-    margin: 1.5rem 0;
+    margin: 1.25rem 0;
     padding: 1rem 1.1rem;
     border-left: 4px solid var(--gold);
     background: rgba(227,173,37,.08);
@@ -66,52 +87,139 @@
 <body>
 <header>
 <p class="kicker">Behind the visual essay</p>
-<h1>Sources and methods</h1>
-<p>This page collects the public sources, calculations, and limits behind <a href="the-accessible-seat.html">A fair paper is not a fair race</a>. It is documentation for readers who want to check the numbers—not part of the narrative.</p>
+<h1>Sources and calculations</h1>
+<p>Documentation for readers who want to check the numbers behind <a href="the-accessible-seat.html">A fair paper is not a fair race</a>. Each section names the claim, the source, the date, and the caveat.</p>
+<ul class="toc">
+<li><a href="#orient-nta">Official exam mechanics</a></li>
+<li><a href="#scarcity">Scarcity and “qualified”</a></li>
+<li><a href="#private-fees">Private fees vs EWS income</a></li>
+<li><a href="#threshold-calc">Near-threshold crowd (~11,000)</a></li>
+<li><a href="#test-validity">What admissions tests predict</a></li>
+<li><a href="#tn-composition">Tamil Nadu composition shifts</a></li>
+<li><a href="#coaching">Coaching saturation and score gains</a></li>
+<li><a href="#years">Years as currency</a></li>
+<li><a href="#stories">Reported human stories</a></li>
+<li><a href="#crisis">Current crisis</a></li>
+</ul>
 </header>
 <main>
-<section>
-<h2>Core public counts</h2>
+<section id="orient-nta">
+<h2>Official exam mechanics</h2>
+<p><strong>Claim:</strong> NEET-UG is a once-a-year, in-person national entrance exam for undergraduate medicine; 180 multiple-choice questions; Biology / Chemistry / Physics; scoring +4 / −1 / 0; offered in 13 languages. In 2024 it was administered at 4,750 centres in 571 cities, including 14 cities outside India.</p>
+<p><strong>Sources:</strong></p>
 <ul>
-<li><strong>NEET-UG 2024 appeared / qualified counts</strong> — NTA result materials and the reconciled national marks reconstruction used in this project.</li>
-<li><strong>MBBS seat capacity</strong> — National Medical Commission college/seat list snapshot used for order-of-magnitude scarcity accounting (~129,600 total places).</li>
-<li><strong>Scoring rules</strong> — NTA scheme of examination: 180 questions; +4 / −1 / 0; maximum 720.</li>
+<li><a href="https://www.nta.ac.in/Download/Notice/Notice_20240604195244.pdf" rel="noopener noreferrer" target="_blank">NTA NEET (UG) 2024 result press release (4 June 2024)</a> — centres, cities, overseas cities, appeared/qualified counts.</li>
+<li><a href="https://nta.ac.in/Download/Notice/Notice_20240726213317.pdf" rel="noopener noreferrer" target="_blank">NTA re-revised result press release (26 July 2024)</a> — final appeared/qualified totals used in this project.</li>
+<li>NTA scheme of examination / information bulletin — question count, subjects, marking scheme, languages.</li>
 </ul>
+<p><strong>On “the only measure of individual academic merit”:</strong> NEET score/rank is the individualized academic signal used in undergraduate medical admission. There is no interview, personal statement, extracurricular review, or recommendation letter in the ranking process. Reservations and domicile determine which seat pools a candidate may enter; they do not add academic points to the NEET score. See also MCC counselling streams and applicable state counselling rules.</p>
 </section>
-<section>
-<h2>Featured examination item</h2>
+
+<section id="scarcity">
+<h2>Scarcity and “qualified”</h2>
+<p><strong>Claim:</strong> About 2.33 million candidates appeared in 2024; roughly 18 candidates per MBBS place; only about 10 of every 100 “qualified” candidates can receive any MBBS place; government-college places are scarcer still.</p>
+<p><strong>Candidate count:</strong> 2,333,162 appeared (excluding unfair-means cases), from the NTA re-revised 2024 press release and the reconciled centre-marks reconstruction.</p>
+<p><strong>Seat count:</strong> 129,602 total MBBS places (about 63,859 government; 65,743 private) from an NMC college/seat list snapshot labeled in this repository as a later “current page” extract—not a verified same-day 2024 matrix. The essay therefore states the candidate year and the seat snapshot separately rather than forcing a false same-year join.</p>
+<div class="calc">
+<strong>Simple ratios used on the page</strong>
+<ol>
+<li>Appeared ÷ total seats ≈ 2,333,162 ÷ 129,602 ≈ 18.0 candidates per place.</li>
+<li>Appeared ÷ government seats ≈ 2,333,162 ÷ 63,859 ≈ 36.5 candidates per government place (about twice the all-seat ratio).</li>
+<li>Qualified ÷ total seats ≈ 1,315,853 ÷ 129,602 ≈ 10.15 → about 10 of every 100 “qualified” candidates can receive any MBBS place if every place were filled from that pool.</li>
+</ol>
+</div>
+<p class="note">“Qualified” is NTA’s minimum-score label. It is not a promise that a seat exists.</p>
+</section>
+
+<section id="private-fees">
+<h2>Private fees vs EWS income</h2>
+<p><strong>Claim:</strong> A private medical seat can exist on paper and remain economically unusable.</p>
+<p><strong>Documented example:</strong> In litigation over Rajasthan private medical colleges (High Court; Supreme Court declined to interfere in 2026), annual tuition for the relevant private-college seats was described as ranging from about ₹18.9 lakh to ₹25 lakh per year. India’s EWS family-income ceiling is ₹8 lakh per year. Annual tuition alone was therefore about 2.4× to 3.1× that income ceiling—before living costs and the remaining years of the degree.</p>
+<p><strong>Sources:</strong> reporting on <em>Harshvardhan Singh v. State of Rajasthan</em> and related High Court / Supreme Court coverage (e.g. <a href="https://timesofindia.indiatimes.com/education/news/if-you-are-unable-to-pay-get-scholarship-supreme-court-dismisses-ews-students-plea-on-private-medical-college-fee/articleshow/131961049.cms" rel="noopener noreferrer" target="_blank">Times of India</a>; <a href="https://www.scconline.com/blog/post/2026/06/29/ews-reservation-fee-concession-supreme-court-rajasthan-hc-medical-colleges/" rel="noopener noreferrer" target="_blank">SCC Online summary</a>).</p>
+<p><strong>Caveat:</strong> Rajasthan example, not a national private-college fee estimate. Fee schedules vary by state, college, and quota.</p>
+</section>
+
+<section id="threshold-calc">
+<h2>Near-threshold crowd (~11,000)</h2>
+<p><strong>Claim:</strong> Around the point where available MBBS places ran out, about 11,000 candidates were packed within one question’s worth of marks.</p>
+<div class="calc">
+<strong>How the number was calculated</strong>
+<ol>
+<li>Use the reconstructed 2024 national marks distribution (reconciled to NTA appeared counts).</li>
+<li>Take total MBBS capacity ≈ 129,602 seats.</li>
+<li>Compute the capacity-equivalent percentile: 1 − (seats ÷ appeared) ≈ 0.9445.</li>
+<li>Map that percentile through national marks quantiles → about 560.5 marks (“seats run out” line for any MBBS place).</li>
+<li>One correct answer is +4 marks; look at the band 560.5 ± 4 marks.</li>
+<li>Interpolate the share of candidates in that band and multiply by appeared ≈ 10,852.</li>
+<li>Round to about 11,000. The method is an interpolation, not an official cutoff table.</li>
+</ol>
+</div>
+<p><strong>Caveat:</strong> This is a national capacity-equivalent threshold, not a state/category counselling cutoff. Exact published counselling cutoffs differ by pool.</p>
+</section>
+
+<section id="test-validity">
+<h2>What admissions tests predict</h2>
+<p><strong>Claim used in the essay:</strong> Knowing one biotechnology recall item can change rank. By itself, it cannot tell us who will become the better doctor.</p>
+<p>Research on other medical-admissions tests finds that they often predict later written examinations more reliably than professional behavior or clinical qualities:</p>
 <ul>
-<li><strong>NEET-UG 2020, English booklet E1, Question 21</strong> — EcoRI recognition sequence.</li>
-<li><a href="https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/" rel="noopener noreferrer" target="_blank">Official NTA source page</a></li>
+<li><a href="https://doi.org/10.1080/0142159X.2021.1998401" rel="noopener noreferrer" target="_blank">UCAT systematic review</a> (Greatrix, Nathan, &amp; Somasunderam, 2021): for more than 70% of univariate results studied, no statistically significant predictive validity; where relationships existed, they were generally weak. Evidence for professional behavior was particularly limited.</li>
+<li><a href="https://pubmed.ncbi.nlm.nih.gov/40973544/" rel="noopener noreferrer" target="_blank">MCAT meta-analysis</a> of the 2015 exam: moderate correlations with later USMLE written examinations—about <em>r</em> = .49 for Step 1 and <em>r</em> = .42 for Step 2 CK—with overall evidence quality rated low (GRADE).</li>
 </ul>
-<p>The question demonstrates how a single biotechnology recall item can create a four- or five-mark gap under NEET scoring. It is not offered as a complete measure of the qualities of a future doctor.</p>
+<p><strong>Reading:</strong> Admissions tests may predict performance on later academic tests. That is not the same as fully measuring who will become the better doctor. These are not NEET validity studies.</p>
 </section>
-<section>
-<h2>Near-threshold crowd estimate</h2>
-<p>The “about 11,000 candidates within one question of the seats-run-out line” figure comes from mapping national capacity against the reconstructed 2024 marks distribution and counting candidates inside a ±4-mark window around that line. It is an interpolation from published quantiles, not an official cutoff table. The essay rounds to about 11,000 because the method does not support false precision.</p>
+
+<section id="tn-composition">
+<h2>Tamil Nadu composition shifts</h2>
+<p><strong>Claim:</strong> After NEET, the composition of Tamil Nadu’s admitted medical students shifted sharply away from Tamil-medium, rural, and lower-income backgrounds.</p>
+<ul>
+<li><strong>Language:</strong> Tamil-medium share of medical admissions 14.88% in 2016–17 → 1.99% in 2020–21; English-medium about 98% by 2020–21. Matches Justice A.K. Rajan Committee Table 7.18 ordinary-quota allotments (verified against the project’s extracted CSV).</li>
+<li><strong>Geography:</strong> Rural share of government-medical-college admissions about 61.5% on average before NEET → 49.91% in 2020–21 (committee / contemporary reporting).</li>
+<li><strong>Income:</strong> Admitted students with annual family income below ₹2.5 lakh: 47.42% in 2016–17 → 41.05% in 2020–21 (committee tabulations as summarized in reporting on the report).</li>
+</ul>
+<p><strong>Primary document:</strong> <a href="https://www.thehinducentre.com/resources/article36590063.ece" rel="noopener noreferrer" target="_blank">Justice A.K. Rajan Committee report (Tamil Nadu, 2021)</a> via The Hindu Centre.</p>
+<p><strong>Caveat:</strong> Tamil Nadu state case. These are changes in the composition of admitted students, not proof that NEET alone caused every change, and not a national applicant-level causal estimate.</p>
 </section>
-<section>
+
+<section id="coaching">
+<h2>Coaching saturation and score gains</h2>
+<p><strong>Claim:</strong> Among Tamil Nadu’s admitted students in 2019–20, coaching was effectively universal: the Rajan Committee reported that about 99% had received NEET training or coaching.</p>
+<p><strong>Caveat:</strong> Admitted denominator only. This does not mean coaching caused admission, or that 99% of all candidates were coached. The project’s pinned approximate scalar is sometimes written as ~98.5%; contemporary summaries of the committee use 99%.</p>
+<p><strong>On whether preparation can raise scores:</strong> Across other university entrance examinations, preparatory courses generally produce small but real score gains. A clean NEET-specific causal estimate is still missing. See the repository note <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/COACHING_EFFECT_EVIDENCE.md">docs/COACHING_EFFECT_EVIDENCE.md</a>.</p>
+<p><strong>On strategic escalation:</strong> A U.S. study of statewide mandatory college-entrance testing estimated about a 16% increase in private tutoring prevalence, larger in higher-income and more highly educated areas. That supports the proposition that high-stakes exams change family investment behavior; it is not NEET microdata.</p>
+</section>
+
+<section id="years">
+<h2>Years as currency</h2>
+<p><strong>Claim:</strong> Among Tamil Nadu MBBS admits, the repeater share rose from about 12.5% in 2016–17 to 71.4% in 2020–21 (current-year share 28.6%).</p>
+<p><strong>Source:</strong> Justice A.K. Rajan Committee Table 7.38. “Other than current year” is used as a repeater proxy.</p>
+<p><strong>Caveat:</strong> Admitted composition in one state, not a national attempt histogram among all candidates.</p>
+</section>
+
+<section id="stories">
 <h2>Reported human stories</h2>
 <ul>
-<li>Kanakpriya / Virender Verma — ThePrint family report on coaching debt and affordability pressure.</li>
-<li>Jeevith Kumar — NDTV report on a second attempt after residential coaching.</li>
-<li>Madurai government-school quota cohort — Times of India report on seven 2025 admits.</li>
+<li>Kanakpriya / Virender Verma — <a href="https://theprint.in/the-fineprint/neet-fiasco-isnt-just-about-broken-dreams-its-pushing-lakhs-of-families-into-poverty/2160783/" rel="noopener noreferrer" target="_blank">ThePrint</a></li>
+<li>Jeevith Kumar — <a href="https://www.ndtv.com/india-news/neet-2020-tamil-nadu-shepherds-son-who-cracked-medical-entrance-exam-neet-needs-help-to-study-medicine-2312276" rel="noopener noreferrer" target="_blank">NDTV</a></li>
+<li>Madurai government-school quota cohort — <a href="https://timesofindia.indiatimes.com/city/madurai/7-from-madurai-land-mbbs-seats-under-7-5-quota/articleshow/123029677.cms" rel="noopener noreferrer" target="_blank">Times of India</a></li>
+<li>Featured item — NEET-UG 2020 English E1 Q21: <a href="https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/" rel="noopener noreferrer" target="_blank">official NTA source</a></li>
 </ul>
-<p>These stories illustrate mechanisms. They are not national causal estimates of coaching effects.</p>
+<p>These stories illustrate mechanisms. They are not national causal estimates.</p>
 </section>
-<section>
-<h2>Tamil Nadu repeater composition</h2>
-<p>Justice A.K. Rajan Committee Table 7.38 supplies the admitted-cohort shift from mostly current-year students to mostly repeaters after NEET. That is a state administrative window, not a national attempt histogram.</p>
+
+<section id="crisis">
+<h2>Current crisis</h2>
+<p>The flyer’s sequence—paper leak, cancellation, deaths, street protest—refers to the 2024–2026 NEET crisis cycle. Readers should treat deaths as part of the political and human context of the crisis, not as a single officially adjudicated causal chain for every case.</p>
+<ul>
+<li>NTA notices on cancellation, refunds, and re-examination (official NTA / NEET portals).</li>
+<li>Contemporary reporting on student deaths and protests during the crisis.</li>
+</ul>
 </section>
+
 <section>
 <div class="note">
-<strong>What this essay does not claim:</strong> It does not simulate state/category counselling seat-by-seat. Reservations and domicile determine which pool a candidate may enter; within each pool, NEET score remains the individualized academic measuring stick. National capacity accounting is used to show scarcity, not to predict any one counselling offer.
+<strong>What this essay does not claim:</strong> It does not simulate state/category counselling seat-by-seat. It does not estimate a national causal return to coaching expenditure. National capacity accounting shows scarcity; Tamil Nadu tables show admitted composition; human stories show mechanisms inside individual lives.
 </div>
-</section>
-<section>
-<h2>Full bibliography</h2>
-<p>Pinned citations and caveats live in the repository bibliography:</p>
-<p><a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">docs/STORY_BIBLIOGRAPHY.md</a></p>
+<p>Full citation table: <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">docs/STORY_BIBLIOGRAPHY.md</a></p>
 </section>
 </main>
 <footer>

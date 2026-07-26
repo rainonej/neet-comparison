@@ -14,7 +14,11 @@
       'daily-wage': 'daily-wage earners',
       money: {
         550000: '₹5.5 lakh borrowed',
-        150000: '₹1.5 lakh borrowed'
+        150000: '₹1.5 lakh borrowed',
+        1890000: '₹18.9 lakh',
+        2500000: '₹25 lakh',
+        800000: '₹8 lakh',
+        250000: '₹2.5 lakh'
       }
     },
     'en-US': {
@@ -25,7 +29,11 @@
       'daily-wage': 'workers paid by the day',
       money: {
         550000: '₹550,000 borrowed',
-        150000: '₹150,000 borrowed'
+        150000: '₹150,000 borrowed',
+        1890000: '₹1,890,000',
+        2500000: '₹2,500,000',
+        800000: '₹800,000',
+        250000: '₹250,000'
       }
     }
   };
