@@ -12,18 +12,18 @@ The public visual essay needs one genuine examination item to make the knife-edg
 
 > An item can validly test syllabus knowledge without directly measuring the full qualities that make someone a good doctor, while a correct, wrong or blank response can still alter rank and affordable-seat options.
 
-The featured item is **English booklet E1, question 101**:
+The featured item is **English booklet E1, question 21**:
 
-> Which of the following oxoacid of sulphur has an –O–O– linkage?
+> The specific palindromic sequence which is recognized by EcoRI is:
 
-The correct option is **C: H₂S₂O₈, peroxodisulphuric acid**.
+The correct option is **A / (1): 5′–GAATTC–3′ / 3′–CTTAAG–5′**.
 
 It was selected because it is:
 
-- short enough to read on a phone;
-- a normal, valid syllabus question rather than a disputed or broken item;
-- easy to verify in the official paper;
-- a clear example of chemistry recall that does not itself observe clinical judgment, communication, ethics, reliability or care.
+- a normal, valid syllabus item rather than a disputed or broken question;
+- easy to verify in the official paper (E1 PDF page 4);
+- built from near-identical letter strings that are easy to scramble under time pressure, including for readers with dyslexia;
+- a clear example of biotechnology recall that does not itself observe clinical judgment, communication, ethics, reliability or care.
 
 ## Provenance
 
@@ -35,7 +35,7 @@ Official English E1 PDF:
 
 - https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf
 
-The featured item was visually checked against page 13 of the PDF and appears as question 101. Questions 104 and 107 were also aligned by number and wording. The remaining sample items came from the user-supplied extraction package; their exact E1 question numbers remain intentionally blank until aligned against the source booklet.
+The featured EcoRI item was checked against the official NTA English E1 PDF as question 21 on page 4, with option order matching the supplied scan. Chemistry items 101, 104 and 107 were also aligned by number and wording. The remaining sample items in `data/question_bank/` came from the user-supplied extraction package; their exact E1 question numbers remain intentionally blank until aligned against the source booklet.
 
 ## Scoring distinction
 

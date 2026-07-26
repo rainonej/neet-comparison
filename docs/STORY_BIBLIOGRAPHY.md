@@ -28,7 +28,7 @@ Pinned numeric rows: `data/processed/published_estimates.csv`.
 
 | Item | Official source | Answer / use | Caveat |
 |---|---|---|---|
-| NEET-UG 2020, English booklet E1, Q101: sulphur oxoacid with an –O–O– linkage | [Official NTA source page](https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/) and [English E1 PDF](https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf), page 13 | Option 3 / C: H₂S₂O₈, peroxodisulphuric acid. Used to demonstrate +4/−1/0 scoring and a five-mark correct-vs-wrong gap. | A valid chemistry-recall item. It does not by itself measure the full qualities of a future doctor. Limited excerpt for criticism and research; do not infer permission to republish full papers. |
+| NEET-UG 2020, English booklet E1, Q21: EcoRI palindromic recognition sequence | [Official NTA source page](https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/) and [English E1 PDF](https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf), page 4 | Option 1 / A: 5′–GAATTC–3′ / 3′–CTTAAG–5′. Used to demonstrate +4/−1/0 scoring, near-identical distractors, and a five-mark correct-vs-wrong gap. | Valid biotechnology recall under letter-sequence load; easy to misread. Does not by itself measure the full qualities of a future doctor. Limited excerpt for criticism and research; do not infer permission to republish full papers. |
 
 Structured sample bank and provenance notes: [`docs/QUESTION_BANK.md`](QUESTION_BANK.md), `data/question_bank/neet_2020_e1_sample_questions.{json,csv}`.
 

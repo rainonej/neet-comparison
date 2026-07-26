@@ -11,13 +11,29 @@
   },
   "questions": [
     {
+      "id": "neet-2020-e1-q21",
+      "year": 2020,
+      "booklet": "E1",
+      "question_number": 21,
+      "subject": "Biology",
+      "source_page": 4,
+      "featured": true,
+      "prompt": "The specific palindromic sequence which is recognized by EcoRI is:",
+      "options": [
+        "5′ – GAATTC – 3′\n3′ – CTTAAG – 5′",
+        "5′ – GGAACC – 3′\n3′ – CCTTGG – 5′",
+        "5′ – CTTAAG – 3′\n3′ – GAATTC – 5′",
+        "5′ – GGATCC – 3′\n3′ – CCTAGG – 5′"
+      ],
+      "correct_index": 0
+    },
+    {
       "id": "neet-2020-e1-q101",
       "year": 2020,
       "booklet": "E1",
       "question_number": 101,
       "subject": "Chemistry",
       "source_page": 13,
-      "featured": true,
       "prompt": "Which of the following oxoacid of sulphur has an –O–O– linkage?",
       "options": ["H₂SO₃, sulphurous acid", "H₂SO₄, sulphuric acid", "H₂S₂O₈, peroxodisulphuric acid", "H₂S₂O₇, pyrosulphuric acid"],
       "correct_index": 2

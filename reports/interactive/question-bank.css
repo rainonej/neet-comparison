@@ -73,6 +73,21 @@
   font: 650 .78rem/1.38 Syne, sans-serif;
 }
 
+.guess-question .qb-option .qb-seq {
+  white-space: pre-line;
+  font: 650 .78rem/1.45 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: .045em;
+}
+
+.guess-question .qb-option:has(.qb-seq) {
+  min-height: 5.2rem;
+  align-items: start;
+}
+
+.guess-question .qb-option:has(.qb-seq) .qb-letter {
+  margin-top: .15rem;
+}
+
 .guess-question .qb-option:hover,
 .guess-question .qb-option:focus-visible {
   border-color: var(--gold);

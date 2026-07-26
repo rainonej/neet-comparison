@@ -8,7 +8,7 @@
   "source_page_url": "https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/",
   "source_pdf_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
   "rights_note": "Question text is stored as a limited research and criticism excerpt with source attribution. Underlying examination-question rights remain with the source publisher. Do not treat this sample file as a license to republish full papers.",
-  "provenance_note": "Ten questions supplied from an extracted official-paper package. The featured chemistry item was visually verified against the official NTA English E1 PDF as question 101. Exact booklet numbering for the remaining samples should be aligned before they are individually cited as numbered official items.",
+  "provenance_note": "Ten questions supplied from an extracted official-paper package. The featured visual-essay item is now E1 Q21 (EcoRI palindrome), verified against the official NTA English E1 PDF page 4. Chemistry Q101 remains in the sample as a verified non-featured item. Exact booklet numbering for the remaining samples should be aligned before they are individually cited as numbered official items.",
   "questions": [
     {
       "id": "neet-2020-e1-population-attribute",
@@ -89,8 +89,26 @@
       "correct_option": "C",
       "answer_note": "Peroxodisulphuric acid contains a peroxide –O–O– linkage.",
       "verification_status": "visually verified against official NTA English E1 PDF, page 13, question 101",
+      "featured_in_visual_essay": false,
+      "editorial_note": "Previously featured; retained as a verified chemistry-recall sample."
+    },
+    {
+      "id": "neet-2020-e1-q21-ecori-palindrome",
+      "sample_order": 5.5,
+      "official_question_number": 21,
+      "subject": "Biology",
+      "stem": "The specific palindromic sequence which is recognized by EcoRI is:",
+      "options": {
+        "A": "5′ – GAATTC – 3′ / 3′ – CTTAAG – 5′",
+        "B": "5′ – GGAACC – 3′ / 3′ – CCTTGG – 5′",
+        "C": "5′ – CTTAAG – 3′ / 3′ – GAATTC – 5′",
+        "D": "5′ – GGATCC – 3′ / 3′ – CCTAGG – 5′"
+      },
+      "correct_option": "A",
+      "answer_note": "EcoRI recognizes 5′-GAATTC-3′ on one strand and 3′-CTTAAG-5′ on the complementary strand.",
+      "verification_status": "checked against official NTA English E1 PDF, page 4, question 21; option order matches supplied scan",
       "featured_in_visual_essay": true,
-      "editorial_note": "This is a valid chemistry-recall item. It does not directly observe clinical judgment, communication, ethics, reliability or care."
+      "editorial_note": "Near-identical letter-string distractors; easy to scramble under time pressure, including with dyslexia. Biotechnology recall, not a clinical-judgment measure."
     },
     {
       "id": "neet-2020-e1-q104-free-expansion",

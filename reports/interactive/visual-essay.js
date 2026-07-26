@@ -63,20 +63,20 @@
     },
     questions: [
       {
-        subject: 'Chemistry',
+        subject: 'Biology',
         year: 2020,
         booklet: 'E1',
-        question_number: 101,
-        source_page: 13,
+        question_number: 21,
+        source_page: 4,
         featured: true,
-        prompt: 'Which of the following oxoacid of sulphur has an –O–O– linkage?',
+        prompt: 'The specific palindromic sequence which is recognized by EcoRI is:',
         options: [
-          'H₂SO₃, sulphurous acid',
-          'H₂SO₄, sulphuric acid',
-          'H₂S₂O₈, peroxodisulphuric acid',
-          'H₂S₂O₇, pyrosulphuric acid'
+          '5′ – GAATTC – 3′\n3′ – CTTAAG – 5′',
+          '5′ – GGAACC – 3′\n3′ – CCTTGG – 5′',
+          '5′ – CTTAAG – 3′\n3′ – GAATTC – 5′',
+          '5′ – GGATCC – 3′\n3′ – CCTAGG – 5′'
         ],
-        correct_index: 2
+        correct_index: 0
       },
       {
         subject: 'Biology',
@@ -103,7 +103,7 @@
 
   const setupStaticQuestionFallback = () => {
     const optionButtons = [...document.querySelectorAll('#question .option')];
-    const correctOption = 'C';
+    const correctOption = 'A';
     const result = document.getElementById('guess-result');
     const explanation = document.getElementById('question-explanation');
     const blindGuess = document.getElementById('blind-guess');
@@ -124,18 +124,18 @@
       leaveBlank.disabled = true;
 
       if (choice == null) {
-        result.innerHTML = '<strong>Blank: 0 marks.</strong> A candidate choosing C earns +4, a four-mark gap on this item.';
+        result.innerHTML = '<strong>Blank: 0 marks.</strong> A candidate choosing A earns +4, a four-mark gap on this item.';
       } else {
         const selected = optionButtons.find(button => button.dataset.option === choice);
         if (choice !== correctOption) selected?.classList.add('wrong');
         if (choice === correctOption) {
           result.innerHTML = mode === 'random'
-            ? '<strong>The blind guess landed on C: +4 marks.</strong> A blind wrong guess would score −1—a five-mark gap.'
-            : '<strong>C is correct: +4 marks.</strong> A candidate choosing a wrong option scores −1—a five-mark gap.';
+            ? '<strong>The blind guess landed on A: +4 marks.</strong> A blind wrong guess would score −1—a five-mark gap.'
+            : '<strong>A is correct: +4 marks.</strong> A candidate choosing a wrong option scores −1—a five-mark gap.';
         } else {
           result.innerHTML = mode === 'random'
-            ? `<strong>The blind guess landed on ${choice}: −1 mark.</strong> The lucky candidate guessing C finishes five marks ahead on this item.`
-            : `<strong>${choice} is wrong: −1 mark.</strong> A candidate choosing C finishes five marks ahead on this item.`;
+            ? `<strong>The blind guess landed on ${choice}: −1 mark.</strong> The lucky candidate guessing A finishes five marks ahead on this item.`
+            : `<strong>${choice} is wrong: −1 mark.</strong> A candidate choosing A finishes five marks ahead on this item.`;
         }
       }
       if (explanation) explanation.hidden = false;
@@ -199,9 +199,11 @@
       prompt.className = 'qb-prompt';
       prompt.textContent = q.prompt;
 
-      const instruction = document.createElement('p');
-      instruction.className = 'qb-instruction';
-      instruction.textContent = 'Pretend you do not know. Choose an answer, ask for a blind guess, or leave it blank.';
+        const instruction = document.createElement('p');
+        instruction.className = 'qb-instruction';
+        instruction.textContent = q.question_number === 21
+          ? 'The distractors are near-identical letter strings. Choose an answer, ask for a blind guess, or leave it blank.'
+          : 'Pretend you do not know. Choose an answer, ask for a blind guess, or leave it blank.';
 
       const optionGrid = document.createElement('div');
       optionGrid.className = 'option-grid qb-option-grid';
@@ -213,7 +215,7 @@
       result.setAttribute('aria-live', 'polite');
       result.textContent = 'Correct: +4. Wrong: −1. Blank: 0. A blind four-option guess has an expected value of +0.25 marks.';
 
-      const answerLabel = `${letters[q.correct_index]} — ${q.options[q.correct_index]}`;
+      const answerLabel = `${letters[q.correct_index]} — ${q.options[q.correct_index].replace(/\n/g, ' / ')}`;
       let buttons = [];
       let blindGuess;
       let leaveBlank;
@@ -255,6 +257,7 @@
         letter.textContent = letters[index];
 
         const optionText = document.createElement('span');
+        optionText.className = text.includes('\n') ? 'qb-option-text qb-seq' : 'qb-option-text';
         optionText.textContent = text;
 
         button.append(letter, optionText);
