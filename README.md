@@ -83,6 +83,7 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/interactive/the-accessible-seat.html](reports/interactive/the-accessible-seat.html) | Public visual essay (fair paper ≠ fair race; scarcity → knife edge → laundering → treadmill) |
 | [reports/interactive/evidence-lab.html](reports/interactive/evidence-lab.html) | Evidence lab (profiles, arms-race worlds, readiness matrix, methodology) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
+| [docs/QUESTION_BANK.md](docs/QUESTION_BANK.md) | Provenance, scoring and editorial rules for the sample NEET question bank |
 | [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
 
 ## Ethical and statistical guardrails
