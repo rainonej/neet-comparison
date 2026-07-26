@@ -88,6 +88,7 @@ Raw and external files are gitignored. Register every download with `scripts/reg
 | [reports/interactive/question-bank.json](reports/interactive/question-bank.json) | Curated official 2020 E1 questions and matched final-key answers used by the knife-edge interaction |
 | [reports/interactive/evidence-lab.html](reports/interactive/evidence-lab.html) | Evidence lab (profiles, arms-race worlds, readiness matrix, methodology) |
 | [docs/STORY_BIBLIOGRAPHY.md](docs/STORY_BIBLIOGRAPHY.md) | Citations for prize / lottery / privilege claims in the story |
+| [docs/QUESTION_BANK.md](docs/QUESTION_BANK.md) | Provenance, scoring and editorial rules for the sample NEET question bank |
 | [docs/ATTEMPT_PRIORS.md](docs/ATTEMPT_PRIORS.md) | Retake / sitting continuation priors (sensitivity, not national facts) |
 
 ## Ethical and statistical guardrails

@@ -1,0 +1,176 @@
+{
+  "schema_version": "1.0.0",
+  "bank_id": "neet-ug-2020-e1-samples",
+  "title": "NEET-UG 2020 English booklet E1 — selected sample questions",
+  "language": "English",
+  "exam_year": 2020,
+  "booklet_code": "E1",
+  "source_page_url": "https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/",
+  "source_pdf_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021555.pdf",
+  "rights_note": "Question text is stored as a limited research and criticism excerpt with source attribution. Underlying examination-question rights remain with the source publisher. Do not treat this sample file as a license to republish full papers.",
+  "provenance_note": "Ten questions supplied from an extracted official-paper package. The featured chemistry item was visually verified against the official NTA English E1 PDF as question 101. Exact booklet numbering for the remaining samples should be aligned before they are individually cited as numbered official items.",
+  "questions": [
+    {
+      "id": "neet-2020-e1-population-attribute",
+      "sample_order": 1,
+      "official_question_number": null,
+      "subject": "Biology",
+      "stem": "Which of the following is not an attribute of a population?",
+      "options": {
+        "A": "Sex ratio",
+        "B": "Natality",
+        "C": "Mortality",
+        "D": "Species interaction"
+      },
+      "correct_option": "D",
+      "answer_note": "Population attributes include sex ratio, natality and mortality; species interaction describes a relationship between populations or species.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    },
+    {
+      "id": "neet-2020-e1-genetics-match",
+      "sample_order": 2,
+      "official_question_number": null,
+      "subject": "Biology",
+      "stem": "Select the correct match.",
+      "options": {
+        "A": "Haemophilia — Y-linked",
+        "B": "Phenylketonuria — autosomal dominant",
+        "C": "Sickle-cell anaemia — autosomal recessive, chromosome 11",
+        "D": "Thalassemia — X-linked"
+      },
+      "correct_option": "C",
+      "answer_note": "Sickle-cell anaemia is autosomal recessive and involves the beta-globin gene on chromosome 11.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    },
+    {
+      "id": "neet-2020-e1-nitrogenase-products",
+      "sample_order": 3,
+      "official_question_number": null,
+      "subject": "Biology",
+      "stem": "The products of the reaction catalysed by nitrogenase in leguminous root nodules are:",
+      "options": {
+        "A": "Ammonia alone",
+        "B": "Nitrate alone",
+        "C": "Ammonia and oxygen",
+        "D": "Ammonia and hydrogen"
+      },
+      "correct_option": "D",
+      "answer_note": "Nitrogenase reduces nitrogen to ammonia and also produces hydrogen.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    },
+    {
+      "id": "neet-2020-e1-gel-electrophoresis",
+      "sample_order": 4,
+      "official_question_number": null,
+      "subject": "Biology",
+      "stem": "In gel electrophoresis, separated DNA fragments can be visualized using:",
+      "options": {
+        "A": "Acetocarmine under bright-blue light",
+        "B": "Ethidium bromide under ultraviolet radiation",
+        "C": "Acetocarmine under ultraviolet radiation",
+        "D": "Ethidium bromide under infrared radiation"
+      },
+      "correct_option": "B",
+      "answer_note": "Ethidium-bromide-stained DNA fluoresces under ultraviolet radiation.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    },
+    {
+      "id": "neet-2020-e1-q101-sulphur-oxoacid",
+      "sample_order": 5,
+      "official_question_number": 101,
+      "subject": "Chemistry",
+      "stem": "Which of the following oxoacid of sulphur has an –O–O– linkage?",
+      "options": {
+        "A": "H₂SO₃, sulphurous acid",
+        "B": "H₂SO₄, sulphuric acid",
+        "C": "H₂S₂O₈, peroxodisulphuric acid",
+        "D": "H₂S₂O₇, pyrosulphuric acid"
+      },
+      "correct_option": "C",
+      "answer_note": "Peroxodisulphuric acid contains a peroxide –O–O– linkage.",
+      "verification_status": "visually verified against official NTA English E1 PDF, page 13, question 101",
+      "featured_in_visual_essay": true,
+      "editorial_note": "This is a valid chemistry-recall item. It does not directly observe clinical judgment, communication, ethics, reliability or care."
+    },
+    {
+      "id": "neet-2020-e1-q104-free-expansion",
+      "sample_order": 6,
+      "official_question_number": 104,
+      "subject": "Chemistry",
+      "stem": "Which option correctly describes the free expansion of an ideal gas under adiabatic conditions?",
+      "options": {
+        "A": "q = 0, ΔT = 0, w = 0",
+        "B": "q = 0, ΔT < 0, w > 0",
+        "C": "q < 0, ΔT = 0, w = 0",
+        "D": "q > 0, ΔT > 0, w > 0"
+      },
+      "correct_option": "A",
+      "answer_note": "There is no heat exchange or boundary work; for an ideal gas the internal energy and temperature remain unchanged.",
+      "verification_status": "question number and wording visually verified against official NTA English E1 PDF; key supplied by extracted package"
+    },
+    {
+      "id": "neet-2020-e1-q107-cross-aldol",
+      "sample_order": 7,
+      "official_question_number": 107,
+      "subject": "Chemistry",
+      "stem": "The reaction between benzaldehyde and acetophenone in dilute NaOH is known as:",
+      "options": {
+        "A": "Aldol condensation",
+        "B": "Cannizzaro reaction",
+        "C": "Cross-Cannizzaro reaction",
+        "D": "Cross-aldol condensation"
+      },
+      "correct_option": "D",
+      "answer_note": "This is a crossed aldol reaction, commonly called the Claisen–Schmidt condensation.",
+      "verification_status": "question number and wording visually verified against official NTA English E1 PDF; key supplied by extracted package"
+    },
+    {
+      "id": "neet-2020-e1-capacitor-current",
+      "sample_order": 8,
+      "official_question_number": null,
+      "subject": "Physics",
+      "stem": "A 40 μF capacitor is connected to a 200 V, 50 Hz AC supply. The RMS current is approximately:",
+      "options": {
+        "A": "1.7 A",
+        "B": "2.05 A",
+        "C": "2.5 A",
+        "D": "25.1 A"
+      },
+      "correct_option": "C",
+      "answer_note": "I = V(2πfC) ≈ 200 × 2π × 50 × 40×10⁻⁶ ≈ 2.51 A.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    },
+    {
+      "id": "neet-2020-e1-atwood-acceleration",
+      "sample_order": 9,
+      "official_question_number": null,
+      "subject": "Physics",
+      "stem": "Masses of 4 kg and 6 kg hang from the two ends of a massless string passing over a frictionless pulley. The acceleration is:",
+      "options": {
+        "A": "g",
+        "B": "g/2",
+        "C": "g/5",
+        "D": "g/10"
+      },
+      "correct_option": "C",
+      "answer_note": "a = (6−4)g/(6+4) = g/5.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    },
+    {
+      "id": "neet-2020-e1-monatomic-thermal-energy",
+      "sample_order": 10,
+      "official_question_number": null,
+      "subject": "Physics",
+      "stem": "The average thermal energy of a monoatomic ideal-gas particle at temperature T is:",
+      "options": {
+        "A": "½kBT",
+        "B": "3⁄2kBT",
+        "C": "5⁄2kBT",
+        "D": "7⁄2kBT"
+      },
+      "correct_option": "B",
+      "answer_note": "Three translational degrees of freedom give an average energy of 3kBT/2.",
+      "verification_status": "user-supplied text and key; official question number not yet aligned"
+    }
+  ]
+}

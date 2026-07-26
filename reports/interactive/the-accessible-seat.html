@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -11,7 +10,25 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Syne:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="visual-essay.css" rel="stylesheet"/></head>
+<link href="visual-essay.css" rel="stylesheet"/>
+<style>
+  .question-meta { display:flex; justify-content:space-between; gap:.75rem; flex-wrap:wrap; margin-bottom:1rem; color:var(--gold); font:700 .68rem/1.35 Syne,sans-serif; letter-spacing:.08em; text-transform:uppercase; }
+  .question-stem { max-width:31ch; margin:.2rem 0 1rem; font-size:clamp(1.3rem,3.2vw,1.75rem)!important; line-height:1.18; }
+  .question-prompt { margin:.2rem 0 0; }
+  #question .option-grid { grid-template-columns:1fr; gap:.55rem; }
+  #question .option { min-height:0; padding:.85rem .95rem; display:grid; grid-template-columns:2.2rem 1fr auto; gap:.8rem; align-items:center; text-align:left; font:600 .92rem/1.4 Syne,sans-serif; }
+  .option-key { width:2rem; height:2rem; display:grid; place-items:center; border-radius:50%; color:var(--gold); border:1px solid var(--light-line); font-weight:800; }
+  .option.correct::after { content:"Correct"; color:#fff; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; }
+  .option.wrong::after { content:"Selected"; color:#fff; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; }
+  .question-actions { display:flex; gap:.65rem; flex-wrap:wrap; margin-top:.9rem; }
+  .btn.secondary { color:var(--paper); background:transparent; border:1px solid var(--light-line); }
+  .question-explanation { margin-top:1rem; padding:1rem; color:var(--ink); background:var(--paper); }
+  .question-explanation p { margin:.35rem 0; color:var(--soft); }
+  .question-explanation strong { color:var(--heat); font-family:Syne,sans-serif; }
+  .diagnostic { padding-top:.7rem; border-top:1px solid var(--line); }
+  @media (max-width:600px) { #question .option { grid-template-columns:2rem 1fr; } #question .option::after { grid-column:2; } }
+</style>
+</head>
 <body>
 <nav aria-label="Primary" class="topnav">
 <div class="wide topnav-inner">
@@ -47,7 +64,7 @@
 <div aria-label="The meritocratic promise" class="promise-grid">
 <div>One national exam</div><div>Identical questions</div><div>One rank list</div><div>Merit decides</div>
 </div>
-<p class="note">The analysis uses the reconstructed 2024 national marks distribution so the ordinary system can be examined independently of the 2026 leak. This is not an analysis of a corrupted exam year.</p>
+<p class="note">The analysis uses the reconstructed <strong>2024</strong> national marks distribution so the ordinary system can be examined independently of the 2026 leak. This is not an analysis of a corrupted exam year.</p>
 </div>
 </section>
 <section class="scene dark" id="prize">
@@ -107,27 +124,35 @@
 <section class="scene alt" id="question">
 <div class="wrap reveal">
 <p class="section-label">04 · The knife edge</p>
-<h2>One blind guess can create a five-mark gap.</h2>
-<p class="lede">A NEET item has four options. A correct answer earns +4, a wrong answer loses 1, and a blank earns 0. When a candidate has no idea, luck is not the whole exam—but it is undeniably present inside the score.</p>
-<div class="guess-question">
-<h3>You have no idea. Pick one.</h3>
-<p>You do not know the answer. There are four options. Guess, or leave it blank.</p>
-<!-- Replace this abstract A–D shell with one sourced question from the project question bank. -->
+<h2>This was a real NEET question. A guess can create a five-mark gap.</h2>
+<p class="lede">The item below is ordinary, valid syllabus material—not a trick question. It can test whether someone recalls an inorganic-chemistry fact. But the consequence attached to that fact is much larger than the difference it observes between two future doctors.</p>
+<div class="guess-question" data-question-id="neet-2020-e1-q101-sulphur-oxoacid">
+<div class="question-meta"><span>Official NEET-UG 2020</span><span>English booklet E1 · Q101 · Chemistry</span></div>
+<h3 class="question-stem">Which of the following oxoacid of sulphur has an –O–O– linkage?</h3>
+<p class="question-prompt">Choose an answer. Or ask the page to make a blind guess.</p>
 <div class="option-grid" id="option-grid">
-<button class="option" data-option="A" type="button">A</button>
-<button class="option" data-option="B" type="button">B</button>
-<button class="option" data-option="C" type="button">C</button>
-<button class="option" data-option="D" type="button">D</button>
+<button class="option" data-option="A" type="button"><span class="option-key">A</span><span>H₂SO₃, sulphurous acid</span></button>
+<button class="option" data-option="B" type="button"><span class="option-key">B</span><span>H₂SO₄, sulphuric acid</span></button>
+<button class="option" data-option="C" type="button"><span class="option-key">C</span><span>H₂S₂O₈, peroxodisulphuric acid</span></button>
+<button class="option" data-option="D" type="button"><span class="option-key">D</span><span>H₂S₂O₇, pyrosulphuric acid</span></button>
 </div>
-<div class="guess-result" id="guess-result">One option is correct. A blind guess has a 25% chance of +4 and a 75% chance of −1—an expected value of +0.25 marks.</div>
+<div class="question-actions">
+<button class="btn" id="blind-guess" type="button">Guess for me</button>
+<button class="btn secondary" id="leave-blank" type="button">Leave blank</button>
+</div>
+<div aria-live="polite" class="guess-result" id="guess-result">Correct: +4. Wrong: −1. Blank: 0. A blind four-option guess has an expected value of +0.25 marks.</div>
+<div class="question-explanation" id="question-explanation" hidden>
+<p><strong>Correct answer: C.</strong> Peroxodisulphuric acid contains the peroxide –O–O– linkage.</p>
+<p class="diagnostic">This is real chemistry knowledge. The item does not directly observe clinical judgment, communication, ethics, reliability, uncertainty management or care.</p>
+</div>
 <div class="margin-grid">
 <div class="margin-card"><b id="band-1">10,852</b><span>Candidates within ±1 correct-answer equivalent</span></div>
 <div class="margin-card"><b id="band-5">51,292</b><span>Within ±5 answers</span></div>
 <div class="margin-card"><b id="band-10">99,876</b><span>Within ±10 answers</span></div>
 </div>
 </div>
-<p class="punch">A question may measure whether a fact was recalled that afternoon. It does not measure the full difference between two future doctors.</p>
-<p class="note">The near-threshold counts come from the reconstructed 2024 marks distribution around the any-MBBS capacity-equivalent threshold. The bands use four marks as one correct-answer equivalent; wrong-to-correct is a five-mark swing.</p>
+<p class="punch">Knowing this fact can change rank. It does not tell us who will become the better doctor.</p>
+<p class="note">Official NTA English E1 booklet, question 101. Correct versus wrong creates a five-mark gap; correct versus blank creates a four-mark gap. The near-threshold bands use four marks as one correct-answer equivalent and are not individual counselling cutoffs. <a href="https://neet.nta.nic.in/document/english-set-e1-neet-qp-2020/" rel="noopener noreferrer" target="_blank">View the official source</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/QUESTION_BANK.md">Question-bank documentation</a>.</p>
 </div>
 </section>
 <section class="scene" id="runways">
@@ -250,9 +275,10 @@
 <footer>
 <div class="wide">
 <p>Visual essay for <strong>neet-comparison</strong>. Frozen project data are loaded from <code>story-data.js</code>; fallback values preserve the essay if that file is unavailable.</p>
-<p><a href="evidence-lab.html">Evidence lab</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/reports/STORY_READINESS.md">Readiness matrix</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">Bibliography</a></p>
+<p><a href="evidence-lab.html">Evidence lab</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/reports/STORY_READINESS.md">Readiness matrix</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/STORY_BIBLIOGRAPHY.md">Bibliography</a> · <a href="https://github.com/rainonej/neet-comparison/blob/main/docs/QUESTION_BANK.md">Question bank</a></p>
 </div>
 </footer>
 <script src="story-data.js"></script>
-<script src="visual-essay.js"></script></body>
+<script src="visual-essay.js"></script>
+</body>
 </html>

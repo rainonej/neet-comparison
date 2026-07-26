@@ -105,6 +105,12 @@
   margin-top: .85rem;
 }
 
+.qb-path-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+}
+
 .qb-next {
   padding: .68rem .85rem;
   border: 1px solid var(--light-line);
@@ -121,6 +127,15 @@
   color: var(--void);
   background: var(--gold);
   border-color: var(--gold);
+}
+
+.qb-next:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.qb-next.qb-secondary {
+  color: rgba(246,245,240,.72);
 }
 
 .qb-counter {
