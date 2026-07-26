@@ -1,0 +1,7 @@
+exam_year,registered,appeared,qualified,appearance_rate,qualification_rate_among_appeared,qualification_rate_among_registered,ur_ews_cutoff_lower,source_url,source_status,notes
+2021,34520,31202,23554,0.903882,0.754888,0.682329,,https://neet.nta.nic.in/document-category/public-notices/,official_annual_result_table,"Applicant-state aggregate; qualification threshold varies by year"
+2022,48185,46221,35113,0.959240,0.759676,0.728712,,https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/09/2022090722.pdf,official_nta_result_release,"Applicant-state aggregate; qualification threshold varies by year"
+2023,55890,54701,39764,0.978726,0.726934,0.711469,,https://neet.nta.nic.in/document-category/public-notices/,official_annual_result_table,"Applicant-state aggregate; qualification threshold varies by year"
+2024,68139,66132,46811,0.970546,0.707842,0.686993,162,https://www.nta.ac.in/Download/Notice/Notice_20240726213317.pdf,official_revised_final_result,"Uses the revised final July 26 release; earlier provisional Delhi totals differ"
+2025,63046,61199,40331,0.970704,0.659014,0.639708,144,https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/07/202607161539405935.pdf,official_nta_2026_comparison_table,"2025 comparison column in NTA 2026 key-data release"
+2026,59669,53846,35132,0.902412,0.652453,0.588781,213,https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2026/07/202607161539405935.pdf,official_nta_result_release,"Applicant-state aggregate; 2026 had an unusually low Delhi appearance rate"
