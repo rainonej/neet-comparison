@@ -1,0 +1,169 @@
+{
+  "generated": "2026-07-26",
+  "branch": "agent/add-delhi-data-audit",
+  "neet_applicant_state_participation": {
+    "registered_2021": 34520,
+    "registered_2024_peak": 68139,
+    "registered_2026": 59669,
+    "registration_growth_2021_to_2024": 1.973899188876014,
+    "appearance_rate_2024": 0.970546,
+    "appearance_rate_2026": 0.902412,
+    "qualification_rate_2024": 0.707842,
+    "qualification_rate_2026": 0.652453,
+    "cutoff_warning": "Qualification rates are threshold-dependent and not a score trend"
+  },
+  "neet_2024_delhi_exam_centre_scores": {
+    "geography_type": "exam_centre",
+    "state_label": "Delhi",
+    "n_centres_in_list": 116,
+    "n_centres_with_marks": 116,
+    "n_candidates": 66090,
+    "marks_min": -36,
+    "marks_max": 720,
+    "marks_mean": 256.13643516417005,
+    "marks_std": 168.66279894325498,
+    "marks_median": 213.0,
+    "marks_p10": 73.0,
+    "marks_p25": 121.0,
+    "marks_p75": 363.0,
+    "marks_p90": 525.0,
+    "marks_p95": 600.0,
+    "marks_p99": 670.0,
+    "share_ge_162": 0.6304130730821607,
+    "share_ge_400": 0.2071871690119534,
+    "share_ge_500": 0.11885307913451354,
+    "share_ge_600": 0.05006808896958693,
+    "share_ge_650": 0.020063549704947798,
+    "cities": [
+      "DELHI/NEW DELHI"
+    ],
+    "caveat": "Delhi examination centre != Delhi domicile/applicant state"
+  },
+  "neet_2024_national_comparison": {
+    "n_candidates": 2333162,
+    "marks_mean": 217.1565862121876,
+    "marks_median": 163.0,
+    "share_ge_162": 0.5041767352631322,
+    "share_ge_600": 0.034952566517027106
+  },
+  "cmse_published_validation": {
+    "cmse_all_enrolled_rate_extract": 0.3912214569990991,
+    "cmse_all_enrolled_rate_published": 0.391,
+    "cmse_all_enrolled_abs_error": 0.00022145699909909,
+    "cmse_class_x_xii_rate_extract": 0.5805865822485818,
+    "cmse_higher_secondary_rate_published": 0.592,
+    "note": "Published higher-secondary band may not exactly equal Class X-XII extract; compare directionally"
+  },
+  "cmse_resource_gradient": {
+    "quintiles_present": [
+      1,
+      2,
+      4,
+      5
+    ],
+    "quintile_3_suppressed": true,
+    "coaching_rate_by_quintile": {
+      "1": 0.3956945727350691,
+      "2": 0.6128105452431387,
+      "4": 0.5624635276742463,
+      "5": 0.6938374603120175
+    },
+    "median_exp_among_coached_by_quintile": {
+      "1": 7500.0,
+      "2": 15500.0,
+      "4": 24000.0,
+      "5": 31000.0
+    },
+    "burden_p50_by_quintile": {
+      "1": 0.0462962962962962,
+      "2": 0.0645294512415466,
+      "4": 0.0790763877906057,
+      "5": 0.0714279131067916
+    },
+    "q5_vs_q1_rate_ratio": 1.7534672146655021,
+    "q5_vs_q1_median_exp_ratio": 4.133333333333334
+  },
+  "cmse_school_type": [
+    {
+      "geography": "NCT Delhi",
+      "enrolment_band": "class_x_xii",
+      "school_type": 1,
+      "school_type_label": "government",
+      "n_unweighted": 130,
+      "n_coached_unweighted": 63,
+      "coaching_rate_weighted": 0.5805701323433318,
+      "coaching_exp_p50_among_coached": 18700.0,
+      "coaching_exp_p90_among_coached": 31000.0,
+      "source_wave": "cmse_2025",
+      "notes": "Class X-XII school tutoring; not NEET-specific"
+    },
+    {
+      "geography": "NCT Delhi",
+      "enrolment_band": "class_x_xii",
+      "school_type": 3,
+      "school_type_label": "private_unaided_recognised",
+      "n_unweighted": 56,
+      "n_coached_unweighted": 28,
+      "coaching_rate_weighted": 0.5582497975744526,
+      "coaching_exp_p50_among_coached": 28500.0,
+      "coaching_exp_p90_among_coached": 48500.0,
+      "source_wave": "cmse_2025",
+      "notes": "Class X-XII school tutoring; not NEET-specific"
+    }
+  ],
+  "nss75_medium_coaching": {
+    "hindi": {
+      "student_share_weighted": 0.4355955216824151,
+      "coaching_rate_weighted": 0.3685116172761059,
+      "n_unweighted": 177
+    },
+    "english": {
+      "student_share_weighted": 0.5644044783175849,
+      "coaching_rate_weighted": 0.5683226881005174,
+      "n_unweighted": 243
+    },
+    "english_to_hindi_coaching_rate_ratio": 1.5422110496850467
+  },
+  "national_coaching_comparison": {
+    "delhi_all_enrolled_coaching_rate": 0.3912214569990991,
+    "national_all_enrolled_coaching_rate": 0.2696361678635015,
+    "delhi_class_x_xii_coaching_rate": 0.5805865822485818,
+    "national_urban_class_x_xii_coaching_rate": 0.4554420452412402,
+    "delhi_class_x_xii_median_exp_among_coached": 24000.0,
+    "national_urban_class_x_xii_median_exp": 14000.0
+  },
+  "sample_cautions": [
+    "Delhi CMSE Class X-XII n_unweighted=198; quintile cells are small",
+    "Quintile 3 suppressed (<30 unweighted)",
+    "Q1 coached unweighted n=14; intensive-margin estimates noisy",
+    "CMSE coaching is not NEET-specific",
+    "Centre scores are not domicile scores",
+    "UDISE medium margins are historical secondary transcription"
+  ],
+  "modeling_recommendation": {
+    "bayesian_model": {
+      "use": [
+        "Delhi coaching participation prior (two-part: any coaching + spend | coaching)",
+        "Household-consumption resource gradient as Delhi access prior",
+        "Historical Hindi/English school medium x coaching joint as mechanism prior only"
+      ],
+      "do_not_use_as_direct_likelihood": [
+        "Medium effect on NEET score",
+        "Coaching causal effect on NEET score",
+        "Qualification-rate time trend as ability trend",
+        "Centre-score distribution as domicile performance"
+      ]
+    },
+    "visual_essay": {
+      "use": [
+        "2021-2026 Delhi participation boom then retreat",
+        "Tutoring intensity rising with household resources",
+        "Qualified != affordable seat framing for multi-authority Delhi admissions"
+      ],
+      "defer_or_caveat": [
+        "English vs Hindi NEET performance (no Delhi joint)",
+        "Replacing TN medium story with Delhi medium story"
+      ]
+    }
+  }
+}

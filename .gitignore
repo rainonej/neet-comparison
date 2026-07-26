@@ -50,3 +50,5 @@ docs/draft_emails/
 !data/processed/bayesian/**
 !data/processed/mospi/
 !data/processed/mospi/**
+!data/processed/delhi/
+!data/processed/delhi/**

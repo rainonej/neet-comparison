@@ -18,10 +18,21 @@ None may be substituted for another without an explicit model assumption.
 | `data/processed/delhi/delhi_neet_state_results_2021_2026.csv` | Official annual Delhi registration, appearance, qualification and cutoff fields |
 | `data/processed/delhi/delhi_cmse_2025_published_benchmarks.csv` | Published Delhi tutoring participation and expenditure benchmarks |
 | `data/processed/delhi/delhi_school_medium_2019_20.csv` | Historical English/Hindi/Urdu school-enrolment margins |
+| `data/processed/delhi/delhi_cmse_coaching_by_band.csv` | Weighted CMSE coaching rates and spend by enrolment band |
+| `data/processed/delhi/delhi_cmse_coaching_by_consumption_quintile.csv` | Class X–XII coaching × Delhi consumption quintile (two-part margins) |
+| `data/processed/delhi/delhi_cmse_coaching_by_school_type.csv` | Class X–XII coaching by school type |
+| `data/processed/delhi/delhi_nss75_medium_coaching.csv` | Historical Hindi/English school medium × coaching |
+| `data/processed/delhi/delhi_neet_2024_centre_score_summary.csv` | 2024 Delhi **exam-centre** score summaries |
+| `data/processed/delhi/delhi_key_stats.csv` / `delhi_stats_summary.json` | Compact analysis outputs |
 | `docs/delhi_source_catalog.csv` | Delhi-specific source and limitation registry |
 | `scripts/process_delhi_state.py` | Reproducible local extraction of Delhi CMSE and NSS Education aggregates |
+| `reports/DELHI_DATA_ANALYSIS.md` | Stats analysis and Bayesian / essay wiring recommendations |
 
 Restricted unit microdata remain gitignored. Only weighted aggregate outputs should be committed after disclosure and sampling-error checks.
+
+### Local extraction status (2026-07-26)
+
+`python scripts/process_delhi_state.py` was run against the local CMSE 2025 and NSS Education 2017–18 archives. The all-enrolled coaching rate matched the published Delhi benchmark (0.391). Class X–XII quintile 3 was suppressed (&lt;30 unweighted). Source PDFs for the 2022 and 2026 NTA releases plus the CMSE published tables PDF were downloaded and hashed in `data/processed/download_manifest.csv`.
 
 ## 1. NEET outcomes
 
@@ -232,12 +243,16 @@ The minimum useful release is Delhi × paper language × score band × category.
 | Component | Status | Use |
 |---|---|---|
 | Annual Delhi participation and qualification | SHOW | Descriptive applicant-state trend with cutoff warning |
-| 2024 Delhi-centre score distribution | SHOW with caveat | Centre-location distribution only |
-| CMSE coaching/resource gradients | SHOW after local extraction and uncertainty checks | Delhi tutoring-access prior |
+| 2024 Delhi-centre score distribution | SHOW with caveat | Centre-location distribution only (median 213 vs national 163) |
+| CMSE coaching/resource gradients | SHOW | Delhi tutoring-access prior; Q5/Q1 rate ≈1.75×, spend ≈4.1× |
 | English/Hindi school-medium margin | SENS until primary table recovered | Synthetic-population calibration |
+| NSS medium × coaching joint | SENS / mechanism prior | Historical; not NEET language or score |
 | Medium effect on NEET score | BLOCK | No Delhi-linked score evidence |
 | Coaching causal effect on score | SENS | Must borrow external evidence/prior |
 | Delhi rank-to-seat pathway | BUILD | Public records exist but require multi-authority adapter |
+
+**Bayesian model:** use Delhi for the two-part coaching × resources prior; do not replace Tamil Nadu medium–seat likelihoods.  
+**Visual essay:** use for participation boom/retreat, tutoring–resource arms race, and qualified ≠ affordable seat; keep the English/Tamil knife-edge on TN evidence. Details in [reports/DELHI_DATA_ANALYSIS.md](../reports/DELHI_DATA_ANALYSIS.md).
 
 ## Sources
 
