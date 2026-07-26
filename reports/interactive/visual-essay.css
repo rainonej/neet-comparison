@@ -103,8 +103,7 @@
     }
 
     .hero {
-      min-height: calc(100vh - 3.35rem);
-      min-height: calc(100svh - 3.35rem);
+      min-height: min(38rem, calc(100svh - 3.35rem));
       position: relative; isolation: isolate; overflow: hidden;
       display: grid; align-items: center;
       color: var(--paper);
@@ -179,8 +178,12 @@
     }
     .scene.dark .note { border-color: var(--light-line); }
 
-    .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
-    .js .reveal.in { opacity: 1; transform: none; }
+    /* Only hide after JS arms reveal animations. Fail open if JS breaks. */
+    .js.reveals-on .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .js.reveals-on .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .js.reveals-on .reveal { opacity: 1; transform: none; transition: none; }
+    }
 
     .fact-grid {
       display: grid; grid-template-columns: 1fr 1fr; gap: 1px;

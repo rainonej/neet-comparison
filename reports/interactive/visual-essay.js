@@ -137,10 +137,25 @@
     });
   }
 
+  const revealEls = [...document.querySelectorAll('.reveal')];
+  const revealNow = (el) => el.classList.add('in');
+  const revealInView = () => {
+    const viewBottom = window.innerHeight * 0.92;
+    revealEls.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < viewBottom) revealNow(el);
+    });
+  };
   const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('in'); });
-  }, { threshold: .14 });
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    entries.forEach(entry => { if (entry.isIntersecting) revealNow(entry.target); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+  // Arm hide-until-reveal only after the observer is ready, then show anything already on screen.
+  document.documentElement.classList.add('reveals-on');
+  revealEls.forEach(el => revealObserver.observe(el));
+  revealInView();
+  requestAnimationFrame(revealInView);
+  // Failsafe: never leave the essay blank if intersection events are flaky.
+  setTimeout(() => revealEls.forEach(revealNow), 1200);
 
   const crowdGrid = document.getElementById('crowd-grid');
   const crowdCaption = document.getElementById('crowd-caption');
