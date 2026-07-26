@@ -206,6 +206,52 @@
       max-width: 42rem; margin: 1.25rem 0 0; color: var(--soft); font-size: 1.08rem;
     }
     .seats-note { padding: 1rem 1.1rem; border-left: 4px solid var(--gold); background: rgba(227,173,37,.08); color: var(--ink); }
+    .src-mark {
+      display: inline-block; margin-left: .45rem; padding: .12rem .4rem;
+      border: 1px solid var(--line); color: var(--soft); text-decoration: none;
+      font: 700 .62rem/1.2 Syne, sans-serif; letter-spacing: .06em; text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .src-mark:hover { color: var(--heat); border-color: var(--heat); }
+    .scene.dark .src-mark { border-color: var(--light-line); color: rgba(246,245,240,.62); }
+    .scene.dark .src-mark:hover { color: var(--gold); border-color: var(--gold); }
+    .proof-callout {
+      margin: 1.75rem 0 0; padding: 1.2rem 1.25rem;
+      border-left: 4px solid var(--heat); background: #fff; border: 1px solid var(--line); border-left-width: 4px;
+    }
+    .proof-callout h3 {
+      margin: 0 0 .55rem; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--heat);
+    }
+    .proof-callout p { margin: 0 0 .65rem; color: var(--soft); max-width: 42rem; }
+    .proof-callout p:last-child { margin-bottom: 0; }
+    .tn-shift {
+      margin: 2rem 0; padding: 1.25rem; background: #fff; border: 1px solid var(--line);
+    }
+    .tn-shift > h3 {
+      margin: 0 0 .35rem; font-size: 1.05rem;
+    }
+    .tn-shift > .lede-mini {
+      margin: 0 0 1.1rem; color: var(--soft); font-size: 1rem;
+    }
+    .tn-row {
+      display: grid; grid-template-columns: 8.5rem 1fr; gap: .85rem; align-items: center;
+      padding: .85rem 0; border-top: 1px solid var(--line);
+    }
+    .tn-row:first-of-type { border-top: 0; }
+    .tn-label {
+      color: var(--heat); font: 800 .72rem/1.25 Syne, sans-serif; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .tn-arrow {
+      display: flex; flex-wrap: wrap; gap: .55rem .85rem; align-items: baseline;
+      font: 800 clamp(1.15rem, 2.6vw, 1.45rem)/1.2 Syne, sans-serif; letter-spacing: -.02em;
+    }
+    .tn-arrow .from { color: var(--soft); }
+    .tn-arrow .to { color: var(--ink); }
+    .tn-arrow .sep { color: var(--gold); font-weight: 800; }
+    .tn-arrow small {
+      display: block; width: 100%; color: var(--soft);
+      font: 600 .74rem/1.35 Syne, sans-serif; letter-spacing: .02em;
+    }
 
     .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 2rem 0; }
     .contrast { padding: 1.4rem 1.3rem; min-height: 9rem; }
@@ -317,6 +363,10 @@
     }
     .margin-card b { display: block; color: var(--heat); font: 800 clamp(1.4rem, 3vw, 2rem)/1 Syne, sans-serif; }
     .margin-card span { display: block; margin-top: .4rem; color: var(--soft); font: 600 .86rem/1.4 Syne, sans-serif; letter-spacing: .01em; }
+    .margin-card .src-mark { margin: .75rem 0 0; }
+    .coaching-sat {
+      max-width: 42rem; margin: 0 0 1.5rem; color: rgba(246,245,240,.78); font-size: 1.08rem;
+    }
 
     .runway-table {
       margin: 2rem 0; border: 1px solid var(--line); background: #fff;
@@ -436,6 +486,7 @@
       .score-split { grid-template-columns: 1fr; }
       .runway-head, .runway-row { grid-template-columns: 1fr; }
       .runway-row > div:first-child { border-right: 0; }
+      .tn-row { grid-template-columns: 1fr; gap: .35rem; }
       .score-split-viz { grid-template-columns: 1fr; }
       .comparison-arrow { transform: rotate(90deg); min-height: 2rem; }
       .race-row, .race-stage.sequencing .race-row.is-on, .race-stage.played .race-row {

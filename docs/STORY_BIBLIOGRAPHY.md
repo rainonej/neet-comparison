@@ -37,7 +37,11 @@ Structured sample bank and provenance notes: [`docs/QUESTION_BANK.md`](QUESTION_
 | Claim | Source | Caveat |
 |---|---|---|
 | TN English vs Tamil govt allotment gap | Justice A.K. Rajan Committee (2021) | State case; not national causal English effect |
-| ~98.5% of admitted coached (TN) | Rajan Committee | Admitted denominator only |
+| ~98.5–99% of admitted coached (TN 2019–20) | Rajan Committee | Admitted denominator only; essay uses “about 99%” |
+| Tamil-medium admits 14.88% → 1.99% (2016–17 → 2020–21) | Rajan Table 7.18 / project CSV | TN state case; composition, not national causal estimate |
+| Rural govt-college admits ~61.5% avg pre-NEET → 49.91% (2020–21) | Rajan Committee / contemporary reportage | TN government-college window |
+| Family income &lt; ₹2.5 lakh admits 47.42% → 41.05% (2016–17 → 2020–21) | Rajan Committee tabulations as reported | TN admitted composition |
+| Private MBBS tuition ≈ ₹18.9–25 lakh/yr vs EWS ceiling ₹8 lakh | Rajasthan fee litigation (HC; SC declined interference, 2026) | State example, not national fee schedule |
 | ~71.4% of admitted were repeaters (TN 2020–21) | Rajan Committee Table 7.38 | Not mean attempts among applicants |
 | ~28.6% of admitted were current-year (TN 2020–21) | Rajan Committee Table 7.38 | Best in-repo age/attempt proxy; not national DOB |
 | ₹10 lakh exclusive coaching for a repeater | Rajan Committee §5.4 | Narrative high, not national mean |
