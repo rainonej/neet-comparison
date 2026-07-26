@@ -1,0 +1,5 @@
+metric,education_level,sex,estimate,unit,denominator,source_url,source_status,notes
+private_coaching_participation,all_enrolled,all,0.391,share_of_students,enrolled_students,https://microdata.gov.in/NADA/index.php/catalog/255/download/2707,official_published_table,"School tutoring/coaching broadly; not NEET-specific"
+private_coaching_participation,higher_secondary,all,0.592,share_of_students,enrolled_students,https://microdata.gov.in/NADA/index.php/catalog/255/download/2707,official_published_table,"School tutoring/coaching broadly; not NEET-specific"
+private_coaching_expenditure,all_enrolled,all,5643,INR_per_academic_year,enrolled_students,https://microdata.gov.in/NADA/index.php/catalog/255/download/2707,official_published_table,"Average over all enrolled students, not only coached students"
+private_coaching_expenditure,higher_secondary,all,12891,INR_per_academic_year,enrolled_students,https://microdata.gov.in/NADA/index.php/catalog/255/download/2707,official_published_table,"Average over all enrolled students, not only coached students"
